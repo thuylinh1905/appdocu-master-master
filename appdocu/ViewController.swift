@@ -1,11 +1,3 @@
-//
-//  ViewController.swift
-//  appdocu
-//
-//  Created by thuylinh on 7/8/20.
-//  Copyright © 2020 thuylinh. All rights reserved.
-//
-
 import UIKit
 import FirebaseDatabase
 import FirebaseAuth
@@ -21,7 +13,7 @@ class ViewController: UIViewController {
         Utilities.buttonchangehome(button: buttlogup)
         Utilities.buttonchangehome(button: buttonsigin)
         image.frame = CGRect(x: -self.view.frame.size.width*1.5, y: 0, width: self.view.frame.size.width*4, height: self.view.frame.size.height)
-        var user = Auth.auth().currentUser
+        let user = Auth.auth().currentUser
         if (user != nil) {
             print("hhiajkds")
         } else {
@@ -33,7 +25,6 @@ class ViewController: UIViewController {
         let signupviewcontroller = SignupViewController()
         navigationController?.pushViewController(signupviewcontroller, animated: true)
     }
-    
     @IBAction func signin(_ sender: Any) {
         let loginViewcontroller = LoginViewController()
         navigationController?.pushViewController(loginViewcontroller, animated: true)

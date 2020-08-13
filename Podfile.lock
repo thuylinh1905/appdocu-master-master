@@ -398,6 +398,7 @@ PODS:
   - SDWebImage (5.8.4):
     - SDWebImage/Core (= 5.8.4)
   - SDWebImage/Core (5.8.4)
+  - SVProgressHUD (2.2.5)
   - SwiftyGif (5.3.0)
 
 DEPENDENCIES:
@@ -411,6 +412,7 @@ DEPENDENCIES:
   - GoogleAppMeasurement (~> 6.6.1)
   - Kingfisher (~> 4.0)
   - SDWebImage (~> 5.0)
+  - SVProgressHUD
 
 SPEC REPOS:
   trunk:
@@ -441,6 +443,7 @@ SPEC REPOS:
     - nanopb
     - PromisesObjC
     - SDWebImage
+    - SVProgressHUD
     - SwiftyGif
 
 SPEC CHECKSUMS:
@@ -471,8 +474,9 @@ SPEC CHECKSUMS:
   nanopb: c43f40fadfe79e8b8db116583945847910cbabc9
   PromisesObjC: b48e0338dbbac2207e611750777895f7a5811b75
   SDWebImage: cf6922231e95550934da2ada0f20f2becf2ceba9
+  SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   SwiftyGif: e466e86c660d343357ab944a819a101c4127cb40
 
-PODFILE CHECKSUM: 119f655e7a33fa94631855f155bac2d2dee8c676
+PODFILE CHECKSUM: 08d7e6ab4680b962231cdcffe26717b0033bbee7
 
 COCOAPODS: 1.9.3

@@ -17,5 +17,7 @@ target 'appdocu' do
   pod 'Kingfisher', '~> 4.0'
   pod 'DKImagePickerController'
   pod 'SDWebImage', '~> 5.0'
+  pod 'SVProgressHUD'
+
 
 end

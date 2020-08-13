@@ -5,6 +5,7 @@ import FirebaseFirestore
 import Kingfisher
 import DKImagePickerController
 import FirebaseStorage
+import SVProgressHUD
 
 struct loaimon {
     var ten : String!
@@ -42,6 +43,8 @@ class PostViewController: UIViewController  {
         navibutton()
         self.tableview.register(UINib(nibName: "FoodTableViewCell", bundle: .main), forCellReuseIdentifier: "foodtableviewcell")
         collectionview.register(UINib(nibName: "CollectionViewCell", bundle: .main), forCellWithReuseIdentifier: "collection")
+       let view = Bundle.main.loadNibNamed("InputView", owner: self, options: nil)![0] as! InputView
+       self.textView.inputAccessoryView = view
         collectionview.delegate =  self
         collectionview.dataSource = self
         self.truyenmonan()
@@ -54,6 +57,7 @@ class PostViewController: UIViewController  {
     }
     
     @IBAction func uploadanh(_ sender: Any) {
+        SVProgressHUD.show(withStatus: "Loading")
         //        ProgressHUD.show("Loading", interaction: false)
         let mota = textView.text
         let giatien = txtgiatien.text
@@ -96,7 +100,8 @@ class PostViewController: UIViewController  {
                             let childUpdates = ["/post/\(key)": post,
                                                 "/user-posts/\(String(describing: userID))/\(key)/": post]
                             ref.updateChildValues(childUpdates)
-                            //                                    ProgressHUD.showSucceed("Đã upload", interaction: false)
+                            print("done")
+                            SVProgressHUD.showSuccess(withStatus: "Đã Upload")
                         }
                     }
                 })
@@ -154,7 +159,7 @@ class PostViewController: UIViewController  {
         delegate.gototabbar()
     }
     @objc func uploadfile(){
-        //        ProgressHUD.show("Loading", interaction: false)
+        SVProgressHUD.show(withStatus: "Loading...")
         let mota = textView.text
         let giatien = txtgiatien.text
         let diachi = txtdiachi.text
@@ -180,7 +185,7 @@ class PostViewController: UIViewController  {
                 childStorageRef.putData(uploadData, metadata: nil, completion: {
                     (storagemetadata,error) in
                     if error != nil{
-                        return
+                        SVProgressHUD.showError(withStatus: "Đã lỗi khi Upload bài")
                     } else {
                         childStorageRef.downloadURL(completion: {
                             (url,error) in
@@ -196,6 +201,9 @@ class PostViewController: UIViewController  {
                                     let childUpdates = ["/post/\(key)": post,
                                                         "/user-posts/\(String(describing: userID))/\(key)/": post]
                                     ref.updateChildValues(childUpdates)
+                                    SVProgressHUD.showSuccess(withStatus: "Đã Upload")
+                                    let delegate = UIApplication.shared.delegate as! AppDelegate
+                                    delegate.gototabbar()
                                 }
                             }
                         })
@@ -222,7 +230,6 @@ class PostViewController: UIViewController  {
             self.view.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
         });
     }
-    
     func removeAnimate()
     {
         UIView.animate(withDuration: 0.25, animations: {

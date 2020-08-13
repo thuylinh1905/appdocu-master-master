@@ -38,7 +38,7 @@ class ProfileViewController: UIViewController {
     }
     @objc func goToSetting(){
         let delegate = UIApplication.shared.delegate as! AppDelegate
-        delegate.gotoProfileSetting()
+        delegate.gotoHome22()
     }
     @IBAction func Signout(){
         do {
@@ -70,13 +70,12 @@ class ProfileViewController: UIViewController {
         ref = Database.database().reference()
         if let userid = Auth.auth().currentUser?.uid {
             ref.child("users").child(userid).observe(.value , with:  { (snapshot) in
-                print(snapshot.value)
                 let dictionary = snapshot.value as! NSDictionary
                 let email = dictionary["email"] as? String
                 let username = dictionary["username"] as? String
                 if let profileimage = dictionary["image"] as? String {
                     if let url = URL(string: profileimage){
-                        KingfisherManager.shared.retrieveImage(with: url as! Resource, options: nil, progressBlock: nil) { (image, error, cache, imageurl) in
+                        KingfisherManager.shared.retrieveImage(with: url as Resource, options: nil, progressBlock: nil) { (image, error, cache, imageurl) in
                             self.imageview.image = image
                         }
                     }

@@ -23,6 +23,10 @@
 		7444090024E14DA900CD5BB4 /* MenuModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 744408FF24E14DA900CD5BB4 /* MenuModel.swift */; };
 		7444090324E152BB00CD5BB4 /* MenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7444090124E152BB00CD5BB4 /* MenuTableViewCell.swift */; };
 		7444090424E152BB00CD5BB4 /* MenuTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7444090224E152BB00CD5BB4 /* MenuTableViewCell.xib */; };
+		744ED17724E5772300DE6084 /* KeyBoardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 744ED17624E5772300DE6084 /* KeyBoardView.xib */; };
+		744ED17924E5774700DE6084 /* KeyBoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 744ED17824E5774700DE6084 /* KeyBoardView.swift */; };
+		744ED18024E57AF300DE6084 /* InputView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 744ED17E24E57AF100DE6084 /* InputView.xib */; };
+		744ED18124E57AF300DE6084 /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 744ED17F24E57AF300DE6084 /* InputView.swift */; };
 		7451F50624C9C52700B8755C /* Home1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7451F50424C9C52700B8755C /* Home1ViewController.swift */; };
 		7451F50724C9C52700B8755C /* Home1ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7451F50524C9C52700B8755C /* Home1ViewController.xib */; };
 		7455362424CB2128002741EC /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7455362224CB2128002741EC /* HomeViewController.swift */; };
@@ -42,6 +46,8 @@
 		74BB850C24CBE01B009B2DCF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 74BB850B24CBE01A009B2DCF /* Assets.xcassets */; };
 		74C2E50124D56BD700979937 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74C2E4FF24D56BD700979937 /* PostViewController.swift */; };
 		74C2E50224D56BD700979937 /* PostViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 74C2E50024D56BD700979937 /* PostViewController.xib */; };
+		74CEEA3F24E4DD2C00680654 /* LaucherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74CEEA3D24E4DD2C00680654 /* LaucherViewController.swift */; };
+		74CEEA4024E4DD2C00680654 /* LaucherViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 74CEEA3E24E4DD2C00680654 /* LaucherViewController.xib */; };
 		74D0788224B5F6CF00D17AFF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 74D0788124B5F6CF00D17AFF /* GoogleService-Info.plist */; };
 		74ECF70724BC79B200D98BB3 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74ECF70524BC79B200D98BB3 /* ProfileViewController.swift */; };
 		74ECF70824BC79B200D98BB3 /* ProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 74ECF70624BC79B200D98BB3 /* ProfileViewController.xib */; };
@@ -67,6 +73,10 @@
 		744408FF24E14DA900CD5BB4 /* MenuModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuModel.swift; sourceTree = "<group>"; };
 		7444090124E152BB00CD5BB4 /* MenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTableViewCell.swift; sourceTree = "<group>"; };
 		7444090224E152BB00CD5BB4 /* MenuTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuTableViewCell.xib; sourceTree = "<group>"; };
+		744ED17624E5772300DE6084 /* KeyBoardView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = KeyBoardView.xib; sourceTree = "<group>"; };
+		744ED17824E5774700DE6084 /* KeyBoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyBoardView.swift; sourceTree = "<group>"; };
+		744ED17E24E57AF100DE6084 /* InputView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InputView.xib; sourceTree = "<group>"; };
+		744ED17F24E57AF300DE6084 /* InputView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
 		7451F50424C9C52700B8755C /* Home1ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home1ViewController.swift; sourceTree = "<group>"; };
 		7451F50524C9C52700B8755C /* Home1ViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Home1ViewController.xib; sourceTree = "<group>"; };
 		7455362224CB2128002741EC /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -88,6 +98,8 @@
 		74BB850B24CBE01A009B2DCF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		74C2E4FF24D56BD700979937 /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
 		74C2E50024D56BD700979937 /* PostViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostViewController.xib; sourceTree = "<group>"; };
+		74CEEA3D24E4DD2C00680654 /* LaucherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaucherViewController.swift; sourceTree = "<group>"; };
+		74CEEA3E24E4DD2C00680654 /* LaucherViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LaucherViewController.xib; sourceTree = "<group>"; };
 		74D0788124B5F6CF00D17AFF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		74ECF70524BC79B200D98BB3 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		74ECF70624BC79B200D98BB3 /* ProfileViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileViewController.xib; sourceTree = "<group>"; };
@@ -127,26 +139,22 @@
 			isa = PBXGroup;
 			children = (
 				7464D3B924B5E56E00347356 /* LaunchScreen.storyboard */,
+				74CEEA3E24E4DD2C00680654 /* LaucherViewController.xib */,
 				742CE86324E018F900E5F002 /* HomeTableViewCell.xib */,
 				7464D3C424B5E65000347356 /* LoginViewController.xib */,
 				7464D3CC24B5F3B000347356 /* SignupViewController.xib */,
 				74ECF70624BC79B200D98BB3 /* ProfileViewController.xib */,
 				7451F50524C9C52700B8755C /* Home1ViewController.xib */,
+				7416AF5424E402C70021AD1E /* testViewController.xib */,
 				7455362324CB2128002741EC /* HomeViewController.xib */,
 				743BF52124DEDCB600DB28F6 /* CollectionViewCell.xib */,
 				74C2E50024D56BD700979937 /* PostViewController.xib */,
 				7469182124D85D1100F75534 /* FoodTableViewCell.xib */,
+				743807D824E27950002A3A72 /* HomeNewFeedCollectionViewCell.xib */,
 				744408F424E12F7500CD5BB4 /* MenuProfileViewController.xib */,
 				7444090224E152BB00CD5BB4 /* MenuTableViewCell.xib */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		744408F924E1306A00CD5BB4 /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Controller;
 			sourceTree = "<group>";
 		};
 		744408FA24E130EF00CD5BB4 /* Ultilities */ = {
@@ -178,8 +186,8 @@
 		7464D3AD24B5E56C00347356 /* appdocu */ = {
 			isa = PBXGroup;
 			children = (
+				74CEEA4124E5136500680654 /* CustomKeyboard */,
 				744408FA24E130EF00CD5BB4 /* Ultilities */,
-				744408F924E1306A00CD5BB4 /* Controller */,
 				744408F824E1306000CD5BB4 /* View */,
 				744408F724E12F9C00CD5BB4 /* Model */,
 				744408F224E12F5900CD5BB4 /* Menu */,
@@ -201,10 +209,11 @@
 				7464D3BC24B5E56E00347356 /* Info.plist */,
 				74D0788124B5F6CF00D17AFF /* GoogleService-Info.plist */,
 				743807D724E27950002A3A72 /* HomeNewFeedCollectionViewCell.swift */,
-				743807D824E27950002A3A72 /* HomeNewFeedCollectionViewCell.xib */,
 				7416AF5324E402C70021AD1E /* testViewController.swift */,
-				7416AF5424E402C70021AD1E /* testViewController.xib */,
 				7416AF5924E418600021AD1E /* NewFeedmodel1.swift */,
+				74CEEA3D24E4DD2C00680654 /* LaucherViewController.swift */,
+				744ED17F24E57AF300DE6084 /* InputView.swift */,
+				744ED17E24E57AF100DE6084 /* InputView.xib */,
 			);
 			path = appdocu;
 			sourceTree = "<group>";
@@ -216,6 +225,15 @@
 				748011A524DA5BFE00554136 /* AlertView.xib */,
 			);
 			path = customAlert;
+			sourceTree = "<group>";
+		};
+		74CEEA4124E5136500680654 /* CustomKeyboard */ = {
+			isa = PBXGroup;
+			children = (
+				744ED17624E5772300DE6084 /* KeyBoardView.xib */,
+				744ED17824E5774700DE6084 /* KeyBoardView.swift */,
+			);
+			path = CustomKeyboard;
 			sourceTree = "<group>";
 		};
 		B221EE889D4DF0113027FB9B /* Pods */ = {
@@ -296,12 +314,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				743807DA24E27950002A3A72 /* HomeNewFeedCollectionViewCell.xib in Resources */,
+				744ED17724E5772300DE6084 /* KeyBoardView.xib in Resources */,
 				74ECF70824BC79B200D98BB3 /* ProfileViewController.xib in Resources */,
 				7451F50724C9C52700B8755C /* Home1ViewController.xib in Resources */,
+				74CEEA4024E4DD2C00680654 /* LaucherViewController.xib in Resources */,
 				743BF52324DEDCB700DB28F6 /* CollectionViewCell.xib in Resources */,
 				7416AF5624E402C70021AD1E /* testViewController.xib in Resources */,
 				7444090424E152BB00CD5BB4 /* MenuTableViewCell.xib in Resources */,
 				744408F624E12F7500CD5BB4 /* MenuProfileViewController.xib in Resources */,
+				744ED18024E57AF300DE6084 /* InputView.xib in Resources */,
 				74C2E50224D56BD700979937 /* PostViewController.xib in Resources */,
 				7464D3C624B5E65000347356 /* LoginViewController.xib in Resources */,
 				7464D3CE24B5F3B000347356 /* SignupViewController.xib in Resources */,
@@ -373,6 +394,7 @@
 				7464D3B324B5E56C00347356 /* ViewController.swift in Sources */,
 				742CE86424E018F900E5F002 /* HomeTableViewCell.swift in Sources */,
 				74C2E50124D56BD700979937 /* PostViewController.swift in Sources */,
+				744ED17924E5774700DE6084 /* KeyBoardView.swift in Sources */,
 				7464D3AF24B5E56C00347356 /* AppDelegate.swift in Sources */,
 				748011A824DA5BFF00554136 /* AlertView.swift in Sources */,
 				743BF52424DEDCB700DB28F6 /* CollectionViewCell.swift in Sources */,
@@ -384,7 +406,9 @@
 				74ECF70724BC79B200D98BB3 /* ProfileViewController.swift in Sources */,
 				7464D3C824B5F01500347356 /* Utilities.swift in Sources */,
 				7416AF5524E402C70021AD1E /* testViewController.swift in Sources */,
+				744ED18124E57AF300DE6084 /* InputView.swift in Sources */,
 				744408F524E12F7500CD5BB4 /* MenuProfileViewController.swift in Sources */,
+				74CEEA3F24E4DD2C00680654 /* LaucherViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
