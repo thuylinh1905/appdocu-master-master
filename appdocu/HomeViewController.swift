@@ -19,6 +19,25 @@ struct menuhome {
         self.image = image
     }
 }
+struct NewFeedDetail {
+    var diachi : String
+    var giatien : String
+    var mota : String
+    var tenquan : String
+    var username : String!
+    var imageprofile : String!
+    var image : [String]!
+    
+    init(diachi : String , giatien : String, mota : String, tenquan : String, username : String , image : [String], imageprofile : String) {
+        self.diachi = diachi
+        self.giatien = giatien
+        self.mota = mota
+        self.tenquan = tenquan
+        self.username = username
+        self.image = image
+        self.imageprofile = imageprofile
+    }
+}
 class HomeViewController: UIViewController {
     
     @IBOutlet weak var collectionview : UICollectionView!
@@ -37,12 +56,12 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         navigationitem()
         tableView.register(UINib(nibName: "HomeTableViewCell", bundle: .main), forCellReuseIdentifier: "tableview")
+        tableView.rowHeight = UITableView.automaticDimension
         tableviewdata()
     }
     func tableviewdata() {
         let ref = Database.database().reference()
         ref.child("post").observe(.childAdded) { (snashot) in
-            print(snashot)
             if let dic = snashot.value as? [String:Any] {
                 let diachi = dic["diachi"] as! String
                 let giatien = dic["giatien"] as! String
@@ -51,10 +70,8 @@ class HomeViewController: UIViewController {
                 let username = dic["username"] as! String
                 let imageprofile = dic["Imageprofile"] as! String
                 let image =  dic["image"] as! [String]
-                print(image)
                 let post1 = NewFeedmodel1(diachi: diachi, giatien: giatien, mota: mota, tenquan: tenquan, username: username, image: image, imageprofile: imageprofile)
                 self.array.append(post1)
-                print("hhshakhkash/\(self.array)")
                 self.tableView.reloadData()
             }
         }
@@ -84,7 +101,7 @@ class HomeViewController: UIViewController {
         dellegate.gotoupload()
     }
 }
-extension HomeViewController :UITableViewDelegate, UITableViewDataSource{
+extension HomeViewController :UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return array.count
     }
@@ -94,8 +111,21 @@ extension HomeViewController :UITableViewDelegate, UITableViewDataSource{
         cell.truyenve(Newfeed: array[indexPath.row])
         return cell
     }
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 200
-    }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let cell = tableView.cellForRow(at: indexPath) as! HomeTableViewCell
+        let mota = cell.newFeed.mota
+        let diachi = cell.newFeed.diachi
+        let giatien = cell.newFeed.giatien
+        let tenquan = cell.newFeed.tenquan
+        let username = cell.newFeed.username!
+        let image = cell.newFeed.image!
+        print(image)
+        let imageprofile = cell.newFeed.imageprofile
+        let NewFeed = NewFeedDetail(diachi: diachi, giatien: giatien, mota: mota, tenquan: tenquan, username: username, image: image, imageprofile: imageprofile!)
+        let homeDetailViewcontroller = HomeDetailViewController()
+        homeDetailViewcontroller.NewFeedDetails = NewFeed
+        self.navigationController?.pushViewController(homeDetailViewcontroller
+            , animated: true)
+    }
 }

@@ -11,14 +11,14 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        Utilities.changebutton(button: buttonsigin)
-        Utilities.changebutton(button: buttongoogle)
-        Utilities.changebutton(button: buttonface)
-        Utilities.changetextfield(textfield: txtpass)
-        Utilities.changetextfield(textfield: txtemail)
         navibutton()
+        self.addimagetextfield(textfield: txtemail, image: UIImage(named: "mail")!)
+        self.addimagetextfield(textfield: txtpass, image: UIImage(named: "password")!)
+        self.hidenavi()
+        self.hideKeyboard()
+//        txtemail.attributedPlaceholder = NSAttributedString(string: "Mời nhập Email",attributes: [NSAttributedString.Key.foregroundColor: UIColor.black])
     }
-
+   
     func navibutton() {
            let btnCancel = UIButton()
         btnCancel.setImage(UIImage(named: "back"), for: .normal)
@@ -36,7 +36,6 @@ class LoginViewController: UIViewController {
     @IBAction func login(_ sender: Any) {
         if var email = txtemail.text ,var  pass = txtpass.text{
             self.view.endEditing(true)
-//            ProgressHUD.show("Waiting...", interaction: false)
             Auth.auth().signIn(withEmail: "test01@gmail.com", password: "Linh19051998") { (result, error) in
                 if error != nil{
                     AlertView.instance.showAlert(title: "Error", message: "Tài khoản này chưa được tạo vui lòng đăng ký tài khoản", alertType: .failure)

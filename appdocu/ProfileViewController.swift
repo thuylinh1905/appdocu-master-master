@@ -6,7 +6,6 @@ import Kingfisher
 
 class ProfileViewController: UIViewController {
     
-    //    @IBOutlet weak var tableview : UITableView!
     @IBOutlet weak var huhu : UILabel!
     @IBOutlet weak var email : UILabel!
     @IBOutlet weak var imageview: UIImageView!
@@ -22,6 +21,7 @@ class ProfileViewController: UIViewController {
         imageview.layer.borderWidth = 5
         imageview.layer.borderColor = UIColor.white.cgColor
         truyenve()
+        self.hideKeyboard()
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.isTranslucent = true
@@ -49,23 +49,6 @@ class ProfileViewController: UIViewController {
             print(error)
         }
     }
-    //    func truyenve() {
-    //        ref = Database.database().reference()
-    //        datahandle =  ref.child("users").child(Auth.auth().currentUser?.uid ?? "").observe(.value) { (snapshot) in
-    //            for user in snapshot.children.allObjects as! [DataSnapshot] {
-    //                let users = user.value as? [String : AnyObject]
-    //                let email = users?["email"]
-    //                let image = users?["image"]
-    //                let phone = users?["phone"]
-    //                let status = users?["status"]
-    //                let listuser = UserModel(email: email as! String, image: image as! String, phone: phone as! String, status: status as! String)
-    //                self.modelusers.append(listuser)
-    //                print(self.modelusers)
-    //            }
-    //            self.tableuser.reloadData()
-    //        }
-    //    }
-    
     func truyenve() {
         ref = Database.database().reference()
         if let userid = Auth.auth().currentUser?.uid {

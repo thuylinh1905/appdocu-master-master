@@ -3,7 +3,7 @@ import UIKit
 class Utilities {
 
     static func changebutton(button :UIButton) {
-        button.layer.cornerRadius = 20
+        button.layer.cornerRadius = 5
         button.layer.shadowColor = UIColor.gray.cgColor
     }
     

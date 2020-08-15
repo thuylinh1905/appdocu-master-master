@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -19,16 +20,38 @@
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="TeX-lO-42w">
                         <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
                     </imageView>
+                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kTc-VE-hFz">
+                        <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M4E-po-c7e">
+                                <rect key="frame" x="77" y="79" width="46.5" height="42"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="35"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="M4E-po-c7e" firstAttribute="centerY" secondItem="kTc-VE-hFz" secondAttribute="centerY" id="tJE-w1-sQw"/>
+                            <constraint firstItem="M4E-po-c7e" firstAttribute="centerX" secondItem="kTc-VE-hFz" secondAttribute="centerX" id="v9M-Jw-JB1"/>
+                        </constraints>
+                    </view>
                 </subviews>
             </view>
             <constraints>
                 <constraint firstItem="TeX-lO-42w" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="6k4-0H-Xlj"/>
+                <constraint firstItem="kTc-VE-hFz" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="8Xh-Nr-DsA"/>
                 <constraint firstItem="TeX-lO-42w" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="97c-2Y-4Ct"/>
+                <constraint firstAttribute="trailing" secondItem="kTc-VE-hFz" secondAttribute="trailing" id="I0I-Ld-fej"/>
+                <constraint firstAttribute="bottom" secondItem="kTc-VE-hFz" secondAttribute="bottom" id="Tyf-LL-Cqa"/>
                 <constraint firstAttribute="trailing" secondItem="TeX-lO-42w" secondAttribute="trailing" id="aqE-mv-GGt"/>
+                <constraint firstItem="kTc-VE-hFz" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="jdE-e0-emc"/>
                 <constraint firstAttribute="bottom" secondItem="TeX-lO-42w" secondAttribute="bottom" id="pEO-Jq-pU0"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <connections>
+                <outlet property="blackLabel" destination="M4E-po-c7e" id="JfL-Mf-sS3"/>
+                <outlet property="blackView" destination="kTc-VE-hFz" id="3pa-bc-0Cw"/>
                 <outlet property="image" destination="TeX-lO-42w" id="9Yl-y7-axX"/>
             </connections>
             <point key="canvasLocation" x="133" y="87"/>

@@ -23,7 +23,6 @@ class CollectionViewCell: UICollectionViewCell {
     }
 
     @IBAction func buttonx(_ sender: Any) {
-        print("nhan")
         PostViewController.imagecollection1.remove(at: getRandomIntFromArray())
         parentDelegate?.requestReloadTable()
     }

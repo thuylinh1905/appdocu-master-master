@@ -30,4 +30,27 @@ class ViewController: UIViewController {
         navigationController?.pushViewController(loginViewcontroller, animated: true)
     }
 }
+extension UIViewController {
+    func hideKeyboard() {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
+
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
+    }
+    func hidenavi() {
+           self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+             self.navigationController?.navigationBar.shadowImage = UIImage()
+             self.navigationController?.navigationBar.isTranslucent = true
+             self.navigationController?.view.backgroundColor = .clear
+    }
+    func addimagetextfield(textfield : UITextField, image : UIImage) {
+           textfield.leftViewMode = UITextField.ViewMode.always
+           let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: (image.size.width), height: (image.size.height)))
+           imageView.image = image
+           textfield.leftView = imageView
+       }
+}
 

@@ -14,8 +14,6 @@ class testViewController: UIViewController {
     @IBOutlet weak var image: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        let url = "https://firebasestorage.googleapis.com/v0/b/appdocu-2c67f.appspot.com/o/imagefoler1%2FplXsi7C1EJayZlREg0gir9MUEqK2?alt=media&token=93582bea-6a58-4823-8aca-fb49ec2edcf7"
         // Do any additional setup after loading the view.
         image.sd_setImage(with: URL(string: "https://firebasestorage.googleapis.com/v0/b/appdocu-2c67f.appspot.com/o/imagefoler1%2FplXsi7C1EJayZlREg0gir9MUEqK2?alt=media&token=93582bea-6a58-4823-8aca-fb49ec2edcf7"), placeholderImage: UIImage(named: "placeholder.png"))
         }

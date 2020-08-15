@@ -43,11 +43,16 @@ class PostViewController: UIViewController  {
         navibutton()
         self.tableview.register(UINib(nibName: "FoodTableViewCell", bundle: .main), forCellReuseIdentifier: "foodtableviewcell")
         collectionview.register(UINib(nibName: "CollectionViewCell", bundle: .main), forCellWithReuseIdentifier: "collection")
-       let view = Bundle.main.loadNibNamed("InputView", owner: self, options: nil)![0] as! InputView
-       self.textView.inputAccessoryView = view
+//        let view = Bundle.main.loadNibNamed("InputView", owner: self, options: nil)![0] as! InputView
+//        view.openCamera(moanh)
+//        self.textView.inputAccessoryView = view
+        self.hideKeyboard()
         collectionview.delegate =  self
         collectionview.dataSource = self
         self.truyenmonan()
+        textview()
+    }
+    func textview() {
         textView.text = "Bạn muốn đăng gì?"
         textView.textColor = UIColor.lightGray
         textView.translatesAutoresizingMaskIntoConstraints = false
@@ -55,10 +60,8 @@ class PostViewController: UIViewController  {
         textView.delegate = self
         textView.font = UIFont.systemFont(ofSize: 20)
     }
-    
     @IBAction func uploadanh(_ sender: Any) {
         SVProgressHUD.show(withStatus: "Loading")
-        //        ProgressHUD.show("Loading", interaction: false)
         let mota = textView.text
         let giatien = txtgiatien.text
         let diachi = txtdiachi.text
@@ -73,7 +76,6 @@ class PostViewController: UIViewController  {
                     "giatien": giatien!,
                     "diachi": diachi!,
                     "tenquan" : tenquan!] as [String: Any]
-        //                var post1 = ["uid" : userID] as [String:Any]
         for i in PostViewController.imagecollection1 {
             guard let uploadData = i.jpegData(compressionQuality: 0.3) else { return }
             let storageRef = Storage.storage().reference(forURL: "gs://appdocu-2c67f.appspot.com")
@@ -83,7 +85,6 @@ class PostViewController: UIViewController  {
             storageProfileRef.putData(uploadData, metadata: metaData, completion: {
                 (storagemetadata,error) in
                 if error != nil{
-                    //                            ProgressHUD.showError()
                     return
                 }
                 storageProfileRef.downloadURL(completion: {
@@ -122,7 +123,6 @@ class PostViewController: UIViewController  {
             print(self.imagecollection.count)
             self.collectionview.reloadData()
         }
-        
         self.present(pickerController, animated: true) {}
     }
     @IBAction func tr(_ sender: Any) {
@@ -130,7 +130,6 @@ class PostViewController: UIViewController  {
         select.center = self.view.center
         self.showAnimate()
     }
-    
     @IBAction func agree(_ sender: Any) {
         loaidoan.titleLabel?.text = mon
         self.select.removeFromSuperview()

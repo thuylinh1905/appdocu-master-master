@@ -15,7 +15,9 @@ class InputView: UIView {
 
     }
     
-
+    @IBAction func openCamera(_ sender: Any) {
+    }
+    
 
 
 }

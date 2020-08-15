@@ -27,7 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     func gotoHome22() {
         UIView.transition(with: self.window!, duration: 0.3, options: UIView.AnimationOptions.transitionCrossDissolve, animations: {
-            let viewController = LaucherViewController()
+            let viewController = LaucherAppViewController()
             let navigationController = UINavigationController(rootViewController: viewController)
             self.window?.rootViewController = navigationController
         }, completion: nil)
@@ -39,11 +39,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             self.window?.rootViewController = navigationController
         }, completion: nil)
     }
+    func gotoHomedetail() {
+        UIView.transition(with: self.window!, duration: 0.3, options: UIView.AnimationOptions.transitionCrossDissolve, animations: {
+            let viewController = HomeDetailViewController()
+            let navigationController = UINavigationController(rootViewController: viewController)
+            self.window?.rootViewController = navigationController
+        }, completion: nil)
+    }
+
     
     func gotoOnboarding() {
         UIView.transition(with: self.window!, duration: 0.3, options: [], animations: {
-            let v1 = LaucherViewController()
-            self.window?.rootViewController = v1
+            let v1 = LaucherAppViewController()
+            let navi = UINavigationController(rootViewController: v1)
+            self.window?.rootViewController = navi
+            
         }, completion: nil)
         
     }

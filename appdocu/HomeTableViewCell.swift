@@ -1,28 +1,14 @@
-//
-//  HomeTableViewCell.swift
-//  appdocu
-//
-//  Created by thuylinh on 8/9/20.
-//  Copyright © 2020 thuylinh. All rights reserved.
-//
-
 import UIKit
 import Kingfisher
 
 class HomeTableViewCell: UITableViewCell {
-    
     
     @IBOutlet weak var username : UILabel!
     @IBOutlet weak var post : UILabel!
     @IBOutlet weak var imageprofile : UIImageView!
     @IBOutlet weak var colletion: UICollectionView!
     var newFeed: NewFeedmodel1!
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        colletion.delegate = self
-        colletion.dataSource = self
-    }
+    var viewController: HomeDetailViewController?
     
     func truyenve(Newfeed : NewFeedmodel1) {
         self.newFeed = Newfeed
@@ -31,7 +17,6 @@ class HomeTableViewCell: UITableViewCell {
         post.text = Newfeed.mota
         if let profileimage = Newfeed.imageprofile {
             if let url = URL(string: profileimage){
-                print(url)
                 KingfisherManager.shared.retrieveImage(with: url as Resource, options: nil, progressBlock: nil) { (image, error, cache, imageurl) in
                     self.imageprofile.image = image
                 }
@@ -42,13 +27,23 @@ class HomeTableViewCell: UITableViewCell {
 }
 extension HomeTableViewCell : UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.newFeed.image.count
+        return self.newFeed.image.count > 3 ? 3 : self.newFeed.image.count
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "newfeedcollectionview", for: indexPath) as! HomeNewFeedCollectionViewCell
-        print("day la mang image/\(self.newFeed.image!)")
-        //        print("cell của collection/\(self.newFeed.image[indexPath.row])")
         cell.truyenve(truyenim: self.newFeed.image[indexPath.row])
+        if self.newFeed.image.count > 3 && indexPath.row == 2 {
+            cell.blackView.isHidden = false
+            cell.blackLabel.text = String(format: "+%d", self.newFeed.image.count - 3)
+        } else {
+            cell.blackView.isHidden = true
+        }
         return cell
+    }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+//        let delegate = UIApplication.shared.delegate as! AppDelegate
+//        delegate.gotoHomedetail()
+//        let controller = UINavigationController(rootViewController: HomeDetailViewController())
+//        self.navigationController?.pushViewController(controller, animated: true)
     }
 }

@@ -13,26 +13,33 @@
             <rect key="frame" x="0.0" y="0.0" width="470" height="50"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g6d-O7-pQW">
-                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g6d-O7-pQW">
+                    <rect key="frame" x="5" y="0.0" width="50" height="50"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="50" id="epd-79-Qrx"/>
                     </constraints>
-                    <state key="normal" title="Button"/>
+                    <state key="normal" title="Button" image="photo"/>
+                    <connections>
+                        <action selector="openCamera:" destination="iN0-l3-epB" eventType="touchUpInside" id="jM2-dz-SEf"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QfD-st-qhB">
-                    <rect key="frame" x="420" y="0.0" width="50" height="50"/>
+                    <rect key="frame" x="415" y="0.0" width="50" height="50"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="50" id="a5J-Zw-Rh7"/>
                     </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
                     <state key="normal" title="Xong"/>
+                    <connections>
+                        <action selector="hide:" destination="iN0-l3-epB" eventType="touchUpInside" id="feL-Yh-EUa"/>
+                    </connections>
                 </button>
             </subviews>
-            <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
             <constraints>
                 <constraint firstItem="QfD-st-qhB" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="8v3-Wb-4vZ"/>
-                <constraint firstAttribute="trailing" secondItem="QfD-st-qhB" secondAttribute="trailing" id="GO8-tq-3e9"/>
-                <constraint firstItem="g6d-O7-pQW" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Idu-6q-QUL"/>
+                <constraint firstAttribute="trailing" secondItem="QfD-st-qhB" secondAttribute="trailing" constant="5" id="GO8-tq-3e9"/>
+                <constraint firstItem="g6d-O7-pQW" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="5" id="Idu-6q-QUL"/>
                 <constraint firstAttribute="bottom" secondItem="QfD-st-qhB" secondAttribute="bottom" id="Kqw-C2-CUH"/>
                 <constraint firstItem="g6d-O7-pQW" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="WQU-Hl-OIB"/>
                 <constraint firstItem="g6d-O7-pQW" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="Y4N-wr-Xur"/>
@@ -43,4 +50,7 @@
             <point key="canvasLocation" x="188" y="-199"/>
         </view>
     </objects>
+    <resources>
+        <image name="photo" width="64" height="64"/>
+    </resources>
 </document>

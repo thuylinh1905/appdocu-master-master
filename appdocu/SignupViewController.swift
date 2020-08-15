@@ -3,6 +3,7 @@ import FirebaseAuth
 import Firebase
 import FirebaseDatabase
 import FirebaseStorage
+import SVProgressHUD
 
 class SignupViewController: UIViewController {
     
@@ -10,15 +11,22 @@ class SignupViewController: UIViewController {
     @IBOutlet weak var txtphone: UITextField!
     @IBOutlet weak var txtpass: UITextField!
     @IBOutlet weak var imgage: UIImageView!
-    @IBOutlet weak var username: UITextField!
+    @IBOutlet weak var txtusername: UITextField!
+    @IBOutlet weak var buttonimage: UIButton!
     var uploadimage : UIImage? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        imgage.layer.cornerRadius = 100
         navibutton()
+        self.hidenavi()
+        buttonimage.layer.cornerRadius = 60
+        imgage.layer.cornerRadius = 60
+        self.addimagetextfield(textfield: txtemail, image: UIImage(named: "mail")!)
+        self.addimagetextfield(textfield: txtpass, image: UIImage(named: "password")!)
+        self.addimagetextfield(textfield: txtusername, image: UIImage(named: "usersignup")!)
+        self.addimagetextfield(textfield: txtphone, image: UIImage(named: "phone")!)
+        self.hideKeyboard()
     }
-    
     func navibutton() {
         let btnCancel = UIButton()
         btnCancel.setImage(UIImage(named: "back"), for: .normal)
@@ -27,7 +35,7 @@ class SignupViewController: UIViewController {
         leftBarButton.customView = btnCancel
         self.navigationItem.leftBarButtonItem = leftBarButton
     }
-    @objc func  goToSettings(){
+    @objc func goToSettings(){
         let delegate = UIApplication.shared.delegate as! AppDelegate
         delegate.gotoOnboarding()
     }
@@ -44,9 +52,11 @@ class SignupViewController: UIViewController {
              guard let imageData =  uploadimage!.jpegData(compressionQuality: 0.5 ) else {
                    return
                }
-        if let email = txtemail.text , let pass = txtpass.text , let phone = txtphone.text, let username = username.text {
+        if let email = txtemail.text , let pass = txtpass.text , let phone = txtphone.text, let username = txtusername.text {
                    Auth.auth().createUser(withEmail: email, password: pass , completion: { user , error in
+                    SVProgressHUD.show(withStatus: "Đang tạo tài khoản")
                        if let firebaseerror = error {
+                        SVProgressHUD.showError(withStatus: "Lỗi khi tạo tài khoản")
                            self.alert(thongbao: "khong the tao tai khoan")
                            print(firebaseerror.localizedDescription)
                            return
@@ -57,7 +67,6 @@ class SignupViewController: UIViewController {
                                                                "phone" : phone,
                                                                "image" : "",
                                                                "username" : username]
-                           
                            let storageRef = Storage.storage().reference(forURL: "gs://appdocu-2c67f.appspot.com")
                            let storageProfileRef = storageRef.child("imageProfile").child(user.user.uid)
                            let metaData = StorageMetadata()
@@ -65,8 +74,6 @@ class SignupViewController: UIViewController {
                            storageProfileRef.putData(imageData, metadata: metaData, completion: {
                                (storagemetadata,error) in
                                if error != nil{
-                                   print(error?.localizedDescription)
-                                   return
                                }
                                storageProfileRef.downloadURL(completion: {
                                    (url,error) in
@@ -77,6 +84,7 @@ class SignupViewController: UIViewController {
                                            .child(user.user.uid).updateChildValues(dic) { (error, ref) in
                                                if error == nil {
                                                    print("Done")
+                                                SVProgressHUD.showSuccess(withStatus: "Đã tạo tài khoản")
                                                 let delegate = UIApplication.shared.delegate as! AppDelegate
                                                 delegate.gototabbar()
                                                }
