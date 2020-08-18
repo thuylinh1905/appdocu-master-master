@@ -109,6 +109,8 @@ extension HomeViewController :UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "tableview", for: indexPath) as! HomeTableViewCell
         cell.truyenve(Newfeed: array[indexPath.row])
+        
+        cell.viewContro = self
         return cell
     }
     

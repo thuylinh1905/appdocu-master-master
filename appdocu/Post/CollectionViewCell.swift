@@ -10,23 +10,24 @@ import UIKit
 import GameplayKit
 
 protocol ParentControllerDelegate{
-func requestReloadTable()
+    func requestReloadTable()
 }
 
 class CollectionViewCell: UICollectionViewCell {
-
+    
     var parentDelegate: ParentControllerDelegate?
     @IBOutlet weak var anh: UIImageView!
     
     func truyen(image : UIImage) {
         self.anh.image = image
     }
-
+    
     @IBAction func buttonx(_ sender: Any) {
-        PostViewController.imagecollection1.remove(at: getRandomIntFromArray())
+        let imagechoice = anh.image
+        if let imagedelete = PostViewController.imagecollection1.firstIndex(of: imagechoice!){
+            print("tim thay \(imagedelete)")
+            PostViewController.imagecollection1.remove(at: imagedelete)
+        }
         parentDelegate?.requestReloadTable()
-    }
-    func getRandomIntFromArray() -> Int {
-        return  GKRandomSource.sharedRandom().nextInt(upperBound: PostViewController.imagecollection1.count)
     }
 }

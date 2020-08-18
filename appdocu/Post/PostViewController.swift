@@ -119,7 +119,6 @@ class PostViewController: UIViewController  {
                 }
             }
             PostViewController.self.imagecollection1.append(contentsOf: self.imagecollection)
-            print("get all images method called here")
             print(self.imagecollection.count)
             self.collectionview.reloadData()
         }
@@ -253,7 +252,6 @@ class PostViewController: UIViewController  {
                     let image = dictionary["hinhanh"] as! String
                     let mangloaimon = loaimon(ten: tenmon, hinhanh: image)
                     self.loaimonve.append(mangloaimon)
-                    
                 }
             }
             print(self.loaimonve)
@@ -300,6 +298,17 @@ extension PostViewController : UICollectionViewDelegate , UICollectionViewDataSo
         cell.truyen(image: PostViewController.imagecollection1[indexPath.row])
         return cell
     }
+//    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+////        let index = collectionView.cellForItem(at: indexPath) as! CollectionViewCell
+////        let a = index.anh.image
+////        if let c = PostViewController.imagecollection1.firstIndex(of: a!){
+////            print("tim thay \(c)")
+////            PostViewController.imagecollection1.remove(at: c)
+////        }
+////        print(index)
+////        print(PostViewController.imagecollection1)
+////        collectionView.reloadData()
+//    }
     
 }
 extension PostViewController : ParentControllerDelegate{

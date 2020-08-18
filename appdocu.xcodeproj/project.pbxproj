@@ -45,6 +45,7 @@
 		7469182324D85D1100F75534 /* FoodTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7469182124D85D1100F75534 /* FoodTableViewCell.xib */; };
 		748011A724DA5BFF00554136 /* AlertView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 748011A524DA5BFE00554136 /* AlertView.xib */; };
 		748011A824DA5BFF00554136 /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 748011A624DA5BFF00554136 /* AlertView.swift */; };
+		7492B4C924EB92E900801105 /* UtilitiesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7492B4C824EB92E900801105 /* UtilitiesViewController.swift */; };
 		74BB850C24CBE01B009B2DCF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 74BB850B24CBE01A009B2DCF /* Assets.xcassets */; };
 		74C2E50124D56BD700979937 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74C2E4FF24D56BD700979937 /* PostViewController.swift */; };
 		74C2E50224D56BD700979937 /* PostViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 74C2E50024D56BD700979937 /* PostViewController.xib */; };
@@ -97,6 +98,7 @@
 		7469182124D85D1100F75534 /* FoodTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FoodTableViewCell.xib; sourceTree = "<group>"; };
 		748011A524DA5BFE00554136 /* AlertView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AlertView.xib; sourceTree = "<group>"; };
 		748011A624DA5BFF00554136 /* AlertView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertView.swift; sourceTree = "<group>"; };
+		7492B4C824EB92E900801105 /* UtilitiesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UtilitiesViewController.swift; sourceTree = "<group>"; };
 		74BB850B24CBE01A009B2DCF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		74C2E4FF24D56BD700979937 /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
 		74C2E50024D56BD700979937 /* PostViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostViewController.xib; sourceTree = "<group>"; };
@@ -118,19 +120,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		744408F224E12F5900CD5BB4 /* Menu */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Menu;
-			sourceTree = "<group>";
-		};
 		744408F724E12F9C00CD5BB4 /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				741A67AA24BDDCCF000CD51F /* UserModel.swift */,
 				742CE86024E00DDF00E5F002 /* NewFeedModel.swift */,
 				744408FF24E14DA900CD5BB4 /* MenuModel.swift */,
+				7416AF5924E418600021AD1E /* NewFeedmodel1.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -138,19 +134,13 @@
 		744408F824E1306000CD5BB4 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				7464D3C324B5E65000347356 /* LoginViewController.swift */,
+				7464D3CB24B5F3B000347356 /* SignupViewController.swift */,
+				744A8B2224E5CEB900F0F936 /* LaucherAppViewController.swift */,
 				7464D3B924B5E56E00347356 /* LaunchScreen.storyboard */,
-				742CE86324E018F900E5F002 /* HomeTableViewCell.xib */,
 				7464D3C424B5E65000347356 /* LoginViewController.xib */,
 				7464D3CC24B5F3B000347356 /* SignupViewController.xib */,
-				74ECF70624BC79B200D98BB3 /* ProfileViewController.xib */,
 				7416AF5424E402C70021AD1E /* testViewController.xib */,
-				7455362324CB2128002741EC /* HomeViewController.xib */,
-				743BF52124DEDCB600DB28F6 /* CollectionViewCell.xib */,
-				74C2E50024D56BD700979937 /* PostViewController.xib */,
-				7469182124D85D1100F75534 /* FoodTableViewCell.xib */,
-				743807D824E27950002A3A72 /* HomeNewFeedCollectionViewCell.xib */,
-				744408F424E12F7500CD5BB4 /* MenuProfileViewController.xib */,
-				7444090224E152BB00CD5BB4 /* MenuTableViewCell.xib */,
 				744ED17E24E57AF100DE6084 /* InputView.xib */,
 				744A8B2324E5CEB900F0F936 /* LaucherAppViewController.xib */,
 			);
@@ -161,6 +151,7 @@
 			isa = PBXGroup;
 			children = (
 				7464D3C724B5F01500347356 /* Utilities.swift */,
+				7492B4C824EB92E900801105 /* UtilitiesViewController.swift */,
 			);
 			path = Ultilities;
 			sourceTree = "<group>";
@@ -190,30 +181,17 @@
 				744408FA24E130EF00CD5BB4 /* Ultilities */,
 				744408F824E1306000CD5BB4 /* View */,
 				744408F724E12F9C00CD5BB4 /* Model */,
-				744408F224E12F5900CD5BB4 /* Menu */,
 				7480119C24DA407800554136 /* customAlert */,
+				7492B4C424EB900B00801105 /* Profile */,
+				7492B4C524EB905C00801105 /* Post */,
+				7492B4C324EB8DE400801105 /* Home */,
 				74BB850B24CBE01A009B2DCF /* Assets.xcassets */,
 				7464D3AE24B5E56C00347356 /* AppDelegate.swift */,
-				743BF52224DEDCB600DB28F6 /* CollectionViewCell.swift */,
-				7469182024D85D1100F75534 /* FoodTableViewCell.swift */,
-				742CE86224E018F900E5F002 /* HomeTableViewCell.swift */,
-				7444090124E152BB00CD5BB4 /* MenuTableViewCell.swift */,
-				743807D724E27950002A3A72 /* HomeNewFeedCollectionViewCell.swift */,
 				7464D3B224B5E56C00347356 /* ViewController.swift */,
-				7464D3C324B5E65000347356 /* LoginViewController.swift */,
-				7464D3CB24B5F3B000347356 /* SignupViewController.swift */,
-				74ECF70524BC79B200D98BB3 /* ProfileViewController.swift */,
-				7455362224CB2128002741EC /* HomeViewController.swift */,
-				743877F224E76FDF00FC2E7E /* HomeDetailViewController.swift */,
-				74C2E4FF24D56BD700979937 /* PostViewController.swift */,
-				744408F324E12F7500CD5BB4 /* MenuProfileViewController.swift */,
 				7464D3BC24B5E56E00347356 /* Info.plist */,
 				74D0788124B5F6CF00D17AFF /* GoogleService-Info.plist */,
 				7416AF5324E402C70021AD1E /* testViewController.swift */,
-				7416AF5924E418600021AD1E /* NewFeedmodel1.swift */,
 				744ED17F24E57AF300DE6084 /* InputView.swift */,
-				744A8B2224E5CEB900F0F936 /* LaucherAppViewController.swift */,
-				743877F324E76FDF00FC2E7E /* HomeDetailViewController.xib */,
 			);
 			path = appdocu;
 			sourceTree = "<group>";
@@ -225,6 +203,47 @@
 				748011A524DA5BFE00554136 /* AlertView.xib */,
 			);
 			path = customAlert;
+			sourceTree = "<group>";
+		};
+		7492B4C324EB8DE400801105 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				743877F324E76FDF00FC2E7E /* HomeDetailViewController.xib */,
+				742CE86324E018F900E5F002 /* HomeTableViewCell.xib */,
+				7455362324CB2128002741EC /* HomeViewController.xib */,
+				743807D824E27950002A3A72 /* HomeNewFeedCollectionViewCell.xib */,
+				742CE86224E018F900E5F002 /* HomeTableViewCell.swift */,
+				743807D724E27950002A3A72 /* HomeNewFeedCollectionViewCell.swift */,
+				7455362224CB2128002741EC /* HomeViewController.swift */,
+				743877F224E76FDF00FC2E7E /* HomeDetailViewController.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		7492B4C424EB900B00801105 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				7444090124E152BB00CD5BB4 /* MenuTableViewCell.swift */,
+				744408F324E12F7500CD5BB4 /* MenuProfileViewController.swift */,
+				744408F424E12F7500CD5BB4 /* MenuProfileViewController.xib */,
+				7444090224E152BB00CD5BB4 /* MenuTableViewCell.xib */,
+				74ECF70624BC79B200D98BB3 /* ProfileViewController.xib */,
+				74ECF70524BC79B200D98BB3 /* ProfileViewController.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		7492B4C524EB905C00801105 /* Post */ = {
+			isa = PBXGroup;
+			children = (
+				7469182024D85D1100F75534 /* FoodTableViewCell.swift */,
+				74C2E4FF24D56BD700979937 /* PostViewController.swift */,
+				743BF52224DEDCB600DB28F6 /* CollectionViewCell.swift */,
+				743BF52124DEDCB600DB28F6 /* CollectionViewCell.xib */,
+				74C2E50024D56BD700979937 /* PostViewController.xib */,
+				7469182124D85D1100F75534 /* FoodTableViewCell.xib */,
+			);
+			path = Post;
 			sourceTree = "<group>";
 		};
 		74CEEA4124E5136500680654 /* CustomKeyboard */ = {
@@ -390,6 +409,7 @@
 				7464D3CD24B5F3B000347356 /* SignupViewController.swift in Sources */,
 				7464D3C524B5E65000347356 /* LoginViewController.swift in Sources */,
 				741A67AB24BDDCCF000CD51F /* UserModel.swift in Sources */,
+				7492B4C924EB92E900801105 /* UtilitiesViewController.swift in Sources */,
 				744A8B2424E5CEB900F0F936 /* LaucherAppViewController.swift in Sources */,
 				7444090024E14DA900CD5BB4 /* MenuModel.swift in Sources */,
 				7464D3B324B5E56C00347356 /* ViewController.swift in Sources */,

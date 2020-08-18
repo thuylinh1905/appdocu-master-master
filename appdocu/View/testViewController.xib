@@ -11,6 +11,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="testViewController" customModule="appdocu" customModuleProvider="target">
             <connections>
                 <outlet property="image" destination="wj3-xG-Jdg" id="hy8-9n-Sfz"/>
+                <outlet property="mota" destination="abd-cR-3Xi" id="8b4-E9-QRa"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -23,10 +24,20 @@
                     <rect key="frame" x="87" y="334" width="240" height="128"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="abd-cR-3Xi">
+                    <rect key="frame" x="186" y="144" width="42" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+            <constraints>
+                <constraint firstItem="abd-cR-3Xi" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="k68-Dp-h70"/>
+                <constraint firstItem="abd-cR-3Xi" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="100" id="mfy-C1-m6a"/>
+            </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
-            <point key="canvasLocation" x="133" y="116"/>
+            <point key="canvasLocation" x="383" y="64"/>
         </view>
     </objects>
 </document>

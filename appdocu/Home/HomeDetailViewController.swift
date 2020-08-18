@@ -13,14 +13,16 @@ class HomeDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print(NewFeedDetails!.mota)
+        mota.text = NewFeedDetails!.mota
         imageprofile.layer.cornerRadius = 25
-        truyenve()
+//        truyenve()
     }
-    func truyenve() {
-        mota.text = NewFeedDetails.mota
-        username.text = NewFeedDetails.username
-        KingfisherManager.shared.retrieveImage(with: URL(string: NewFeedDetails.imageprofile)! as Resource, options: nil, progressBlock: nil) { (image, error, cache, url) in
-            self.imageprofile.image = image
-        }
-    }
+//    func truyenve() {
+//        mota.text = NewFeedDetails.mota
+//        username.text = NewFeedDetails.username
+//        KingfisherManager.shared.retrieveImage(with: URL(string: NewFeedDetails.imageprofile)! as Resource, options: nil, progressBlock: nil) { (image, error, cache, url) in
+//            self.imageprofile.image = image
+//        }
+//    }
 }

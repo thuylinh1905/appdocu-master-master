@@ -2,12 +2,13 @@ import UIKit
 import Kingfisher
 
 class HomeTableViewCell: UITableViewCell {
-    
+    var viewContro: HomeViewController?
     @IBOutlet weak var username : UILabel!
     @IBOutlet weak var post : UILabel!
     @IBOutlet weak var imageprofile : UIImageView!
     @IBOutlet weak var colletion: UICollectionView!
     var newFeed: NewFeedmodel1!
+    var new: NewFeedmodel1!
     var viewController: HomeDetailViewController?
     
     func truyenve(Newfeed : NewFeedmodel1) {
@@ -41,9 +42,7 @@ extension HomeTableViewCell : UICollectionViewDelegate, UICollectionViewDataSour
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        let delegate = UIApplication.shared.delegate as! AppDelegate
-//        delegate.gotoHomedetail()
-//        let controller = UINavigationController(rootViewController: HomeDetailViewController())
-//        self.navigationController?.pushViewController(controller, animated: true)
+        let a = testViewController()
+        viewContro?.navigationController?.pushViewController(a, animated: true)
     }
 }
