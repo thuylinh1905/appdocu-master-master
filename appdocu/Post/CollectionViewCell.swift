@@ -25,7 +25,7 @@ class CollectionViewCell: UICollectionViewCell {
     @IBAction func buttonx(_ sender: Any) {
         let imagechoice = anh.image
         if let imagedelete = PostViewController.imagecollection1.firstIndex(of: imagechoice!){
-            print("tim thay \(imagedelete)")
+//            print("tim thay \(imagedelete)")
             PostViewController.imagecollection1.remove(at: imagedelete)
         }
         parentDelegate?.requestReloadTable()

@@ -8,9 +8,8 @@ class HomeTableViewCell: UITableViewCell {
     @IBOutlet weak var imageprofile : UIImageView!
     @IBOutlet weak var colletion: UICollectionView!
     var newFeed: NewFeedmodel1!
-    var new: NewFeedmodel1!
-    var viewController: HomeDetailViewController?
     
+
     func truyenve(Newfeed : NewFeedmodel1) {
         self.newFeed = Newfeed
         colletion.register(UINib(nibName: "HomeNewFeedCollectionViewCell", bundle: .main), forCellWithReuseIdentifier: "newfeedcollectionview")
@@ -42,7 +41,8 @@ extension HomeTableViewCell : UICollectionViewDelegate, UICollectionViewDataSour
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let a = testViewController()
-        viewContro?.navigationController?.pushViewController(a, animated: true)
+        let homeImageDetails = HomeImageDetailsViewController()
+        homeImageDetails.new = newFeed.image
+        viewContro?.navigationController?.pushViewController(homeImageDetails, animated: true)
     }
 }

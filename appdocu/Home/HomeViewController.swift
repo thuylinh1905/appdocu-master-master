@@ -50,7 +50,7 @@ class HomeViewController: UIViewController {
     var mangima : [UIImage] = []
     var image01 : [String] = []
     @IBOutlet weak var anhtest: UIImageView!
-    
+    @IBOutlet weak var imagezoom: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -109,7 +109,6 @@ extension HomeViewController :UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "tableview", for: indexPath) as! HomeTableViewCell
         cell.truyenve(Newfeed: array[indexPath.row])
-        
         cell.viewContro = self
         return cell
     }
@@ -122,12 +121,10 @@ extension HomeViewController :UITableViewDelegate, UITableViewDataSource {
         let tenquan = cell.newFeed.tenquan
         let username = cell.newFeed.username!
         let image = cell.newFeed.image!
-        print(image)
         let imageprofile = cell.newFeed.imageprofile
         let NewFeed = NewFeedDetail(diachi: diachi, giatien: giatien, mota: mota, tenquan: tenquan, username: username, image: image, imageprofile: imageprofile!)
         let homeDetailViewcontroller = HomeDetailViewController()
         homeDetailViewcontroller.NewFeedDetails = NewFeed
-        self.navigationController?.pushViewController(homeDetailViewcontroller
-            , animated: true)
+        self.navigationController?.pushViewController(homeDetailViewcontroller , animated: true)
     }
 }

@@ -43,12 +43,12 @@
                                     <rect key="frame" x="0.0" y="53" width="414" height="869"/>
                                     <subviews>
                                         <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="Mah-12-tLz">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="200"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="300"/>
                                             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="200" id="Ytu-mV-I58"/>
+                                                <constraint firstAttribute="height" constant="300" id="Ytu-mV-I58"/>
                                             </constraints>
-                                            <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="3Ob-tj-GRJ">
+                                            <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="3Ob-tj-GRJ">
                                                 <size key="itemSize" width="128" height="128"/>
                                                 <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                 <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -60,7 +60,7 @@
                                             </connections>
                                         </collectionView>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="u3v-tq-sYv">
-                                            <rect key="frame" x="0.0" y="220" width="414" height="162"/>
+                                            <rect key="frame" x="0.0" y="320" width="414" height="162"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="EP5-JA-9WX">
                                                     <rect key="frame" x="0.0" y="0.0" width="414" height="34"/>
@@ -142,7 +142,7 @@
                                             </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ewb-Pk-jxo">
-                                            <rect key="frame" x="184" y="526" width="46" height="47"/>
+                                            <rect key="frame" x="184" y="626" width="46" height="47"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="47" id="NQH-bc-Vki"/>
                                                 <constraint firstAttribute="width" constant="46" id="wtc-bY-ihO"/>
@@ -152,9 +152,21 @@
                                                 <action selector="uploadanh:" destination="-1" eventType="touchUpInside" id="ZH5-fa-3iW"/>
                                             </connections>
                                         </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zn6-hx-WCM">
+                                            <rect key="frame" x="177" y="530" width="60" height="30"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="60" id="29z-Nb-I5w"/>
+                                                <constraint firstAttribute="height" constant="30" id="cie-fU-p6v"/>
+                                            </constraints>
+                                            <state key="normal" title="upload"/>
+                                            <connections>
+                                                <action selector="hihi:" destination="-1" eventType="touchUpInside" id="nAU-yH-S2c"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                     <constraints>
+                                        <constraint firstItem="zn6-hx-WCM" firstAttribute="centerX" secondItem="GXH-T0-edv" secondAttribute="centerX" id="5h8-ji-l0i"/>
                                         <constraint firstItem="Mah-12-tLz" firstAttribute="top" secondItem="GXH-T0-edv" secondAttribute="top" id="AQQ-xI-lTF"/>
                                         <constraint firstItem="Ewb-Pk-jxo" firstAttribute="centerX" secondItem="GXH-T0-edv" secondAttribute="centerX" id="Ha0-nV-O46"/>
                                         <constraint firstItem="Mah-12-tLz" firstAttribute="leading" secondItem="GXH-T0-edv" secondAttribute="leading" id="RqS-I3-B3Q"/>
@@ -162,6 +174,7 @@
                                         <constraint firstAttribute="height" constant="869" id="Uig-Ie-Dct"/>
                                         <constraint firstItem="Mah-12-tLz" firstAttribute="centerX" secondItem="GXH-T0-edv" secondAttribute="centerX" id="VB8-eH-1Ox"/>
                                         <constraint firstAttribute="bottom" secondItem="Pg8-Tz-fHw" secondAttribute="bottom" constant="60" id="YmY-4u-4NO"/>
+                                        <constraint firstItem="zn6-hx-WCM" firstAttribute="top" secondItem="u3v-tq-sYv" secondAttribute="bottom" constant="48" id="caw-p3-bAb"/>
                                         <constraint firstItem="u3v-tq-sYv" firstAttribute="centerX" secondItem="GXH-T0-edv" secondAttribute="centerX" id="jHq-9C-fV6"/>
                                         <constraint firstItem="Ewb-Pk-jxo" firstAttribute="top" secondItem="u3v-tq-sYv" secondAttribute="bottom" constant="144" id="m0N-Cd-cJr"/>
                                         <constraint firstItem="Pg8-Tz-fHw" firstAttribute="centerX" secondItem="GXH-T0-edv" secondAttribute="centerX" id="n0X-K5-nKC"/>

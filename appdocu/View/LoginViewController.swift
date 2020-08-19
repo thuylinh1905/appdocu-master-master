@@ -36,7 +36,7 @@ class LoginViewController: UIViewController {
     @IBAction func login(_ sender: Any) {
         if var email = txtemail.text ,var  pass = txtpass.text{
             self.view.endEditing(true)
-            Auth.auth().signIn(withEmail: "test01@gmail.com", password: "Linh19051998") { (result, error) in
+            Auth.auth().signIn(withEmail: "minh02@gmail.com", password: "Linh19051998") { (result, error) in
                 if error != nil{
                     AlertView.instance.showAlert(title: "Error", message: "Tài khoản này chưa được tạo vui lòng đăng ký tài khoản", alertType: .failure)
                 } else{

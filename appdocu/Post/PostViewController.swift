@@ -32,10 +32,12 @@ class PostViewController: UIViewController  {
     var mon = ""
     var loaimonve = [loaimon]()
     var selectedindex : IndexPath?
+    var imcolletion : [UIImage]! = []
     var imagecollection : [UIImage]! = []
     static var imagecollection1 : [UIImage]! = []
     var updateimage : [String] = []
     var assets = [DKAsset]()
+    var aimage : UIImage!
     
     
     override func viewDidLoad() {
@@ -51,6 +53,62 @@ class PostViewController: UIViewController  {
         collectionview.dataSource = self
         self.truyenmonan()
         textview()
+    }
+    @IBAction func hihi(_ sender: Any) {
+        SVProgressHUD.show(withStatus: "Loading...")
+               let mota = textView.text
+               let giatien = txtgiatien.text
+               let diachi = txtdiachi.text
+               let tenquan = txttenquan.text
+               let loaimon = loaidoan.titleLabel?.text
+               let ref = Database.database().reference()
+               let userID = Auth.auth().currentUser?.uid
+               guard let key = ref.child("location").child("2").childByAutoId().key else { return }
+               var post = ["uid": userID!,
+                           "mota": mota!,
+                           "loaimon" : loaimon!,
+                           "giatien": giatien!,
+                           "diachi": diachi!,
+                           "tenquan" : tenquan!] as [String: Any]
+               let childRef = ref.child("TWEETS").child(userID!).childByAutoId()
+               for i in PostViewController.imagecollection1 {
+                   let storageRef = Storage.storage().reference(forURL: "gs://appdocu-2c67f.appspot.com")
+                   let postRef = childRef.child("image")
+                   let autoID = postRef.childByAutoId().key
+                   let childStorageRef = storageRef.child("ImagePost").child(userID!).child(autoID!)
+                   let tweetImage = i
+                let metaData = StorageMetadata()
+                metaData.contentType = "image/jpg"
+                if let uploadData = tweetImage.jpegData(compressionQuality: 0.7 ) {
+                       childStorageRef.putData(uploadData, metadata: metaData, completion: {
+                           (storagemetadata,error) in
+                           if error != nil{
+                               SVProgressHUD.showError(withStatus: "Đã lỗi khi Upload bài")
+                           } else {
+                               childStorageRef.downloadURL(completion: {
+                                   (url,error) in
+                                   if let ImageUrl = url?.absoluteString {
+                                       let userImage = ref.child("users").child(userID!)
+                                       userImage.observeSingleEvent(of: .value) { (snapshot) in
+                                           let usersdic = snapshot.value as! NSDictionary
+                                           post["Imageprofile"] = usersdic.value(forKey: "image")
+                                           post["username"] = usersdic.value(forKey: "username")
+                                           self.updateimage.append(ImageUrl)
+                                           print(ImageUrl)
+                                           post["image"] = self.updateimage
+                                           let childUpdates = ["/post/\(key)": post,
+                                                               "/user-posts/\(String(describing: userID))/\(key)/": post]
+                                           ref.updateChildValues(childUpdates)
+                                           SVProgressHUD.showSuccess(withStatus: "Đã Upload")
+                                           let delegate = UIApplication.shared.delegate as! AppDelegate
+                                           delegate.gototabbar()
+                                       }
+                                   }
+                               })
+                           }
+                       })
+                   }
+               }
     }
     func textview() {
         textView.text = "Bạn muốn đăng gì?"
@@ -77,7 +135,7 @@ class PostViewController: UIViewController  {
                     "diachi": diachi!,
                     "tenquan" : tenquan!] as [String: Any]
         for i in PostViewController.imagecollection1 {
-            guard let uploadData = i.jpegData(compressionQuality: 0.3) else { return }
+            guard let uploadData = i.jpegData(compressionQuality: 1.0) else { return }
             let storageRef = Storage.storage().reference(forURL: "gs://appdocu-2c67f.appspot.com")
             let storageProfileRef = storageRef.child("imageProfile")
             let metaData = StorageMetadata()
@@ -111,18 +169,24 @@ class PostViewController: UIViewController  {
     }
     @IBAction func moanh(_ sender: Any) {
         let pickerController = DKImagePickerController()
-        imagecollection.removeAll()
+      
         pickerController.didSelectAssets = { (assets: [DKAsset]) in
             for asset in assets {
-                asset.fetchImage(with: CGSize(width: 200, height: 200)) { (image, if) in
+                asset.fetchOriginalImage { (image, if) in
+                    print(image!)
                     self.imagecollection.append(image!)
+                    print(self.imagecollection!)
+                     PostViewController.self.imagecollection1.append(contentsOf: self.imagecollection)
+                    print(PostViewController.self.imagecollection1.count)
+                    self.collectionview.reloadData()
+                    self.imagecollection.removeAll()
                 }
             }
-            PostViewController.self.imagecollection1.append(contentsOf: self.imagecollection)
-            print(self.imagecollection.count)
-            self.collectionview.reloadData()
         }
         self.present(pickerController, animated: true) {}
+    }
+    func imagecp() {
+       
     }
     @IBAction func tr(_ sender: Any) {
         self.view.addSubview(select)
@@ -287,7 +351,7 @@ extension PostViewController : UITableViewDataSource, UITableViewDelegate {
         self.tableview.reloadData()
     }
 }
-extension PostViewController : UICollectionViewDelegate , UICollectionViewDataSource {
+extension PostViewController : UICollectionViewDelegate , UICollectionViewDataSource , UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         PostViewController.self.imagecollection1.count
     }
@@ -298,6 +362,9 @@ extension PostViewController : UICollectionViewDelegate , UICollectionViewDataSo
         cell.truyen(image: PostViewController.imagecollection1[indexPath.row])
         return cell
     }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+           return CGSize(width: 200 , height:  200)
+       }
 //    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 ////        let index = collectionView.cellForItem(at: indexPath) as! CollectionViewCell
 ////        let a = index.anh.image

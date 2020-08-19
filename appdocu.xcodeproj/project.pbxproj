@@ -45,7 +45,10 @@
 		7469182324D85D1100F75534 /* FoodTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7469182124D85D1100F75534 /* FoodTableViewCell.xib */; };
 		748011A724DA5BFF00554136 /* AlertView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 748011A524DA5BFE00554136 /* AlertView.xib */; };
 		748011A824DA5BFF00554136 /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 748011A624DA5BFF00554136 /* AlertView.swift */; };
-		7492B4C924EB92E900801105 /* UtilitiesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7492B4C824EB92E900801105 /* UtilitiesViewController.swift */; };
+		749BDD5224EBC87B00FEE2E8 /* HomeImageDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 749BDD5024EBC87B00FEE2E8 /* HomeImageDetailsViewController.swift */; };
+		749BDD5324EBC87B00FEE2E8 /* HomeImageDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 749BDD5124EBC87B00FEE2E8 /* HomeImageDetailsViewController.xib */; };
+		749BDD5624EBCC5F00FEE2E8 /* ImageDetailsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 749BDD5424EBCC5F00FEE2E8 /* ImageDetailsCollectionViewCell.swift */; };
+		749BDD5724EBCC5F00FEE2E8 /* ImageDetailsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 749BDD5524EBCC5F00FEE2E8 /* ImageDetailsCollectionViewCell.xib */; };
 		74BB850C24CBE01B009B2DCF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 74BB850B24CBE01A009B2DCF /* Assets.xcassets */; };
 		74C2E50124D56BD700979937 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74C2E4FF24D56BD700979937 /* PostViewController.swift */; };
 		74C2E50224D56BD700979937 /* PostViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 74C2E50024D56BD700979937 /* PostViewController.xib */; };
@@ -98,7 +101,10 @@
 		7469182124D85D1100F75534 /* FoodTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FoodTableViewCell.xib; sourceTree = "<group>"; };
 		748011A524DA5BFE00554136 /* AlertView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AlertView.xib; sourceTree = "<group>"; };
 		748011A624DA5BFF00554136 /* AlertView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertView.swift; sourceTree = "<group>"; };
-		7492B4C824EB92E900801105 /* UtilitiesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UtilitiesViewController.swift; sourceTree = "<group>"; };
+		749BDD5024EBC87B00FEE2E8 /* HomeImageDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeImageDetailsViewController.swift; sourceTree = "<group>"; };
+		749BDD5124EBC87B00FEE2E8 /* HomeImageDetailsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeImageDetailsViewController.xib; sourceTree = "<group>"; };
+		749BDD5424EBCC5F00FEE2E8 /* ImageDetailsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDetailsCollectionViewCell.swift; sourceTree = "<group>"; };
+		749BDD5524EBCC5F00FEE2E8 /* ImageDetailsCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageDetailsCollectionViewCell.xib; sourceTree = "<group>"; };
 		74BB850B24CBE01A009B2DCF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		74C2E4FF24D56BD700979937 /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
 		74C2E50024D56BD700979937 /* PostViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostViewController.xib; sourceTree = "<group>"; };
@@ -151,7 +157,6 @@
 			isa = PBXGroup;
 			children = (
 				7464D3C724B5F01500347356 /* Utilities.swift */,
-				7492B4C824EB92E900801105 /* UtilitiesViewController.swift */,
 			);
 			path = Ultilities;
 			sourceTree = "<group>";
@@ -216,6 +221,10 @@
 				743807D724E27950002A3A72 /* HomeNewFeedCollectionViewCell.swift */,
 				7455362224CB2128002741EC /* HomeViewController.swift */,
 				743877F224E76FDF00FC2E7E /* HomeDetailViewController.swift */,
+				749BDD5024EBC87B00FEE2E8 /* HomeImageDetailsViewController.swift */,
+				749BDD5124EBC87B00FEE2E8 /* HomeImageDetailsViewController.xib */,
+				749BDD5424EBCC5F00FEE2E8 /* ImageDetailsCollectionViewCell.swift */,
+				749BDD5524EBCC5F00FEE2E8 /* ImageDetailsCollectionViewCell.xib */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -340,6 +349,7 @@
 				7444090424E152BB00CD5BB4 /* MenuTableViewCell.xib in Resources */,
 				744408F624E12F7500CD5BB4 /* MenuProfileViewController.xib in Resources */,
 				744A8B2524E5CEB900F0F936 /* LaucherAppViewController.xib in Resources */,
+				749BDD5324EBC87B00FEE2E8 /* HomeImageDetailsViewController.xib in Resources */,
 				744ED18024E57AF300DE6084 /* InputView.xib in Resources */,
 				74C2E50224D56BD700979937 /* PostViewController.xib in Resources */,
 				7464D3C624B5E65000347356 /* LoginViewController.xib in Resources */,
@@ -350,6 +360,7 @@
 				742CE86524E018F900E5F002 /* HomeTableViewCell.xib in Resources */,
 				748011A724DA5BFF00554136 /* AlertView.xib in Resources */,
 				7469182324D85D1100F75534 /* FoodTableViewCell.xib in Resources */,
+				749BDD5724EBCC5F00FEE2E8 /* ImageDetailsCollectionViewCell.xib in Resources */,
 				74BB850C24CBE01B009B2DCF /* Assets.xcassets in Resources */,
 				7455362524CB2128002741EC /* HomeViewController.xib in Resources */,
 			);
@@ -409,12 +420,13 @@
 				7464D3CD24B5F3B000347356 /* SignupViewController.swift in Sources */,
 				7464D3C524B5E65000347356 /* LoginViewController.swift in Sources */,
 				741A67AB24BDDCCF000CD51F /* UserModel.swift in Sources */,
-				7492B4C924EB92E900801105 /* UtilitiesViewController.swift in Sources */,
 				744A8B2424E5CEB900F0F936 /* LaucherAppViewController.swift in Sources */,
 				7444090024E14DA900CD5BB4 /* MenuModel.swift in Sources */,
 				7464D3B324B5E56C00347356 /* ViewController.swift in Sources */,
 				742CE86424E018F900E5F002 /* HomeTableViewCell.swift in Sources */,
 				74C2E50124D56BD700979937 /* PostViewController.swift in Sources */,
+				749BDD5224EBC87B00FEE2E8 /* HomeImageDetailsViewController.swift in Sources */,
+				749BDD5624EBCC5F00FEE2E8 /* ImageDetailsCollectionViewCell.swift in Sources */,
 				744ED17924E5774700DE6084 /* KeyBoardView.swift in Sources */,
 				7464D3AF24B5E56C00347356 /* AppDelegate.swift in Sources */,
 				743877F424E76FDF00FC2E7E /* HomeDetailViewController.swift in Sources */,
