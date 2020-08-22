@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7411594C24EEDCF800B22BDA /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7411594A24EEDCF800B22BDA /* UserProfileViewController.swift */; };
+		7411594D24EEDCF800B22BDA /* UserProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7411594B24EEDCF800B22BDA /* UserProfileViewController.xib */; };
+		7411595024EEEC1100B22BDA /* MenuUserProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7411594E24EEEC1100B22BDA /* MenuUserProfileTableViewCell.swift */; };
+		7411595124EEEC1100B22BDA /* MenuUserProfileTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7411594F24EEEC1100B22BDA /* MenuUserProfileTableViewCell.xib */; };
 		7416AF5524E402C70021AD1E /* testViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7416AF5324E402C70021AD1E /* testViewController.swift */; };
 		7416AF5624E402C70021AD1E /* testViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7416AF5424E402C70021AD1E /* testViewController.xib */; };
 		7416AF5A24E418600021AD1E /* NewFeedmodel1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7416AF5924E418600021AD1E /* NewFeedmodel1.swift */; };
@@ -20,11 +24,7 @@
 		743877F524E76FDF00FC2E7E /* HomeDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 743877F324E76FDF00FC2E7E /* HomeDetailViewController.xib */; };
 		743BF52324DEDCB700DB28F6 /* CollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 743BF52124DEDCB600DB28F6 /* CollectionViewCell.xib */; };
 		743BF52424DEDCB700DB28F6 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743BF52224DEDCB600DB28F6 /* CollectionViewCell.swift */; };
-		744408F524E12F7500CD5BB4 /* MenuProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 744408F324E12F7500CD5BB4 /* MenuProfileViewController.swift */; };
-		744408F624E12F7500CD5BB4 /* MenuProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 744408F424E12F7500CD5BB4 /* MenuProfileViewController.xib */; };
 		7444090024E14DA900CD5BB4 /* MenuModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 744408FF24E14DA900CD5BB4 /* MenuModel.swift */; };
-		7444090324E152BB00CD5BB4 /* MenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7444090124E152BB00CD5BB4 /* MenuTableViewCell.swift */; };
-		7444090424E152BB00CD5BB4 /* MenuTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7444090224E152BB00CD5BB4 /* MenuTableViewCell.xib */; };
 		744A8B2424E5CEB900F0F936 /* LaucherAppViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 744A8B2224E5CEB900F0F936 /* LaucherAppViewController.swift */; };
 		744A8B2524E5CEB900F0F936 /* LaucherAppViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 744A8B2324E5CEB900F0F936 /* LaucherAppViewController.xib */; };
 		744ED17724E5772300DE6084 /* KeyBoardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 744ED17624E5772300DE6084 /* KeyBoardView.xib */; };
@@ -43,8 +43,6 @@
 		7464D3CE24B5F3B000347356 /* SignupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7464D3CC24B5F3B000347356 /* SignupViewController.xib */; };
 		7469182224D85D1100F75534 /* FoodTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7469182024D85D1100F75534 /* FoodTableViewCell.swift */; };
 		7469182324D85D1100F75534 /* FoodTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7469182124D85D1100F75534 /* FoodTableViewCell.xib */; };
-		748011A724DA5BFF00554136 /* AlertView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 748011A524DA5BFE00554136 /* AlertView.xib */; };
-		748011A824DA5BFF00554136 /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 748011A624DA5BFF00554136 /* AlertView.swift */; };
 		749BDD5224EBC87B00FEE2E8 /* HomeImageDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 749BDD5024EBC87B00FEE2E8 /* HomeImageDetailsViewController.swift */; };
 		749BDD5324EBC87B00FEE2E8 /* HomeImageDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 749BDD5124EBC87B00FEE2E8 /* HomeImageDetailsViewController.xib */; };
 		749BDD5624EBCC5F00FEE2E8 /* ImageDetailsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 749BDD5424EBCC5F00FEE2E8 /* ImageDetailsCollectionViewCell.swift */; };
@@ -61,6 +59,10 @@
 /* Begin PBXFileReference section */
 		0A09EF12753ABD87F1B51872 /* Pods-appdocu.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-appdocu.debug.xcconfig"; path = "Target Support Files/Pods-appdocu/Pods-appdocu.debug.xcconfig"; sourceTree = "<group>"; };
 		2CFD8909EE19B88429B6ABA4 /* Pods-appdocu.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-appdocu.release.xcconfig"; path = "Target Support Files/Pods-appdocu/Pods-appdocu.release.xcconfig"; sourceTree = "<group>"; };
+		7411594A24EEDCF800B22BDA /* UserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
+		7411594B24EEDCF800B22BDA /* UserProfileViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserProfileViewController.xib; sourceTree = "<group>"; };
+		7411594E24EEEC1100B22BDA /* MenuUserProfileTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuUserProfileTableViewCell.swift; sourceTree = "<group>"; };
+		7411594F24EEEC1100B22BDA /* MenuUserProfileTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuUserProfileTableViewCell.xib; sourceTree = "<group>"; };
 		7416AF5324E402C70021AD1E /* testViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testViewController.swift; sourceTree = "<group>"; };
 		7416AF5424E402C70021AD1E /* testViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = testViewController.xib; sourceTree = "<group>"; };
 		7416AF5924E418600021AD1E /* NewFeedmodel1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewFeedmodel1.swift; sourceTree = "<group>"; };
@@ -74,11 +76,7 @@
 		743877F324E76FDF00FC2E7E /* HomeDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeDetailViewController.xib; sourceTree = "<group>"; };
 		743BF52124DEDCB600DB28F6 /* CollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CollectionViewCell.xib; sourceTree = "<group>"; };
 		743BF52224DEDCB600DB28F6 /* CollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
-		744408F324E12F7500CD5BB4 /* MenuProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuProfileViewController.swift; sourceTree = "<group>"; };
-		744408F424E12F7500CD5BB4 /* MenuProfileViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuProfileViewController.xib; sourceTree = "<group>"; };
 		744408FF24E14DA900CD5BB4 /* MenuModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuModel.swift; sourceTree = "<group>"; };
-		7444090124E152BB00CD5BB4 /* MenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTableViewCell.swift; sourceTree = "<group>"; };
-		7444090224E152BB00CD5BB4 /* MenuTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuTableViewCell.xib; sourceTree = "<group>"; };
 		744A8B2224E5CEB900F0F936 /* LaucherAppViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaucherAppViewController.swift; sourceTree = "<group>"; };
 		744A8B2324E5CEB900F0F936 /* LaucherAppViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LaucherAppViewController.xib; sourceTree = "<group>"; };
 		744ED17624E5772300DE6084 /* KeyBoardView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = KeyBoardView.xib; sourceTree = "<group>"; };
@@ -99,8 +97,6 @@
 		7464D3CC24B5F3B000347356 /* SignupViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignupViewController.xib; sourceTree = "<group>"; };
 		7469182024D85D1100F75534 /* FoodTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodTableViewCell.swift; sourceTree = "<group>"; };
 		7469182124D85D1100F75534 /* FoodTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FoodTableViewCell.xib; sourceTree = "<group>"; };
-		748011A524DA5BFE00554136 /* AlertView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AlertView.xib; sourceTree = "<group>"; };
-		748011A624DA5BFF00554136 /* AlertView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertView.swift; sourceTree = "<group>"; };
 		749BDD5024EBC87B00FEE2E8 /* HomeImageDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeImageDetailsViewController.swift; sourceTree = "<group>"; };
 		749BDD5124EBC87B00FEE2E8 /* HomeImageDetailsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeImageDetailsViewController.xib; sourceTree = "<group>"; };
 		749BDD5424EBCC5F00FEE2E8 /* ImageDetailsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDetailsCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -186,7 +182,6 @@
 				744408FA24E130EF00CD5BB4 /* Ultilities */,
 				744408F824E1306000CD5BB4 /* View */,
 				744408F724E12F9C00CD5BB4 /* Model */,
-				7480119C24DA407800554136 /* customAlert */,
 				7492B4C424EB900B00801105 /* Profile */,
 				7492B4C524EB905C00801105 /* Post */,
 				7492B4C324EB8DE400801105 /* Home */,
@@ -199,15 +194,6 @@
 				744ED17F24E57AF300DE6084 /* InputView.swift */,
 			);
 			path = appdocu;
-			sourceTree = "<group>";
-		};
-		7480119C24DA407800554136 /* customAlert */ = {
-			isa = PBXGroup;
-			children = (
-				748011A624DA5BFF00554136 /* AlertView.swift */,
-				748011A524DA5BFE00554136 /* AlertView.xib */,
-			);
-			path = customAlert;
 			sourceTree = "<group>";
 		};
 		7492B4C324EB8DE400801105 /* Home */ = {
@@ -232,12 +218,12 @@
 		7492B4C424EB900B00801105 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
-				7444090124E152BB00CD5BB4 /* MenuTableViewCell.swift */,
-				744408F324E12F7500CD5BB4 /* MenuProfileViewController.swift */,
-				744408F424E12F7500CD5BB4 /* MenuProfileViewController.xib */,
-				7444090224E152BB00CD5BB4 /* MenuTableViewCell.xib */,
-				74ECF70624BC79B200D98BB3 /* ProfileViewController.xib */,
 				74ECF70524BC79B200D98BB3 /* ProfileViewController.swift */,
+				74ECF70624BC79B200D98BB3 /* ProfileViewController.xib */,
+				7411594A24EEDCF800B22BDA /* UserProfileViewController.swift */,
+				7411594B24EEDCF800B22BDA /* UserProfileViewController.xib */,
+				7411594E24EEEC1100B22BDA /* MenuUserProfileTableViewCell.swift */,
+				7411594F24EEEC1100B22BDA /* MenuUserProfileTableViewCell.xib */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -346,8 +332,6 @@
 				74ECF70824BC79B200D98BB3 /* ProfileViewController.xib in Resources */,
 				743BF52324DEDCB700DB28F6 /* CollectionViewCell.xib in Resources */,
 				7416AF5624E402C70021AD1E /* testViewController.xib in Resources */,
-				7444090424E152BB00CD5BB4 /* MenuTableViewCell.xib in Resources */,
-				744408F624E12F7500CD5BB4 /* MenuProfileViewController.xib in Resources */,
 				744A8B2524E5CEB900F0F936 /* LaucherAppViewController.xib in Resources */,
 				749BDD5324EBC87B00FEE2E8 /* HomeImageDetailsViewController.xib in Resources */,
 				744ED18024E57AF300DE6084 /* InputView.xib in Resources */,
@@ -358,9 +342,10 @@
 				7464D3BB24B5E56E00347356 /* LaunchScreen.storyboard in Resources */,
 				74D0788224B5F6CF00D17AFF /* GoogleService-Info.plist in Resources */,
 				742CE86524E018F900E5F002 /* HomeTableViewCell.xib in Resources */,
-				748011A724DA5BFF00554136 /* AlertView.xib in Resources */,
+				7411595124EEEC1100B22BDA /* MenuUserProfileTableViewCell.xib in Resources */,
 				7469182324D85D1100F75534 /* FoodTableViewCell.xib in Resources */,
 				749BDD5724EBCC5F00FEE2E8 /* ImageDetailsCollectionViewCell.xib in Resources */,
+				7411594D24EEDCF800B22BDA /* UserProfileViewController.xib in Resources */,
 				74BB850C24CBE01B009B2DCF /* Assets.xcassets in Resources */,
 				7455362524CB2128002741EC /* HomeViewController.xib in Resources */,
 			);
@@ -422,7 +407,9 @@
 				741A67AB24BDDCCF000CD51F /* UserModel.swift in Sources */,
 				744A8B2424E5CEB900F0F936 /* LaucherAppViewController.swift in Sources */,
 				7444090024E14DA900CD5BB4 /* MenuModel.swift in Sources */,
+				7411595024EEEC1100B22BDA /* MenuUserProfileTableViewCell.swift in Sources */,
 				7464D3B324B5E56C00347356 /* ViewController.swift in Sources */,
+				7411594C24EEDCF800B22BDA /* UserProfileViewController.swift in Sources */,
 				742CE86424E018F900E5F002 /* HomeTableViewCell.swift in Sources */,
 				74C2E50124D56BD700979937 /* PostViewController.swift in Sources */,
 				749BDD5224EBC87B00FEE2E8 /* HomeImageDetailsViewController.swift in Sources */,
@@ -430,17 +417,14 @@
 				744ED17924E5774700DE6084 /* KeyBoardView.swift in Sources */,
 				7464D3AF24B5E56C00347356 /* AppDelegate.swift in Sources */,
 				743877F424E76FDF00FC2E7E /* HomeDetailViewController.swift in Sources */,
-				748011A824DA5BFF00554136 /* AlertView.swift in Sources */,
 				743BF52424DEDCB700DB28F6 /* CollectionViewCell.swift in Sources */,
 				743807D924E27950002A3A72 /* HomeNewFeedCollectionViewCell.swift in Sources */,
 				7455362424CB2128002741EC /* HomeViewController.swift in Sources */,
 				7416AF5A24E418600021AD1E /* NewFeedmodel1.swift in Sources */,
-				7444090324E152BB00CD5BB4 /* MenuTableViewCell.swift in Sources */,
 				74ECF70724BC79B200D98BB3 /* ProfileViewController.swift in Sources */,
 				7464D3C824B5F01500347356 /* Utilities.swift in Sources */,
 				7416AF5524E402C70021AD1E /* testViewController.swift in Sources */,
 				744ED18124E57AF300DE6084 /* InputView.swift in Sources */,
-				744408F524E12F7500CD5BB4 /* MenuProfileViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -22,32 +22,19 @@ class ProfileViewController: UIViewController {
         imageview.layer.borderColor = UIColor.white.cgColor
         truyenve()
         self.hideKeyboard()
-        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
-        self.navigationController?.navigationBar.shadowImage = UIImage()
-        self.navigationController?.navigationBar.isTranslucent = true
-        self.navigationController?.view.backgroundColor = .clear
         navibutton()
     }
     func navibutton() {
         let btnCancel = UIButton()
-        btnCancel.setImage(UIImage(named: "setting"), for: .normal)
+        btnCancel.setImage(UIImage(named: "more"), for: .normal)
         btnCancel.addTarget(self, action:  #selector(goToSetting), for: .touchUpInside)
         let leftBarButton = UIBarButtonItem()
         leftBarButton.customView = btnCancel
         self.navigationItem.rightBarButtonItem = leftBarButton
     }
     @objc func goToSetting(){
-        let delegate = UIApplication.shared.delegate as! AppDelegate
-        delegate.gotoHome22()
-    }
-    @IBAction func Signout(){
-        do {
-            try Auth.auth().signOut()
-            let delegate = UIApplication.shared.delegate as! AppDelegate
-            delegate.gotoOnboarding()
-        } catch let error {
-            print(error)
-        }
+       let menuProfile = UserProfileViewController()
+        self.navigationController?.pushViewController(menuProfile, animated: true)
     }
     func truyenve() {
         ref = Database.database().reference()
@@ -66,11 +53,8 @@ class ProfileViewController: UIViewController {
                 self.email.text = email
                 self.username.text = username
             })
-
         }
-
     }
-    
 }
 
 

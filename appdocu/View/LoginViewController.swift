@@ -1,5 +1,6 @@
 import UIKit
 import FirebaseAuth
+import SVProgressHUD
 
 class LoginViewController: UIViewController {
 
@@ -34,11 +35,12 @@ class LoginViewController: UIViewController {
        }
     
     @IBAction func login(_ sender: Any) {
+        SVProgressHUD.show(withStatus: "Đang đăng nhập...")
         if var email = txtemail.text ,var  pass = txtpass.text{
             self.view.endEditing(true)
             Auth.auth().signIn(withEmail: "minh02@gmail.com", password: "Linh19051998") { (result, error) in
                 if error != nil{
-                    AlertView.instance.showAlert(title: "Error", message: "Tài khoản này chưa được tạo vui lòng đăng ký tài khoản", alertType: .failure)
+                    SVProgressHUD.showError(withStatus: "Tài khoản chưa được tạo")
                 } else{
                     let delegate = UIApplication.shared.delegate as! AppDelegate
                     delegate.gototabbar()

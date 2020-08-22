@@ -23,7 +23,7 @@ class SignupViewController: UIViewController {
         imgage.layer.cornerRadius = 60
         self.addimagetextfield(textfield: txtemail, image: UIImage(named: "mail")!)
         self.addimagetextfield(textfield: txtpass, image: UIImage(named: "password")!)
-        self.addimagetextfield(textfield: txtusername, image: UIImage(named: "usersignup")!)
+        self.addimagetextfield(textfield: txtusername, image: UIImage(named: "user")!)
         self.addimagetextfield(textfield: txtphone, image: UIImage(named: "phone")!)
         self.hideKeyboard()
     }

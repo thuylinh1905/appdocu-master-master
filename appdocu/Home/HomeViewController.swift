@@ -115,6 +115,7 @@ extension HomeViewController :UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath) as! HomeTableViewCell
+        tableView.cellForRow(at: indexPath)?.setSelected(false, animated: true)
         let mota = cell.newFeed.mota
         let diachi = cell.newFeed.diachi
         let giatien = cell.newFeed.giatien

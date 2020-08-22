@@ -169,7 +169,6 @@ class PostViewController: UIViewController  {
     }
     @IBAction func moanh(_ sender: Any) {
         let pickerController = DKImagePickerController()
-      
         pickerController.didSelectAssets = { (assets: [DKAsset]) in
             for asset in assets {
                 asset.fetchOriginalImage { (image, if) in

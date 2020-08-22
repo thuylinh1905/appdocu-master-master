@@ -8,7 +8,7 @@ class HomeImageDetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.hidenavi()
-        tabBarController?.tabBar.isHidden = true
+//        tabBarController?.tabBar.isHidden = true
         imagecollection.delegate = self
         imagecollection.dataSource = self
         imagecollection.register(UINib(nibName: "ImageDetailsCollectionViewCell", bundle: .main), forCellWithReuseIdentifier: "imagecollection")

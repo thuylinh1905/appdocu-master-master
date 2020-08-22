@@ -5,7 +5,6 @@
 //  Created by thuylinh on 7/8/20.
 //  Copyright © 2020 thuylinh. All rights reserved.
 //
-
 import UIKit
 import  Firebase
 import  FirebaseAuth
@@ -83,20 +82,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             self.window?.rootViewController = navigationController
         } ,completion: nil)
     }
-    func gotoProfileSetting() {
-        let MenuProfile = MenuProfileViewController()
-        let navigationController = UINavigationController(rootViewController: MenuProfile)
-        self.window?.rootViewController = navigationController
-    }
     
     func gototabbar() {
         let tabBarController = UITabBarController()
-        let homeviewcontroller = HomeViewController (
-            nibName: "HomeViewController",
-            bundle: nil)
-        let tabViewController2 = ProfileViewController(
-            nibName:"ProfileViewController",
-            bundle: nil)
+        let homeviewcontroller = HomeViewController()
+        let tabViewController2 = ProfileViewController()
         let tabViewController3 = SignupViewController()
         
         let navi1 = UINavigationController(rootViewController: homeviewcontroller)
