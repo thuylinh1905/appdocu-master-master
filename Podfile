@@ -18,5 +18,6 @@ target 'appdocu' do
   pod 'DKImagePickerController'
   pod 'SDWebImage', '~> 5.0'
   pod 'SVProgressHUD'
+  pod 'hkAlium'
 
 end

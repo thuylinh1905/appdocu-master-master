@@ -99,9 +99,9 @@ class PostViewController: UIViewController  {
                                            let childUpdates = ["/post/\(key)": post,
                                                                "/user-posts/\(String(describing: userID))/\(key)/": post]
                                            ref.updateChildValues(childUpdates)
-                                           SVProgressHUD.showSuccess(withStatus: "Đã Upload")
-                                           let delegate = UIApplication.shared.delegate as! AppDelegate
-                                           delegate.gototabbar()
+//                                           SVProgressHUD.showSuccess(withStatus: "Đã Upload")
+//                                           let delegate = UIApplication.shared.delegate as! AppDelegate
+//                                           delegate.gototabbar()
                                        }
                                    }
                                })
@@ -109,6 +109,9 @@ class PostViewController: UIViewController  {
                        })
                    }
                }
+        let delegate = UIApplication.shared.delegate as! AppDelegate
+        delegate.gototabbar()
+        SVProgressHUD.showSuccess(withStatus: "Đã Upload")
     }
     func textview() {
         textView.text = "Bạn muốn đăng gì?"
@@ -117,55 +120,6 @@ class PostViewController: UIViewController  {
         textView.isScrollEnabled = false
         textView.delegate = self
         textView.font = UIFont.systemFont(ofSize: 20)
-    }
-    @IBAction func uploadanh(_ sender: Any) {
-        SVProgressHUD.show(withStatus: "Loading")
-        let mota = textView.text
-        let giatien = txtgiatien.text
-        let diachi = txtdiachi.text
-        let tenquan = txttenquan.text
-        let loaimon = loaidoan.titleLabel?.text
-        let ref = Database.database().reference()
-        let userID = Auth.auth().currentUser?.uid
-        guard let key = ref.child("location").child("2").childByAutoId().key else { return }
-        var post = ["uid": userID!,
-                    "mota": mota!,
-                    "loaimon" : loaimon!,
-                    "giatien": giatien!,
-                    "diachi": diachi!,
-                    "tenquan" : tenquan!] as [String: Any]
-        for i in PostViewController.imagecollection1 {
-            guard let uploadData = i.jpegData(compressionQuality: 1.0) else { return }
-            let storageRef = Storage.storage().reference(forURL: "gs://appdocu-2c67f.appspot.com")
-            let storageProfileRef = storageRef.child("imageProfile")
-            let metaData = StorageMetadata()
-            metaData.contentType = "image/jpg"
-            storageProfileRef.putData(uploadData, metadata: metaData, completion: {
-                (storagemetadata,error) in
-                if error != nil{
-                    return
-                }
-                storageProfileRef.downloadURL(completion: {
-                    (url,error) in
-                    if let ImageUrl = url?.absoluteString {
-                        let userImage = ref.child("users").child(userID!)
-                        userImage.observeSingleEvent(of: .value) { (snapshot) in
-                            let usersdic = snapshot.value as! NSDictionary
-                            post["Imageprofile"] = usersdic.value(forKey: "image")
-                            post["username"] = usersdic.value(forKey: "username")
-                            self.updateimage.append(ImageUrl)
-                            print(ImageUrl)
-                            post["image"] = self.updateimage
-                            let childUpdates = ["/post/\(key)": post,
-                                                "/user-posts/\(String(describing: userID))/\(key)/": post]
-                            ref.updateChildValues(childUpdates)
-                            print("done")
-                            SVProgressHUD.showSuccess(withStatus: "Đã Upload")
-                        }
-                    }
-                })
-            })
-        }
     }
     @IBAction func moanh(_ sender: Any) {
         let pickerController = DKImagePickerController()
@@ -183,9 +137,6 @@ class PostViewController: UIViewController  {
             }
         }
         self.present(pickerController, animated: true) {}
-    }
-    func imagecp() {
-       
     }
     @IBAction func tr(_ sender: Any) {
         self.view.addSubview(select)
@@ -221,57 +172,62 @@ class PostViewController: UIViewController  {
     }
     @objc func uploadfile(){
         SVProgressHUD.show(withStatus: "Loading...")
-        let mota = textView.text
-        let giatien = txtgiatien.text
-        let diachi = txtdiachi.text
-        let tenquan = txttenquan.text
-        let loaimon = loaidoan.titleLabel?.text
-        let ref = Database.database().reference()
-        let userID = Auth.auth().currentUser?.uid
-        guard let key = ref.child("location").child("2").childByAutoId().key else { return }
-        var post = ["uid": userID!,
-                    "mota": mota!,
-                    "loaimon" : loaimon!,
-                    "giatien": giatien!,
-                    "diachi": diachi!,
-                    "tenquan" : tenquan!] as [String: Any]
-        let childRef = ref.child("TWEETS").child(userID!).childByAutoId()
-        for i in PostViewController.imagecollection1 {
-            let storageRef = Storage.storage().reference(forURL: "gs://appdocu-2c67f.appspot.com")
-            let postRef = childRef.child("image")
-            let autoID = postRef.childByAutoId().key
-            let childStorageRef = storageRef.child("ImagePost").child(userID!).child(autoID!)
-            let tweetImage = i
-            if let uploadData = tweetImage.pngData() {
-                childStorageRef.putData(uploadData, metadata: nil, completion: {
-                    (storagemetadata,error) in
-                    if error != nil{
-                        SVProgressHUD.showError(withStatus: "Đã lỗi khi Upload bài")
-                    } else {
-                        childStorageRef.downloadURL(completion: {
-                            (url,error) in
-                            if let ImageUrl = url?.absoluteString {
-                                let userImage = ref.child("users").child(userID!)
-                                userImage.observeSingleEvent(of: .value) { (snapshot) in
-                                    let usersdic = snapshot.value as! NSDictionary
-                                    post["Imageprofile"] = usersdic.value(forKey: "image")
-                                    post["username"] = usersdic.value(forKey: "username")
-                                    self.updateimage.append(ImageUrl)
-                                    print(ImageUrl)
-                                    post["image"] = self.updateimage
-                                    let childUpdates = ["/post/\(key)": post,
-                                                        "/user-posts/\(String(describing: userID))/\(key)/": post]
-                                    ref.updateChildValues(childUpdates)
-                                    SVProgressHUD.showSuccess(withStatus: "Đã Upload")
-                                    let delegate = UIApplication.shared.delegate as! AppDelegate
-                                    delegate.gototabbar()
-                                }
-                            }
-                        })
-                    }
-                })
-            }
-        }
+                      let mota = textView.text
+                      let giatien = txtgiatien.text
+                      let diachi = txtdiachi.text
+                      let tenquan = txttenquan.text
+                      let loaimon = loaidoan.titleLabel?.text
+                      let ref = Database.database().reference()
+                      let userID = Auth.auth().currentUser?.uid
+                      guard let key = ref.child("location").child("2").childByAutoId().key else { return }
+                      var post = ["uid": userID!,
+                                  "mota": mota!,
+                                  "loaimon" : loaimon!,
+                                  "giatien": giatien!,
+                                  "diachi": diachi!,
+                                  "tenquan" : tenquan!] as [String: Any]
+                      let childRef = ref.child("TWEETS").child(userID!).childByAutoId()
+                      for i in PostViewController.imagecollection1 {
+                          let storageRef = Storage.storage().reference(forURL: "gs://appdocu-2c67f.appspot.com")
+                          let postRef = childRef.child("image")
+                          let autoID = postRef.childByAutoId().key
+                          let childStorageRef = storageRef.child("ImagePost").child(userID!).child(autoID!)
+                          let tweetImage = i
+                       let metaData = StorageMetadata()
+                       metaData.contentType = "image/jpg"
+                       if let uploadData = tweetImage.jpegData(compressionQuality: 0.7 ) {
+                              childStorageRef.putData(uploadData, metadata: metaData, completion: {
+                                  (storagemetadata,error) in
+                                  if error != nil{
+                                      SVProgressHUD.showError(withStatus: "Đã lỗi khi Upload bài")
+                                  } else {
+                                      childStorageRef.downloadURL(completion: {
+                                          (url,error) in
+                                          if let ImageUrl = url?.absoluteString {
+                                              let userImage = ref.child("users").child(userID!)
+                                              userImage.observeSingleEvent(of: .value) { (snapshot) in
+                                                  let usersdic = snapshot.value as! NSDictionary
+                                                  post["Imageprofile"] = usersdic.value(forKey: "image")
+                                                  post["username"] = usersdic.value(forKey: "username")
+                                                  self.updateimage.append(ImageUrl)
+                                                  print(ImageUrl)
+                                                  post["image"] = self.updateimage
+                                                  let childUpdates = ["/post/\(key)": post,
+                                                                      "/user-posts/\(String(describing: userID))/\(key)/": post]
+                                                  ref.updateChildValues(childUpdates)
+       //                                           SVProgressHUD.showSuccess(withStatus: "Đã Upload")
+       //                                           let delegate = UIApplication.shared.delegate as! AppDelegate
+       //                                           delegate.gototabbar()
+                                              }
+                                          }
+                                      })
+                                  }
+                              })
+                          }
+                      }
+               let delegate = UIApplication.shared.delegate as! AppDelegate
+               delegate.gototabbar()
+               SVProgressHUD.showSuccess(withStatus: "Đã Upload")
     }
     func alert(thongbao : String) {
         let alert = UIAlertController(title: "thong bao", message: thongbao, preferredStyle: .actionSheet)

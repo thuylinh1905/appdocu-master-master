@@ -13,7 +13,7 @@
                 <outlet property="imageprofile" destination="YNC-lv-fIm" id="ETs-e0-m6E"/>
                 <outlet property="mota" destination="1w0-5c-GHR" id="g2B-jV-oYD"/>
                 <outlet property="username" destination="8fS-z3-cns" id="Gxy-6l-gfs"/>
-                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="qnz-Zo-FFg"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -78,14 +78,6 @@
                                         <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                     </collectionViewFlowLayout>
                                 </collectionView>
-                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Nhập nhận xet" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zNS-3a-vIi">
-                                    <rect key="frame" x="50" y="862" width="314" height="34"/>
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="34" id="qZL-kg-G4b"/>
-                                    </constraints>
-                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                    <textInputTraits key="textInputTraits"/>
-                                </textField>
                             </subviews>
                             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             <constraints>
@@ -96,14 +88,10 @@
                                 <constraint firstItem="1w0-5c-GHR" firstAttribute="leading" secondItem="qcp-IW-gGB" secondAttribute="leading" constant="10" id="G1J-e7-nvI"/>
                                 <constraint firstAttribute="trailing" secondItem="1w0-5c-GHR" secondAttribute="trailing" constant="10" id="H0g-b3-5Rc"/>
                                 <constraint firstItem="FwO-te-OtP" firstAttribute="centerX" secondItem="qcp-IW-gGB" secondAttribute="centerX" id="MRJ-vL-Wbi"/>
-                                <constraint firstAttribute="trailing" secondItem="zNS-3a-vIi" secondAttribute="trailing" constant="50" id="Oln-52-6Me"/>
-                                <constraint firstAttribute="bottom" secondItem="zNS-3a-vIi" secondAttribute="bottom" constant="10" id="T4T-q8-pjL"/>
                                 <constraint firstAttribute="trailing" secondItem="FwO-te-OtP" secondAttribute="trailing" constant="10" id="TkU-XO-C0w"/>
-                                <constraint firstItem="zNS-3a-vIi" firstAttribute="centerX" secondItem="qcp-IW-gGB" secondAttribute="centerX" id="kRa-08-yEW"/>
                                 <constraint firstItem="FwO-te-OtP" firstAttribute="leading" secondItem="qcp-IW-gGB" secondAttribute="leading" constant="10" id="m9D-mW-Mxv"/>
                                 <constraint firstAttribute="trailing" secondItem="eEV-aO-xGj" secondAttribute="trailing" constant="10" id="mij-WW-TCT"/>
                                 <constraint firstItem="1w0-5c-GHR" firstAttribute="centerX" secondItem="qcp-IW-gGB" secondAttribute="centerX" id="qug-6c-IC3"/>
-                                <constraint firstItem="zNS-3a-vIi" firstAttribute="leading" secondItem="qcp-IW-gGB" secondAttribute="leading" constant="50" id="vcD-ps-gZb"/>
                                 <constraint firstItem="eEV-aO-xGj" firstAttribute="centerX" secondItem="qcp-IW-gGB" secondAttribute="centerX" id="wKJ-fr-zfq"/>
                             </constraints>
                         </view>

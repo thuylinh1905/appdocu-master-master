@@ -387,6 +387,7 @@ PODS:
     - gRPC-Core/Interface (= 1.28.2)
   - gRPC-Core/Interface (1.28.2)
   - GTMSessionFetcher/Core (1.4.0)
+  - hkAlium (1.0.4)
   - Kingfisher (4.10.1)
   - leveldb-library (1.22)
   - nanopb (1.30905.0):
@@ -410,6 +411,7 @@ DEPENDENCIES:
   - Firebase/Firestore
   - Firebase/Storage
   - GoogleAppMeasurement (~> 6.6.1)
+  - hkAlium
   - Kingfisher (~> 4.0)
   - SDWebImage (~> 5.0)
   - SVProgressHUD
@@ -438,6 +440,7 @@ SPEC REPOS:
     - "gRPC-C++"
     - gRPC-Core
     - GTMSessionFetcher
+    - hkAlium
     - Kingfisher
     - leveldb-library
     - nanopb
@@ -469,6 +472,7 @@ SPEC CHECKSUMS:
   "gRPC-C++": 13d8ccef97d5c3c441b7e3c529ef28ebee86fad2
   gRPC-Core: 4afa11bfbedf7cdecd04de535a9e046893404ed5
   GTMSessionFetcher: 6f5c8abbab8a9bce4bb3f057e317728ec6182b10
+  hkAlium: f45d32ef3abec16a12826212202a9b25b97d26df
   Kingfisher: c148cd7b47ebde9989f6bc7c27dcaa79d81279a0
   leveldb-library: 55d93ee664b4007aac644a782d11da33fba316f7
   nanopb: c43f40fadfe79e8b8db116583945847910cbabc9
@@ -477,6 +481,6 @@ SPEC CHECKSUMS:
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   SwiftyGif: e466e86c660d343357ab944a819a101c4127cb40
 
-PODFILE CHECKSUM: 04f8bf290ec363134cb41d0068f52b79fa847dd6
+PODFILE CHECKSUM: 20d5ba6b62fa098ea365a133bd453ce54cb3306d
 
 COCOAPODS: 1.9.3

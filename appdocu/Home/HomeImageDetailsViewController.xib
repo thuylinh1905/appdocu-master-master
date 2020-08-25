@@ -20,11 +20,8 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" indicatorStyle="white" canCancelContentTouches="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="AMU-k5-xqk">
-                    <rect key="frame" x="0.0" y="303" width="414" height="300"/>
+                    <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                     <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="300" id="kmB-xo-Awb"/>
-                    </constraints>
                     <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="8Vd-w0-EPE">
                         <size key="itemSize" width="128" height="128"/>
                         <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -39,10 +36,12 @@
             </subviews>
             <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
             <constraints>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="AMU-k5-xqk" secondAttribute="trailing" id="705-JL-cMr"/>
-                <constraint firstItem="AMU-k5-xqk" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="JGU-YS-slx"/>
-                <constraint firstItem="AMU-k5-xqk" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="QKC-VE-wed"/>
-                <constraint firstItem="AMU-k5-xqk" firstAttribute="centerY" secondItem="fnl-2z-Ty3" secondAttribute="centerY" id="oEj-Hq-j94"/>
+                <constraint firstItem="AMU-k5-xqk" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="3gH-Sn-Nb0"/>
+                <constraint firstItem="AMU-k5-xqk" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="3uy-14-8ig"/>
+                <constraint firstItem="AMU-k5-xqk" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="Kv4-K5-LVR"/>
+                <constraint firstItem="AMU-k5-xqk" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="TaS-j1-Srv"/>
+                <constraint firstItem="AMU-k5-xqk" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="Vam-mH-360"/>
+                <constraint firstItem="AMU-k5-xqk" firstAttribute="centerY" secondItem="fnl-2z-Ty3" secondAttribute="centerY" id="f4Q-EA-Mv7"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <point key="canvasLocation" x="133" y="102"/>

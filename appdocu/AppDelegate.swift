@@ -24,9 +24,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.makeKeyAndVisible()
         return true
     }
-    func gotoHome22() {
-        UIView.transition(with: self.window!, duration: 0.3, options: UIView.AnimationOptions.transitionCrossDissolve, animations: {
-            let viewController = LaucherAppViewController()
+    func homedetails() {
+        UIView.transition(with: self.window!, duration: 0.3, options: .transitionCurlDown, animations: {
+            let viewController = HomeImageDetailsViewController()
             let navigationController = UINavigationController(rootViewController: viewController)
             self.window?.rootViewController = navigationController
         }, completion: nil)
@@ -113,6 +113,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         navi4.tabBarItem = UITabBarItem(title: nil, image: UIImage(named: "nofi1"), tag: 4)
         self.window?.rootViewController = tabBarController
     }
-
+    func gototabbar1() {
+        let tabBarController = UITabBarController()
+        let homeviewcontroller = HomeDetailViewController()
+        let tabViewController2 = ProfileViewController()
+        
+        let navi1 = UINavigationController(rootViewController: homeviewcontroller)
+        let navi2 = UINavigationController(rootViewController: tabViewController2)
+        
+        navi1.navigationBar.isTranslucent = false
+        navi2.navigationBar.isTranslucent = true
+        
+        
+        
+        let controllers = [navi1,navi2]
+        tabBarController.viewControllers = controllers
+        
+        navi1.tabBarItem = UITabBarItem(
+            title: "",
+            image: UIImage(named: "home1"),
+            tag: 1)
+        navi2.tabBarItem = UITabBarItem(title: "", image: UIImage(named: "chat1"), tag: 2)
+        self.window?.rootViewController = tabBarController
+    }
 }
 

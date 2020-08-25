@@ -8,7 +8,6 @@ class HomeImageDetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.hidenavi()
-//        tabBarController?.tabBar.isHidden = true
         imagecollection.delegate = self
         imagecollection.dataSource = self
         imagecollection.register(UINib(nibName: "ImageDetailsCollectionViewCell", bundle: .main), forCellWithReuseIdentifier: "imagecollection")
@@ -24,6 +23,9 @@ extension HomeImageDetailsViewController : UICollectionViewDelegate , UICollecti
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: collectionView.frame.size.width, height:  collectionView.frame.size.height)
+        return CGSize(width: view.frame.size.width, height: view.frame.size.height)
+    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
     }
 }

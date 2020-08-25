@@ -19,25 +19,6 @@ struct menuhome {
         self.image = image
     }
 }
-struct NewFeedDetail {
-    var diachi : String
-    var giatien : String
-    var mota : String
-    var tenquan : String
-    var username : String!
-    var imageprofile : String!
-    var image : [String]!
-    
-    init(diachi : String , giatien : String, mota : String, tenquan : String, username : String , image : [String], imageprofile : String) {
-        self.diachi = diachi
-        self.giatien = giatien
-        self.mota = mota
-        self.tenquan = tenquan
-        self.username = username
-        self.image = image
-        self.imageprofile = imageprofile
-    }
-}
 class HomeViewController: UIViewController {
     
     @IBOutlet weak var collectionview : UICollectionView!
@@ -51,6 +32,12 @@ class HomeViewController: UIViewController {
     var image01 : [String] = []
     @IBOutlet weak var anhtest: UIImageView!
     @IBOutlet weak var imagezoom: UIImageView!
+    
+//    override func viewWillAppear(_ animated: Bool) {
+//        super.viewWillAppear(animated)
+//
+//        self.tabBarController?.tabBar.isHidden = false
+//    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -85,7 +72,6 @@ class HomeViewController: UIViewController {
         
         self.navigationItem.rightBarButtonItem = leftBarButton1
         
-        
         let butmess = UIButton()
         butmess.setImage(UIImage(named: "upload"), for: .normal)
         butmess.addTarget(self, action: #selector(upload), for: .touchUpInside)
@@ -105,14 +91,12 @@ extension HomeViewController :UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return array.count
     }
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "tableview", for: indexPath) as! HomeTableViewCell
         cell.truyenve(Newfeed: array[indexPath.row])
         cell.viewContro = self
         return cell
     }
-    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath) as! HomeTableViewCell
         tableView.cellForRow(at: indexPath)?.setSelected(false, animated: true)
@@ -124,8 +108,11 @@ extension HomeViewController :UITableViewDelegate, UITableViewDataSource {
         let image = cell.newFeed.image!
         let imageprofile = cell.newFeed.imageprofile
         let NewFeed = NewFeedDetail(diachi: diachi, giatien: giatien, mota: mota, tenquan: tenquan, username: username, image: image, imageprofile: imageprofile!)
-        let homeDetailViewcontroller = HomeDetailViewController()
+        let homeDetailViewcontroller = HomeDetailsViewController()
         homeDetailViewcontroller.NewFeedDetails = NewFeed
+        homeDetailViewcontroller.hidesBottomBarWhenPushed = true
         self.navigationController?.pushViewController(homeDetailViewcontroller , animated: true)
+//        let deleget = UIApplication.shared.delegate as! AppDelegate
+//        deleget.gototabbar1()
     }
 }

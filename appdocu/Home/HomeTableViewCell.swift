@@ -41,8 +41,15 @@ extension HomeTableViewCell : UICollectionViewDelegate, UICollectionViewDataSour
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let transition = CATransition()
+        transition.duration = 0.5
+        transition.timingFunction = CAMediaTimingFunction(name: .easeInEaseOut)
+        transition.type = .fade
+        transition.subtype = .fromBottom
         let homeImageDetails = HomeImageDetailsViewController()
         homeImageDetails.new = newFeed.image
-        viewContro?.navigationController?.pushViewController(homeImageDetails, animated: true)
+        viewContro?.navigationController?.view.layer.add(transition, forKey: kCATransition)
+        homeImageDetails.hidesBottomBarWhenPushed = true
+        viewContro?.navigationController?.pushViewController(homeImageDetails, animated: false)
     }
 }

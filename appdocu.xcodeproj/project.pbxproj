@@ -24,6 +24,12 @@
 		743877F524E76FDF00FC2E7E /* HomeDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 743877F324E76FDF00FC2E7E /* HomeDetailViewController.xib */; };
 		743BF52324DEDCB700DB28F6 /* CollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 743BF52124DEDCB600DB28F6 /* CollectionViewCell.xib */; };
 		743BF52424DEDCB700DB28F6 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743BF52224DEDCB600DB28F6 /* CollectionViewCell.swift */; };
+		7440671B24F35D3000F9EE5C /* HomeDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7440671924F35D3000F9EE5C /* HomeDetailsViewController.swift */; };
+		7440671C24F35D3000F9EE5C /* HomeDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7440671A24F35D3000F9EE5C /* HomeDetailsViewController.xib */; };
+		7440671F24F35DBD00F9EE5C /* HomeDetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7440671D24F35DBD00F9EE5C /* HomeDetailsTableViewCell.swift */; };
+		7440672024F35DBD00F9EE5C /* HomeDetailsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7440671E24F35DBD00F9EE5C /* HomeDetailsTableViewCell.xib */; };
+		7440672324F36E3200F9EE5C /* HomeDetailsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7440672124F36E3200F9EE5C /* HomeDetailsCollectionViewCell.swift */; };
+		7440672424F36E3200F9EE5C /* HomeDetailsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7440672224F36E3200F9EE5C /* HomeDetailsCollectionViewCell.xib */; };
 		7444090024E14DA900CD5BB4 /* MenuModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 744408FF24E14DA900CD5BB4 /* MenuModel.swift */; };
 		744A8B2424E5CEB900F0F936 /* LaucherAppViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 744A8B2224E5CEB900F0F936 /* LaucherAppViewController.swift */; };
 		744A8B2524E5CEB900F0F936 /* LaucherAppViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 744A8B2324E5CEB900F0F936 /* LaucherAppViewController.xib */; };
@@ -51,8 +57,13 @@
 		74C2E50124D56BD700979937 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74C2E4FF24D56BD700979937 /* PostViewController.swift */; };
 		74C2E50224D56BD700979937 /* PostViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 74C2E50024D56BD700979937 /* PostViewController.xib */; };
 		74D0788224B5F6CF00D17AFF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 74D0788124B5F6CF00D17AFF /* GoogleService-Info.plist */; };
+		74DFC42E24F5037F009E99CC /* MotaTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74DFC42C24F5037F009E99CC /* MotaTableViewCell.swift */; };
+		74DFC42F24F5037F009E99CC /* MotaTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 74DFC42D24F5037F009E99CC /* MotaTableViewCell.xib */; };
+		74DFC43224F5598E009E99CC /* HomedetailsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74DFC43024F5598E009E99CC /* HomedetailsTableViewController.swift */; };
+		74DFC43324F5598E009E99CC /* HomedetailsTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 74DFC43124F5598E009E99CC /* HomedetailsTableViewController.xib */; };
 		74ECF70724BC79B200D98BB3 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74ECF70524BC79B200D98BB3 /* ProfileViewController.swift */; };
 		74ECF70824BC79B200D98BB3 /* ProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 74ECF70624BC79B200D98BB3 /* ProfileViewController.xib */; };
+		74FE8B5924F15A290086D1FE /* NewFeedDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74FE8B5824F15A290086D1FE /* NewFeedDetail.swift */; };
 		CE0496E87A6F33897E68F8E6 /* Pods_appdocu.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECACAF2929CDCC5FED7ABBC0 /* Pods_appdocu.framework */; };
 /* End PBXBuildFile section */
 
@@ -76,6 +87,12 @@
 		743877F324E76FDF00FC2E7E /* HomeDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeDetailViewController.xib; sourceTree = "<group>"; };
 		743BF52124DEDCB600DB28F6 /* CollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CollectionViewCell.xib; sourceTree = "<group>"; };
 		743BF52224DEDCB600DB28F6 /* CollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
+		7440671924F35D3000F9EE5C /* HomeDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDetailsViewController.swift; sourceTree = "<group>"; };
+		7440671A24F35D3000F9EE5C /* HomeDetailsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeDetailsViewController.xib; sourceTree = "<group>"; };
+		7440671D24F35DBD00F9EE5C /* HomeDetailsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDetailsTableViewCell.swift; sourceTree = "<group>"; };
+		7440671E24F35DBD00F9EE5C /* HomeDetailsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeDetailsTableViewCell.xib; sourceTree = "<group>"; };
+		7440672124F36E3200F9EE5C /* HomeDetailsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDetailsCollectionViewCell.swift; sourceTree = "<group>"; };
+		7440672224F36E3200F9EE5C /* HomeDetailsCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeDetailsCollectionViewCell.xib; sourceTree = "<group>"; };
 		744408FF24E14DA900CD5BB4 /* MenuModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuModel.swift; sourceTree = "<group>"; };
 		744A8B2224E5CEB900F0F936 /* LaucherAppViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaucherAppViewController.swift; sourceTree = "<group>"; };
 		744A8B2324E5CEB900F0F936 /* LaucherAppViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LaucherAppViewController.xib; sourceTree = "<group>"; };
@@ -105,8 +122,13 @@
 		74C2E4FF24D56BD700979937 /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
 		74C2E50024D56BD700979937 /* PostViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostViewController.xib; sourceTree = "<group>"; };
 		74D0788124B5F6CF00D17AFF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		74DFC42C24F5037F009E99CC /* MotaTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotaTableViewCell.swift; sourceTree = "<group>"; };
+		74DFC42D24F5037F009E99CC /* MotaTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MotaTableViewCell.xib; sourceTree = "<group>"; };
+		74DFC43024F5598E009E99CC /* HomedetailsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomedetailsTableViewController.swift; sourceTree = "<group>"; };
+		74DFC43124F5598E009E99CC /* HomedetailsTableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomedetailsTableViewController.xib; sourceTree = "<group>"; };
 		74ECF70524BC79B200D98BB3 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		74ECF70624BC79B200D98BB3 /* ProfileViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileViewController.xib; sourceTree = "<group>"; };
+		74FE8B5824F15A290086D1FE /* NewFeedDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewFeedDetail.swift; sourceTree = "<group>"; };
 		ECACAF2929CDCC5FED7ABBC0 /* Pods_appdocu.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_appdocu.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -122,6 +144,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7440671824F35D1400F9EE5C /* Details */ = {
+			isa = PBXGroup;
+			children = (
+				7440671924F35D3000F9EE5C /* HomeDetailsViewController.swift */,
+				7440671A24F35D3000F9EE5C /* HomeDetailsViewController.xib */,
+				7440671D24F35DBD00F9EE5C /* HomeDetailsTableViewCell.swift */,
+				7440671E24F35DBD00F9EE5C /* HomeDetailsTableViewCell.xib */,
+				7440672124F36E3200F9EE5C /* HomeDetailsCollectionViewCell.swift */,
+				7440672224F36E3200F9EE5C /* HomeDetailsCollectionViewCell.xib */,
+				74DFC42C24F5037F009E99CC /* MotaTableViewCell.swift */,
+				74DFC42D24F5037F009E99CC /* MotaTableViewCell.xib */,
+				74DFC43024F5598E009E99CC /* HomedetailsTableViewController.swift */,
+				74DFC43124F5598E009E99CC /* HomedetailsTableViewController.xib */,
+			);
+			path = Details;
+			sourceTree = "<group>";
+		};
 		744408F724E12F9C00CD5BB4 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -129,6 +168,7 @@
 				742CE86024E00DDF00E5F002 /* NewFeedModel.swift */,
 				744408FF24E14DA900CD5BB4 /* MenuModel.swift */,
 				7416AF5924E418600021AD1E /* NewFeedmodel1.swift */,
+				74FE8B5824F15A290086D1FE /* NewFeedDetail.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -185,6 +225,7 @@
 				7492B4C424EB900B00801105 /* Profile */,
 				7492B4C524EB905C00801105 /* Post */,
 				7492B4C324EB8DE400801105 /* Home */,
+				7440671824F35D1400F9EE5C /* Details */,
 				74BB850B24CBE01A009B2DCF /* Assets.xcassets */,
 				7464D3AE24B5E56C00347356 /* AppDelegate.swift */,
 				7464D3B224B5E56C00347356 /* ViewController.swift */,
@@ -199,14 +240,14 @@
 		7492B4C324EB8DE400801105 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				743877F324E76FDF00FC2E7E /* HomeDetailViewController.xib */,
-				742CE86324E018F900E5F002 /* HomeTableViewCell.xib */,
-				7455362324CB2128002741EC /* HomeViewController.xib */,
-				743807D824E27950002A3A72 /* HomeNewFeedCollectionViewCell.xib */,
 				742CE86224E018F900E5F002 /* HomeTableViewCell.swift */,
+				742CE86324E018F900E5F002 /* HomeTableViewCell.xib */,
 				743807D724E27950002A3A72 /* HomeNewFeedCollectionViewCell.swift */,
+				743807D824E27950002A3A72 /* HomeNewFeedCollectionViewCell.xib */,
 				7455362224CB2128002741EC /* HomeViewController.swift */,
+				7455362324CB2128002741EC /* HomeViewController.xib */,
 				743877F224E76FDF00FC2E7E /* HomeDetailViewController.swift */,
+				743877F324E76FDF00FC2E7E /* HomeDetailViewController.xib */,
 				749BDD5024EBC87B00FEE2E8 /* HomeImageDetailsViewController.swift */,
 				749BDD5124EBC87B00FEE2E8 /* HomeImageDetailsViewController.xib */,
 				749BDD5424EBCC5F00FEE2E8 /* ImageDetailsCollectionViewCell.swift */,
@@ -327,6 +368,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7440672424F36E3200F9EE5C /* HomeDetailsCollectionViewCell.xib in Resources */,
+				7440671C24F35D3000F9EE5C /* HomeDetailsViewController.xib in Resources */,
 				743807DA24E27950002A3A72 /* HomeNewFeedCollectionViewCell.xib in Resources */,
 				744ED17724E5772300DE6084 /* KeyBoardView.xib in Resources */,
 				74ECF70824BC79B200D98BB3 /* ProfileViewController.xib in Resources */,
@@ -343,11 +386,14 @@
 				74D0788224B5F6CF00D17AFF /* GoogleService-Info.plist in Resources */,
 				742CE86524E018F900E5F002 /* HomeTableViewCell.xib in Resources */,
 				7411595124EEEC1100B22BDA /* MenuUserProfileTableViewCell.xib in Resources */,
+				7440672024F35DBD00F9EE5C /* HomeDetailsTableViewCell.xib in Resources */,
 				7469182324D85D1100F75534 /* FoodTableViewCell.xib in Resources */,
 				749BDD5724EBCC5F00FEE2E8 /* ImageDetailsCollectionViewCell.xib in Resources */,
 				7411594D24EEDCF800B22BDA /* UserProfileViewController.xib in Resources */,
 				74BB850C24CBE01B009B2DCF /* Assets.xcassets in Resources */,
 				7455362524CB2128002741EC /* HomeViewController.xib in Resources */,
+				74DFC42F24F5037F009E99CC /* MotaTableViewCell.xib in Resources */,
+				74DFC43324F5598E009E99CC /* HomedetailsTableViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -402,25 +448,31 @@
 			files = (
 				742CE86124E00DDF00E5F002 /* NewFeedModel.swift in Sources */,
 				7469182224D85D1100F75534 /* FoodTableViewCell.swift in Sources */,
+				7440671B24F35D3000F9EE5C /* HomeDetailsViewController.swift in Sources */,
 				7464D3CD24B5F3B000347356 /* SignupViewController.swift in Sources */,
 				7464D3C524B5E65000347356 /* LoginViewController.swift in Sources */,
 				741A67AB24BDDCCF000CD51F /* UserModel.swift in Sources */,
 				744A8B2424E5CEB900F0F936 /* LaucherAppViewController.swift in Sources */,
+				7440672324F36E3200F9EE5C /* HomeDetailsCollectionViewCell.swift in Sources */,
 				7444090024E14DA900CD5BB4 /* MenuModel.swift in Sources */,
 				7411595024EEEC1100B22BDA /* MenuUserProfileTableViewCell.swift in Sources */,
 				7464D3B324B5E56C00347356 /* ViewController.swift in Sources */,
 				7411594C24EEDCF800B22BDA /* UserProfileViewController.swift in Sources */,
 				742CE86424E018F900E5F002 /* HomeTableViewCell.swift in Sources */,
+				74DFC43224F5598E009E99CC /* HomedetailsTableViewController.swift in Sources */,
 				74C2E50124D56BD700979937 /* PostViewController.swift in Sources */,
 				749BDD5224EBC87B00FEE2E8 /* HomeImageDetailsViewController.swift in Sources */,
 				749BDD5624EBCC5F00FEE2E8 /* ImageDetailsCollectionViewCell.swift in Sources */,
 				744ED17924E5774700DE6084 /* KeyBoardView.swift in Sources */,
+				74FE8B5924F15A290086D1FE /* NewFeedDetail.swift in Sources */,
 				7464D3AF24B5E56C00347356 /* AppDelegate.swift in Sources */,
 				743877F424E76FDF00FC2E7E /* HomeDetailViewController.swift in Sources */,
+				74DFC42E24F5037F009E99CC /* MotaTableViewCell.swift in Sources */,
 				743BF52424DEDCB700DB28F6 /* CollectionViewCell.swift in Sources */,
 				743807D924E27950002A3A72 /* HomeNewFeedCollectionViewCell.swift in Sources */,
 				7455362424CB2128002741EC /* HomeViewController.swift in Sources */,
 				7416AF5A24E418600021AD1E /* NewFeedmodel1.swift in Sources */,
+				7440671F24F35DBD00F9EE5C /* HomeDetailsTableViewCell.swift in Sources */,
 				74ECF70724BC79B200D98BB3 /* ProfileViewController.swift in Sources */,
 				7464D3C824B5F01500347356 /* Utilities.swift in Sources */,
 				7416AF5524E402C70021AD1E /* testViewController.swift in Sources */,
