@@ -53,9 +53,6 @@ extension HomeDetailsViewController : UITableViewDelegate , UITableViewDataSourc
             print(cell)
             return cell
     }
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        <#code#>
-    }
     
 }
 extension HomeDetailsViewController : UICollectionViewDataSource , UICollectionViewDelegate , UICollectionViewDelegateFlowLayout {

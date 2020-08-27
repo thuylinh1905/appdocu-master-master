@@ -83,8 +83,8 @@ class HomeViewController: UIViewController {
     @objc func gotosearch(){
     }
     @objc func upload(){
-        let dellegate = UIApplication.shared.delegate as! AppDelegate
-        dellegate.gotoupload()
+        let post = PostrecipeViewController()
+        self.navigationController?.pushViewController(post, animated: true)
     }
 }
 extension HomeViewController :UITableViewDelegate, UITableViewDataSource {
