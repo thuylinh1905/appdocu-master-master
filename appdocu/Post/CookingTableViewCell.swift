@@ -23,4 +23,6 @@ class CookingTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    @IBAction func deleterow(_ sender: Any) {
+    }
 }

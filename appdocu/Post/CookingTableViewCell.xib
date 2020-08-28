@@ -18,7 +18,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cWP-Bx-DiG">
-                        <rect key="frame" x="30" y="0.0" width="290" height="44"/>
+                        <rect key="frame" x="30" y="0.0" width="260" height="44"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -32,20 +32,34 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uTC-8w-9nG">
+                        <rect key="frame" x="290" y="8" width="30" height="28"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="30" id="yqa-Hk-2Uo"/>
+                        </constraints>
+                        <state key="normal" image="ximage"/>
+                        <connections>
+                            <action selector="deleterow:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="91f-pw-OZZ"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="uTC-8w-9nG" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="2Ju-t3-9KN"/>
                     <constraint firstAttribute="bottom" secondItem="hCK-fs-RdJ" secondAttribute="bottom" id="510-iV-kNA"/>
-                    <constraint firstItem="cWP-Bx-DiG" firstAttribute="leading" secondItem="hCK-fs-RdJ" secondAttribute="trailing" id="AHI-Xw-qSl"/>
+                    <constraint firstItem="cWP-Bx-DiG" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="8eh-ac-ePJ"/>
                     <constraint firstItem="hCK-fs-RdJ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="BxL-VP-9NA"/>
-                    <constraint firstItem="cWP-Bx-DiG" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="GaU-7i-sH0"/>
+                    <constraint firstItem="cWP-Bx-DiG" firstAttribute="leading" secondItem="hCK-fs-RdJ" secondAttribute="trailing" id="HmF-6v-QLe"/>
+                    <constraint firstAttribute="trailing" secondItem="uTC-8w-9nG" secondAttribute="trailing" id="JSm-DX-twm"/>
+                    <constraint firstAttribute="bottom" secondItem="uTC-8w-9nG" secondAttribute="bottom" constant="8" id="RN7-vE-9NT"/>
+                    <constraint firstItem="uTC-8w-9nG" firstAttribute="leading" secondItem="cWP-Bx-DiG" secondAttribute="trailing" id="Y9Z-5e-jme"/>
                     <constraint firstItem="hCK-fs-RdJ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="Z7y-pB-nET"/>
-                    <constraint firstAttribute="bottom" secondItem="cWP-Bx-DiG" secondAttribute="bottom" id="c3f-Cx-zGo"/>
-                    <constraint firstAttribute="trailing" secondItem="cWP-Bx-DiG" secondAttribute="trailing" id="viT-pn-kHT"/>
+                    <constraint firstItem="cWP-Bx-DiG" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="pj7-cB-kMs"/>
+                    <constraint firstAttribute="bottom" secondItem="cWP-Bx-DiG" secondAttribute="bottom" id="wFH-Ot-G6R"/>
+                    <constraint firstItem="uTC-8w-9nG" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="y8C-cb-oZw"/>
                 </constraints>
             </tableViewCellContentView>
             <constraints>
                 <constraint firstItem="hCK-fs-RdJ" firstAttribute="centerY" secondItem="njF-e1-oar" secondAttribute="centerY" id="Vsb-yW-k0r"/>
-                <constraint firstItem="cWP-Bx-DiG" firstAttribute="centerY" secondItem="njF-e1-oar" secondAttribute="centerY" id="iof-ts-k0h"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
@@ -55,4 +69,7 @@
             <point key="canvasLocation" x="131.8840579710145" y="109.82142857142857"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="ximage" width="50" height="50"/>
+    </resources>
 </document>

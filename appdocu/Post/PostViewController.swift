@@ -320,12 +320,6 @@ extension PostViewController {
         }
         self.present(pickerController, animated: true) {}
     }
-//    @IBOutlet weak var tencongthuc: UITextView!
-//      @IBOutlet weak var motacongthuc : UITextView!
-//      @IBOutlet weak var nguyenlieutext: UITextView!
-//      @IBOutlet weak var congthuctext: UITextView!
-//      @IBOutlet weak var txtkhauphan: UITextField!
-//      @IBOutlet weak var txtthoigiannau: UITextField!
     @IBAction func hihi(_ sender: Any) {
         SVProgressHUD.show(withStatus: "Loading...")
         let tencongthuc1 = tencongthuc.text
@@ -371,9 +365,6 @@ extension PostViewController {
                                     let childUpdates = ["/NewPeedPost/\(key)": post,
                                                         "/user-NewPeedPost/\(String(describing: userID))/\(key)/": post]
                                     ref.updateChildValues(childUpdates)
-                                    //                                           SVProgressHUD.showSuccess(withStatus: "Đã Upload")
-                                    //                                           let delegate = UIApplication.shared.delegate as! AppDelegate
-                                    //                                           delegate.gototabbar()
                                 }
                             }
                         })

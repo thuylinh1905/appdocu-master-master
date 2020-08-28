@@ -38,13 +38,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             self.window?.rootViewController = navigationController
         }, completion: nil)
     }
-    func gotoHomedetail() {
-        UIView.transition(with: self.window!, duration: 0.3, options: UIView.AnimationOptions.transitionCrossDissolve, animations: {
-            let viewController = HomeDetailViewController()
-            let navigationController = UINavigationController(rootViewController: viewController)
-            self.window?.rootViewController = navigationController
-        }, completion: nil)
-    }
 
     
     func gotoOnboarding() {
@@ -88,11 +81,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let homeviewcontroller = HomeViewController()
         let tabViewController2 = PostViewController()
         let tabViewController3 = ProfileViewController()
+         let tabViewController4 = SignupViewController()
         
         let navi1 = UINavigationController(rootViewController: homeviewcontroller)
         let navi2 = UINavigationController(rootViewController: tabViewController2)
         let navi3 = UINavigationController(rootViewController: tabViewController3)
-        let navi4 = UINavigationController(rootViewController: tabViewController3)
+        let navi4 = UINavigationController(rootViewController: tabViewController4)
         
         navi1.navigationBar.isTranslucent = false
         navi2.navigationBar.isTranslucent = true
@@ -111,29 +105,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         navi2.tabBarItem = UITabBarItem(title: "", image: UIImage(named: "upload"), tag: 2)
         navi3.tabBarItem = UITabBarItem(title: "", image: UIImage(named: "user1"), tag: 3)
         navi4.tabBarItem = UITabBarItem(title: nil, image: UIImage(named: "nofi1"), tag: 4)
-        self.window?.rootViewController = tabBarController
-    }
-    func gototabbar1() {
-        let tabBarController = UITabBarController()
-        let homeviewcontroller = HomeDetailViewController()
-        let tabViewController2 = ProfileViewController()
-        
-        let navi1 = UINavigationController(rootViewController: homeviewcontroller)
-        let navi2 = UINavigationController(rootViewController: tabViewController2)
-        
-        navi1.navigationBar.isTranslucent = false
-        navi2.navigationBar.isTranslucent = true
-        
-        
-        
-        let controllers = [navi1,navi2]
-        tabBarController.viewControllers = controllers
-        
-        navi1.tabBarItem = UITabBarItem(
-            title: "",
-            image: UIImage(named: "home1"),
-            tag: 1)
-        navi2.tabBarItem = UITabBarItem(title: "", image: UIImage(named: "chat1"), tag: 2)
         self.window?.rootViewController = tabBarController
     }
 }

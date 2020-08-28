@@ -85,8 +85,6 @@ class HomeViewController: UIViewController {
     @objc func gotosearch(){
     }
     @objc func upload(){
-        let post = PostrecipeViewController()
-        self.navigationController?.pushViewController(post, animated: true)
     }
 }
 extension HomeViewController :UITableViewDelegate, UITableViewDataSource {
@@ -99,15 +97,6 @@ extension HomeViewController :UITableViewDelegate, UITableViewDataSource {
         cell.viewContro = self
         return cell
     }
-//    let tencongthuc = dic["tencongthuc"] as! String
-//                   let motacongthuc = dic["motacongthuc"] as! String
-//                   let khauphan = dic["khauphan"] as! String
-//                   let thoigiannau = dic["thoigiannau"] as! String
-//                   let nguyenlieu = dic["nguyenlieu"] as! [String]
-//                   let congthuc = dic["congthucnau"] as! [String]
-//                   let username = dic["username"] as! String
-//                   let imageprofile = dic["Imageprofile"] as! String
-//                   let image =  dic["image"] as! [String]
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath) as! HomeTableViewCell
         tableView.cellForRow(at: indexPath)?.setSelected(false, animated: true)
