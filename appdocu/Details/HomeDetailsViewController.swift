@@ -27,11 +27,10 @@ class HomeDetailsViewController: UIViewController {
         tableview.tableHeaderView = view1
         truyenve()
         tableview.register(UINib(nibName: "HomeDetailsTableViewCell", bundle: .main), forCellReuseIdentifier: "homedetails")
-//        collectionview.register(UINib(nibName: "HomeDetailsCollectionViewCell", bundle: .main), forCellWithReuseIdentifier: "collectionviewdetails")
+        collectionview.register(UINib(nibName: "HomeDetailsCollectionViewCell", bundle: .main), forCellWithReuseIdentifier: "collectionviewdetails")
 //        sizeHeaderToFit()
-        mota1 = NewFeedDetails.mota
-        mang = ["adGHAdjgasd", "dahgjhgdjagd", "áhgdjagsdj"]
-        mota.text = NewFeedDetails.mota
+        mota1 = NewFeedDetails.tencongthuc
+        mota.text = NewFeedDetails.motacongthuc
         mota.sizeToFit()
         view1.frame.size.height = mota.frame.size.height + 300
     }

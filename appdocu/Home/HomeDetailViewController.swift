@@ -17,7 +17,7 @@ class HomeDetailViewController: UIViewController {
         truyenve()
     }
     func truyenve() {
-        mota.text = NewFeedDetails.mota
+        mota.text = NewFeedDetails.motacongthuc
         username.text = NewFeedDetails.username
         KingfisherManager.shared.retrieveImage(with: URL(string: NewFeedDetails.imageprofile)! as Resource, options: nil, progressBlock: nil) { (image, error, cache, url) in
             self.imageprofile.image = image

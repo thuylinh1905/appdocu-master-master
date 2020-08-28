@@ -32,10 +32,12 @@ class PostViewController: UIViewController  {
     @IBOutlet var tablenguyenlieuheader: UIView!
     @IBOutlet var tablecongthucheader: UIView!
     @IBOutlet var select: UIView!
+    @IBOutlet var viewcongthuc: UIView!
     @IBOutlet weak var collectionview: UICollectionView!
     @IBOutlet weak var tencongthuc: UITextView!
     @IBOutlet weak var motacongthuc : UITextView!
     @IBOutlet weak var nguyenlieutext: UITextView!
+    @IBOutlet weak var congthuctext: UITextView!
     @IBOutlet weak var txtkhauphan: UITextField!
     @IBOutlet weak var txtthoigiannau: UITextField!
     @IBOutlet weak var tableviewnguyenlieu: UITableView!
@@ -69,6 +71,7 @@ class PostViewController: UIViewController  {
         textfieldbuttomLine()
     }
     
+    
 }
 extension PostViewController {
     @IBAction func addnguyenlieu(_ sender: Any) {
@@ -88,6 +91,24 @@ extension PostViewController {
         let indexpath = IndexPath.init(row: index, section: 0)
         tableviewnguyenlieu.insertRows(at: [indexpath], with: .right)
     }
+    @IBAction func addcongthuc(_ sender: Any) {
+        self.view.addSubview(viewcongthuc)
+        viewcongthuc.center = self.view.center
+        self.showAnimate()
+    }
+    @IBAction func outview(_ sender: Any) {
+        self.viewcongthuc.removeFromSuperview()
+    }
+    @IBAction func agreecongthuc(_ sender: Any) {
+        self.viewcongthuc.removeFromSuperview()
+        addcongthu(congthuctext: congthuctext.text)
+    }
+    func addcongthu(congthuctext : String) {
+        congthuc.insert(congthuctext, at: index)
+        let indexpath = IndexPath.init(row: index, section: 0)
+        tableviewcongthuc.insertRows(at: [indexpath], with: .right)
+    }
+    
     func showAnimate()
     {
         self.view.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
@@ -165,7 +186,7 @@ extension PostViewController : UITableViewDataSource, UITableViewDelegate {
         return 1
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        var numberofRow = 0
+        var numberofRow : Int!
         switch tableView {
         case tableviewnguyenlieu :
             numberofRow = self.nguyenlieu.count
@@ -177,12 +198,12 @@ extension PostViewController : UITableViewDataSource, UITableViewDelegate {
         return numberofRow
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if tableView == self.tableviewnguyenlieu {
+        if tableView == tableviewnguyenlieu {
             let cell = self.tableviewnguyenlieu.dequeueReusableCell(withIdentifier: "ingredientscell", for: indexPath) as! ingredientsTableViewCell
             cell.txtnguyenlieu.text = nguyenlieu[indexPath.row]
             return cell
         } else {
-            let cell = self.tableviewcongthuc.dequeueReusableCell(withIdentifier: "cookingcell", for: indexPath) as! CookingTableViewCell
+            let cell = tableviewcongthuc.dequeueReusableCell(withIdentifier: "cookingcell", for: indexPath) as! CookingTableViewCell
             cell.txtcongthuc.text = congthuc[indexPath.row]
             return cell
         }
@@ -193,7 +214,7 @@ extension PostViewController : UITableViewDataSource, UITableViewDelegate {
         case tableviewnguyenlieu :
             view = tablenguyenlieuheader
         case tableviewcongthuc :
-            view =  tablecongthucheader
+            view = tablecongthucheader
         default:
             print("loi roi")
         }
@@ -299,28 +320,34 @@ extension PostViewController {
         }
         self.present(pickerController, animated: true) {}
     }
+//    @IBOutlet weak var tencongthuc: UITextView!
+//      @IBOutlet weak var motacongthuc : UITextView!
+//      @IBOutlet weak var nguyenlieutext: UITextView!
+//      @IBOutlet weak var congthuctext: UITextView!
+//      @IBOutlet weak var txtkhauphan: UITextField!
+//      @IBOutlet weak var txtthoigiannau: UITextField!
     @IBAction func hihi(_ sender: Any) {
         SVProgressHUD.show(withStatus: "Loading...")
-        let mota = tencongthuc.text
-        let giatien = txtgiatien.text
-        let diachi = txtdiachi.text
-        let tenquan = txttenquan.text
-        let loaimon = loaidoan.titleLabel?.text
+        let tencongthuc1 = tencongthuc.text
+        let motacongthuc1 = motacongthuc.text
+        let khauphan = txtkhauphan.text
+        let thoigiannau = txtkhauphan.text
         let ref = Database.database().reference()
         let userID = Auth.auth().currentUser?.uid
         guard let key = ref.child("location").child("2").childByAutoId().key else { return }
         var post = ["uid": userID!,
-                    "mota": mota!,
-                    "loaimon" : loaimon!,
-                    "giatien": giatien!,
-                    "diachi": diachi!,
-                    "tenquan" : tenquan!] as [String: Any]
+                    "tencongthuc": tencongthuc1!,
+                    "motacongthuc" : motacongthuc1!,
+                    "khauphan": khauphan!,
+                    "thoigiannau": thoigiannau!,
+                    "nguyenlieu" : nguyenlieu,
+                    "congthucnau" : congthuc] as [String: Any]
         let childRef = ref.child("TWEETS").child(userID!).childByAutoId()
         for i in PostViewController.imagecollection1 {
             let storageRef = Storage.storage().reference(forURL: "gs://appdocu-2c67f.appspot.com")
             let postRef = childRef.child("image")
             let autoID = postRef.childByAutoId().key
-            let childStorageRef = storageRef.child("ImagePost").child(userID!).child(autoID!)
+            let childStorageRef = storageRef.child("ImageUserPost").child(userID!).child(autoID!)
             let tweetImage = i
             let metaData = StorageMetadata()
             metaData.contentType = "image/jpg"
@@ -341,8 +368,8 @@ extension PostViewController {
                                     self.updateimage.append(ImageUrl)
                                     print(ImageUrl)
                                     post["image"] = self.updateimage
-                                    let childUpdates = ["/post/\(key)": post,
-                                                        "/user-posts/\(String(describing: userID))/\(key)/": post]
+                                    let childUpdates = ["/NewPeedPost/\(key)": post,
+                                                        "/user-NewPeedPost/\(String(describing: userID))/\(key)/": post]
                                     ref.updateChildValues(childUpdates)
                                     //                                           SVProgressHUD.showSuccess(withStatus: "Đã Upload")
                                     //                                           let delegate = UIApplication.shared.delegate as! AppDelegate

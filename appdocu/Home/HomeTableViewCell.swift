@@ -14,7 +14,7 @@ class HomeTableViewCell: UITableViewCell {
         self.newFeed = Newfeed
         colletion.register(UINib(nibName: "HomeNewFeedCollectionViewCell", bundle: .main), forCellWithReuseIdentifier: "newfeedcollectionview")
         username.text = Newfeed.username
-        post.text = Newfeed.mota
+        post.text = Newfeed.tencongthuc
         if let profileimage = Newfeed.imageprofile {
             if let url = URL(string: profileimage){
                 KingfisherManager.shared.retrieveImage(with: url as Resource, options: nil, progressBlock: nil) { (image, error, cache, imageurl) in

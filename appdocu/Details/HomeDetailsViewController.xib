@@ -10,6 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeDetailsViewController" customModule="appdocu" customModuleProvider="target">
             <connections>
+                <outlet property="collectionview" destination="LO5-WW-wgm" id="1OV-Rn-iRs"/>
                 <outlet property="image" destination="uRf-Sa-hoi" id="RvY-kg-s6v"/>
                 <outlet property="mota" destination="6mh-2u-KGM" id="dai-wd-Rta"/>
                 <outlet property="tableview" destination="JXE-ud-DjU" id="QaT-jd-8tl"/>
@@ -98,6 +99,10 @@
                         <size key="footerReferenceSize" width="0.0" height="0.0"/>
                         <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                     </collectionViewFlowLayout>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="4ti-9v-Bn1"/>
+                        <outlet property="delegate" destination="-1" id="pgo-nT-UPf"/>
+                    </connections>
                 </collectionView>
             </subviews>
             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
