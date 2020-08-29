@@ -18,58 +18,26 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AuW-V3-Gui">
-                        <rect key="frame" x="30" y="0.0" width="290" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W29-t5-sdp">
-                        <rect key="frame" x="0.0" y="0.0" width="30" height="44"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="30" id="oIF-c4-xpG"/>
-                        </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tM9-Gp-4OI">
-                        <rect key="frame" x="290" y="8" width="30" height="28"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="30" id="SMj-Cx-yP4"/>
-                        </constraints>
-                        <state key="normal" image="ximage"/>
-                        <connections>
-                            <action selector="deleterow:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="Tvs-Ky-J88"/>
-                        </connections>
-                    </button>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="bottom" secondItem="AuW-V3-Gui" secondAttribute="bottom" id="33t-7o-tkC"/>
-                    <constraint firstAttribute="bottom" secondItem="tM9-Gp-4OI" secondAttribute="bottom" constant="8" id="7Be-Jz-hYr"/>
-                    <constraint firstItem="W29-t5-sdp" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="8wl-zw-Bi7"/>
-                    <constraint firstItem="AuW-V3-Gui" firstAttribute="leading" secondItem="W29-t5-sdp" secondAttribute="trailing" id="Kja-Ws-ORg"/>
-                    <constraint firstAttribute="trailing" secondItem="tM9-Gp-4OI" secondAttribute="trailing" id="X7s-mb-jMB"/>
-                    <constraint firstItem="AuW-V3-Gui" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="aWh-Ln-yWp"/>
-                    <constraint firstAttribute="trailing" secondItem="AuW-V3-Gui" secondAttribute="trailing" id="dhA-Ak-MO7"/>
-                    <constraint firstAttribute="bottom" secondItem="W29-t5-sdp" secondAttribute="bottom" id="ifO-Mg-Fty"/>
-                    <constraint firstItem="W29-t5-sdp" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="vO9-G4-J1O"/>
-                    <constraint firstItem="tM9-Gp-4OI" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="wEs-X5-qws"/>
+                    <constraint firstItem="AuW-V3-Gui" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="1gQ-eV-leb"/>
+                    <constraint firstAttribute="bottom" secondItem="AuW-V3-Gui" secondAttribute="bottom" id="FBp-HX-2Oh"/>
+                    <constraint firstItem="AuW-V3-Gui" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="R2k-Xs-Cmu"/>
+                    <constraint firstItem="AuW-V3-Gui" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="cla-Tp-bfx"/>
+                    <constraint firstAttribute="trailing" secondItem="AuW-V3-Gui" secondAttribute="trailing" id="dWe-fx-o9b"/>
+                    <constraint firstItem="AuW-V3-Gui" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="xYf-QJ-Uij"/>
                 </constraints>
             </tableViewCellContentView>
-            <constraints>
-                <constraint firstItem="tM9-Gp-4OI" firstAttribute="centerY" secondItem="njF-e1-oar" secondAttribute="centerY" id="Rq2-cy-HK4"/>
-                <constraint firstItem="W29-t5-sdp" firstAttribute="centerY" secondItem="njF-e1-oar" secondAttribute="centerY" id="hHj-7Y-RFz"/>
-                <constraint firstItem="AuW-V3-Gui" firstAttribute="centerY" secondItem="njF-e1-oar" secondAttribute="centerY" id="vPY-x5-iS6"/>
-            </constraints>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="number" destination="W29-t5-sdp" id="GH0-mX-nVh"/>
                 <outlet property="txtnguyenlieu" destination="AuW-V3-Gui" id="rx5-ve-s7o"/>
             </connections>
             <point key="canvasLocation" x="131.8840579710145" y="120.53571428571428"/>
         </tableViewCell>
     </objects>
-    <resources>
-        <image name="ximage" width="50" height="50"/>
-    </resources>
 </document>

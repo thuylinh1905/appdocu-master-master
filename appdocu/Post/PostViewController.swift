@@ -7,27 +7,7 @@ import DKImagePickerController
 import FirebaseStorage
 import SVProgressHUD
 
-struct loaimon {
-    var ten : String!
-    var hinhanh : String!
-    init(ten : String, hinhanh : String) {
-        self.ten = ten
-        self.hinhanh = hinhanh
-    }
-}
-class PostViewController: UIViewController  {
-    
-    
-    @IBOutlet weak var tableview: UITableView!
-    @IBOutlet weak var ts: UIImageView!
-    
-    @IBOutlet weak var txtmota: UITextField!
-    @IBOutlet weak var txttenquan: UITextField!
-    @IBOutlet weak var txtdiachi: UITextField!
-    @IBOutlet weak var txtgiatien: UITextField!
-    @IBOutlet weak var image : UIImageView!
-    @IBOutlet weak var loaidoan: UIButton!
-    
+class PostViewController: UIViewController {
     
     @IBOutlet var tablenguyenlieuheader: UIView!
     @IBOutlet var tablecongthucheader: UIView!
@@ -42,7 +22,6 @@ class PostViewController: UIViewController  {
     @IBOutlet weak var txtthoigiannau: UITextField!
     @IBOutlet weak var tableviewnguyenlieu: UITableView!
     @IBOutlet weak var tableviewcongthuc: UITableView!
-    var mon = ""
     var selectedindex : IndexPath?
     var imagecollection : [UIImage]! = []
     static var imagecollection1 : [UIImage]! = []
@@ -50,28 +29,43 @@ class PostViewController: UIViewController  {
     var assets = [DKAsset]()
     var nguyenlieu = [String]()
     var congthuc = [String]()
+    static var mangindex = [Int]()
     var index = 0
+    var number = 0
+    var number1 = [Int]()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         navibutton()
         collectionview.register(UINib(nibName: "CollectionViewCell", bundle: .main), forCellWithReuseIdentifier: "collection")
-        tableviewnguyenlieu.register(UINib(nibName: "ingredientsTableViewCell", bundle: .main), forCellReuseIdentifier: "ingredientscell")
-        tableviewcongthuc.register(UINib(nibName: "CookingTableViewCell", bundle: .main), forCellReuseIdentifier: "cookingcell")
-        //        view.openCamera(moanh)
+//        tableviewnguyenlieu.register(UINib(nibName: "ingredientsTableViewCell", bundle: .main), forCellReuseIdentifier: "ingredientscell")
+//        tableviewcongthuc.register(UINib(nibName: "CookingTableViewCell", bundle: .main), forCellReuseIdentifier: "cookingcell")
         //        self.textView.inputAccessoryView = view
         self.hideKeyboard()
         collectionview.delegate =  self
         collectionview.dataSource = self
-        tableviewnguyenlieu.delegate = self
-        tableviewnguyenlieu.dataSource = self
-        tableviewcongthuc.delegate = self
-        tableviewcongthuc.dataSource = self
+//        tableviewnguyenlieu.delegate = self
+//        tableviewnguyenlieu.dataSource = self
+//        tableviewcongthuc.delegate = self
+//        tableviewcongthuc.dataSource = self
         textview()
         textfieldbuttomLine()
     }
     
-    
+    @IBAction func addview(_ sender: Any) {
+        let postdetails = addingredientsViewController()
+        postdetails.hidesBottomBarWhenPushed = true
+        navigationController?.pushViewController(postdetails, animated: true)
+    }
+    @IBAction func deletenguyenlieu(_ sender: UIBarButtonItem) {
+        self.tableviewnguyenlieu.isEditing = !self.tableviewnguyenlieu.isEditing
+        sender.title = (self.tableviewnguyenlieu.isEditing) ? "Done" : "Edit"
+    }
+    @IBAction func deletecongthuc(_ sender: UIBarButtonItem) {
+        self.tableviewcongthuc.isEditing = !self.tableviewcongthuc.isEditing
+        sender.title = (self.tableviewcongthuc.isEditing) ? "Done" : "Edit"
+    }
 }
 extension PostViewController {
     @IBAction func addnguyenlieu(_ sender: Any) {
@@ -101,6 +95,9 @@ extension PostViewController {
     }
     @IBAction func agreecongthuc(_ sender: Any) {
         self.viewcongthuc.removeFromSuperview()
+        number = number + 1
+        number1.append(number)
+        print(number1)
         addcongthu(congthuctext: congthuctext.text)
     }
     func addcongthu(congthuctext : String) {
@@ -108,7 +105,6 @@ extension PostViewController {
         let indexpath = IndexPath.init(row: index, section: 0)
         tableviewcongthuc.insertRows(at: [indexpath], with: .right)
     }
-    
     func showAnimate()
     {
         self.view.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
@@ -231,6 +227,39 @@ extension PostViewController : UITableViewDataSource, UITableViewDelegate {
             print("loi roi")
         }
         return title
+    }
+    func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        switch tableView {
+        case tableviewnguyenlieu :
+            let ob = nguyenlieu[sourceIndexPath.row]
+            nguyenlieu.remove(at: sourceIndexPath.row)
+            nguyenlieu.insert(ob, at: destinationIndexPath.item)
+        case tableviewcongthuc :
+            let ob1 = congthuc[sourceIndexPath.row]
+            congthuc.remove(at: sourceIndexPath.row)
+            congthuc.insert(ob1, at: destinationIndexPath.item)
+        default:
+            print("loi roi")
+        }
+    }
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        switch tableView {
+        case tableviewnguyenlieu :
+            if editingStyle == .delete {
+                nguyenlieu.remove(at: indexPath.item)
+                tableviewnguyenlieu.deleteRows(at: [indexPath], with: .automatic)
+            }
+        case tableviewcongthuc :
+          if editingStyle == .delete {
+                congthuc.remove(at: indexPath.item)
+                tableviewcongthuc.deleteRows(at: [indexPath], with: .automatic)
+            }
+        default:
+            print("loi roi")
+        }
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("your row number: \(indexPath.row)")
     }
 }
 extension PostViewController : UICollectionViewDelegate , UICollectionViewDataSource , UICollectionViewDelegateFlowLayout {
@@ -377,63 +406,60 @@ extension PostViewController {
         SVProgressHUD.showSuccess(withStatus: "Đã Upload")
     }
     @objc func uploadfile(){
-        SVProgressHUD.show(withStatus: "Loading...")
-        let mota = tencongthuc.text
-        let giatien = txtgiatien.text
-        let diachi = txtdiachi.text
-        let tenquan = txttenquan.text
-        let loaimon = loaidoan.titleLabel?.text
-        let ref = Database.database().reference()
-        let userID = Auth.auth().currentUser?.uid
-        guard let key = ref.child("location").child("2").childByAutoId().key else { return }
-        var post = ["uid": userID!,
-                    "mota": mota!,
-                    "loaimon" : loaimon!,
-                    "giatien": giatien!,
-                    "diachi": diachi!,
-                    "tenquan" : tenquan!] as [String: Any]
-        let childRef = ref.child("TWEETS").child(userID!).childByAutoId()
-        for i in PostViewController.imagecollection1 {
-            let storageRef = Storage.storage().reference(forURL: "gs://appdocu-2c67f.appspot.com")
-            let postRef = childRef.child("image")
-            let autoID = postRef.childByAutoId().key
-            let childStorageRef = storageRef.child("ImagePost").child(userID!).child(autoID!)
-            let tweetImage = i
-            let metaData = StorageMetadata()
-            metaData.contentType = "image/jpg"
-            if let uploadData = tweetImage.jpegData(compressionQuality: 0.7 ) {
-                childStorageRef.putData(uploadData, metadata: metaData, completion: {
-                    (storagemetadata,error) in
-                    if error != nil{
-                        SVProgressHUD.showError(withStatus: "Đã lỗi khi Upload bài")
-                    } else {
-                        childStorageRef.downloadURL(completion: {
-                            (url,error) in
-                            if let ImageUrl = url?.absoluteString {
-                                let userImage = ref.child("users").child(userID!)
-                                userImage.observeSingleEvent(of: .value) { (snapshot) in
-                                    let usersdic = snapshot.value as! NSDictionary
-                                    post["Imageprofile"] = usersdic.value(forKey: "image")
-                                    post["username"] = usersdic.value(forKey: "username")
-                                    self.updateimage.append(ImageUrl)
-                                    print(ImageUrl)
-                                    post["image"] = self.updateimage
-                                    let childUpdates = ["/post/\(key)": post,
-                                                        "/user-posts/\(String(describing: userID))/\(key)/": post]
-                                    ref.updateChildValues(childUpdates)
-                                    //                                           SVProgressHUD.showSuccess(withStatus: "Đã Upload")
-                                    //                                           let delegate = UIApplication.shared.delegate as! AppDelegate
-                                    //                                           delegate.gototabbar()
-                                }
-                            }
-                        })
-                    }
-                })
-            }
-        }
-        let delegate = UIApplication.shared.delegate as! AppDelegate
-        delegate.gototabbar()
-        SVProgressHUD.showSuccess(withStatus: "Đã Upload")
+       SVProgressHUD.show(withStatus: "Loading...")
+             let tencongthuc1 = tencongthuc.text
+             let motacongthuc1 = motacongthuc.text
+             let khauphan = txtkhauphan.text
+             let thoigiannau = txtkhauphan.text
+             let ref = Database.database().reference()
+             let userID = Auth.auth().currentUser?.uid
+             guard let key = ref.child("location").child("2").childByAutoId().key else { return }
+             var post = ["uid": userID!,
+                         "tencongthuc": tencongthuc1!,
+                         "motacongthuc" : motacongthuc1!,
+                         "khauphan": khauphan!,
+                         "thoigiannau": thoigiannau!,
+                         "nguyenlieu" : nguyenlieu,
+                         "congthucnau" : congthuc] as [String: Any]
+             let childRef = ref.child("TWEETS").child(userID!).childByAutoId()
+             for i in PostViewController.imagecollection1 {
+                 let storageRef = Storage.storage().reference(forURL: "gs://appdocu-2c67f.appspot.com")
+                 let postRef = childRef.child("image")
+                 let autoID = postRef.childByAutoId().key
+                 let childStorageRef = storageRef.child("ImageUserPost").child(userID!).child(autoID!)
+                 let tweetImage = i
+                 let metaData = StorageMetadata()
+                 metaData.contentType = "image/jpg"
+                 if let uploadData = tweetImage.jpegData(compressionQuality: 0.7 ) {
+                     childStorageRef.putData(uploadData, metadata: metaData, completion: {
+                         (storagemetadata,error) in
+                         if error != nil{
+                             SVProgressHUD.showError(withStatus: "Đã lỗi khi Upload bài")
+                         } else {
+                             childStorageRef.downloadURL(completion: {
+                                 (url,error) in
+                                 if let ImageUrl = url?.absoluteString {
+                                     let userImage = ref.child("users").child(userID!)
+                                     userImage.observeSingleEvent(of: .value) { (snapshot) in
+                                         let usersdic = snapshot.value as! NSDictionary
+                                         post["Imageprofile"] = usersdic.value(forKey: "image")
+                                         post["username"] = usersdic.value(forKey: "username")
+                                         self.updateimage.append(ImageUrl)
+                                         print(ImageUrl)
+                                         post["image"] = self.updateimage
+                                         let childUpdates = ["/NewPeedPost/\(key)": post,
+                                                             "/user-NewPeedPost/\(String(describing: userID))/\(key)/": post]
+                                         ref.updateChildValues(childUpdates)
+                                     }
+                                 }
+                             })
+                         }
+                     })
+                 }
+             }
+             let delegate = UIApplication.shared.delegate as! AppDelegate
+             delegate.gototabbar()
+             SVProgressHUD.showSuccess(withStatus: "Đã Upload")
     }
     
 }

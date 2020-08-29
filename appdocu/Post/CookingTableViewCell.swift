@@ -16,7 +16,9 @@ class CookingTableViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
     }
-
+    func truyen(nb : Int){
+        number.text = String(nb)
+    }
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 

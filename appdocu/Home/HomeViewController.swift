@@ -4,21 +4,6 @@ import Kingfisher
 import FirebaseStorage
 import FirebaseAuth
 
-
-struct imagebanner1 {
-    var image : String!
-    var image1 : String!
-    init(image : String , image1 : String) {
-        self.image = image
-        self.image1 = image1
-    }
-}
-struct menuhome {
-    var image : String!
-    init(image : String) {
-        self.image = image
-    }
-}
 class HomeViewController: UIViewController {
     
     @IBOutlet weak var collectionview : UICollectionView!
@@ -32,12 +17,6 @@ class HomeViewController: UIViewController {
     var image01 : [String] = []
     @IBOutlet weak var anhtest: UIImageView!
     @IBOutlet weak var imagezoom: UIImageView!
-    
-//    override func viewWillAppear(_ animated: Bool) {
-//        super.viewWillAppear(animated)
-//
-//        self.tabBarController?.tabBar.isHidden = false
-//    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -73,18 +52,8 @@ class HomeViewController: UIViewController {
         leftBarButton1.customView = butsearch
         
         self.navigationItem.rightBarButtonItem = leftBarButton1
-        
-        let butmess = UIButton()
-        butmess.setImage(UIImage(named: "upload"), for: .normal)
-        butmess.addTarget(self, action: #selector(upload), for: .touchUpInside)
-        let leftbarbutton2 = UIBarButtonItem()
-        leftbarbutton2.customView = butmess
-        
-        self.navigationItem.leftBarButtonItem = leftbarbutton2
     }
     @objc func gotosearch(){
-    }
-    @objc func upload(){
     }
 }
 extension HomeViewController :UITableViewDelegate, UITableViewDataSource {
