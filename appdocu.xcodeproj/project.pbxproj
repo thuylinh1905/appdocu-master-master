@@ -17,6 +17,8 @@
 		741A67AB24BDDCCF000CD51F /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741A67AA24BDDCCF000CD51F /* UserModel.swift */; };
 		741F5FE624FB5D79006B6EA8 /* CookingHomeDetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741F5FE424FB5D79006B6EA8 /* CookingHomeDetailsTableViewCell.swift */; };
 		741F5FE724FB5D79006B6EA8 /* CookingHomeDetailsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 741F5FE524FB5D79006B6EA8 /* CookingHomeDetailsTableViewCell.xib */; };
+		741F5FEA24FB94DC006B6EA8 /* CommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741F5FE824FB94DC006B6EA8 /* CommentTableViewCell.swift */; };
+		741F5FEB24FB94DC006B6EA8 /* CommentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 741F5FE924FB94DC006B6EA8 /* CommentTableViewCell.xib */; };
 		742CE86124E00DDF00E5F002 /* NewFeedModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 742CE86024E00DDF00E5F002 /* NewFeedModel.swift */; };
 		742CE86424E018F900E5F002 /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 742CE86224E018F900E5F002 /* HomeTableViewCell.swift */; };
 		742CE86524E018F900E5F002 /* HomeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 742CE86324E018F900E5F002 /* HomeTableViewCell.xib */; };
@@ -80,6 +82,8 @@
 		741A67AA24BDDCCF000CD51F /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		741F5FE424FB5D79006B6EA8 /* CookingHomeDetailsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CookingHomeDetailsTableViewCell.swift; sourceTree = "<group>"; };
 		741F5FE524FB5D79006B6EA8 /* CookingHomeDetailsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CookingHomeDetailsTableViewCell.xib; sourceTree = "<group>"; };
+		741F5FE824FB94DC006B6EA8 /* CommentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentTableViewCell.swift; sourceTree = "<group>"; };
+		741F5FE924FB94DC006B6EA8 /* CommentTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommentTableViewCell.xib; sourceTree = "<group>"; };
 		742CE86024E00DDF00E5F002 /* NewFeedModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewFeedModel.swift; sourceTree = "<group>"; };
 		742CE86224E018F900E5F002 /* HomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
 		742CE86324E018F900E5F002 /* HomeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeTableViewCell.xib; sourceTree = "<group>"; };
@@ -155,6 +159,8 @@
 				7440672224F36E3200F9EE5C /* HomeDetailsCollectionViewCell.xib */,
 				741F5FE424FB5D79006B6EA8 /* CookingHomeDetailsTableViewCell.swift */,
 				741F5FE524FB5D79006B6EA8 /* CookingHomeDetailsTableViewCell.xib */,
+				741F5FE824FB94DC006B6EA8 /* CommentTableViewCell.swift */,
+				741F5FE924FB94DC006B6EA8 /* CommentTableViewCell.xib */,
 			);
 			path = Details;
 			sourceTree = "<group>";
@@ -392,6 +398,7 @@
 				74C2E50224D56BD700979937 /* PostViewController.xib in Resources */,
 				7464D3C624B5E65000347356 /* LoginViewController.xib in Resources */,
 				74D1B95924F7FF9000F2EE29 /* CookingTableViewCell.xib in Resources */,
+				741F5FEB24FB94DC006B6EA8 /* CommentTableViewCell.xib in Resources */,
 				7464D3CE24B5F3B000347356 /* SignupViewController.xib in Resources */,
 				7464D3BB24B5E56E00347356 /* LaunchScreen.storyboard in Resources */,
 				74D0788224B5F6CF00D17AFF /* GoogleService-Info.plist in Resources */,
@@ -465,6 +472,7 @@
 				74D1B95824F7FF9000F2EE29 /* CookingTableViewCell.swift in Sources */,
 				7411595024EEEC1100B22BDA /* MenuUserProfileTableViewCell.swift in Sources */,
 				7464D3B324B5E56C00347356 /* ViewController.swift in Sources */,
+				741F5FEA24FB94DC006B6EA8 /* CommentTableViewCell.swift in Sources */,
 				7411594C24EEDCF800B22BDA /* UserProfileViewController.swift in Sources */,
 				742CE86424E018F900E5F002 /* HomeTableViewCell.swift in Sources */,
 				74C2E50124D56BD700979937 /* PostViewController.swift in Sources */,

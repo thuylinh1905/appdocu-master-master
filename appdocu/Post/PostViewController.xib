@@ -134,9 +134,21 @@
                                                 <outlet property="delegate" destination="-1" id="8iT-tg-OcI"/>
                                             </connections>
                                         </collectionView>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gjO-ag-F1x">
+                                            <rect key="frame" x="174" y="591.5" width="46" height="30"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="46" id="gUg-RW-ucj"/>
+                                                <constraint firstAttribute="height" constant="30" id="soK-Af-NAJ"/>
+                                            </constraints>
+                                            <state key="normal" title="Button"/>
+                                            <connections>
+                                                <action selector="hihi:" destination="-1" eventType="touchUpInside" id="bXX-xW-Sd9"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                     <constraints>
+                                        <constraint firstItem="gjO-ag-F1x" firstAttribute="centerX" secondItem="GXH-T0-edv" secondAttribute="centerX" id="0Ow-PO-zwx"/>
                                         <constraint firstItem="wqT-vY-VUh" firstAttribute="centerX" secondItem="GXH-T0-edv" secondAttribute="centerX" id="4hh-wK-FaW"/>
                                         <constraint firstItem="Mah-12-tLz" firstAttribute="top" secondItem="wqT-vY-VUh" secondAttribute="bottom" constant="20" id="5m6-4S-J6e"/>
                                         <constraint firstItem="gnq-3C-iSt" firstAttribute="leading" secondItem="GXH-T0-edv" secondAttribute="leading" id="9Fc-bV-10B"/>
@@ -150,6 +162,7 @@
                                         <constraint firstAttribute="trailing" secondItem="wqT-vY-VUh" secondAttribute="trailing" constant="5" id="OIS-Ex-Zgm"/>
                                         <constraint firstItem="wqT-vY-VUh" firstAttribute="top" secondItem="utI-h6-1O5" secondAttribute="bottom" constant="10" id="Qcp-H1-r28"/>
                                         <constraint firstAttribute="height" constant="1000" id="Uig-Ie-Dct"/>
+                                        <constraint firstItem="gjO-ag-F1x" firstAttribute="top" secondItem="UVi-wu-oag" secondAttribute="bottom" constant="50" id="a0g-Zh-3TH"/>
                                         <constraint firstItem="utI-h6-1O5" firstAttribute="top" secondItem="gnq-3C-iSt" secondAttribute="bottom" constant="20" id="eXW-xr-L4y"/>
                                         <constraint firstAttribute="trailing" secondItem="UVi-wu-oag" secondAttribute="trailing" constant="5" id="g22-ZM-oV1"/>
                                         <constraint firstAttribute="trailing" secondItem="gnq-3C-iSt" secondAttribute="trailing" id="jC5-nz-gZx"/>

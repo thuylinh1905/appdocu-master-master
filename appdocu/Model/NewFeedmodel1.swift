@@ -22,8 +22,9 @@ class NewFeedmodel1 {
     var image : [String]!
     var nguyenlieu : [String]!
     var congthuc : [String]!
+    var keyid : String
     
-    init(tencongthuc : String , motacongthuc : String, khauphan : String, thoigiannau : String, username : String , image : [String], imageprofile : String, nguyenlieu : [String] , congthuc : [String]) {
+    init(tencongthuc : String , motacongthuc : String, khauphan : String, thoigiannau : String, username : String , image : [String], imageprofile : String, nguyenlieu : [String] , congthuc : [String] , keyid : String) {
         self.tencongthuc = tencongthuc
         self.motacongthuc = motacongthuc
         self.khauphan = khauphan
@@ -33,5 +34,6 @@ class NewFeedmodel1 {
         self.imageprofile = imageprofile
         self.nguyenlieu = nguyenlieu
         self.congthuc = congthuc
+        self.keyid = keyid
     }
 }
