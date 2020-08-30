@@ -32,6 +32,7 @@ class HomeDetailsViewController: UIViewController {
         tableview.tableHeaderView = view1
         truyenve()
         tableview.register(UINib(nibName: "HomeDetailsTableViewCell", bundle: .main), forCellReuseIdentifier: "homedetails")
+        tableview.register(UINib(nibName: "CookingHomeDetailsTableViewCell", bundle: .main), forCellReuseIdentifier: "cookinghomedetails")
         collectionview.register(UINib(nibName: "HomeDetailsCollectionViewCell", bundle: .main), forCellWithReuseIdentifier: "collectionviewdetails")
 //        sizeHeaderToFit()
         pagecontrol.numberOfPages = NewFeedDetails.image.count
@@ -69,17 +70,50 @@ class HomeDetailsViewController: UIViewController {
     }
 }
 extension HomeDetailsViewController : UITableViewDelegate , UITableViewDataSource {
+    func numberOfSections(in tableView: UITableView) -> Int {
+           return 2
+       }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return mang.count
+        if section == 0 {
+            return self.NewFeedDetails.nguyenlieu.count
+        } else {
+            return self.NewFeedDetails.congthuc.count
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if indexPath.section == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "homedetails", for: indexPath) as! HomeDetailsTableViewCell
-            cell.txt.text = mang[indexPath.row]
-            print(cell)
+            cell.txt.text = NewFeedDetails.nguyenlieu[indexPath.row]
             return cell
+        } else {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "cookinghomedetails", for: indexPath) as! CookingHomeDetailsTableViewCell
+            cell.txtcongthuc.text = NewFeedDetails.congthuc[indexPath.row]
+            cell.number.text = String(indexPath.row) + "."
+            return cell
+        }
     }
-    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if section == 0 {
+            return "Nguyên liệu"
+        } else {
+            return "Công thức"
+        }
+    }
+    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+          if let headerView = view as? UITableViewHeaderFooterView {
+              headerView.contentView.backgroundColor = .white
+              headerView.backgroundView?.backgroundColor = .black
+              headerView.textLabel?.textColor = .black
+          }
+      }
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+         if section == 0 {
+                   return 50
+               } else {
+                   return 50
+               }
+    }
 }
 extension HomeDetailsViewController : UICollectionViewDataSource , UICollectionViewDelegate , UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

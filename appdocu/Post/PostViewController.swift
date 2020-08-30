@@ -7,48 +7,28 @@ import DKImagePickerController
 import FirebaseStorage
 import SVProgressHUD
 
-class PostViewController: UIViewController {
-    
-    @IBOutlet var tablenguyenlieuheader: UIView!
-    @IBOutlet var tablecongthucheader: UIView!
-    @IBOutlet var select: UIView!
-    @IBOutlet var viewcongthuc: UIView!
+class PostViewController: UIViewController  {
+ 
     @IBOutlet weak var collectionview: UICollectionView!
     @IBOutlet weak var tencongthuc: UITextView!
     @IBOutlet weak var motacongthuc : UITextView!
-    @IBOutlet weak var nguyenlieutext: UITextView!
-    @IBOutlet weak var congthuctext: UITextView!
     @IBOutlet weak var txtkhauphan: UITextField!
     @IBOutlet weak var txtthoigiannau: UITextField!
-    @IBOutlet weak var tableviewnguyenlieu: UITableView!
-    @IBOutlet weak var tableviewcongthuc: UITableView!
     var selectedindex : IndexPath?
     var imagecollection : [UIImage]! = []
     static var imagecollection1 : [UIImage]! = []
     var updateimage : [String] = []
-    var assets = [DKAsset]()
-    var nguyenlieu = [String]()
-    var congthuc = [String]()
-    static var mangindex = [Int]()
-    var index = 0
-    var number = 0
-    var number1 = [Int]()
+    let nguyenlieupop = [String]()
+    let congthucpop = [String]()
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         navibutton()
         collectionview.register(UINib(nibName: "CollectionViewCell", bundle: .main), forCellWithReuseIdentifier: "collection")
-//        tableviewnguyenlieu.register(UINib(nibName: "ingredientsTableViewCell", bundle: .main), forCellReuseIdentifier: "ingredientscell")
-//        tableviewcongthuc.register(UINib(nibName: "CookingTableViewCell", bundle: .main), forCellReuseIdentifier: "cookingcell")
-        //        self.textView.inputAccessoryView = view
         self.hideKeyboard()
         collectionview.delegate =  self
         collectionview.dataSource = self
-//        tableviewnguyenlieu.delegate = self
-//        tableviewnguyenlieu.dataSource = self
-//        tableviewcongthuc.delegate = self
-//        tableviewcongthuc.dataSource = self
         textview()
         textfieldbuttomLine()
     }
@@ -58,92 +38,6 @@ class PostViewController: UIViewController {
         postdetails.hidesBottomBarWhenPushed = true
         navigationController?.pushViewController(postdetails, animated: true)
     }
-    @IBAction func deletenguyenlieu(_ sender: UIBarButtonItem) {
-        self.tableviewnguyenlieu.isEditing = !self.tableviewnguyenlieu.isEditing
-        sender.title = (self.tableviewnguyenlieu.isEditing) ? "Done" : "Edit"
-    }
-    @IBAction func deletecongthuc(_ sender: UIBarButtonItem) {
-        self.tableviewcongthuc.isEditing = !self.tableviewcongthuc.isEditing
-        sender.title = (self.tableviewcongthuc.isEditing) ? "Done" : "Edit"
-    }
-}
-extension PostViewController {
-    @IBAction func addnguyenlieu(_ sender: Any) {
-        self.view.addSubview(select)
-        select.center = self.view.center
-        self.showAnimate()
-    }
-    @IBAction func agree(_ sender: Any) {
-        self.select.removeFromSuperview()
-        add(nguyenlieutext: nguyenlieutext.text)
-    }
-    @IBAction func outviewtp(_ sender: Any) {
-        self.select.removeFromSuperview()
-    }
-    func add(nguyenlieutext : String) {
-        nguyenlieu.insert(nguyenlieutext, at: index)
-        let indexpath = IndexPath.init(row: index, section: 0)
-        tableviewnguyenlieu.insertRows(at: [indexpath], with: .right)
-    }
-    @IBAction func addcongthuc(_ sender: Any) {
-        self.view.addSubview(viewcongthuc)
-        viewcongthuc.center = self.view.center
-        self.showAnimate()
-    }
-    @IBAction func outview(_ sender: Any) {
-        self.viewcongthuc.removeFromSuperview()
-    }
-    @IBAction func agreecongthuc(_ sender: Any) {
-        self.viewcongthuc.removeFromSuperview()
-        number = number + 1
-        number1.append(number)
-        print(number1)
-        addcongthu(congthuctext: congthuctext.text)
-    }
-    func addcongthu(congthuctext : String) {
-        congthuc.insert(congthuctext, at: index)
-        let indexpath = IndexPath.init(row: index, section: 0)
-        tableviewcongthuc.insertRows(at: [indexpath], with: .right)
-    }
-    func showAnimate()
-    {
-        self.view.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
-        self.view.alpha = 0.0;
-        UIView.animate(withDuration: 0.25, animations: {
-            self.view.alpha = 1.0
-            self.view.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
-        });
-    }
-    func removeAnimate()
-    {
-        UIView.animate(withDuration: 0.25, animations: {
-            self.view.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
-            self.view.alpha = 0.0;
-        }, completion:{(finished : Bool)  in
-            if (finished)
-            {
-                self.view.removeFromSuperview()
-            }
-        });
-    }
-    //    func truyenmonan() {
-    //          let db = Firestore.firestore()
-    //          db.collection("loaimon").getDocuments() { (querySnapshot, err) in
-    //              if let err = err {
-    //                  print("Error getting documents: \(err)")
-    //              } else {
-    //                  for document in querySnapshot!.documents {
-    //                      let dictionary = document.data()
-    //                      let tenmon = dictionary["tenloaimon"] as! String
-    //                      let image = dictionary["hinhanh"] as! String
-    //                      let mangloaimon = loaimon(ten: tenmon, hinhanh: image)
-    //                      self.loaimonve.append(mangloaimon)
-    //                  }
-    //              }
-    //              print(self.loaimonve)
-    //              self.tableview.reloadData()
-    //          }
-    //      }
 }
 extension PostViewController {
     func navibutton() {
@@ -176,91 +70,6 @@ extension PostViewController {
         self.present(alert, animated: true, completion: nil)
     }
     
-}
-extension PostViewController : UITableViewDataSource, UITableViewDelegate {
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        var numberofRow : Int!
-        switch tableView {
-        case tableviewnguyenlieu :
-            numberofRow = self.nguyenlieu.count
-        case tableviewcongthuc :
-            numberofRow = self.congthuc.count
-        default:
-            print("loi roi")
-        }
-        return numberofRow
-    }
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if tableView == tableviewnguyenlieu {
-            let cell = self.tableviewnguyenlieu.dequeueReusableCell(withIdentifier: "ingredientscell", for: indexPath) as! ingredientsTableViewCell
-            cell.txtnguyenlieu.text = nguyenlieu[indexPath.row]
-            return cell
-        } else {
-            let cell = tableviewcongthuc.dequeueReusableCell(withIdentifier: "cookingcell", for: indexPath) as! CookingTableViewCell
-            cell.txtcongthuc.text = congthuc[indexPath.row]
-            return cell
-        }
-    }
-    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        var view = UIView()
-        switch tableView {
-        case tableviewnguyenlieu :
-            view = tablenguyenlieuheader
-        case tableviewcongthuc :
-            view = tablecongthucheader
-        default:
-            print("loi roi")
-        }
-        return view
-    }
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        var title : String = ""
-        switch tableView {
-        case tableviewnguyenlieu :
-            title = "Các loại nguyên liệu"
-        case tableviewcongthuc :
-            title =  "Cách làm"
-        default:
-            print("loi roi")
-        }
-        return title
-    }
-    func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
-        switch tableView {
-        case tableviewnguyenlieu :
-            let ob = nguyenlieu[sourceIndexPath.row]
-            nguyenlieu.remove(at: sourceIndexPath.row)
-            nguyenlieu.insert(ob, at: destinationIndexPath.item)
-        case tableviewcongthuc :
-            let ob1 = congthuc[sourceIndexPath.row]
-            congthuc.remove(at: sourceIndexPath.row)
-            congthuc.insert(ob1, at: destinationIndexPath.item)
-        default:
-            print("loi roi")
-        }
-    }
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        switch tableView {
-        case tableviewnguyenlieu :
-            if editingStyle == .delete {
-                nguyenlieu.remove(at: indexPath.item)
-                tableviewnguyenlieu.deleteRows(at: [indexPath], with: .automatic)
-            }
-        case tableviewcongthuc :
-          if editingStyle == .delete {
-                congthuc.remove(at: indexPath.item)
-                tableviewcongthuc.deleteRows(at: [indexPath], with: .automatic)
-            }
-        default:
-            print("loi roi")
-        }
-    }
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("your row number: \(indexPath.row)")
-    }
 }
 extension PostViewController : UICollectionViewDelegate , UICollectionViewDataSource , UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -363,8 +172,8 @@ extension PostViewController {
                     "motacongthuc" : motacongthuc1!,
                     "khauphan": khauphan!,
                     "thoigiannau": thoigiannau!,
-                    "nguyenlieu" : nguyenlieu,
-                    "congthucnau" : congthuc] as [String: Any]
+                    "nguyenlieu" : addingredientsViewController.nguyenlieu,
+                    "congthucnau" : addingredientsViewController.congthuc] as [String: Any]
         let childRef = ref.child("TWEETS").child(userID!).childByAutoId()
         for i in PostViewController.imagecollection1 {
             let storageRef = Storage.storage().reference(forURL: "gs://appdocu-2c67f.appspot.com")
@@ -394,6 +203,8 @@ extension PostViewController {
                                     let childUpdates = ["/NewPeedPost/\(key)": post,
                                                         "/user-NewPeedPost/\(String(describing: userID))/\(key)/": post]
                                     ref.updateChildValues(childUpdates)
+                                    let home = HomeViewController()
+                                    self.navigationController?.pushViewController(home, animated: true)
                                 }
                             }
                         })
@@ -401,9 +212,9 @@ extension PostViewController {
                 })
             }
         }
-        let delegate = UIApplication.shared.delegate as! AppDelegate
-        delegate.gototabbar()
-        SVProgressHUD.showSuccess(withStatus: "Đã Upload")
+//        let delegate = UIApplication.shared.delegate as! AppDelegate
+//        delegate.gototabbar()
+//        SVProgressHUD.showSuccess(withStatus: "Đã Upload")
     }
     @objc func uploadfile(){
        SVProgressHUD.show(withStatus: "Loading...")
@@ -419,8 +230,8 @@ extension PostViewController {
                          "motacongthuc" : motacongthuc1!,
                          "khauphan": khauphan!,
                          "thoigiannau": thoigiannau!,
-                         "nguyenlieu" : nguyenlieu,
-                         "congthucnau" : congthuc] as [String: Any]
+                         "nguyenlieu" : addingredientsViewController.nguyenlieu,
+                         "congthucnau" : addingredientsViewController.congthuc] as [String: Any]
              let childRef = ref.child("TWEETS").child(userID!).childByAutoId()
              for i in PostViewController.imagecollection1 {
                  let storageRef = Storage.storage().reference(forURL: "gs://appdocu-2c67f.appspot.com")

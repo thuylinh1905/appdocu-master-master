@@ -17,22 +17,23 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="dmhajsdjahsdkhaksd" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U3L-wv-OOc">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U3L-wv-OOc">
+                        <rect key="frame" x="10" y="0.0" width="310" height="44"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="trailing" secondItem="U3L-wv-OOc" secondAttribute="trailing" id="41h-rn-Wuu"/>
-                    <constraint firstItem="U3L-wv-OOc" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="ES3-AK-x0I"/>
-                    <constraint firstAttribute="bottom" secondItem="U3L-wv-OOc" secondAttribute="bottom" id="Rsw-9e-75H"/>
-                    <constraint firstItem="U3L-wv-OOc" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="cfN-Tq-nus"/>
-                    <constraint firstItem="U3L-wv-OOc" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="dDN-eY-Qe1"/>
-                    <constraint firstItem="U3L-wv-OOc" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="i01-0j-CuU"/>
+                    <constraint firstItem="U3L-wv-OOc" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="4td-ou-JQx"/>
+                    <constraint firstItem="U3L-wv-OOc" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="CN4-6u-ShE"/>
+                    <constraint firstAttribute="bottom" secondItem="U3L-wv-OOc" secondAttribute="bottom" id="gqL-qz-alL"/>
+                    <constraint firstAttribute="trailing" secondItem="U3L-wv-OOc" secondAttribute="trailing" id="hC3-2k-23l"/>
                 </constraints>
             </tableViewCellContentView>
+            <constraints>
+                <constraint firstItem="U3L-wv-OOc" firstAttribute="centerY" secondItem="njF-e1-oar" secondAttribute="centerY" id="TMC-kE-YIO"/>
+            </constraints>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="txt" destination="U3L-wv-OOc" id="GmL-Ig-6z4"/>

@@ -15,6 +15,8 @@
 		7416AF5624E402C70021AD1E /* testViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7416AF5424E402C70021AD1E /* testViewController.xib */; };
 		7416AF5A24E418600021AD1E /* NewFeedmodel1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7416AF5924E418600021AD1E /* NewFeedmodel1.swift */; };
 		741A67AB24BDDCCF000CD51F /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741A67AA24BDDCCF000CD51F /* UserModel.swift */; };
+		741F5FE624FB5D79006B6EA8 /* CookingHomeDetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741F5FE424FB5D79006B6EA8 /* CookingHomeDetailsTableViewCell.swift */; };
+		741F5FE724FB5D79006B6EA8 /* CookingHomeDetailsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 741F5FE524FB5D79006B6EA8 /* CookingHomeDetailsTableViewCell.xib */; };
 		742CE86124E00DDF00E5F002 /* NewFeedModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 742CE86024E00DDF00E5F002 /* NewFeedModel.swift */; };
 		742CE86424E018F900E5F002 /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 742CE86224E018F900E5F002 /* HomeTableViewCell.swift */; };
 		742CE86524E018F900E5F002 /* HomeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 742CE86324E018F900E5F002 /* HomeTableViewCell.xib */; };
@@ -49,12 +51,8 @@
 		749BDD5324EBC87B00FEE2E8 /* HomeImageDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 749BDD5124EBC87B00FEE2E8 /* HomeImageDetailsViewController.xib */; };
 		749BDD5624EBCC5F00FEE2E8 /* ImageDetailsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 749BDD5424EBCC5F00FEE2E8 /* ImageDetailsCollectionViewCell.swift */; };
 		749BDD5724EBCC5F00FEE2E8 /* ImageDetailsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 749BDD5524EBCC5F00FEE2E8 /* ImageDetailsCollectionViewCell.xib */; };
-		74B0EF3524FA90D80035CE8A /* PostDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B0EF3324FA90D80035CE8A /* PostDetailViewController.swift */; };
-		74B0EF3624FA90D80035CE8A /* PostDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 74B0EF3424FA90D80035CE8A /* PostDetailViewController.xib */; };
 		74B0EF3A24FAC4C40035CE8A /* addingredientsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B0EF3824FAC4C40035CE8A /* addingredientsViewController.swift */; };
 		74B0EF3B24FAC4C40035CE8A /* addingredientsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 74B0EF3924FAC4C40035CE8A /* addingredientsViewController.xib */; };
-		74B0EF3E24FAC5320035CE8A /* CookingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B0EF3C24FAC5320035CE8A /* CookingViewController.swift */; };
-		74B0EF3F24FAC5320035CE8A /* CookingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 74B0EF3D24FAC5320035CE8A /* CookingViewController.xib */; };
 		74BB850C24CBE01B009B2DCF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 74BB850B24CBE01A009B2DCF /* Assets.xcassets */; };
 		74C2E50124D56BD700979937 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74C2E4FF24D56BD700979937 /* PostViewController.swift */; };
 		74C2E50224D56BD700979937 /* PostViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 74C2E50024D56BD700979937 /* PostViewController.xib */; };
@@ -80,6 +78,8 @@
 		7416AF5424E402C70021AD1E /* testViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = testViewController.xib; sourceTree = "<group>"; };
 		7416AF5924E418600021AD1E /* NewFeedmodel1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewFeedmodel1.swift; sourceTree = "<group>"; };
 		741A67AA24BDDCCF000CD51F /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		741F5FE424FB5D79006B6EA8 /* CookingHomeDetailsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CookingHomeDetailsTableViewCell.swift; sourceTree = "<group>"; };
+		741F5FE524FB5D79006B6EA8 /* CookingHomeDetailsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CookingHomeDetailsTableViewCell.xib; sourceTree = "<group>"; };
 		742CE86024E00DDF00E5F002 /* NewFeedModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewFeedModel.swift; sourceTree = "<group>"; };
 		742CE86224E018F900E5F002 /* HomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
 		742CE86324E018F900E5F002 /* HomeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeTableViewCell.xib; sourceTree = "<group>"; };
@@ -116,12 +116,8 @@
 		749BDD5124EBC87B00FEE2E8 /* HomeImageDetailsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeImageDetailsViewController.xib; sourceTree = "<group>"; };
 		749BDD5424EBCC5F00FEE2E8 /* ImageDetailsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDetailsCollectionViewCell.swift; sourceTree = "<group>"; };
 		749BDD5524EBCC5F00FEE2E8 /* ImageDetailsCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageDetailsCollectionViewCell.xib; sourceTree = "<group>"; };
-		74B0EF3324FA90D80035CE8A /* PostDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailViewController.swift; sourceTree = "<group>"; };
-		74B0EF3424FA90D80035CE8A /* PostDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostDetailViewController.xib; sourceTree = "<group>"; };
 		74B0EF3824FAC4C40035CE8A /* addingredientsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addingredientsViewController.swift; sourceTree = "<group>"; };
 		74B0EF3924FAC4C40035CE8A /* addingredientsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = addingredientsViewController.xib; sourceTree = "<group>"; };
-		74B0EF3C24FAC5320035CE8A /* CookingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CookingViewController.swift; sourceTree = "<group>"; };
-		74B0EF3D24FAC5320035CE8A /* CookingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CookingViewController.xib; sourceTree = "<group>"; };
 		74BB850B24CBE01A009B2DCF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		74C2E4FF24D56BD700979937 /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
 		74C2E50024D56BD700979937 /* PostViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostViewController.xib; sourceTree = "<group>"; };
@@ -157,6 +153,8 @@
 				7440671E24F35DBD00F9EE5C /* HomeDetailsTableViewCell.xib */,
 				7440672124F36E3200F9EE5C /* HomeDetailsCollectionViewCell.swift */,
 				7440672224F36E3200F9EE5C /* HomeDetailsCollectionViewCell.xib */,
+				741F5FE424FB5D79006B6EA8 /* CookingHomeDetailsTableViewCell.swift */,
+				741F5FE524FB5D79006B6EA8 /* CookingHomeDetailsTableViewCell.xib */,
 			);
 			path = Details;
 			sourceTree = "<group>";
@@ -273,8 +271,6 @@
 				74B0EF3724FAC4870035CE8A /* Postdetails */,
 				74C2E4FF24D56BD700979937 /* PostViewController.swift */,
 				74C2E50024D56BD700979937 /* PostViewController.xib */,
-				74B0EF3324FA90D80035CE8A /* PostDetailViewController.swift */,
-				74B0EF3424FA90D80035CE8A /* PostDetailViewController.xib */,
 				743BF52224DEDCB600DB28F6 /* CollectionViewCell.swift */,
 				743BF52124DEDCB600DB28F6 /* CollectionViewCell.xib */,
 				74D1B95224F7CEA600F2EE29 /* ingredientsTableViewCell.swift */,
@@ -290,8 +286,6 @@
 			children = (
 				74B0EF3824FAC4C40035CE8A /* addingredientsViewController.swift */,
 				74B0EF3924FAC4C40035CE8A /* addingredientsViewController.xib */,
-				74B0EF3C24FAC5320035CE8A /* CookingViewController.swift */,
-				74B0EF3D24FAC5320035CE8A /* CookingViewController.xib */,
 			);
 			path = Postdetails;
 			sourceTree = "<group>";
@@ -389,8 +383,8 @@
 				744ED17724E5772300DE6084 /* KeyBoardView.xib in Resources */,
 				74ECF70824BC79B200D98BB3 /* ProfileViewController.xib in Resources */,
 				743BF52324DEDCB700DB28F6 /* CollectionViewCell.xib in Resources */,
-				74B0EF3624FA90D80035CE8A /* PostDetailViewController.xib in Resources */,
 				7416AF5624E402C70021AD1E /* testViewController.xib in Resources */,
+				741F5FE724FB5D79006B6EA8 /* CookingHomeDetailsTableViewCell.xib in Resources */,
 				744A8B2524E5CEB900F0F936 /* LaucherAppViewController.xib in Resources */,
 				749BDD5324EBC87B00FEE2E8 /* HomeImageDetailsViewController.xib in Resources */,
 				744ED18024E57AF300DE6084 /* InputView.xib in Resources */,
@@ -405,7 +399,6 @@
 				7411595124EEEC1100B22BDA /* MenuUserProfileTableViewCell.xib in Resources */,
 				7440672024F35DBD00F9EE5C /* HomeDetailsTableViewCell.xib in Resources */,
 				749BDD5724EBCC5F00FEE2E8 /* ImageDetailsCollectionViewCell.xib in Resources */,
-				74B0EF3F24FAC5320035CE8A /* CookingViewController.xib in Resources */,
 				7411594D24EEDCF800B22BDA /* UserProfileViewController.xib in Resources */,
 				74BB850C24CBE01B009B2DCF /* Assets.xcassets in Resources */,
 				7455362524CB2128002741EC /* HomeViewController.xib in Resources */,
@@ -468,7 +461,6 @@
 				741A67AB24BDDCCF000CD51F /* UserModel.swift in Sources */,
 				744A8B2424E5CEB900F0F936 /* LaucherAppViewController.swift in Sources */,
 				7440672324F36E3200F9EE5C /* HomeDetailsCollectionViewCell.swift in Sources */,
-				74B0EF3524FA90D80035CE8A /* PostDetailViewController.swift in Sources */,
 				7444090024E14DA900CD5BB4 /* MenuModel.swift in Sources */,
 				74D1B95824F7FF9000F2EE29 /* CookingTableViewCell.swift in Sources */,
 				7411595024EEEC1100B22BDA /* MenuUserProfileTableViewCell.swift in Sources */,
@@ -487,12 +479,12 @@
 				7416AF5A24E418600021AD1E /* NewFeedmodel1.swift in Sources */,
 				74D1B95424F7CEA600F2EE29 /* ingredientsTableViewCell.swift in Sources */,
 				7440671F24F35DBD00F9EE5C /* HomeDetailsTableViewCell.swift in Sources */,
+				741F5FE624FB5D79006B6EA8 /* CookingHomeDetailsTableViewCell.swift in Sources */,
 				74ECF70724BC79B200D98BB3 /* ProfileViewController.swift in Sources */,
 				7464D3C824B5F01500347356 /* Utilities.swift in Sources */,
 				74B0EF3A24FAC4C40035CE8A /* addingredientsViewController.swift in Sources */,
 				7416AF5524E402C70021AD1E /* testViewController.swift in Sources */,
 				744ED18124E57AF300DE6084 /* InputView.swift in Sources */,
-				74B0EF3E24FAC5320035CE8A /* CookingViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -11,17 +11,11 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PostViewController" customModule="appdocu" customModuleProvider="target">
             <connections>
                 <outlet property="collectionview" destination="Mah-12-tLz" id="12W-ot-9Ur"/>
-                <outlet property="congthuctext" destination="SDT-sT-Od7" id="zi6-mh-R9l"/>
                 <outlet property="motacongthuc" destination="utI-h6-1O5" id="cDf-FU-Jcg"/>
-                <outlet property="nguyenlieutext" destination="J7J-5f-rjA" id="Ezo-5p-0cP"/>
-                <outlet property="select" destination="MEE-t5-swl" id="GCq-mG-oRE"/>
-                <outlet property="tablecongthucheader" destination="m9C-AD-MTz" id="pc3-v5-FVe"/>
-                <outlet property="tablenguyenlieuheader" destination="xzG-ac-klT" id="eod-Vt-fRb"/>
                 <outlet property="tencongthuc" destination="j1t-jI-szj" id="4ce-I5-4Rr"/>
                 <outlet property="txtkhauphan" destination="UfR-AZ-DBV" id="Tp6-6t-Wlk"/>
                 <outlet property="txtthoigiannau" destination="DyO-fi-LQg" id="HXf-6m-FvL"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
-                <outlet property="viewcongthuc" destination="aK3-wN-OsH" id="Ni1-xt-kyQ"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -49,7 +43,7 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GXH-T0-edv">
-                                    <rect key="frame" x="10" y="113" width="394" height="1000"/>
+                                    <rect key="frame" x="10" y="113.5" width="394" height="1000"/>
                                     <subviews>
                                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="utI-h6-1O5">
                                             <rect key="frame" x="0.0" y="40.5" width="394" height="33"/>
@@ -118,7 +112,7 @@
                                                     <rect key="frame" x="192" y="0.0" width="192" height="30"/>
                                                     <state key="normal" title="Công thức"/>
                                                     <connections>
-                                                        <action selector="addview:" destination="-1" eventType="touchUpInside" id="Iib-Fn-2Cd"/>
+                                                        <action selector="addview:" destination="-1" eventType="touchUpInside" id="x9x-G9-ELf"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -202,175 +196,6 @@
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <point key="canvasLocation" x="131.8840579710145" y="106.47321428571428"/>
-        </view>
-        <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="MEE-t5-swl">
-            <rect key="frame" x="0.0" y="0.0" width="300" height="492"/>
-            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <subviews>
-                <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vDS-ia-JhG">
-                    <rect key="frame" x="0.0" y="462" width="300" height="30"/>
-                    <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="INn-Gy-Laf">
-                            <rect key="frame" x="0.0" y="0.0" width="150" height="30"/>
-                            <state key="normal" title="Huỷ"/>
-                            <connections>
-                                <action selector="outviewtp:" destination="-1" eventType="touchUpInside" id="ApG-7a-Rkw"/>
-                            </connections>
-                        </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tPC-6p-VvU">
-                            <rect key="frame" x="150" y="0.0" width="150" height="30"/>
-                            <state key="normal" title="Đồng ý "/>
-                            <connections>
-                                <action selector="agree:" destination="-1" eventType="touchUpInside" id="ozg-kK-Ekx"/>
-                            </connections>
-                        </button>
-                    </subviews>
-                    <constraints>
-                        <constraint firstItem="INn-Gy-Laf" firstAttribute="width" secondItem="tPC-6p-VvU" secondAttribute="width" id="ezt-NK-XHK"/>
-                    </constraints>
-                </stackView>
-                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="nhap" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="J7J-5f-rjA">
-                    <rect key="frame" x="0.0" y="0.0" width="300" height="457"/>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                    <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                </textView>
-            </subviews>
-            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-            <constraints>
-                <constraint firstAttribute="trailing" secondItem="vDS-ia-JhG" secondAttribute="trailing" id="0Wz-km-zHz"/>
-                <constraint firstItem="J7J-5f-rjA" firstAttribute="centerX" secondItem="MEE-t5-swl" secondAttribute="centerX" id="1jh-GN-IAK"/>
-                <constraint firstAttribute="trailing" secondItem="J7J-5f-rjA" secondAttribute="trailing" id="JPp-KY-YtK"/>
-                <constraint firstAttribute="bottom" secondItem="vDS-ia-JhG" secondAttribute="bottom" id="LTb-0V-dkF"/>
-                <constraint firstItem="vDS-ia-JhG" firstAttribute="top" secondItem="J7J-5f-rjA" secondAttribute="bottom" constant="5" id="SGF-Cy-uJT"/>
-                <constraint firstItem="vDS-ia-JhG" firstAttribute="centerX" secondItem="MEE-t5-swl" secondAttribute="centerX" id="TFK-uB-p4r"/>
-                <constraint firstItem="vDS-ia-JhG" firstAttribute="leading" secondItem="MEE-t5-swl" secondAttribute="leading" id="a97-nJ-Ibr"/>
-                <constraint firstItem="J7J-5f-rjA" firstAttribute="top" secondItem="MEE-t5-swl" secondAttribute="top" id="gkf-vx-fi4"/>
-                <constraint firstItem="J7J-5f-rjA" firstAttribute="leading" secondItem="MEE-t5-swl" secondAttribute="leading" id="rkt-Bv-dsl"/>
-            </constraints>
-            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="-620.28985507246387" y="134.59821428571428"/>
-        </view>
-        <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="xzG-ac-klT">
-            <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
-            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <subviews>
-                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="hJV-sB-yP8">
-                    <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
-                    <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cXN-ue-z1b">
-                            <rect key="frame" x="0.0" y="0.0" width="207" height="100"/>
-                            <state key="normal" title="Thêm "/>
-                            <connections>
-                                <action selector="addnguyenlieu:" destination="-1" eventType="touchUpInside" id="DOM-4X-jPX"/>
-                            </connections>
-                        </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I0J-bF-FIP">
-                            <rect key="frame" x="207" y="0.0" width="207" height="100"/>
-                            <state key="normal" title="Xóa"/>
-                            <connections>
-                                <action selector="deletenguyenlieu:" destination="-1" eventType="touchUpInside" id="C7g-oN-2uU"/>
-                            </connections>
-                        </button>
-                    </subviews>
-                </stackView>
-            </subviews>
-            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-            <constraints>
-                <constraint firstItem="hJV-sB-yP8" firstAttribute="centerX" secondItem="xzG-ac-klT" secondAttribute="centerX" id="D0I-5c-7N8"/>
-                <constraint firstAttribute="trailing" secondItem="hJV-sB-yP8" secondAttribute="trailing" id="Hi0-83-FCs"/>
-                <constraint firstAttribute="bottom" secondItem="hJV-sB-yP8" secondAttribute="bottom" id="YmW-ZW-NO0"/>
-                <constraint firstItem="hJV-sB-yP8" firstAttribute="leading" secondItem="xzG-ac-klT" secondAttribute="leading" id="cDy-XX-PnA"/>
-                <constraint firstItem="hJV-sB-yP8" firstAttribute="centerY" secondItem="xzG-ac-klT" secondAttribute="centerY" id="gMf-dR-Uuo"/>
-                <constraint firstItem="hJV-sB-yP8" firstAttribute="top" secondItem="xzG-ac-klT" secondAttribute="top" id="kNy-Ok-iqf"/>
-            </constraints>
-            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <viewLayoutGuide key="safeArea" id="MlZ-hi-9mV"/>
-            <point key="canvasLocation" x="-619" y="-147"/>
-        </view>
-        <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="m9C-AD-MTz">
-            <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
-            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <subviews>
-                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="28Q-QL-M6V">
-                    <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
-                    <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eZi-2g-88n">
-                            <rect key="frame" x="0.0" y="0.0" width="188" height="100"/>
-                            <state key="normal" title="Thêm "/>
-                            <connections>
-                                <action selector="addcongthuc:" destination="-1" eventType="touchUpInside" id="PJV-wi-hH8"/>
-                            </connections>
-                        </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4G7-hS-ueN">
-                            <rect key="frame" x="188" y="0.0" width="226" height="100"/>
-                            <state key="normal" title="quay lại"/>
-                            <connections>
-                                <action selector="deletecongthuc:" destination="-1" eventType="touchUpInside" id="gCz-fW-Zdu"/>
-                            </connections>
-                        </button>
-                    </subviews>
-                </stackView>
-            </subviews>
-            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-            <constraints>
-                <constraint firstItem="28Q-QL-M6V" firstAttribute="centerY" secondItem="m9C-AD-MTz" secondAttribute="centerY" id="4Rz-CK-31h"/>
-                <constraint firstAttribute="bottom" secondItem="28Q-QL-M6V" secondAttribute="bottom" id="TiW-Kq-btB"/>
-                <constraint firstItem="28Q-QL-M6V" firstAttribute="top" secondItem="m9C-AD-MTz" secondAttribute="top" id="Veg-bp-xpd"/>
-                <constraint firstAttribute="trailing" secondItem="28Q-QL-M6V" secondAttribute="trailing" id="Xju-5P-0Kw"/>
-                <constraint firstItem="28Q-QL-M6V" firstAttribute="leading" secondItem="m9C-AD-MTz" secondAttribute="leading" id="gVz-Vr-BBa"/>
-                <constraint firstItem="28Q-QL-M6V" firstAttribute="centerX" secondItem="m9C-AD-MTz" secondAttribute="centerX" id="ly2-PM-984"/>
-            </constraints>
-            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="870" y="-147"/>
-        </view>
-        <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="aK3-wN-OsH">
-            <rect key="frame" x="0.0" y="0.0" width="300" height="400"/>
-            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <subviews>
-                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Bli-rc-YQv">
-                    <rect key="frame" x="0.0" y="370" width="300" height="30"/>
-                    <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rZu-ZQ-5Dk">
-                            <rect key="frame" x="0.0" y="0.0" width="150" height="30"/>
-                            <state key="normal" title="huy"/>
-                            <connections>
-                                <action selector="outview:" destination="-1" eventType="touchUpInside" id="Iu8-lu-cK7"/>
-                            </connections>
-                        </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NVx-X2-pxv">
-                            <rect key="frame" x="150" y="0.0" width="150" height="30"/>
-                            <state key="normal" title="add"/>
-                            <connections>
-                                <action selector="agreecongthuc:" destination="-1" eventType="touchUpInside" id="ewd-ov-m2O"/>
-                            </connections>
-                        </button>
-                    </subviews>
-                </stackView>
-                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="SDT-sT-Od7">
-                    <rect key="frame" x="0.0" y="0.0" width="300" height="370"/>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                    <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                    <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                </textView>
-            </subviews>
-            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-            <constraints>
-                <constraint firstAttribute="bottom" secondItem="Bli-rc-YQv" secondAttribute="bottom" id="8II-Lm-yjx"/>
-                <constraint firstItem="Bli-rc-YQv" firstAttribute="centerX" secondItem="aK3-wN-OsH" secondAttribute="centerX" id="8Sq-zu-Z8h"/>
-                <constraint firstItem="SDT-sT-Od7" firstAttribute="top" secondItem="aK3-wN-OsH" secondAttribute="top" id="JYO-oR-64e"/>
-                <constraint firstItem="SDT-sT-Od7" firstAttribute="centerX" secondItem="aK3-wN-OsH" secondAttribute="centerX" id="K6H-wa-ZnP"/>
-                <constraint firstItem="Bli-rc-YQv" firstAttribute="top" secondItem="SDT-sT-Od7" secondAttribute="bottom" id="MXe-yt-WKs"/>
-                <constraint firstAttribute="trailing" secondItem="Bli-rc-YQv" secondAttribute="trailing" id="Rfl-HI-ab9"/>
-                <constraint firstItem="SDT-sT-Od7" firstAttribute="leading" secondItem="aK3-wN-OsH" secondAttribute="leading" id="aX7-Re-l98"/>
-                <constraint firstAttribute="trailing" secondItem="SDT-sT-Od7" secondAttribute="trailing" id="b64-sP-Wm4"/>
-                <constraint firstItem="Bli-rc-YQv" firstAttribute="leading" secondItem="aK3-wN-OsH" secondAttribute="leading" id="j7e-j3-3fd"/>
-            </constraints>
-            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="870" y="104"/>
         </view>
     </objects>
 </document>
