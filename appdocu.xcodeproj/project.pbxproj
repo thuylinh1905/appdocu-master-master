@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		740A4F9824FCF11E00C25B05 /* imagecellCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 740A4F9624FCF11E00C25B05 /* imagecellCollectionViewCell.swift */; };
+		740A4F9924FCF11E00C25B05 /* imagecellCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 740A4F9724FCF11E00C25B05 /* imagecellCollectionViewCell.xib */; };
 		7411594C24EEDCF800B22BDA /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7411594A24EEDCF800B22BDA /* UserProfileViewController.swift */; };
 		7411594D24EEDCF800B22BDA /* UserProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7411594B24EEDCF800B22BDA /* UserProfileViewController.xib */; };
 		7411595024EEEC1100B22BDA /* MenuUserProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7411594E24EEEC1100B22BDA /* MenuUserProfileTableViewCell.swift */; };
@@ -72,6 +74,8 @@
 /* Begin PBXFileReference section */
 		0A09EF12753ABD87F1B51872 /* Pods-appdocu.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-appdocu.debug.xcconfig"; path = "Target Support Files/Pods-appdocu/Pods-appdocu.debug.xcconfig"; sourceTree = "<group>"; };
 		2CFD8909EE19B88429B6ABA4 /* Pods-appdocu.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-appdocu.release.xcconfig"; path = "Target Support Files/Pods-appdocu/Pods-appdocu.release.xcconfig"; sourceTree = "<group>"; };
+		740A4F9624FCF11E00C25B05 /* imagecellCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = imagecellCollectionViewCell.swift; sourceTree = "<group>"; };
+		740A4F9724FCF11E00C25B05 /* imagecellCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = imagecellCollectionViewCell.xib; sourceTree = "<group>"; };
 		7411594A24EEDCF800B22BDA /* UserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
 		7411594B24EEDCF800B22BDA /* UserProfileViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserProfileViewController.xib; sourceTree = "<group>"; };
 		7411594E24EEEC1100B22BDA /* MenuUserProfileTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuUserProfileTableViewCell.swift; sourceTree = "<group>"; };
@@ -292,6 +296,8 @@
 			children = (
 				74B0EF3824FAC4C40035CE8A /* addingredientsViewController.swift */,
 				74B0EF3924FAC4C40035CE8A /* addingredientsViewController.xib */,
+				740A4F9624FCF11E00C25B05 /* imagecellCollectionViewCell.swift */,
+				740A4F9724FCF11E00C25B05 /* imagecellCollectionViewCell.xib */,
 			);
 			path = Postdetails;
 			sourceTree = "<group>";
@@ -400,6 +406,7 @@
 				74D1B95924F7FF9000F2EE29 /* CookingTableViewCell.xib in Resources */,
 				741F5FEB24FB94DC006B6EA8 /* CommentTableViewCell.xib in Resources */,
 				7464D3CE24B5F3B000347356 /* SignupViewController.xib in Resources */,
+				740A4F9924FCF11E00C25B05 /* imagecellCollectionViewCell.xib in Resources */,
 				7464D3BB24B5E56E00347356 /* LaunchScreen.storyboard in Resources */,
 				74D0788224B5F6CF00D17AFF /* GoogleService-Info.plist in Resources */,
 				742CE86524E018F900E5F002 /* HomeTableViewCell.xib in Resources */,
@@ -466,6 +473,7 @@
 				7464D3CD24B5F3B000347356 /* SignupViewController.swift in Sources */,
 				7464D3C524B5E65000347356 /* LoginViewController.swift in Sources */,
 				741A67AB24BDDCCF000CD51F /* UserModel.swift in Sources */,
+				740A4F9824FCF11E00C25B05 /* imagecellCollectionViewCell.swift in Sources */,
 				744A8B2424E5CEB900F0F936 /* LaucherAppViewController.swift in Sources */,
 				7440672324F36E3200F9EE5C /* HomeDetailsCollectionViewCell.swift in Sources */,
 				7444090024E14DA900CD5BB4 /* MenuModel.swift in Sources */,

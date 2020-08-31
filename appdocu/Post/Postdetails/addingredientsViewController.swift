@@ -7,6 +7,16 @@
 //
 
 import UIKit
+import DKImagePickerController
+
+struct uploadimagecell {
+    var text : String
+    var image : [UIImage]
+    init(text : String , image : [UIImage]) {
+        self.text = text
+        self.image = image
+    }
+}
 
 
 class addingredientsViewController: UIViewController {
@@ -16,17 +26,25 @@ class addingredientsViewController: UIViewController {
     @IBOutlet weak var nguyenlieutext: UITextView!
     @IBOutlet weak var tableviewnguyenlieu: UITableView!
     @IBOutlet var tablecongthucheader: UIView!
+    @IBOutlet weak var collectionimage: UICollectionView!
     @IBOutlet var viewcongthuc: UIView!
     @IBOutlet weak var congthuctext: UITextView!
     static var nguyenlieu = [String]()
     static var congthuc = [String]()
     var index = 0
+    var imagecollectioncell : [UIImage]! = []
+    var imagecollection1cell : [UIImage]! = []
+    var arraycell = [uploadimagecell]()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
        tableviewnguyenlieu.register(UINib(nibName: "ingredientsTableViewCell", bundle: .main), forCellReuseIdentifier: "ingredientscell")
        tableviewnguyenlieu.register(UINib(nibName: "CookingTableViewCell", bundle: .main), forCellReuseIdentifier: "cookingcell")
+        collectionimage.register(UINib(nibName: "imagecellCollectionViewCell", bundle: .main), forCellWithReuseIdentifier: "imageviewcell")
         navigationitem()
+        self.collectionimage.delegate = self;
+        self.collectionimage.dataSource = self;
     }
 }
 extension addingredientsViewController : UITableViewDelegate , UITableViewDataSource {
@@ -151,7 +169,27 @@ extension addingredientsViewController {
         addingredientsViewController.congthuc.insert(congthuctext, at: index)
         let indexpath = IndexPath.init(row: index, section: 1)
         tableviewnguyenlieu.insertRows(at: [indexpath], with: .right)
+        arraycell.append(uploadimagecell(text: congthuctext, image: imagecollection1cell))
+        print(arraycell)
     }
+    @IBAction func moanh(_ sender: Any) {
+           let pickerController = DKImagePickerController()
+           pickerController.maxSelectableCount = 4
+           pickerController.didSelectAssets = { (assets: [DKAsset]) in
+               for asset in assets {
+                   asset.fetchOriginalImage { (image, if) in
+                       print(image!)
+                       self.imagecollectioncell.append(image!)
+                       print(self.imagecollectioncell!)
+                    self.imagecollection1cell.append(contentsOf: self.imagecollectioncell)
+                    print(self.imagecollection1cell.count)
+                       self.collectionimage.reloadData()
+                       self.imagecollection1cell.removeAll()
+                   }
+               }
+           }
+           self.present(pickerController, animated: true) {}
+       }
     func showAnimate()
        {
            self.view.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
@@ -173,4 +211,22 @@ extension addingredientsViewController {
                }
            });
        }
+}
+extension addingredientsViewController : UICollectionViewDataSource , UICollectionViewDelegate , UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        if imagecollection1cell.count > 0 {
+            return self.imagecollection1cell.count
+        } else {
+            return 1
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionimage.dequeueReusableCell(withReuseIdentifier: "imageviewcell", for: indexPath) as! imagecellCollectionViewCell
+        cell.image.image = imagecollection1cell[indexPath.row]
+        return cell
+    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: 50 , height:  50)
+    }
 }

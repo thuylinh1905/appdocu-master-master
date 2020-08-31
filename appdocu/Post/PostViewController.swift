@@ -163,7 +163,7 @@ extension PostViewController {
         let tencongthuc1 = tencongthuc.text
         let motacongthuc1 = motacongthuc.text
         let khauphan = txtkhauphan.text
-        let thoigiannau = txtkhauphan.text
+        let thoigiannau = txtthoigiannau.text
         let ref = Database.database().reference()
         let userID = Auth.auth().currentUser?.uid
         guard let key = ref.child("location").child("2").childByAutoId().key else { return }

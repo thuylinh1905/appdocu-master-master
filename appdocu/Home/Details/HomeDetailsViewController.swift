@@ -62,7 +62,7 @@ class HomeDetailsViewController: UIViewController {
     func tablecomment(){
         let key = NewFeedDetails.keyid
         let ref = Database.database().reference()
-         ref.child("NewPeedPost").child(key).child("Comment-User").observe(.childAdded) { (snashot) in
+        ref.child("NewPeedPost").child(key).child("Comment-User").observe(.childAdded) { (snashot) in
             if let dic = snashot.value as? [String:Any] {
                 let username = dic["username"] as! String
                 let imageprofile = dic["imageprofile"] as! String
@@ -83,19 +83,22 @@ class HomeDetailsViewController: UIViewController {
     }
     @IBAction func agreecongthuc(_ sender: Any) {
         self.viewcomment.removeFromSuperview()
+        let ref1 = Database.database().reference()
         let key = NewFeedDetails.keyid
         let ref = Database.database().reference().child("NewPeedPost").child(key)
         guard let key1 = ref.child("comment").childByAutoId().key else { return }
         let userID = Auth.auth().currentUser?.uid
-        let username = NewFeedDetails.username
-        let imageprofile = NewFeedDetails.imageprofile
         let comment = commnet.text
-        let post = ["uid": userID!,
-                    "comment" : comment!,
-                    "imageprofile" : imageprofile!,
-                    "username" : username!] as [String: Any]
-        let childUpdates = ["/Comment-User/\(key1)": post]
-        ref.updateChildValues(childUpdates)
+        var post = ["uid": userID!,
+                    "comment" : comment! ] as [String: Any]
+        let userImage = ref1.child("users").child(userID!)
+        userImage.observeSingleEvent(of: .value) { (snapshot) in
+            let usersdic = snapshot.value as! NSDictionary
+            post["imageprofile"] = usersdic.value(forKey: "image")
+            post["username"] = usersdic.value(forKey: "username")
+            let childUpdates = ["/Comment-User/\(key1)": post]
+            ref.updateChildValues(childUpdates)
+        }
     }
     func showAnimate()
     {
