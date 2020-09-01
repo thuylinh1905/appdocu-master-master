@@ -1,6 +1,6 @@
 import UIKit
 import FirebaseAuth
-import  FirebaseDatabase
+import FirebaseDatabase
 import FirebaseStorage
 import Kingfisher
 
@@ -24,6 +24,10 @@ class ProfileViewController: UIViewController {
         self.hideKeyboard()
         navibutton()
     }
+    @IBAction func push(_ sender: Any) {
+        let profileusser = ProfileUserViewController()
+        self.navigationController?.pushViewController(profileusser, animated: true)
+    }
     func navibutton() {
         let btnCancel = UIButton()
         btnCancel.setImage(UIImage(named: "more"), for: .normal)
@@ -33,8 +37,8 @@ class ProfileViewController: UIViewController {
         self.navigationItem.rightBarButtonItem = leftBarButton
     }
     @objc func goToSetting(){
-       let menuProfile = UserProfileViewController()
-        self.navigationController?.pushViewController(menuProfile, animated: true)
+     let profileusser = ProfileUserViewController()
+    self.navigationController?.pushViewController(profileusser, animated: true)
     }
     func truyenve() {
         ref = Database.database().reference()

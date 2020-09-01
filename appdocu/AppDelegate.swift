@@ -79,9 +79,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func gototabbar() {
         let tabBarController = UITabBarController()
         let homeviewcontroller = HomeViewController()
-        let tabViewController2 = PostViewController()
-        let tabViewController3 = ProfileViewController()
-         let tabViewController4 = SignupViewController()
+        let tabViewController2 = SignupViewController()
+        let tabViewController3 = PostViewController()
+         let tabViewController4 = ProfileUserViewController()
         
         let navi1 = UINavigationController(rootViewController: homeviewcontroller)
         let navi2 = UINavigationController(rootViewController: tabViewController2)
@@ -98,13 +98,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let controllers = [navi1,navi2,navi3, navi4]
         tabBarController.viewControllers = controllers
         
-        navi1.tabBarItem = UITabBarItem(
-            title: "",
-            image: UIImage(named: "home1"),
-            tag: 1)
-        navi2.tabBarItem = UITabBarItem(title: "", image: UIImage(named: "upload"), tag: 2)
-        navi3.tabBarItem = UITabBarItem(title: "", image: UIImage(named: "user1"), tag: 3)
-        navi4.tabBarItem = UITabBarItem(title: nil, image: UIImage(named: "nofi1"), tag: 4)
+        navi1.tabBarItem = UITabBarItem(title: "",image: UIImage(named: "home1"),tag: 1)
+        navi2.tabBarItem = UITabBarItem(title: "", image: UIImage(named: "search"), tag: 2)
+        navi3.tabBarItem = UITabBarItem(title: "", image: UIImage(named: "upload"), tag: 3)
+        navi4.tabBarItem = UITabBarItem(title: nil, image: UIImage(named: "user1"), tag: 4)
         self.window?.rootViewController = tabBarController
     }
 }

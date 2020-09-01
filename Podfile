@@ -19,5 +19,6 @@ target 'appdocu' do
   pod 'SDWebImage', '~> 5.0'
   pod 'SVProgressHUD'
   pod 'hkAlium'
+  pod "TabPageViewController"
 
 end

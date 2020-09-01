@@ -33,6 +33,14 @@ class PostViewController: UIViewController  {
         textfieldbuttomLine()
     }
     
+    @IBAction func hkahkdhas(_ sender: Any) {
+       let dateFormatter : DateFormatter = DateFormatter()
+        //  dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        dateFormatter.dateFormat = "dd/MM/yyyy"
+        let date = Date()
+        let dateString = dateFormatter.string(from: date)
+        print(dateString)
+    }
     @IBAction func addview(_ sender: Any) {
         let postdetails = addingredientsViewController()
         postdetails.hidesBottomBarWhenPushed = true
@@ -260,7 +268,7 @@ extension PostViewController {
                                                print(ImageUrl)
                                                post["image"] = self.updateimage
                                                let childUpdates = ["/NewPeedPost/\(key)": post,
-                                                                   "/user-NewPeedPost/\(String(describing: userID))/\(key)/": post]
+                                                                   "/user-NewPeedPost/\(String(describing: userID!))/\(key)/": post]
                                                ref.updateChildValues(childUpdates)
                                            }
                                        }
