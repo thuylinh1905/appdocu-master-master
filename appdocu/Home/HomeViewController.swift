@@ -20,9 +20,8 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationitem()
         tableView.register(UINib(nibName: "HomeTableViewCell", bundle: .main), forCellReuseIdentifier: "tableview")
-        tableView.rowHeight = UITableView.automaticDimension
+//        tableView.rowHeight = UITableView.automaticDimension
         tableviewdata()
     }
     func tableviewdata() {
@@ -45,19 +44,10 @@ class HomeViewController: UIViewController {
             }
         }
     }
-    func navigationitem() {
-        let butsearch = UIButton()
-        butsearch.setImage(UIImage(named: "search"), for: .normal)
-        butsearch.addTarget(self, action:  #selector(gotosearch), for: .touchUpInside)
-        let leftBarButton1 = UIBarButtonItem()
-        leftBarButton1.customView = butsearch
-        
-        self.navigationItem.rightBarButtonItem = leftBarButton1
-    }
-    @objc func gotosearch(){
-    }
 }
+
 extension HomeViewController :UITableViewDelegate, UITableViewDataSource {
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return array.count
     }
@@ -66,6 +56,9 @@ extension HomeViewController :UITableViewDelegate, UITableViewDataSource {
         cell.truyenve(Newfeed: array[indexPath.row])
         cell.viewContro = self
         return cell
+    }
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 400
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath) as! HomeTableViewCell

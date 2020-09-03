@@ -24,13 +24,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.makeKeyAndVisible()
         return true
     }
-    func homedetails() {
-        UIView.transition(with: self.window!, duration: 0.3, options: .transitionCurlDown, animations: {
-            let viewController = HomeImageDetailsViewController()
-            let navigationController = UINavigationController(rootViewController: viewController)
-            self.window?.rootViewController = navigationController
-        }, completion: nil)
-    }
     func gotoHome() {
         UIView.transition(with: self.window!, duration: 0.3, options: UIView.AnimationOptions.transitionCrossDissolve, animations: {
             let viewController = ProfileViewController()
@@ -38,8 +31,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             self.window?.rootViewController = navigationController
         }, completion: nil)
     }
-
-    
     func gotoOnboarding() {
         UIView.transition(with: self.window!, duration: 0.3, options: [], animations: {
             let v1 = LaucherAppViewController()
@@ -49,13 +40,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }, completion: nil)
         
     }
-    func gotoOnboarding1() {
-         UIView.transition(with: self.window!, duration: 0.3, options: UIView.AnimationOptions.transitionCrossDissolve, animations: {
-             let v1 = HomeViewController()
-             self.window?.rootViewController = v1
-         }, completion: nil)
-     }
-    
     func gotoSignup() {
         let SignupController = SignupViewController()
         let navigationController = UINavigationController(rootViewController: SignupController)
@@ -66,14 +50,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
            let SigninViewController = LoginViewController()
            let navigationController = UINavigationController(rootViewController: SigninViewController)
            self.window?.rootViewController = navigationController
-    }
-    
-    func gotoupload() {
-        UIView.transition(with: self.window!, duration: 0.5, options: UIView.AnimationOptions.transitionCrossDissolve,animations: {
-            let postViewController = PostViewController()
-            let navigationController = UINavigationController(rootViewController: postViewController)
-            self.window?.rootViewController = navigationController
-        } ,completion: nil)
     }
     
     func gototabbar() {

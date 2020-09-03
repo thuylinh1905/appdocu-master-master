@@ -42,8 +42,8 @@ class UserfooodViewController: UIViewController {
     var array : [Userfood] = []
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableview.register(UINib(nibName: "UserfoodTableViewCell", bundle: .main), forCellReuseIdentifier: "userfood")
-                truyenve()
+        tableview.register(UINib(nibName: "UsersFoodTableViewCell", bundle: .main), forCellReuseIdentifier: "usersfood")
+        truyenve()
     }
     @IBAction func hihi(_ sender: Any) {
     }
@@ -74,11 +74,17 @@ extension UserfooodViewController : UITableViewDelegate , UITableViewDataSource 
         return self.array.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "userfood", for: indexPath) as! UserfoodTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "usersfood", for: indexPath) as! UsersFoodTableViewCell
         cell.truyen(userfood: array[indexPath.row])
+        cell.view.layer.cornerRadius = 12
+        cell.view.layer.borderWidth = 0.1
+        cell.view.layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
         return cell
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 100
+        return 150
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.cellForRow(at: indexPath)?.setSelected(false, animated: true)
     }
 }

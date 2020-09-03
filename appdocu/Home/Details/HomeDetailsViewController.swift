@@ -74,9 +74,14 @@ class HomeDetailsViewController: UIViewController {
         }
     }
     @IBAction func comment(_ sender: Any) {
-        self.view.addSubview(viewcomment)
-        viewcomment.center = self.view.center
-        self.showAnimate()
+        let transition = CATransition()
+        transition.duration = 0.5
+        transition.timingFunction = CAMediaTimingFunction(name: .easeInEaseOut)
+        transition.type = .push
+        transition.subtype = .fromTop
+        let commentview = CommentViewController()
+        self.navigationController?.view.layer.add(transition, forKey: kCATransition)
+        self.navigationController?.pushViewController(commentview, animated: true)
     }
     @IBAction func outview(_ sender: Any) {
         self.viewcomment.removeFromSuperview()

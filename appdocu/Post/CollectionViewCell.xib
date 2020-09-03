@@ -27,7 +27,7 @@
                             <constraint firstAttribute="width" constant="30" id="GEA-zJ-941"/>
                             <constraint firstAttribute="height" constant="30" id="wvO-gO-LpE"/>
                         </constraints>
-                        <state key="normal" image="multiply.square" catalog="system"/>
+                        <state key="normal" image="error.png"/>
                         <connections>
                             <action selector="buttonx:" destination="gTV-IL-0wX" eventType="touchUpInside" id="DDs-vx-t4p"/>
                         </connections>
@@ -50,6 +50,6 @@
         </collectionViewCell>
     </objects>
     <resources>
-        <image name="multiply.square" catalog="system" width="128" height="114"/>
+        <image name="error.png" width="28" height="28"/>
     </resources>
 </document>

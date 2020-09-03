@@ -63,20 +63,20 @@
                     </constraints>
                 </view>
                 <button opaque="NO" alpha="0.80000000000000004" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HJ1-0z-9b8">
-                    <rect key="frame" x="147" y="240" width="120" height="120"/>
+                    <rect key="frame" x="147" y="210" width="120" height="120"/>
                     <color key="backgroundColor" systemColor="systemGray5Color" red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="120" id="4zl-zw-Arx"/>
                         <constraint firstAttribute="width" constant="120" id="FDB-7I-hBf"/>
                     </constraints>
                     <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
-                    <state key="normal" image="camera" catalog="system"/>
+                    <state key="normal" image="camera"/>
                     <connections>
                         <action selector="changeimage:" destination="-1" eventType="touchUpInside" id="Z6a-Q2-SOg"/>
                     </connections>
                 </button>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="gyi-TM-QZP">
-                    <rect key="frame" x="50" y="410" width="314" height="226"/>
+                    <rect key="frame" x="50" y="380" width="314" height="226"/>
                     <subviews>
                         <textField opaque="NO" alpha="0.90000000000000002" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Nhập UserName" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cvp-nE-w1a">
                             <rect key="frame" x="0.0" y="0.0" width="314" height="34"/>
@@ -105,7 +105,7 @@
                     </subviews>
                 </stackView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nvg-Vp-irs">
-                    <rect key="frame" x="50" y="776" width="314" height="40"/>
+                    <rect key="frame" x="50" y="656" width="314" height="40"/>
                     <color key="backgroundColor" red="0.85098039219999999" green="0.1176470588" blue="0.14901960780000001" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="1ad-ht-cfE"/>
@@ -118,7 +118,7 @@
                     </connections>
                 </button>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="CfS-I8-h8y">
-                    <rect key="frame" x="147" y="240" width="120" height="120"/>
+                    <rect key="frame" x="147" y="210" width="120" height="120"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="120" id="Kps-bs-iQK"/>
@@ -132,14 +132,14 @@
                 <constraint firstItem="HJ1-0z-9b8" firstAttribute="centerX" secondItem="kYO-Lt-Qbh" secondAttribute="centerX" id="DoM-Is-sOl"/>
                 <constraint firstItem="gyi-TM-QZP" firstAttribute="top" secondItem="HJ1-0z-9b8" secondAttribute="bottom" constant="50" id="E02-ji-pdn"/>
                 <constraint firstAttribute="bottom" secondItem="kYO-Lt-Qbh" secondAttribute="bottom" id="F4e-nb-hge"/>
+                <constraint firstItem="Nvg-Vp-irs" firstAttribute="top" secondItem="gyi-TM-QZP" secondAttribute="bottom" constant="50" id="FLF-t7-fIv"/>
                 <constraint firstItem="Nvg-Vp-irs" firstAttribute="centerX" secondItem="kYO-Lt-Qbh" secondAttribute="centerX" id="Hxj-i3-FR9"/>
                 <constraint firstAttribute="trailing" secondItem="Nvg-Vp-irs" secondAttribute="trailing" constant="50" id="HyU-bi-uP3"/>
                 <constraint firstItem="gyi-TM-QZP" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="U60-rO-j1c"/>
-                <constraint firstAttribute="bottom" secondItem="Nvg-Vp-irs" secondAttribute="bottom" constant="80" id="WQS-QI-Ajf"/>
-                <constraint firstItem="HJ1-0z-9b8" firstAttribute="top" secondItem="T18-Lj-Idc" secondAttribute="bottom" constant="80" id="XAg-fV-1t2"/>
+                <constraint firstItem="HJ1-0z-9b8" firstAttribute="top" secondItem="T18-Lj-Idc" secondAttribute="bottom" constant="50" id="XAg-fV-1t2"/>
                 <constraint firstItem="CfS-I8-h8y" firstAttribute="centerX" secondItem="kYO-Lt-Qbh" secondAttribute="centerX" id="bNS-ff-gVv"/>
                 <constraint firstItem="kYO-Lt-Qbh" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="bpb-t6-njW"/>
-                <constraint firstItem="CfS-I8-h8y" firstAttribute="top" secondItem="T18-Lj-Idc" secondAttribute="bottom" constant="80" id="cu8-7e-5Xt"/>
+                <constraint firstItem="CfS-I8-h8y" firstAttribute="top" secondItem="T18-Lj-Idc" secondAttribute="bottom" constant="50" id="cu8-7e-5Xt"/>
                 <constraint firstItem="kYO-Lt-Qbh" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="g88-Nn-p1P"/>
                 <constraint firstAttribute="trailing" secondItem="gyi-TM-QZP" secondAttribute="trailing" constant="50" id="itA-7v-G2S"/>
                 <constraint firstItem="Nvg-Vp-irs" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="50" id="jz5-3p-8W7"/>
@@ -154,6 +154,6 @@
     </objects>
     <resources>
         <image name="Image" width="938" height="1668"/>
-        <image name="camera" catalog="system" width="128" height="96"/>
+        <image name="camera" width="76" height="55"/>
     </resources>
 </document>
