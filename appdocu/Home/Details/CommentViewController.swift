@@ -8,40 +8,45 @@
 
 import UIKit
 
-class CommentViewController: UIViewController {
+protocol comment {
+    func commnetuser (commenttext : String)
+}
 
+class CommentViewController: UIViewController {
+    
     
     @IBOutlet weak var username: UILabel!
     @IBOutlet weak var mota: UILabel!
     @IBOutlet weak var comment: UITextView!
+    var delegate : comment?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.hidesBackButton = true
         navibutton()
-        self.title = "New Title";
-
-        //For setting button in place of back button
-//        let leftItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.cancel, target: self, action: "leftButtonClicked");
-        let btnupload = UIBarButtonItem(title: "Cancel", style: .done, target: self, action: #selector(uploadfile))
-        self.navigationItem.leftBarButtonItem = btnupload
-        // Do any additional setup after loading the view.
+        textview()
     }
     func navibutton() {
-          self.navigationItem.title = "Đăng bài"
-          let btnUpload = UIButton()
-          btnUpload.setTitle("Đăng dcdsdss", for: .normal)
-          btnUpload.addTarget(self, action: #selector(uploadfile), for: .touchUpInside)
-          let rightBarButton = UIBarButtonItem()
-          rightBarButton.customView = btnUpload
+        self.navigationItem.title = "Thêm Bình Luận"
+        let btnUpload = UIButton()
+        btnUpload.setImage(UIImage(named: "send"), for: .normal)
+        btnUpload.addTarget(self, action: #selector(uploadfile), for: .touchUpInside)
+        let rightBarButton = UIBarButtonItem()
+        let leftItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.cancel, target: self, action: #selector(exit))
+        rightBarButton.customView = btnUpload
+        self.navigationItem.leftBarButtonItem = leftItem
         self.navigationItem.rightBarButtonItem = rightBarButton
-      }
-      @objc func uploadfile(){
-        print("dgsajgdaj")
-      }
+    }
+    @objc func exit(){
+        self.dismiss(animated: true, completion: nil)
+    }
+    @objc func uploadfile(){
+        delegate?.commnetuser(commenttext: comment.text)
+    }
+   
 }
 extension CommentViewController : UITextViewDelegate {
     func textview() {
-        comment.text = "Tên công thức"
+        comment.text = "Vui lòng nhập bình luận của bạn..."
         comment.textColor = UIColor.lightGray
         comment.translatesAutoresizingMaskIntoConstraints = false
         comment.isScrollEnabled = false

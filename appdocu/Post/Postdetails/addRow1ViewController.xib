@@ -8,9 +8,9 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CommentViewController" customModule="appdocu" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="addRow1ViewController" customModule="appdocu" customModuleProvider="target">
             <connections>
-                <outlet property="comment" destination="9YO-rX-5d5" id="uS2-0r-PJB"/>
+                <outlet property="textview" destination="RML-2h-6GG" id="kab-9i-GJR"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -19,9 +19,10 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="9YO-rX-5d5">
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="RML-2h-6GG">
                     <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                     <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -29,15 +30,15 @@
             </subviews>
             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
             <constraints>
-                <constraint firstItem="9YO-rX-5d5" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="9WO-3j-Hzc"/>
-                <constraint firstItem="9YO-rX-5d5" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="H2l-Tt-Lc1"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="9YO-rX-5d5" secondAttribute="trailing" id="NNK-3M-ra2"/>
-                <constraint firstItem="9YO-rX-5d5" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="cwe-rn-INz"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="9YO-rX-5d5" secondAttribute="bottom" id="lQK-r3-yB8"/>
-                <constraint firstItem="9YO-rX-5d5" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="u3m-vE-CIf"/>
+                <constraint firstItem="RML-2h-6GG" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="5E4-y0-dzX"/>
+                <constraint firstItem="RML-2h-6GG" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="86g-ip-EcD"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="RML-2h-6GG" secondAttribute="trailing" id="YSW-av-iE1"/>
+                <constraint firstItem="RML-2h-6GG" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="e7Y-6R-5kf"/>
+                <constraint firstItem="RML-2h-6GG" firstAttribute="centerY" secondItem="fnl-2z-Ty3" secondAttribute="centerY" id="iLP-eq-vht"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="RML-2h-6GG" secondAttribute="bottom" id="zsK-dH-wIf"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
-            <point key="canvasLocation" x="154" y="137"/>
+            <point key="canvasLocation" x="133" y="123"/>
         </view>
     </objects>
 </document>

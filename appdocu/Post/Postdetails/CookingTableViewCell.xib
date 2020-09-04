@@ -18,13 +18,13 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Labelshdsahdkhaskd" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cWP-Bx-DiG">
-                        <rect key="frame" x="30" y="0.0" width="290" height="44"/>
+                        <rect key="frame" x="40" y="0.0" width="270" height="44"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1 ." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hCK-fs-RdJ">
-                        <rect key="frame" x="0.0" y="0.0" width="30" height="44"/>
+                        <rect key="frame" x="10" y="0.0" width="30" height="44"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="30" id="fnb-Jd-Jv0"/>
                         </constraints>
@@ -37,9 +37,9 @@
                     <constraint firstItem="cWP-Bx-DiG" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="3EQ-8J-AZj"/>
                     <constraint firstAttribute="bottom" secondItem="hCK-fs-RdJ" secondAttribute="bottom" id="510-iV-kNA"/>
                     <constraint firstItem="cWP-Bx-DiG" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="8eh-ac-ePJ"/>
-                    <constraint firstItem="hCK-fs-RdJ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="BxL-VP-9NA"/>
+                    <constraint firstItem="hCK-fs-RdJ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="BxL-VP-9NA"/>
                     <constraint firstItem="cWP-Bx-DiG" firstAttribute="leading" secondItem="hCK-fs-RdJ" secondAttribute="trailing" id="HmF-6v-QLe"/>
-                    <constraint firstAttribute="trailing" secondItem="cWP-Bx-DiG" secondAttribute="trailing" id="JR8-wR-Wja"/>
+                    <constraint firstAttribute="trailing" secondItem="cWP-Bx-DiG" secondAttribute="trailing" constant="10" id="JR8-wR-Wja"/>
                     <constraint firstAttribute="bottom" secondItem="cWP-Bx-DiG" secondAttribute="bottom" id="Kc1-Ks-K0L"/>
                     <constraint firstItem="hCK-fs-RdJ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="Z7y-pB-nET"/>
                     <constraint firstItem="cWP-Bx-DiG" firstAttribute="leading" secondItem="hCK-fs-RdJ" secondAttribute="trailing" id="ggi-fn-uNB"/>

@@ -13,7 +13,6 @@ class addingredientsViewController: UIViewController {
     
     @IBOutlet weak var txtkhauphan: UITextField!
     @IBOutlet weak var txtthoigiannau: UITextField!
-   
     @IBOutlet var tablenguyenlieuheader: UIView!
     @IBOutlet var select: UIView!
     @IBOutlet weak var nguyenlieutext: UITextView!
@@ -27,12 +26,14 @@ class addingredientsViewController: UIViewController {
     var index = 0
     var imagecollectioncell : [UIImage]! = []
     var imagecollection1cell : [UIImage]! = []
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-       tableviewnguyenlieu.register(UINib(nibName: "ingredientsTableViewCell", bundle: .main), forCellReuseIdentifier: "ingredientscell")
-       tableviewnguyenlieu.register(UINib(nibName: "CookingTableViewCell", bundle: .main), forCellReuseIdentifier: "cookingcell")
+        tableviewnguyenlieu.register(UINib(nibName: "ingredientsTableViewCell", bundle: .main), forCellReuseIdentifier: "ingredientscell")
+        tableviewnguyenlieu.register(UINib(nibName: "CookingTableViewCell", bundle: .main), forCellReuseIdentifier: "cookingcell")
         navigationitem()
+        textview()
+
     }
 }
 extension addingredientsViewController : UITableViewDelegate , UITableViewDataSource {
@@ -45,8 +46,8 @@ extension addingredientsViewController : UITableViewDelegate , UITableViewDataSo
         } else {
             return addingredientsViewController.self.congthuc.count
         }
-       }
-       func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    }
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0 {
             let cell = self.tableviewnguyenlieu.dequeueReusableCell(withIdentifier: "ingredientscell", for: indexPath) as! ingredientsTableViewCell
             cell.txtnguyenlieu.text = addingredientsViewController.nguyenlieu[indexPath.row]
@@ -57,14 +58,14 @@ extension addingredientsViewController : UITableViewDelegate , UITableViewDataSo
             cell.number.text = String(indexPath.row)
             return cell
         }
-       }
+    }
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         if section == 0 {
             return "Nguyên Liệu"
         }
-            return "Các bước thực hiện"
-       }
-     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        return "Các bước thực hiện"
+    }
+    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         if let headerView = view as? UITableViewHeaderFooterView {
             headerView.contentView.backgroundColor = .white
             headerView.backgroundView?.backgroundColor = .black
@@ -72,10 +73,10 @@ extension addingredientsViewController : UITableViewDelegate , UITableViewDataSo
         }
     }
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-         if section == 0 {
-                return tablenguyenlieuheader
-         }
-             return tablecongthucheader
+        if section == 0 {
+            return tablenguyenlieuheader
+        }
+        return tablecongthucheader
     }
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if indexPath.section == 0 {
@@ -95,11 +96,11 @@ extension addingredientsViewController : UITableViewDelegate , UITableViewDataSo
             let ob = addingredientsViewController.nguyenlieu[sourceIndexPath.row]
             addingredientsViewController.nguyenlieu.remove(at: sourceIndexPath.row)
             addingredientsViewController.nguyenlieu.insert(ob, at: destinationIndexPath.item)
-         }
+        }
         let ob1 = addingredientsViewController.congthuc[sourceIndexPath.row]
         addingredientsViewController.congthuc.remove(at: sourceIndexPath.row)
         addingredientsViewController.congthuc.insert(ob1, at: destinationIndexPath.item)
-        }
+    }
     
 }
 
@@ -124,59 +125,90 @@ extension addingredientsViewController {
         self.tableviewnguyenlieu.isEditing = !self.tableviewnguyenlieu.isEditing
         sender.title = (self.tableviewnguyenlieu.isEditing) ? "Done" : "Edit"
     }
-       @IBAction func addnguyenlieu(_ sender: Any) {
-              self.view.addSubview(select)
-              select.center = self.view.center
-              self.showAnimate()
-          }
-          @IBAction func agree(_ sender: Any) {
-              self.select.removeFromSuperview()
-              add(nguyenlieutext: nguyenlieutext.text)
-          }
-          @IBAction func outviewtp(_ sender: Any) {
-              self.select.removeFromSuperview()
-          }
-          func add(nguyenlieutext : String) {
-            addingredientsViewController.nguyenlieu.insert(nguyenlieutext, at: index)
-              let indexpath = IndexPath.init(row: index, section: 0)
-              tableviewnguyenlieu.insertRows(at: [indexpath], with: .right)
-          }
+    @IBAction func addnguyenlieu(_ sender: Any) {
+        self.view.addSubview(select)
+        showAnimate()
+    }
+    @IBAction func agree(_ sender: Any) {
+        self.select.removeFromSuperview()
+        addnguyenieu(nguyenlieu: nguyenlieutext.text)
+    }
+    @IBAction func removesubview(_ sender: Any) {
+        self.select.removeFromSuperview()
+    }
+    func addnguyenieu(nguyenlieu : String) {
+        addingredientsViewController.nguyenlieu.insert(nguyenlieu, at: self.index)
+        let indexpath = IndexPath.init(row: self.index , section: 0)
+        self.tableviewnguyenlieu.insertRows(at: [indexpath], with: .right)
+    }
     @IBAction func addcongthuc(_ sender: Any) {
-        self.view.addSubview(viewcongthuc)
-        viewcongthuc.center = self.view.center
-        self.showAnimate()
-    }
-    @IBAction func outview(_ sender: Any) {
-        self.viewcongthuc.removeFromSuperview()
-    }
-    @IBAction func agreecongthuc(_ sender: Any) {
-        self.viewcongthuc.removeFromSuperview()
-        addcongthu(congthuctext: congthuctext.text)
-    }
-    func addcongthu(congthuctext : String) {
-        addingredientsViewController.congthuc.insert(congthuctext, at: index)
-        let indexpath = IndexPath.init(row: index, section: 1)
-        tableviewnguyenlieu.insertRows(at: [indexpath], with: .right)
+       let addrow = addRowViewController()
+        addrow.delegate = self
+        self.present(UINavigationController(rootViewController: addrow), animated: true, completion: nil)
     }
     func showAnimate()
-       {
-           self.view.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
-           self.view.alpha = 0.0;
-           UIView.animate(withDuration: 0.25, animations: {
-               self.view.alpha = 1.0
-               self.view.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
-           });
-       }
-       func removeAnimate()
-       {
-           UIView.animate(withDuration: 0.25, animations: {
-               self.view.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
-               self.view.alpha = 0.0;
-           }, completion:{(finished : Bool)  in
-               if (finished)
-               {
-                   self.view.removeFromSuperview()
-               }
-           });
-       }
+    {
+        self.view.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
+        self.view.alpha = 0.2;
+        UIView.animate(withDuration: 0.25, animations: {
+            self.view.alpha = 1.0
+            self.view.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
+            self.select.translatesAutoresizingMaskIntoConstraints = false
+            self.select.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
+            self.select.centerYAnchor.constraint(equalTo: self.view.centerYAnchor).isActive = true
+            self.select.widthAnchor.constraint(equalToConstant: self.view.frame.size.width - 50 / 2).isActive = true
+            self.select.heightAnchor.constraint(equalToConstant: 500).isActive = true
+        });
+    }
+    func removeAnimate()
+    {
+        UIView.animate(withDuration: 0.25, animations: {
+            self.view.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
+            self.view.alpha = 0.0;
+        }, completion:{(finished : Bool)  in
+            if (finished)
+            {
+                self.view.removeFromSuperview()
+            }
+        });
+    }
+}
+extension addingredientsViewController : UITextViewDelegate {
+    func textview() {
+        nguyenlieutext.text = "Tên nguyên liệu"
+        nguyenlieutext.textColor = UIColor.lightGray
+        nguyenlieutext.translatesAutoresizingMaskIntoConstraints = false
+        nguyenlieutext.isScrollEnabled = false
+        nguyenlieutext.delegate = self
+        nguyenlieutext.font = UIFont.systemFont(ofSize: 20)
+    }
+    func textViewDidChange(_ textView: UITextView) {
+        let size = CGSize(width: view.frame.width, height: .infinity)
+        let estimatedSize = textView.sizeThatFits(size)
+        textView.constraints.forEach { (constraint ) in
+            if constraint.firstAttribute == .height {
+                constraint.constant = estimatedSize.height
+            }
+        }
+    }
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if textView.textColor == UIColor.lightGray {
+            textView.text = nil
+            textView.textColor = UIColor.black
+        }
+    }
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if textView.text.isEmpty {
+            textView.textColor = UIColor.lightGray
+        }
+    }
+}
+extension addingredientsViewController : addrowcongthuc {
+    func addrow(congthuc: String) {
+        self.dismiss(animated: true, completion: nil)
+        let indexpath = IndexPath.init(row: 0, section: 1)
+        addingredientsViewController.congthuc.insert(congthuc, at: 0)
+        tableviewnguyenlieu.insertRows(at: [indexpath], with: .right)
+        self.tableviewnguyenlieu.reloadData()
+    }
 }

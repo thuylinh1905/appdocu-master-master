@@ -71,6 +71,10 @@
 		74B0EF3A24FAC4C40035CE8A /* addingredientsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B0EF3824FAC4C40035CE8A /* addingredientsViewController.swift */; };
 		74B0EF3B24FAC4C40035CE8A /* addingredientsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 74B0EF3924FAC4C40035CE8A /* addingredientsViewController.xib */; };
 		74BB850C24CBE01B009B2DCF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 74BB850B24CBE01A009B2DCF /* Assets.xcassets */; };
+		74BC03C1250285FB00999F0D /* TimeCookingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74BC03BF250285FB00999F0D /* TimeCookingTableViewCell.swift */; };
+		74BC03C2250285FB00999F0D /* TimeCookingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 74BC03C0250285FB00999F0D /* TimeCookingTableViewCell.xib */; };
+		74BC03CD25029A4800999F0D /* MoreCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74BC03CB25029A4800999F0D /* MoreCollectionViewCell.swift */; };
+		74BC03CE25029A4800999F0D /* MoreCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 74BC03CC25029A4800999F0D /* MoreCollectionViewCell.xib */; };
 		74C2E50124D56BD700979937 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74C2E4FF24D56BD700979937 /* PostViewController.swift */; };
 		74C2E50224D56BD700979937 /* PostViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 74C2E50024D56BD700979937 /* PostViewController.xib */; };
 		74D0788224B5F6CF00D17AFF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 74D0788124B5F6CF00D17AFF /* GoogleService-Info.plist */; };
@@ -78,6 +82,10 @@
 		74D1B95524F7CEA600F2EE29 /* ingredientsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 74D1B95324F7CEA600F2EE29 /* ingredientsTableViewCell.xib */; };
 		74D1B95824F7FF9000F2EE29 /* CookingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D1B95624F7FF9000F2EE29 /* CookingTableViewCell.swift */; };
 		74D1B95924F7FF9000F2EE29 /* CookingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 74D1B95724F7FF9000F2EE29 /* CookingTableViewCell.xib */; };
+		74DDF1602501D09500890A0D /* addRowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74DDF15E2501D09500890A0D /* addRowViewController.swift */; };
+		74DDF1612501D09500890A0D /* addRowViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 74DDF15F2501D09500890A0D /* addRowViewController.xib */; };
+		74DDF1642501ED2300890A0D /* addRow1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74DDF1622501ED2300890A0D /* addRow1ViewController.swift */; };
+		74DDF1652501ED2300890A0D /* addRow1ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 74DDF1632501ED2300890A0D /* addRow1ViewController.xib */; };
 		74ECF70724BC79B200D98BB3 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74ECF70524BC79B200D98BB3 /* ProfileViewController.swift */; };
 		74ECF70824BC79B200D98BB3 /* ProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 74ECF70624BC79B200D98BB3 /* ProfileViewController.xib */; };
 		74FE8B5924F15A290086D1FE /* NewFeedDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74FE8B5824F15A290086D1FE /* NewFeedDetail.swift */; };
@@ -153,6 +161,10 @@
 		74B0EF3824FAC4C40035CE8A /* addingredientsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addingredientsViewController.swift; sourceTree = "<group>"; };
 		74B0EF3924FAC4C40035CE8A /* addingredientsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = addingredientsViewController.xib; sourceTree = "<group>"; };
 		74BB850B24CBE01A009B2DCF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		74BC03BF250285FB00999F0D /* TimeCookingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeCookingTableViewCell.swift; sourceTree = "<group>"; };
+		74BC03C0250285FB00999F0D /* TimeCookingTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TimeCookingTableViewCell.xib; sourceTree = "<group>"; };
+		74BC03CB25029A4800999F0D /* MoreCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreCollectionViewCell.swift; sourceTree = "<group>"; };
+		74BC03CC25029A4800999F0D /* MoreCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MoreCollectionViewCell.xib; sourceTree = "<group>"; };
 		74C2E4FF24D56BD700979937 /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
 		74C2E50024D56BD700979937 /* PostViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostViewController.xib; sourceTree = "<group>"; };
 		74D0788124B5F6CF00D17AFF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -160,6 +172,10 @@
 		74D1B95324F7CEA600F2EE29 /* ingredientsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ingredientsTableViewCell.xib; sourceTree = "<group>"; };
 		74D1B95624F7FF9000F2EE29 /* CookingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CookingTableViewCell.swift; sourceTree = "<group>"; };
 		74D1B95724F7FF9000F2EE29 /* CookingTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CookingTableViewCell.xib; sourceTree = "<group>"; };
+		74DDF15E2501D09500890A0D /* addRowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addRowViewController.swift; sourceTree = "<group>"; };
+		74DDF15F2501D09500890A0D /* addRowViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = addRowViewController.xib; sourceTree = "<group>"; };
+		74DDF1622501ED2300890A0D /* addRow1ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addRow1ViewController.swift; sourceTree = "<group>"; };
+		74DDF1632501ED2300890A0D /* addRow1ViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = addRow1ViewController.xib; sourceTree = "<group>"; };
 		74ECF70524BC79B200D98BB3 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		74ECF70624BC79B200D98BB3 /* ProfileViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileViewController.xib; sourceTree = "<group>"; };
 		74FE8B5824F15A290086D1FE /* NewFeedDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewFeedDetail.swift; sourceTree = "<group>"; };
@@ -193,6 +209,10 @@
 				741F5FE824FB94DC006B6EA8 /* CommentTableViewCell.swift */,
 				7440672224F36E3200F9EE5C /* HomeDetailsCollectionViewCell.xib */,
 				741F5FE924FB94DC006B6EA8 /* CommentTableViewCell.xib */,
+				74BC03BF250285FB00999F0D /* TimeCookingTableViewCell.swift */,
+				74BC03C0250285FB00999F0D /* TimeCookingTableViewCell.xib */,
+				74BC03CB25029A4800999F0D /* MoreCollectionViewCell.swift */,
+				74BC03CC25029A4800999F0D /* MoreCollectionViewCell.xib */,
 			);
 			path = Details;
 			sourceTree = "<group>";
@@ -337,6 +357,10 @@
 				74D1B95324F7CEA600F2EE29 /* ingredientsTableViewCell.xib */,
 				74D1B95624F7FF9000F2EE29 /* CookingTableViewCell.swift */,
 				74D1B95724F7FF9000F2EE29 /* CookingTableViewCell.xib */,
+				74DDF15E2501D09500890A0D /* addRowViewController.swift */,
+				74DDF15F2501D09500890A0D /* addRowViewController.xib */,
+				74DDF1622501ED2300890A0D /* addRow1ViewController.swift */,
+				74DDF1632501ED2300890A0D /* addRow1ViewController.xib */,
 			);
 			path = Postdetails;
 			sourceTree = "<group>";
@@ -430,6 +454,7 @@
 				74D1B95524F7CEA600F2EE29 /* ingredientsTableViewCell.xib in Resources */,
 				7440672424F36E3200F9EE5C /* HomeDetailsCollectionViewCell.xib in Resources */,
 				7440671C24F35D3000F9EE5C /* HomeDetailsViewController.xib in Resources */,
+				74DDF1612501D09500890A0D /* addRowViewController.xib in Resources */,
 				743807DA24E27950002A3A72 /* HomeNewFeedCollectionViewCell.xib in Resources */,
 				744ED17724E5772300DE6084 /* KeyBoardView.xib in Resources */,
 				74ECF70824BC79B200D98BB3 /* ProfileViewController.xib in Resources */,
@@ -445,6 +470,7 @@
 				74C2E50224D56BD700979937 /* PostViewController.xib in Resources */,
 				7464D3C624B5E65000347356 /* LoginViewController.xib in Resources */,
 				74D1B95924F7FF9000F2EE29 /* CookingTableViewCell.xib in Resources */,
+				74DDF1652501ED2300890A0D /* addRow1ViewController.xib in Resources */,
 				741F5FEB24FB94DC006B6EA8 /* CommentTableViewCell.xib in Resources */,
 				74871C4A24FE507700770DA0 /* UserfooodViewController.xib in Resources */,
 				743B58B1250128BA005E9588 /* CommentViewController.xib in Resources */,
@@ -452,6 +478,8 @@
 				7464D3CE24B5F3B000347356 /* SignupViewController.xib in Resources */,
 				740A4F9924FCF11E00C25B05 /* imagecellCollectionViewCell.xib in Resources */,
 				7464D3BB24B5E56E00347356 /* LaunchScreen.storyboard in Resources */,
+				74BC03CE25029A4800999F0D /* MoreCollectionViewCell.xib in Resources */,
+				74BC03C2250285FB00999F0D /* TimeCookingTableViewCell.xib in Resources */,
 				74D0788224B5F6CF00D17AFF /* GoogleService-Info.plist in Resources */,
 				742CE86524E018F900E5F002 /* HomeTableViewCell.xib in Resources */,
 				7411595124EEEC1100B22BDA /* MenuUserProfileTableViewCell.xib in Resources */,
@@ -522,8 +550,10 @@
 				74871C4524FE506500770DA0 /* FoodsaveViewController.swift in Sources */,
 				740A4F9824FCF11E00C25B05 /* imagecellCollectionViewCell.swift in Sources */,
 				744A8B2424E5CEB900F0F936 /* LaucherAppViewController.swift in Sources */,
+				74BC03CD25029A4800999F0D /* MoreCollectionViewCell.swift in Sources */,
 				74871C4224FE022B00770DA0 /* UISimpleSlidingTabController.swift in Sources */,
 				7440672324F36E3200F9EE5C /* HomeDetailsCollectionViewCell.swift in Sources */,
+				74DDF1642501ED2300890A0D /* addRow1ViewController.swift in Sources */,
 				7444090024E14DA900CD5BB4 /* MenuModel.swift in Sources */,
 				74D1B95824F7FF9000F2EE29 /* CookingTableViewCell.swift in Sources */,
 				7411595024EEEC1100B22BDA /* MenuUserProfileTableViewCell.swift in Sources */,
@@ -543,6 +573,8 @@
 				743BF52424DEDCB700DB28F6 /* CollectionViewCell.swift in Sources */,
 				743807D924E27950002A3A72 /* HomeNewFeedCollectionViewCell.swift in Sources */,
 				7455362424CB2128002741EC /* HomeViewController.swift in Sources */,
+				74DDF1602501D09500890A0D /* addRowViewController.swift in Sources */,
+				74BC03C1250285FB00999F0D /* TimeCookingTableViewCell.swift in Sources */,
 				7416AF5A24E418600021AD1E /* NewFeedmodel1.swift in Sources */,
 				74871C4924FE507700770DA0 /* UserfooodViewController.swift in Sources */,
 				74D1B95424F7CEA600F2EE29 /* ingredientsTableViewCell.swift in Sources */,

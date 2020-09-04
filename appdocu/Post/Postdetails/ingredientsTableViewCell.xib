@@ -18,18 +18,18 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AuW-V3-Gui">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <rect key="frame" x="10" y="0.0" width="300" height="44"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="AuW-V3-Gui" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="1gQ-eV-leb"/>
+                    <constraint firstItem="AuW-V3-Gui" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="1gQ-eV-leb"/>
                     <constraint firstAttribute="bottom" secondItem="AuW-V3-Gui" secondAttribute="bottom" id="FBp-HX-2Oh"/>
                     <constraint firstItem="AuW-V3-Gui" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="R2k-Xs-Cmu"/>
                     <constraint firstItem="AuW-V3-Gui" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="cla-Tp-bfx"/>
-                    <constraint firstAttribute="trailing" secondItem="AuW-V3-Gui" secondAttribute="trailing" id="dWe-fx-o9b"/>
+                    <constraint firstAttribute="trailing" secondItem="AuW-V3-Gui" secondAttribute="trailing" constant="10" id="dWe-fx-o9b"/>
                     <constraint firstItem="AuW-V3-Gui" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="xYf-QJ-Uij"/>
                 </constraints>
             </tableViewCellContentView>
