@@ -7,9 +7,9 @@
 //
 
 import UIKit
-import Kingfisher
 import FirebaseDatabase
 import FirebaseAuth
+import Kingfisher
 
 struct  UserComment {
     var image : String
@@ -19,32 +19,6 @@ struct  UserComment {
         self.image = image
         self.username = username
         self.comment =  comment
-    }
-}
-
-struct Usermore {
-    var tencongthuc : String
-    var motacongthuc : String
-    var khauphan : String
-    var thoigiannau : String
-    var username : String!
-    var imageprofile : String!
-    var image : [String]!
-    var nguyenlieu : [String]!
-    var congthuc : [String]!
-    var keyid : String
-    
-    init(tencongthuc : String , motacongthuc : String, khauphan : String, thoigiannau : String, username : String , image : [String], imageprofile : String, nguyenlieu : [String] , congthuc : [String] , keyid : String) {
-        self.tencongthuc = tencongthuc
-        self.motacongthuc = motacongthuc
-        self.khauphan = khauphan
-        self.thoigiannau = thoigiannau
-        self.username = username
-        self.image = image
-        self.imageprofile = imageprofile
-        self.nguyenlieu = nguyenlieu
-        self.congthuc = congthuc
-        self.keyid = keyid
     }
 }
 
@@ -68,6 +42,7 @@ class HomeDetailsViewController: UIViewController {
     @IBOutlet weak var moreuser: UILabel!
     @IBOutlet weak var imageuser: UIImageView!
     var NewFeedDetails : NewFeedDetail!
+    var NewFeed : [NewFeedmodel1] = []
     var selectedIndexPath: NSIndexPath?
     var arrayCommnet = [UserComment]()
     var mota1 : String!
@@ -76,8 +51,7 @@ class HomeDetailsViewController: UIViewController {
     var timer = Timer()
     var commentuser : [UserComment] = []
     var counter = 0
-    var usermore : [Usermore]!
-    let ref = Database.database().reference()
+    
  
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -91,17 +65,14 @@ class HomeDetailsViewController: UIViewController {
         tableview.register(UINib(nibName: "CookingHomeDetailsTableViewCell", bundle: .main), forCellReuseIdentifier: "cookinghomedetails")
         tableview.register(UINib(nibName: "CommentTableViewCell", bundle: .main), forCellReuseIdentifier: "commentcell")
         tableview.register(UINib(nibName: "TimeCookingTableViewCell", bundle: .main), forCellReuseIdentifier: "timecokking")
+//        tableview.register(UINib(nibName: "MoreTableViewCell", bundle: .main), forCellReuseIdentifier: "moretableviewcell")
         collectionview.register(UINib(nibName: "HomeDetailsCollectionViewCell", bundle: .main), forCellWithReuseIdentifier: "collectionviewdetails")
         collectionmore.register(UINib(nibName: "MoreCollectionViewCell", bundle: .main), forCellWithReuseIdentifier: "morecollectionview")
-        collectionmore.delegate = self
-        collectionmore.dataSource = self
         pagecontrol.numberOfPages = NewFeedDetails.image.count
         pagecontrol.currentPage = 0
         DispatchQueue.main.async {
             self.timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(self.change), userInfo: nil, repeats: true)
         }
-       
-        truyenve()
         tablecomment()
        
     }
@@ -109,6 +80,7 @@ class HomeDetailsViewController: UIViewController {
         buttonlike.isSelected = true
     }
     @IBAction func save(_ sender: Any) {
+         truyenve()
     }
     @IBAction func opencomment(_ sender: Any) {
         let comment = CommentViewController()
@@ -116,6 +88,7 @@ class HomeDetailsViewController: UIViewController {
         self.present(UINavigationController(rootViewController: comment), animated: true, completion: nil)
     }
     func tablecomment(){
+        let ref = Database.database().reference()
         let key = NewFeedDetails.keyid
         ref.child("NewPeedPost").child(key).child("Comment-User").observe(.childAdded) { (snashot) in
             if let dic = snashot.value as? [String:Any] {
@@ -127,27 +100,6 @@ class HomeDetailsViewController: UIViewController {
                 self.tableview.reloadData()
             }
         }
-        
-          func truyenve() {
-              let userID = Auth.auth().currentUser?.uid
-              ref.child("user-NewPeedPost").child(userID!).observe(.childAdded) { (snapshot) in
-                  if let dic = snapshot.value as? [String:Any] {
-                      let tencongthuc = dic["tencongthuc"] as! String
-                      let motacongthuc = dic["motacongthuc"] as! String
-                      let khauphan = dic["khauphan"] as! String
-                      let thoigiannau = dic["thoigiannau"] as! String
-                      let nguyenlieu = dic["nguyenlieu"] as! [String]
-                      let congthuc = dic["congthucnau"] as! [String]
-                      let username = dic["username"] as! String
-                      let imageprofile = dic["Imageprofile"] as! String
-                      let image =  dic["image"] as! [String]
-                      let keyid = dic["keyid"] as! String
-                      let post1 = Usermore(tencongthuc: tencongthuc, motacongthuc: motacongthuc, khauphan: khauphan, thoigiannau: thoigiannau, username: username, image: image, imageprofile: imageprofile, nguyenlieu: nguyenlieu, congthuc: congthuc, keyid: keyid)
-                      self.usermore.append(post1)
-                      self.tableview.reloadData()
-                  }
-              }
-          }
     }
     @objc func change() {
         var counter = 0
@@ -206,7 +158,7 @@ extension HomeDetailsViewController : UITableViewDelegate , UITableViewDataSourc
             cell.txtcongthuc.text = NewFeedDetails.congthuc[indexPath.row]
             cell.number.text = String(indexPath.row) + "."
             return cell
-        } else {
+        } else  {
             let cell = tableView.dequeueReusableCell(withIdentifier: "commentcell", for: indexPath) as! CommentTableViewCell
             cell.truyenve(commentuser: commentuser[indexPath.row])
             return cell
@@ -257,19 +209,24 @@ extension HomeDetailsViewController : UITableViewDelegate , UITableViewDataSourc
 extension HomeDetailsViewController : UICollectionViewDataSource , UICollectionViewDelegate , UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == collectionview {
-            return NewFeedDetails.image.count
+             return NewFeedDetails.image.count
         } else {
-            return self.usermore.count
+            return 4
         }
+            
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if collectionView == collectionview {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectionviewdetails", for: indexPath) as! HomeDetailsCollectionViewCell
-                   cell.truyenvecolletion(image: NewFeedDetails.image[indexPath.row])
-                   return cell
+                    cell.truyenvecolletion(image: NewFeedDetails.image[indexPath.row])
+                    return cell
         } else {
             let cell = collectionmore.dequeueReusableCell(withReuseIdentifier: "morecollectionview", for: indexPath) as! MoreCollectionViewCell
-            cell.truyenve(usermore: usermore[indexPath.row])
+            cell.tencongthuc.text = NewFeed[indexPath.row].tencongthuc
+            let first5 = NewFeed[indexPath.row].image.prefix(1)
+            for i in first5 {
+                cell.image.sd_setImage(with: URL(string: i), placeholderImage: UIImage(named: "placeholder"))
+            }
             return cell
         }
     }
@@ -279,16 +236,17 @@ extension HomeDetailsViewController : UICollectionViewDataSource , UICollectionV
             return CGSize(width: size.width, height: size.height)
         } else {
             let size = collectionmore.frame.size
-            return CGSize(width: size.width, height: size.height)
+            return CGSize(width: size.width / 2 - 5, height: size.height / 2 - 5 )
         }
+            
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         if collectionView == collectionview {
-              return 0.0
+             return 0.0
         } else {
-            return 10.0
+            return 5
         }
-      
+           
     }
 }
 extension HomeDetailsViewController : comment {

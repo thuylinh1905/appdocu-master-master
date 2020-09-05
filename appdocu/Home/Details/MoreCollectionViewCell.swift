@@ -11,17 +11,12 @@ import SDWebImage
 
 class MoreCollectionViewCell: UICollectionViewCell {
 
+    @IBOutlet weak var collection: UICollectionView!
     @IBOutlet weak var tencongthuc: UILabel!
     @IBOutlet weak var image: UIImageView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-    }
-
-    func truyenve(usermore : Usermore) {
-        tencongthuc.text = usermore.tencongthuc
-//        for i in userfood.image {
-//            image.sd_setImage(with: URL(string: i), placeholderImage: UIImage(named: "placeholder"))
-//        }
     }
 }

@@ -39,7 +39,7 @@ class HomeViewController: UIViewController {
                 let image =  dic["image"] as! [String]
                 let keyid = dic["keyid"] as! String
                 let post1 = NewFeedmodel1(tencongthuc: tencongthuc, motacongthuc: motacongthuc, khauphan: khauphan, thoigiannau: thoigiannau, username: username, image: image, imageprofile: imageprofile, nguyenlieu: nguyenlieu, congthuc: congthuc, keyid: keyid)
-                self.array.append(post1)
+               self.array.append(post1)
                 self.tableView.reloadData()
             }
         }
@@ -76,6 +76,7 @@ extension HomeViewController :UITableViewDelegate, UITableViewDataSource {
         let NewFeed = NewFeedDetail(tencongthuc: tencongthuc, motacongthuc: motacongthuc, khauphan: khauphan, thoigiannau: thoigiannau, username: username, image: image, imageprofile: imageprofile!, nguyenlieu: nguyenlieu!, congthuc: congthuc!, keyid: keyid)
         let homeDetailViewcontroller = HomeDetailsViewController()
         homeDetailViewcontroller.NewFeedDetails = NewFeed
+        homeDetailViewcontroller.NewFeed = array
         homeDetailViewcontroller.hidesBottomBarWhenPushed = true
         self.navigationController?.pushViewController(homeDetailViewcontroller , animated: true)
     }
