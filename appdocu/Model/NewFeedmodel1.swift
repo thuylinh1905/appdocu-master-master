@@ -5,12 +5,6 @@
 //  Created by thuylinh on 8/12/20.
 //  Copyright © 2020 thuylinh. All rights reserved.
 //
-//let tencongthuc = dic["tencongthuc"] as! String
-//let motacongthuc = dic["motacongthuc"] as! String
-//let khauphan = dic["khauphan"] as! String
-//let thoigiannau = dic["thoigiannau"] as! String
-//let nguyenlieu = dic["nguyenlieu"] as! [String]
-//let congthuc = dic["congthucnau"] as! [String]
 import Foundation
 class NewFeedmodel1 {
     var tencongthuc : String

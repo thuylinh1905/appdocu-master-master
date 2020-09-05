@@ -33,7 +33,6 @@ class addingredientsViewController: UIViewController {
         tableviewnguyenlieu.register(UINib(nibName: "CookingTableViewCell", bundle: .main), forCellReuseIdentifier: "cookingcell")
         navigationitem()
         textview()
-
     }
 }
 extension addingredientsViewController : UITableViewDelegate , UITableViewDataSource {
@@ -132,14 +131,14 @@ extension addingredientsViewController {
     @IBAction func agree(_ sender: Any) {
         self.select.removeFromSuperview()
         addnguyenieu(nguyenlieu: nguyenlieutext.text)
+        nguyenlieutext.text = ""
     }
     @IBAction func removesubview(_ sender: Any) {
         self.select.removeFromSuperview()
     }
     func addnguyenieu(nguyenlieu : String) {
-        addingredientsViewController.nguyenlieu.insert(nguyenlieu, at: self.index)
-        let indexpath = IndexPath.init(row: self.index , section: 0)
-        self.tableviewnguyenlieu.insertRows(at: [indexpath], with: .right)
+        addingredientsViewController.nguyenlieu.append(nguyenlieu)
+        self.tableviewnguyenlieu.reloadData()
     }
     @IBAction func addcongthuc(_ sender: Any) {
        let addrow = addRowViewController()
@@ -175,40 +174,39 @@ extension addingredientsViewController {
 }
 extension addingredientsViewController : UITextViewDelegate {
     func textview() {
-        nguyenlieutext.text = "Tên nguyên liệu"
+        nguyenlieutext.text = "Placeholder for UITextView"
         nguyenlieutext.textColor = UIColor.lightGray
-        nguyenlieutext.translatesAutoresizingMaskIntoConstraints = false
-        nguyenlieutext.isScrollEnabled = false
+        nguyenlieutext.font = UIFont(name: "verdana", size: 13.0)
+        nguyenlieutext.returnKeyType = .done
         nguyenlieutext.delegate = self
-        nguyenlieutext.font = UIFont.systemFont(ofSize: 20)
-    }
-    func textViewDidChange(_ textView: UITextView) {
-        let size = CGSize(width: view.frame.width, height: .infinity)
-        let estimatedSize = textView.sizeThatFits(size)
-        textView.constraints.forEach { (constraint ) in
-            if constraint.firstAttribute == .height {
-                constraint.constant = estimatedSize.height
-            }
-        }
     }
     func textViewDidBeginEditing(_ textView: UITextView) {
-        if textView.textColor == UIColor.lightGray {
-            textView.text = nil
-            textView.textColor = UIColor.black
-        }
-    }
-    func textViewDidEndEditing(_ textView: UITextView) {
-        if textView.text.isEmpty {
-            textView.textColor = UIColor.lightGray
-        }
-    }
+           if textView.text == "Placeholder for UITextView" {
+               textView.text = ""
+               textView.textColor = UIColor.black
+               textView.font = UIFont(name: "verdana", size: 18.0)
+           }
+       }
+       
+       func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+           if text == "\n" {
+               textView.resignFirstResponder()
+           }
+           return true
+       }
+       
+       func textViewDidEndEditing(_ textView: UITextView) {
+           if textView.text == "" {
+               textView.text = "Placeholder for UITextView"
+               textView.textColor = UIColor.lightGray
+               textView.font = UIFont(name: "verdana", size: 13.0)
+           }
+       }
 }
 extension addingredientsViewController : addrowcongthuc {
     func addrow(congthuc: String) {
         self.dismiss(animated: true, completion: nil)
-        let indexpath = IndexPath.init(row: 0, section: 1)
-        addingredientsViewController.congthuc.insert(congthuc, at: 0)
-        tableviewnguyenlieu.insertRows(at: [indexpath], with: .right)
+        addingredientsViewController.congthuc.append(congthuc)
         self.tableviewnguyenlieu.reloadData()
     }
 }

@@ -15,7 +15,7 @@ class ProfileUserViewController: UISimpleSlidingTabController {
         super.viewDidLoad()
         view.backgroundColor = .white
         addItem(item: UserfooodViewController(), title: "Món của tôi")
-        addItem(item: SignupViewController(), title: "Món Ăn đã lưu")
+        addItem(item: UsersaveViewController(), title: "Món Ăn đã lưu")
         setHeaderActiveColor(color: .white)
         setHeaderInActiveColor(color: .lightText)
         setHeaderBackgroundColor(color: .orange)

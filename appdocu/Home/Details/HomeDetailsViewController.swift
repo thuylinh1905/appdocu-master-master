@@ -10,6 +10,7 @@ import UIKit
 import FirebaseDatabase
 import FirebaseAuth
 import Kingfisher
+import SDWebImage
 
 struct  UserComment {
     var image : String
@@ -21,7 +22,6 @@ struct  UserComment {
         self.comment =  comment
     }
 }
-
 
 class HomeDetailsViewController: UIViewController {
     
@@ -52,12 +52,11 @@ class HomeDetailsViewController: UIViewController {
     var commentuser : [UserComment] = []
     var counter = 0
     
- 
     override func viewDidLoad() {
         super.viewDidLoad()
-         comment.layer.cornerRadius = 15
-         comment.layer.masksToBounds = true
-         comment.layer.borderWidth = 1.0
+        comment.layer.cornerRadius = 15
+        comment.layer.masksToBounds = true
+        comment.layer.borderWidth = 1.0
         tableview.tableHeaderView = view1
         tableview.tableFooterView = viewfooter
         truyenve()
@@ -65,7 +64,6 @@ class HomeDetailsViewController: UIViewController {
         tableview.register(UINib(nibName: "CookingHomeDetailsTableViewCell", bundle: .main), forCellReuseIdentifier: "cookinghomedetails")
         tableview.register(UINib(nibName: "CommentTableViewCell", bundle: .main), forCellReuseIdentifier: "commentcell")
         tableview.register(UINib(nibName: "TimeCookingTableViewCell", bundle: .main), forCellReuseIdentifier: "timecokking")
-//        tableview.register(UINib(nibName: "MoreTableViewCell", bundle: .main), forCellReuseIdentifier: "moretableviewcell")
         collectionview.register(UINib(nibName: "HomeDetailsCollectionViewCell", bundle: .main), forCellWithReuseIdentifier: "collectionviewdetails")
         collectionmore.register(UINib(nibName: "MoreCollectionViewCell", bundle: .main), forCellWithReuseIdentifier: "morecollectionview")
         pagecontrol.numberOfPages = NewFeedDetails.image.count
@@ -73,20 +71,47 @@ class HomeDetailsViewController: UIViewController {
         DispatchQueue.main.async {
             self.timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(self.change), userInfo: nil, repeats: true)
         }
+        imageuser.layer.cornerRadius = imageuser.frame.size.height / 2
+        user()
         tablecomment()
-       
     }
     @IBAction func like(_ sender: Any) {
         buttonlike.isSelected = true
-    }
+    }    
     @IBAction func save(_ sender: Any) {
-         truyenve()
+        let ref = Database.database().reference()
+        let userid = Auth.auth().currentUser?.uid
+        let key = NewFeedDetails.keyid
+        let post = ["imageprofile" : NewFeedDetails.imageprofile!,
+                    "congthucnau" : NewFeedDetails.congthuc!,
+                    "image" : NewFeedDetails.image!,
+                    "keyid" : NewFeedDetails.keyid,
+                    "khauphan" : NewFeedDetails.khauphan,
+                    "motacongthuc" : NewFeedDetails.motacongthuc,
+                    "nguyenlieu" : NewFeedDetails.nguyenlieu!,
+                    "tencongthuc" : NewFeedDetails.tencongthuc,
+                    "thoigiannau" : NewFeedDetails.thoigiannau,
+                    "username" : NewFeedDetails.username!] as [String:Any]
+        let childupdate = ["/Save-User/\(String(describing: userid!))/\(key)/": post]
+        ref.updateChildValues(childupdate)
     }
     @IBAction func opencomment(_ sender: Any) {
         let comment = CommentViewController()
         comment.delegate = self
         self.present(UINavigationController(rootViewController: comment), animated: true, completion: nil)
     }
+    func user() {
+        let ref = Database.database().reference()
+        if let userid = Auth.auth().currentUser?.uid {
+            ref.child("users").child(userid).observe(.value , with:  { (snapshot) in
+                let dictionary = snapshot.value as! NSDictionary
+                if let profileimage = dictionary["image"] as? String {
+                    self.imageuser.sd_setImage(with: URL(string: profileimage))
+                }
+            })
+        }
+    }
+    
     func tablecomment(){
         let ref = Database.database().reference()
         let key = NewFeedDetails.keyid
@@ -148,6 +173,7 @@ extension HomeDetailsViewController : UITableViewDelegate , UITableViewDataSourc
             let cell = tableView.dequeueReusableCell(withIdentifier: "timecokking", for: indexPath) as! TimeCookingTableViewCell
             cell.khauphan.text = NewFeedDetails.khauphan + " người"
             cell.thoigiannau.text = NewFeedDetails.thoigiannau
+            
             return cell
         } else if indexPath.section == 1 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "homedetails", for: indexPath) as! HomeDetailsTableViewCell
@@ -161,6 +187,7 @@ extension HomeDetailsViewController : UITableViewDelegate , UITableViewDataSourc
         } else  {
             let cell = tableView.dequeueReusableCell(withIdentifier: "commentcell", for: indexPath) as! CommentTableViewCell
             cell.truyenve(commentuser: commentuser[indexPath.row])
+            tableView.separatorStyle = .none
             return cell
         }
     }
@@ -205,21 +232,23 @@ extension HomeDetailsViewController : UITableViewDelegate , UITableViewDataSourc
             return 20
         }
     }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableview.cellForRow(at: indexPath)?.setSelected(false, animated: true)
+    }
 }
 extension HomeDetailsViewController : UICollectionViewDataSource , UICollectionViewDelegate , UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == collectionview {
-             return NewFeedDetails.image.count
+            return NewFeedDetails.image.count
         } else {
             return 4
         }
-            
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if collectionView == collectionview {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectionviewdetails", for: indexPath) as! HomeDetailsCollectionViewCell
-                    cell.truyenvecolletion(image: NewFeedDetails.image[indexPath.row])
-                    return cell
+            cell.truyenvecolletion(image: NewFeedDetails.image[indexPath.row])
+            return cell
         } else {
             let cell = collectionmore.dequeueReusableCell(withReuseIdentifier: "morecollectionview", for: indexPath) as! MoreCollectionViewCell
             cell.tencongthuc.text = NewFeed[indexPath.row].tencongthuc
@@ -238,15 +267,15 @@ extension HomeDetailsViewController : UICollectionViewDataSource , UICollectionV
             let size = collectionmore.frame.size
             return CGSize(width: size.width / 2 - 5, height: size.height / 2 - 5 )
         }
-            
+        
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         if collectionView == collectionview {
-             return 0.0
+            return 0.0
         } else {
             return 5
         }
-           
+        
     }
 }
 extension HomeDetailsViewController : comment {

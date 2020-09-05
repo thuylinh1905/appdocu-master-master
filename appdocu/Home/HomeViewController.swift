@@ -9,8 +9,8 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var collectionview : UICollectionView!
     var ref: DatabaseReference!
     var datahandle : DatabaseHandle!
-    var arrNewfeed : [NewFeedModel] = []
     var array : [NewFeedmodel1] = []
+    var arrayNewfeed : [NewFeedmodel1] = []
     @IBOutlet weak var imagebanner : UIImageView!
     @IBOutlet weak var tableView: UITableView!
     var mangima : [UIImage] = []
@@ -21,8 +21,9 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.register(UINib(nibName: "HomeTableViewCell", bundle: .main), forCellReuseIdentifier: "tableview")
-//        tableView.rowHeight = UITableView.automaticDimension
+        //        tableView.rowHeight = UITableView.automaticDimension
         tableviewdata()
+        
     }
     func tableviewdata() {
         let ref = Database.database().reference()
@@ -39,15 +40,20 @@ class HomeViewController: UIViewController {
                 let image =  dic["image"] as! [String]
                 let keyid = dic["keyid"] as! String
                 let post1 = NewFeedmodel1(tencongthuc: tencongthuc, motacongthuc: motacongthuc, khauphan: khauphan, thoigiannau: thoigiannau, username: username, image: image, imageprofile: imageprofile, nguyenlieu: nguyenlieu, congthuc: congthuc, keyid: keyid)
-               self.array.append(post1)
+                self.array.insert(post1, at: 0)
                 self.tableView.reloadData()
             }
+        }
+    }
+    func daomang(newfeed : [NewFeedmodel1]) {
+        for arrayindex in stride(from: newfeed.count - 1 , through: 0, by: -1){
+            arrayNewfeed.append(newfeed[arrayindex])
         }
     }
 }
 
 extension HomeViewController :UITableViewDelegate, UITableViewDataSource {
-
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return array.count
     }

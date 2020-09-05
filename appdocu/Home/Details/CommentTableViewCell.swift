@@ -16,6 +16,7 @@ class CommentTableViewCell: UITableViewCell {
     @IBOutlet weak var comment: UILabel!
     
     func truyenve(commentuser : UserComment) {
+        imageprofile.layer.cornerRadius = 20
         comment.text = commentuser.comment
         username.text = commentuser.username
         imageprofile.sd_setImage(with: URL(string: commentuser.image), placeholderImage: UIImage(named: "placeholder.png"))
