@@ -26,7 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     func gotoHome() {
         UIView.transition(with: self.window!, duration: 0.3, options: UIView.AnimationOptions.transitionCrossDissolve, animations: {
-            let viewController = ProfileViewController()
+            let viewController = HomeDetailsViewController()
             let navigationController = UINavigationController(rootViewController: viewController)
             self.window?.rootViewController = navigationController
         }, completion: nil)
@@ -55,9 +55,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func gototabbar() {
         let tabBarController = UITabBarController()
         let homeviewcontroller = HomeViewController()
-        let tabViewController2 = SignupViewController()
+        let tabViewController2 = MenuViewController()
         let tabViewController3 = PostViewController()
-         let tabViewController4 = ProfileUserViewController()
+        let tabViewController4 = ProfileUserViewController()
         
         let navi1 = UINavigationController(rootViewController: homeviewcontroller)
         let navi2 = UINavigationController(rootViewController: tabViewController2)
@@ -72,6 +72,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         
         let controllers = [navi1,navi2,navi3, navi4]
+        UITabBar.appearance().tintColor = #colorLiteral(red: 0.9564440846, green: 0.6086999774, blue: 0.2464883327, alpha: 1)
         tabBarController.viewControllers = controllers
         
         navi1.tabBarItem = UITabBarItem(title: "",image: UIImage(named: "home1"),tag: 1)

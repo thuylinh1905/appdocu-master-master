@@ -39,7 +39,7 @@ struct Userfood {
 class UserfooodViewController: UIViewController {
     
     @IBOutlet weak var tableview: UITableView!
-    var array : [Userfood] = []
+    var array : [NewFeedmodel1] = []
     override func viewDidLoad() {
         super.viewDidLoad()
         tableview.register(UINib(nibName: "UsersFoodTableViewCell", bundle: .main), forCellReuseIdentifier: "usersfood")
@@ -62,7 +62,7 @@ class UserfooodViewController: UIViewController {
                 let imageprofile = dic["Imageprofile"] as! String
                 let image =  dic["image"] as! [String]
                 let keyid = dic["keyid"] as! String
-                let post1 = Userfood(tencongthuc: tencongthuc, motacongthuc: motacongthuc, khauphan: khauphan, thoigiannau: thoigiannau, username: username, image: image, imageprofile: imageprofile, nguyenlieu: nguyenlieu, congthuc: congthuc, keyid: keyid)
+                let post1 = NewFeedmodel1(tencongthuc: tencongthuc, motacongthuc: motacongthuc, khauphan: khauphan, thoigiannau: thoigiannau, username: username, image: image, imageprofile: imageprofile, nguyenlieu: nguyenlieu, congthuc: congthuc, keyid: keyid)
                 self.array.append(post1)
                 self.tableview.reloadData()
             }
@@ -75,8 +75,9 @@ extension UserfooodViewController : UITableViewDelegate , UITableViewDataSource 
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "usersfood", for: indexPath) as! UsersFoodTableViewCell
-        cell.truyen(userfood: array[indexPath.row])
-        cell.view.layer.cornerRadius = 12
+        cell.truyen(Newfeed : array[indexPath.row])
+        cell.view.layer.masksToBounds = true
+        cell.view.layer.cornerRadius = 5
         cell.view.layer.borderWidth = 0.1
         cell.view.layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
         return cell
@@ -85,6 +86,23 @@ extension UserfooodViewController : UITableViewDelegate , UITableViewDataSource 
         return 150
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.cellForRow(at: indexPath)?.setSelected(false, animated: true)
+        let cell = tableView.cellForRow(at: indexPath) as! UsersFoodTableViewCell
+               tableView.cellForRow(at: indexPath)?.setSelected(false, animated: true)
+               let motacongthuc = cell.newFeed.motacongthuc
+               let khauphan = cell.newFeed.khauphan
+               let thoigiannau = cell.newFeed.thoigiannau
+               let tencongthuc = cell.newFeed.tencongthuc
+               let nguyenlieu = cell.newFeed.nguyenlieu
+               let congthuc = cell.newFeed.congthuc
+               let username = cell.newFeed.username!
+               let image = cell.newFeed.image!
+               let imageprofile = cell.newFeed.imageprofile
+               let keyid = cell.newFeed.keyid
+               let NewFeed = NewFeedDetail(tencongthuc: tencongthuc, motacongthuc: motacongthuc, khauphan: khauphan, thoigiannau: thoigiannau, username: username, image: image, imageprofile: imageprofile!, nguyenlieu: nguyenlieu!, congthuc: congthuc!, keyid: keyid)
+               let homeDetailViewcontroller = HomeDetailsViewController()
+//               homeDetailViewcontroller.newfeeddt = NewFeed
+               self.present(homeDetailViewcontroller, animated: true, completion: nil)
+//               homeDetailViewcontroller.hidesBottomBarWhenPushed = true
+//               self.navigationController?.pushViewController(homeDetailViewcontroller , animated: true)
     }
 }

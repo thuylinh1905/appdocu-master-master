@@ -51,7 +51,7 @@ class HomeDetailsViewController: UIViewController {
     var timer = Timer()
     var commentuser : [UserComment] = []
     var counter = 0
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         comment.layer.cornerRadius = 15

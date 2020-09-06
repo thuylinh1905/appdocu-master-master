@@ -26,21 +26,21 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MRD-16-cL5">
                     <rect key="frame" x="10" y="180" width="394" height="120"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chia Sẻ Địa Điểm Ẩm Thực" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="psI-Ig-zKr">
-                            <rect key="frame" x="39.5" y="84" width="315" height="36"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nơi chia sẻ công thức nấu ăn của bạn !" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="psI-Ig-zKr">
+                            <rect key="frame" x="12" y="84" width="370" height="36"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="36" id="5ec-Iw-Rfc"/>
-                                <constraint firstAttribute="width" constant="315" id="cXi-zx-omE"/>
+                                <constraint firstAttribute="width" constant="370" id="cXi-zx-omE"/>
                             </constraints>
-                            <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="App Food" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EIP-GC-kbi">
-                            <rect key="frame" x="94" y="0.0" width="206" height="85"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cooking App" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EIP-GC-kbi">
+                            <rect key="frame" x="57" y="0.0" width="280" height="85"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="85" id="6Hv-8B-Tvi"/>
-                                <constraint firstAttribute="width" constant="206" id="T2F-D5-03E"/>
+                                <constraint firstAttribute="width" constant="280" id="T2F-D5-03E"/>
                             </constraints>
                             <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="50"/>
                             <nil key="textColor"/>

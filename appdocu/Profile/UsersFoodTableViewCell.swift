@@ -18,26 +18,28 @@ class UsersFoodTableViewCell: UITableViewCell, UICollectionViewDelegate, UIColle
         @IBOutlet weak var view: UIView!
         var hinh : [String] = []
         var userfoodimage : Userfood!
+        var newFeed: NewFeedmodel1!
         
         override func awakeFromNib() {
             super.awakeFromNib()
         }
         
-        func truyen(userfood : Userfood) {
-            userfoodimage = userfood
-            tencongthuc.text = userfood.tencongthuc
-            songuoi.text = userfood.khauphan
-            mota.text = userfood.motacongthuc
+        func truyen(Newfeed : NewFeedmodel1) {
+//            userfoodimage = newFeed
+            self.newFeed = Newfeed
+            tencongthuc.text = Newfeed.tencongthuc
+            songuoi.text = Newfeed.khauphan
+            mota.text = Newfeed.motacongthuc
             imagefood.delegate = self
             imagefood.dataSource = self
             imagefood.register(UINib(nibName: "UserfoodCollectionViewCell", bundle: .main), forCellWithReuseIdentifier: "userfoodcell")
         }
         func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-            return self.userfoodimage.image.count
+            return self.newFeed.image.count
         }
         func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
             let cell = imagefood.dequeueReusableCell(withReuseIdentifier: "userfoodcell", for: indexPath) as! UserfoodCollectionViewCell
-            cell.truyenanh(imagestring: userfoodimage.image[indexPath.row])
+            cell.truyenanh(imagestring: newFeed.image[indexPath.row])
             return cell
         }
         func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
