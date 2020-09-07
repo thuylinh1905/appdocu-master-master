@@ -9,8 +9,7 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var collectionview : UICollectionView!
     var ref: DatabaseReference!
     var datahandle : DatabaseHandle!
-    static var array : [NewFeedmodel1] = []
-    var arrayNewfeed : [NewFeedmodel1] = []
+    var array : [NewFeedmodel1] = []
     @IBOutlet weak var imagebanner : UIImageView!
     @IBOutlet weak var tableView: UITableView!
     var mangima : [UIImage] = []
@@ -40,21 +39,22 @@ class HomeViewController: UIViewController {
                 let image =  dic["image"] as! [String]
                 let keyid = dic["keyid"] as! String
                 let post1 = NewFeedmodel1(tencongthuc: tencongthuc, motacongthuc: motacongthuc, khauphan: khauphan, thoigiannau: thoigiannau, username: username, image: image, imageprofile: imageprofile, nguyenlieu: nguyenlieu, congthuc: congthuc, keyid: keyid)
-                HomeViewController.self.array.insert(post1, at: 0)
+                self.array.insert(post1, at: 0)
                 self.tableView.reloadData()
             }
         }
     }
+   
 }
 
 extension HomeViewController :UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return HomeViewController.array.count
+        return array.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "tableview", for: indexPath) as! HomeTableViewCell
-        cell.truyenve(Newfeed: HomeViewController.array[indexPath.row])
+        cell.truyenve(Newfeed: array[indexPath.row])
         cell.viewContro = self
         return cell
     }
@@ -77,7 +77,7 @@ extension HomeViewController :UITableViewDelegate, UITableViewDataSource {
         let NewFeed = NewFeedDetail(tencongthuc: tencongthuc, motacongthuc: motacongthuc, khauphan: khauphan, thoigiannau: thoigiannau, username: username, image: image, imageprofile: imageprofile!, nguyenlieu: nguyenlieu!, congthuc: congthuc!, keyid: keyid)
         let homeDetailViewcontroller = HomeDetailsViewController()
         homeDetailViewcontroller.NewFeedDetails = NewFeed
-        homeDetailViewcontroller.NewFeed = HomeViewController.array
+        homeDetailViewcontroller.NewFeed = array
         homeDetailViewcontroller.hidesBottomBarWhenPushed = true
         self.navigationController?.pushViewController(homeDetailViewcontroller , animated: true)
     }

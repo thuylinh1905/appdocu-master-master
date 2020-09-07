@@ -42,7 +42,9 @@ class HomeDetailsViewController: UIViewController {
     @IBOutlet weak var moreuser: UILabel!
     @IBOutlet weak var imageuser: UIImageView!
     var NewFeedDetails : NewFeedDetail!
+    var newfeeddetails : NewFeedDetail!
     var NewFeed : [NewFeedmodel1] = []
+    var arrayNewfeed : [Userfood] = []
     var selectedIndexPath: NSIndexPath?
     var arrayCommnet = [UserComment]()
     var mota1 : String!
@@ -59,6 +61,7 @@ class HomeDetailsViewController: UIViewController {
         comment.layer.borderWidth = 1.0
         tableview.tableHeaderView = view1
         tableview.tableFooterView = viewfooter
+//        truyenvefooter()
         truyenve()
         tableview.register(UINib(nibName: "HomeDetailsTableViewCell", bundle: .main), forCellReuseIdentifier: "homedetails")
         tableview.register(UINib(nibName: "CookingHomeDetailsTableViewCell", bundle: .main), forCellReuseIdentifier: "cookinghomedetails")
@@ -75,6 +78,27 @@ class HomeDetailsViewController: UIViewController {
         user()
         tablecomment()
     }
+    func truyenvefooter() {
+              let userID = Auth.auth().currentUser?.uid
+              let ref = Database.database().reference()
+              ref.child("user-NewPeedPost").child(userID!).observe(.childAdded) { (snapshot) in
+                  if let dic = snapshot.value as? [String:Any] {
+                      let tencongthuc = dic["tencongthuc"] as! String
+                      let motacongthuc = dic["motacongthuc"] as! String
+                      let khauphan = dic["khauphan"] as! String
+                      let thoigiannau = dic["thoigiannau"] as! String
+                      let nguyenlieu = dic["nguyenlieu"] as! [String]
+                      let congthuc = dic["congthucnau"] as! [String]
+                      let username = dic["username"] as! String
+                      let imageprofile = dic["Imageprofile"] as! String
+                      let image =  dic["image"] as! [String]
+                      let keyid = dic["keyid"] as! String
+                      let post1 = Userfood(tencongthuc: tencongthuc, motacongthuc: motacongthuc, khauphan: khauphan, thoigiannau: thoigiannau, username: username, image: image, imageprofile: imageprofile, nguyenlieu: nguyenlieu, congthuc: congthuc, keyid: keyid)
+                      self.arrayNewfeed.append(post1)
+                      self.tableview.reloadData()
+                  }
+              }
+          }
     @IBAction func like(_ sender: Any) {
         buttonlike.isSelected = true
     }    

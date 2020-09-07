@@ -14,7 +14,6 @@ class HomeTableViewCell: UITableViewCell {
     var timer = Timer()
 
     func truyenve(Newfeed : NewFeedmodel1) {
-        print(Newfeed.image.count)
         self.newFeed = Newfeed
         colletion.register(UINib(nibName: "HomeNewFeedCollectionViewCell", bundle: .main), forCellWithReuseIdentifier: "newfeedcollectionview")
         username.text = Newfeed.username

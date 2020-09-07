@@ -7,19 +7,23 @@
 //
 
 import UIKit
+import FirebaseDatabase
 
 class SearchViewController: UIViewController {
     
     @IBOutlet weak var tableview: UITableView!
     @IBOutlet weak var searchbar: UISearchBar!
+    var array1 : [NewFeedmodel1] = []
+    var array2 : [NewFeedmodel1] = []
     var searcharray : [NewFeedmodel1] = []
     var searching = false
+    var searchtext : String!
     override func viewDidLoad() {
         super.viewDidLoad()
         tableview.register(UINib(nibName: "SearchTableViewCell", bundle: .main), forCellReuseIdentifier: "search")
-        searchbar.text = "6"
+        searchbar.text = searchtext
         find()
-          searchbar.delegate = self
+        searchbar.delegate = self
     }
 }
 extension SearchViewController : UITableViewDelegate , UITableViewDataSource {
@@ -27,7 +31,7 @@ extension SearchViewController : UITableViewDelegate , UITableViewDataSource {
         if searching {
             return searcharray.count
         } else {
-            return HomeViewController.array.count
+            return array1.count
         }
     }
     
@@ -36,7 +40,7 @@ extension SearchViewController : UITableViewDelegate , UITableViewDataSource {
         if searching {
             cell.truyenve(newfeed: searcharray[indexPath.row])
         } else {
-            cell.truyenve(newfeed: HomeViewController.array[indexPath.row])
+            cell.truyenve(newfeed: array1[indexPath.row])
         }
         cell.view.layer.cornerRadius = 5
         cell.view.layer.masksToBounds = true
@@ -49,23 +53,35 @@ extension SearchViewController : UITableViewDelegate , UITableViewDataSource {
     }
     func find() {
          let searchText = searchbar.text
-         searcharray = HomeViewController.array.filter({
-                   return $0.tencongthuc.lowercased().contains(searchText!.lowercased())
-               })
+         searcharray = array1.filter({return $0.tencongthuc.lowercased().contains(searchText!.lowercased())})
          searching = searcharray.count > 0
-        self.tableview.reloadData()
+//        self.tableview.reloadData()
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let cell = tableview.cellForRow(at: indexPath) as! SearchTableViewCell
+        let tencongthuc = cell.celldetails.tencongthuc
+        let motacongthuc = cell.celldetails.motacongthuc
+        let khauphan = cell.celldetails.khauphan
+        let thoigiannau = cell.celldetails.thoigiannau
+        let username = cell.celldetails.username!
+        let image = cell.celldetails.image!
+        let imageprofile = cell.celldetails.imageprofile
+        let nguyenlieu = cell.celldetails.nguyenlieu
+        let congthuc = cell.celldetails.congthuc
+        let keyid = cell.celldetails.keyid
+        let NewFeed = NewFeedDetail(tencongthuc: tencongthuc, motacongthuc: motacongthuc, khauphan: khauphan, thoigiannau: thoigiannau, username: username, image: image, imageprofile: imageprofile!, nguyenlieu: nguyenlieu!, congthuc: congthuc!, keyid: keyid)
+        let homeDetailViewcontroller = HomeDetailsViewController()
+        homeDetailViewcontroller.NewFeedDetails = NewFeed
+        homeDetailViewcontroller.NewFeed = array1
+        homeDetailViewcontroller.hidesBottomBarWhenPushed = true
+        self.navigationController?.pushViewController(homeDetailViewcontroller , animated: true)
     }
 }
 extension SearchViewController : UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-//        searcharray = HomeViewController.array.filter({$0.tencongthuc.prefix(searchText.count) == searchBar.text})
-//        searching = true
-//        tableview.reloadData()
         let searchText = searchBar.text
 
-        searcharray = HomeViewController.array.filter({
-            return $0.tencongthuc.lowercased().contains(searchText!.lowercased())
-        })
+        searcharray = array1.filter({return $0.tencongthuc.lowercased().contains(searchText!.lowercased())})
 
         searching = searcharray.count > 0
         self.tableview.reloadData()

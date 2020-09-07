@@ -9,6 +9,7 @@
 import UIKit
 import FirebaseFirestore
 import SDWebImage
+import FirebaseDatabase
 
 struct MenuFood {
     var name : String
@@ -22,11 +23,13 @@ struct MenuFood {
 class MenuViewController: UIViewController {
 
     @IBOutlet weak var collection: UICollectionView!
+    var array : [NewFeedmodel1] = []
     var menu : [MenuFood] = []
     override func viewDidLoad() {
         super.viewDidLoad()
         collection.register(UINib(nibName: "MenuCollectionViewCell", bundle: .main), forCellWithReuseIdentifier: "menucollection")
         truyenmonan()
+        tableviewdata()
     }
     func truyenmonan() {
         let db = Firestore.firestore()
@@ -45,6 +48,25 @@ class MenuViewController: UIViewController {
             self.collection.reloadData()
         }
     }
+    func tableviewdata() {
+         let ref = Database.database().reference()
+         ref.child("NewPeedPost").observe(.childAdded) { (snashot) in
+             if let dic = snashot.value as? [String:Any] {
+                 let tencongthuc = dic["tencongthuc"] as! String
+                 let motacongthuc = dic["motacongthuc"] as! String
+                 let khauphan = dic["khauphan"] as! String
+                 let thoigiannau = dic["thoigiannau"] as! String
+                 let nguyenlieu = dic["nguyenlieu"] as! [String]
+                 let congthuc = dic["congthucnau"] as! [String]
+                 let username = dic["username"] as! String
+                 let imageprofile = dic["Imageprofile"] as! String
+                 let image =  dic["image"] as! [String]
+                 let keyid = dic["keyid"] as! String
+                 let post1 = NewFeedmodel1(tencongthuc: tencongthuc, motacongthuc: motacongthuc, khauphan: khauphan, thoigiannau: thoigiannau, username: username, image: image, imageprofile: imageprofile, nguyenlieu: nguyenlieu, congthuc: congthuc, keyid: keyid)
+                 self.array.insert(post1, at: 0)
+             }
+         }
+     }
 }
 extension MenuViewController : UICollectionViewDelegate , UICollectionViewDataSource , UICollectionViewDelegateFlowLayout {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -55,9 +77,7 @@ extension MenuViewController : UICollectionViewDelegate , UICollectionViewDataSo
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collection.dequeueReusableCell(withReuseIdentifier: "menucollection", for: indexPath) as! MenuCollectionViewCell
-        cell.image.sd_setImage(with: URL(string: menu[indexPath.row].image))
-        cell.name.text = menu[indexPath.row].name
-        cell.image.layer.cornerRadius = 10
+        cell.truyenve(menufood: menu[indexPath.row])
         return cell
     }
       func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
@@ -72,7 +92,11 @@ extension MenuViewController : UICollectionViewDelegate , UICollectionViewDataSo
             return 0
         }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let cell = collection.cellForItem(at: indexPath) as! MenuCollectionViewCell
+        let name = cell.cellmenu.name
         let searchview = SearchViewController()
+        searchview.searchtext = name
+        searchview.array1 = array
         self.navigationController?.pushViewController(searchview, animated: true)
     }
 }

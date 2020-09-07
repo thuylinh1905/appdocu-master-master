@@ -17,6 +17,7 @@ class SearchTableViewCell: UITableViewCell {
     @IBOutlet weak var username: UILabel!
     @IBOutlet weak var images: UIImageView!
     @IBOutlet weak var view: UIView!
+    var celldetails : NewFeedmodel1!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -28,6 +29,7 @@ class SearchTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     func truyenve(newfeed : NewFeedmodel1) {
+        self.celldetails = newfeed
         tencongthuc.text = newfeed.tencongthuc
         motacongthuc.text = newfeed.motacongthuc
         username.text = newfeed.username

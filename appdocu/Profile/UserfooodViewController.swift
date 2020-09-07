@@ -100,9 +100,8 @@ extension UserfooodViewController : UITableViewDelegate , UITableViewDataSource 
                let keyid = cell.newFeed.keyid
                let NewFeed = NewFeedDetail(tencongthuc: tencongthuc, motacongthuc: motacongthuc, khauphan: khauphan, thoigiannau: thoigiannau, username: username, image: image, imageprofile: imageprofile!, nguyenlieu: nguyenlieu!, congthuc: congthuc!, keyid: keyid)
                let homeDetailViewcontroller = HomeDetailsViewController()
-//               homeDetailViewcontroller.newfeeddt = NewFeed
-               self.present(homeDetailViewcontroller, animated: true, completion: nil)
-//               homeDetailViewcontroller.hidesBottomBarWhenPushed = true
-//               self.navigationController?.pushViewController(homeDetailViewcontroller , animated: true)
+               homeDetailViewcontroller.NewFeedDetails = NewFeed
+               homeDetailViewcontroller.hidesBottomBarWhenPushed = true
+               self.navigationController?.pushViewController(homeDetailViewcontroller , animated: true)
     }
 }
