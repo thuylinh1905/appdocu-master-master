@@ -39,7 +39,13 @@ struct UserSave {
 class UsersaveViewController: UIViewController {
 
     @IBOutlet weak var collectionview: UICollectionView!
-    var usersave : [UserSave] = []
+    var usersave : [NewFeedmodel1] = []
+    var sliderViewController: UISimpleSlidingTabController?
+    
+    convenience init(superViewController: UISimpleSlidingTabController) {
+        self.init()
+        self.sliderViewController = superViewController
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,7 +67,7 @@ class UsersaveViewController: UIViewController {
                 let imageprofile = dic["imageprofile"] as! String
                 let image =  dic["image"] as! [String]
                 let keyid = dic["keyid"] as! String
-                let post1 = UserSave(tencongthuc: tencongthuc, motacongthuc: motacongthuc, khauphan: khauphan, thoigiannau: thoigiannau, username: username, image: image, imageprofile: imageprofile, nguyenlieu: nguyenlieu, congthuc: congthuc, keyid: keyid)
+                let post1 = NewFeedmodel1(tencongthuc: tencongthuc, motacongthuc: motacongthuc, khauphan: khauphan, thoigiannau: thoigiannau, username: username, image: image, imageprofile: imageprofile, nguyenlieu: nguyenlieu, congthuc: congthuc, keyid: keyid)
                 self.usersave.insert(post1, at: 0)
                 self.collectionview.reloadData()
             }

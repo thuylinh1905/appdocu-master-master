@@ -17,7 +17,6 @@ class UsersFoodTableViewCell: UITableViewCell, UICollectionViewDelegate, UIColle
         @IBOutlet weak var imagefood : UICollectionView!
         @IBOutlet weak var view: UIView!
         var hinh : [String] = []
-        var userfoodimage : Userfood!
         var newFeed: NewFeedmodel1!
         
         override func awakeFromNib() {

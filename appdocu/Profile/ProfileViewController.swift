@@ -6,6 +6,8 @@ import Kingfisher
 
 class ProfileViewController: UIViewController {
     
+    @IBOutlet weak var tableview: UITableView!
+    @IBOutlet var viewheader: UIView!
     @IBOutlet weak var huhu : UILabel!
     @IBOutlet weak var email : UILabel!
     @IBOutlet weak var imageview: UIImageView!
@@ -17,28 +19,12 @@ class ProfileViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        imageview.layer.cornerRadius = 85
+        tableview.tableHeaderView = viewheader
+        imageview.layer.cornerRadius = imageview.layer.frame.width / 2
         imageview.layer.borderWidth = 5
         imageview.layer.borderColor = UIColor.white.cgColor
         truyenve()
         self.hideKeyboard()
-        navibutton()
-    }
-    @IBAction func push(_ sender: Any) {
-        let profileusser = ProfileUserViewController()
-        self.navigationController?.pushViewController(profileusser, animated: true)
-    }
-    func navibutton() {
-        let btnCancel = UIButton()
-        btnCancel.setImage(UIImage(named: "more"), for: .normal)
-        btnCancel.addTarget(self, action:  #selector(goToSetting), for: .touchUpInside)
-        let leftBarButton = UIBarButtonItem()
-        leftBarButton.customView = btnCancel
-        self.navigationItem.rightBarButtonItem = leftBarButton
-    }
-    @objc func goToSetting(){
-     let profileusser = ProfileUserViewController()
-    self.navigationController?.pushViewController(profileusser, animated: true)
     }
     func truyenve() {
         ref = Database.database().reference()

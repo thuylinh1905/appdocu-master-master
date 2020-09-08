@@ -10,33 +10,13 @@ import UIKit
 import FirebaseAuth
 import FirebaseDatabase
 
-struct Userfood {
-    var tencongthuc : String
-    var motacongthuc : String
-    var khauphan : String
-    var thoigiannau : String
-    var username : String!
-    var imageprofile : String!
-    var image : [String]!
-    var nguyenlieu : [String]!
-    var congthuc : [String]!
-    var keyid : String
-    
-    init(tencongthuc : String , motacongthuc : String, khauphan : String, thoigiannau : String, username : String , image : [String], imageprofile : String, nguyenlieu : [String] , congthuc : [String] , keyid : String) {
-        self.tencongthuc = tencongthuc
-        self.motacongthuc = motacongthuc
-        self.khauphan = khauphan
-        self.thoigiannau = thoigiannau
-        self.username = username
-        self.image = image
-        self.imageprofile = imageprofile
-        self.nguyenlieu = nguyenlieu
-        self.congthuc = congthuc
-        self.keyid = keyid
-    }
-}
-
 class UserfooodViewController: UIViewController {
+    
+    var sliderViewController: UISimpleSlidingTabController?
+    convenience init(superViewController: UISimpleSlidingTabController) {
+        self.init()
+        self.sliderViewController = superViewController
+    }
     
     @IBOutlet weak var tableview: UITableView!
     var array : [NewFeedmodel1] = []
@@ -87,21 +67,21 @@ extension UserfooodViewController : UITableViewDelegate , UITableViewDataSource 
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath) as! UsersFoodTableViewCell
-               tableView.cellForRow(at: indexPath)?.setSelected(false, animated: true)
-               let motacongthuc = cell.newFeed.motacongthuc
-               let khauphan = cell.newFeed.khauphan
-               let thoigiannau = cell.newFeed.thoigiannau
-               let tencongthuc = cell.newFeed.tencongthuc
-               let nguyenlieu = cell.newFeed.nguyenlieu
-               let congthuc = cell.newFeed.congthuc
-               let username = cell.newFeed.username!
-               let image = cell.newFeed.image!
-               let imageprofile = cell.newFeed.imageprofile
-               let keyid = cell.newFeed.keyid
-               let NewFeed = NewFeedDetail(tencongthuc: tencongthuc, motacongthuc: motacongthuc, khauphan: khauphan, thoigiannau: thoigiannau, username: username, image: image, imageprofile: imageprofile!, nguyenlieu: nguyenlieu!, congthuc: congthuc!, keyid: keyid)
-               let homeDetailViewcontroller = HomeDetailsViewController()
-               homeDetailViewcontroller.NewFeedDetails = NewFeed
-               homeDetailViewcontroller.hidesBottomBarWhenPushed = true
-               self.navigationController?.pushViewController(homeDetailViewcontroller , animated: true)
+        let tencongthuc = cell.newFeed.tencongthuc
+                      let motacongthuc = cell.newFeed.motacongthuc
+                      let khauphan = cell.newFeed.khauphan
+                      let thoigiannau = cell.newFeed.thoigiannau
+                      let username = cell.newFeed.username!
+                      let image = cell.newFeed.image!
+                      let imageprofile = cell.newFeed.imageprofile
+                      let nguyenlieu = cell.newFeed.nguyenlieu
+                      let congthuc = cell.newFeed.congthuc
+                      let keyid = cell.newFeed.keyid
+                      let NewFeed = NewFeedDetail(tencongthuc: tencongthuc, motacongthuc: motacongthuc, khauphan: khauphan, thoigiannau: thoigiannau, username: username, image: image, imageprofile: imageprofile!, nguyenlieu: nguyenlieu!, congthuc: congthuc!, keyid: keyid)
+                      let homeDetailViewcontroller = HomeDetailsViewController()
+                      homeDetailViewcontroller.NewFeedDetails = NewFeed
+                      homeDetailViewcontroller.NewFeed = array
+                      homeDetailViewcontroller.hidesBottomBarWhenPushed = true
+        self.sliderViewController?.navigationController?.pushViewController(homeDetailViewcontroller , animated: true)
     }
 }

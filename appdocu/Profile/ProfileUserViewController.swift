@@ -11,17 +11,19 @@ import UIKit
 class ProfileUserViewController: UISimpleSlidingTabController {
     
     @IBOutlet var viewheader: UIView!
+    @IBOutlet var viewnavigation: UIView!
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-        addItem(item: UserfooodViewController(), title: "Món của tôi")
-        addItem(item: UsersaveViewController(), title: "Món Ăn đã lưu")
+        self.navigationItem.titleView = viewnavigation
+        viewnavigation.frame = CGRect(x: self.view.center.x - 125, y: 0, width: 400 , height: 50)
+        addItem(item: UserfooodViewController(superViewController: self), title: "Món của tôi")
+        addItem(item: UsersaveViewController(superViewController: self), title: "Món Ăn đã lưu")
         setHeaderActiveColor(color: .white)
         setHeaderInActiveColor(color: .lightText)
         setHeaderBackgroundColor(color: .orange)
         build()
-        navibutton()
-        
+//        navibutton()
     }
     func navibutton() {
         let btmore = UIButton()

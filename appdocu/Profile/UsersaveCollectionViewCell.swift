@@ -19,7 +19,7 @@ class UsersaveCollectionViewCell: UICollectionViewCell {
         super.awakeFromNib()
         // Initialization code
     }
-    func truyenve(usersave : UserSave) {
+    func truyenve(usersave : NewFeedmodel1) {
         tencongthuc.text = usersave.tencongthuc
         username.text = usersave.username
         user.sd_setImage(with: URL(string: usersave.imageprofile))
