@@ -10,7 +10,6 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SearchViewController" customModule="appdocu" customModuleProvider="target">
             <connections>
-                <outlet property="searchbar" destination="783-lv-jw4" id="mDf-mJ-1kD"/>
                 <outlet property="tableview" destination="IJt-uh-eyv" id="QaW-P6-qiE"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -20,15 +19,8 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="783-lv-jw4">
-                    <rect key="frame" x="0.0" y="44" width="414" height="50"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="50" id="cSu-tE-uhW"/>
-                    </constraints>
-                    <textInputTraits key="textInputTraits"/>
-                </searchBar>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="IJt-uh-eyv">
-                    <rect key="frame" x="0.0" y="94" width="414" height="768"/>
+                    <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                     <color key="backgroundColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="0.66000000000000003" colorSpace="custom" customColorSpace="sRGB"/>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="ci8-vN-8oZ"/>
@@ -39,14 +31,10 @@
             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
             <constraints>
                 <constraint firstItem="IJt-uh-eyv" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="AQ0-6O-eJk"/>
-                <constraint firstItem="783-lv-jw4" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="GnX-Gq-DgQ"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="IJt-uh-eyv" secondAttribute="bottom" id="MUz-4l-vjZ"/>
-                <constraint firstItem="783-lv-jw4" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="VUN-eh-Zl2"/>
-                <constraint firstItem="783-lv-jw4" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="XGw-cT-WVb"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="IJt-uh-eyv" secondAttribute="trailing" id="few-Hi-mnD"/>
-                <constraint firstItem="IJt-uh-eyv" firstAttribute="top" secondItem="783-lv-jw4" secondAttribute="bottom" id="nJU-12-Bbh"/>
-                <constraint firstItem="783-lv-jw4" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="qb8-nU-xUm"/>
                 <constraint firstItem="IJt-uh-eyv" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="t6M-Zb-0mL"/>
+                <constraint firstItem="IJt-uh-eyv" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="ug5-l7-QNB"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <point key="canvasLocation" x="133" y="121"/>

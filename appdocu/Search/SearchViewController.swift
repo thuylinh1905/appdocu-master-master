@@ -12,18 +12,21 @@ import FirebaseDatabase
 class SearchViewController: UIViewController {
     
     @IBOutlet weak var tableview: UITableView!
-    @IBOutlet weak var searchbar: UISearchBar!
     var array1 : [NewFeedmodel1] = []
     var array2 : [NewFeedmodel1] = []
     var searcharray : [NewFeedmodel1] = []
     var searching = false
     var searchtext : String!
+    let searchbar = UISearchBar()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableview.register(UINib(nibName: "SearchTableViewCell", bundle: .main), forCellReuseIdentifier: "search")
+        self.navigationItem.titleView = searchbar
         searchbar.text = searchtext
         find()
         searchbar.delegate = self
+        
     }
 }
 extension SearchViewController : UITableViewDelegate , UITableViewDataSource {
