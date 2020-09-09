@@ -14,6 +14,7 @@ class TimeCookingTableViewCell: UITableViewCell {
     
     @IBOutlet weak var khauphan : UILabel!
     @IBOutlet weak var thoigiannau : UILabel!
+    @IBOutlet weak var like: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

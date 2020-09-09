@@ -62,7 +62,8 @@ class MenuViewController: UIViewController {
                  let imageprofile = dic["Imageprofile"] as! String
                  let image =  dic["image"] as! [String]
                  let keyid = dic["keyid"] as! String
-                 let post1 = NewFeedmodel1(tencongthuc: tencongthuc, motacongthuc: motacongthuc, khauphan: khauphan, thoigiannau: thoigiannau, username: username, image: image, imageprofile: imageprofile, nguyenlieu: nguyenlieu, congthuc: congthuc, keyid: keyid)
+                 let like = dic["like"] as! Int
+                let post1 = NewFeedmodel1(tencongthuc: tencongthuc, motacongthuc: motacongthuc, khauphan: khauphan, thoigiannau: thoigiannau, username: username, image: image, imageprofile: imageprofile, nguyenlieu: nguyenlieu, congthuc: congthuc, keyid: keyid, like: like)
                  self.array.insert(post1, at: 0)
              }
          }

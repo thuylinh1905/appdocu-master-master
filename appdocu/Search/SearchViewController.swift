@@ -72,7 +72,8 @@ extension SearchViewController : UITableViewDelegate , UITableViewDataSource {
         let nguyenlieu = cell.celldetails.nguyenlieu
         let congthuc = cell.celldetails.congthuc
         let keyid = cell.celldetails.keyid
-        let NewFeed = NewFeedDetail(tencongthuc: tencongthuc, motacongthuc: motacongthuc, khauphan: khauphan, thoigiannau: thoigiannau, username: username, image: image, imageprofile: imageprofile!, nguyenlieu: nguyenlieu!, congthuc: congthuc!, keyid: keyid)
+        let like = cell.celldetails.like
+        let NewFeed = NewFeedDetail(tencongthuc: tencongthuc, motacongthuc: motacongthuc, khauphan: khauphan, thoigiannau: thoigiannau, username: username, image: image, imageprofile: imageprofile!, nguyenlieu: nguyenlieu!, congthuc: congthuc!, keyid: keyid , like : like)
         let homeDetailViewcontroller = HomeDetailsViewController()
         homeDetailViewcontroller.NewFeedDetails = NewFeed
         homeDetailViewcontroller.NewFeed = array1

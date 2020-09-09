@@ -10,7 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="UserfooodViewController" customModule="appdocu" customModuleProvider="target">
             <connections>
-                <outlet property="tableview" destination="1NL-xV-scH" id="Skg-Gx-0Ha"/>
+                <outlet property="collection" destination="xYp-gA-4fC" id="jh7-hO-pex"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -19,24 +19,29 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="1NL-xV-scH">
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="xYp-gA-4fC">
                     <rect key="frame" x="0.0" y="44" width="414" height="818"/>
-                    <color key="backgroundColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    <color key="separatorColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    <inset key="separatorInset" minX="10" minY="0.0" maxX="10" maxY="0.0"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="PTY-hY-Gb1">
+                        <size key="itemSize" width="128" height="128"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    </collectionViewFlowLayout>
                     <connections>
-                        <outlet property="dataSource" destination="-1" id="8Mj-6S-zO4"/>
-                        <outlet property="delegate" destination="-1" id="CPF-nB-Mhs"/>
+                        <outlet property="dataSource" destination="-1" id="KaI-uF-sLF"/>
+                        <outlet property="delegate" destination="-1" id="tRy-9W-sNd"/>
                     </connections>
-                </tableView>
+                </collectionView>
             </subviews>
             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
             <constraints>
-                <constraint firstItem="1NL-xV-scH" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="HR2-dA-84v"/>
-                <constraint firstItem="1NL-xV-scH" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="KU4-1t-wlD"/>
-                <constraint firstItem="1NL-xV-scH" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="gw4-0o-KRm"/>
-                <constraint firstItem="1NL-xV-scH" firstAttribute="centerY" secondItem="fnl-2z-Ty3" secondAttribute="centerY" id="oJG-gi-Wtt"/>
-                <constraint firstItem="1NL-xV-scH" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="ybJ-Zs-eqZ"/>
+                <constraint firstItem="xYp-gA-4fC" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="9Dw-DN-ePv"/>
+                <constraint firstItem="xYp-gA-4fC" firstAttribute="centerY" secondItem="fnl-2z-Ty3" secondAttribute="centerY" id="QOj-sZ-ROu"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="xYp-gA-4fC" secondAttribute="trailing" id="R0L-DU-8uJ"/>
+                <constraint firstItem="xYp-gA-4fC" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="flK-Bt-KGu"/>
+                <constraint firstItem="xYp-gA-4fC" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="p4P-SV-DjJ"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="xYp-gA-4fC" secondAttribute="bottom" id="zWY-Ag-ppq"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <point key="canvasLocation" x="131.8840579710145" y="122.54464285714285"/>

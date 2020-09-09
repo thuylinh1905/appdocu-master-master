@@ -19,8 +19,9 @@ class NewFeedDetail {
     var nguyenlieu : [String]!
     var congthuc : [String]!
     var keyid : String
+    var like : Int
     
-    init(tencongthuc : String , motacongthuc : String, khauphan : String, thoigiannau : String, username : String , image : [String], imageprofile : String, nguyenlieu : [String] , congthuc : [String] , keyid : String) {
+    init(tencongthuc : String , motacongthuc : String, khauphan : String, thoigiannau : String, username : String , image : [String], imageprofile : String, nguyenlieu : [String] , congthuc : [String] , keyid : String, like : Int) {
         self.tencongthuc = tencongthuc
         self.motacongthuc = motacongthuc
         self.khauphan = khauphan
@@ -31,5 +32,6 @@ class NewFeedDetail {
         self.nguyenlieu = nguyenlieu
         self.congthuc = congthuc
         self.keyid = keyid
+        self.like = like
     }
 }

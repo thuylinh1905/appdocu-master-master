@@ -26,8 +26,6 @@
 		742CE86524E018F900E5F002 /* HomeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 742CE86324E018F900E5F002 /* HomeTableViewCell.xib */; };
 		743807D924E27950002A3A72 /* HomeNewFeedCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743807D724E27950002A3A72 /* HomeNewFeedCollectionViewCell.swift */; };
 		743807DA24E27950002A3A72 /* HomeNewFeedCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 743807D824E27950002A3A72 /* HomeNewFeedCollectionViewCell.xib */; };
-		743B58AC25010311005E9588 /* UsersFoodTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743B58AA25010311005E9588 /* UsersFoodTableViewCell.swift */; };
-		743B58AD25010311005E9588 /* UsersFoodTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 743B58AB25010311005E9588 /* UsersFoodTableViewCell.xib */; };
 		743B58B0250128BA005E9588 /* CommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743B58AE250128BA005E9588 /* CommentViewController.swift */; };
 		743B58B1250128BA005E9588 /* CommentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 743B58AF250128BA005E9588 /* CommentViewController.xib */; };
 		743BF52324DEDCB700DB28F6 /* CollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 743BF52124DEDCB600DB28F6 /* CollectionViewCell.xib */; };
@@ -66,8 +64,6 @@
 		74871C4624FE506500770DA0 /* FoodsaveViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 74871C4424FE506500770DA0 /* FoodsaveViewController.xib */; };
 		74871C4924FE507700770DA0 /* UserfooodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74871C4724FE507700770DA0 /* UserfooodViewController.swift */; };
 		74871C4A24FE507700770DA0 /* UserfooodViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 74871C4824FE507700770DA0 /* UserfooodViewController.xib */; };
-		74871C5124FE84B200770DA0 /* UserfoodCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74871C4F24FE84B200770DA0 /* UserfoodCollectionViewCell.swift */; };
-		74871C5224FE84B200770DA0 /* UserfoodCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 74871C5024FE84B200770DA0 /* UserfoodCollectionViewCell.xib */; };
 		749267C32504E9DD006ED2C8 /* MenuCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 749267C12504E9DD006ED2C8 /* MenuCollectionViewCell.swift */; };
 		749267C42504E9DD006ED2C8 /* MenuCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 749267C22504E9DD006ED2C8 /* MenuCollectionViewCell.xib */; };
 		749267C72504FB13006ED2C8 /* Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = 749267C52504FB13006ED2C8 /* Header.swift */; };
@@ -78,6 +74,8 @@
 		749BDD5324EBC87B00FEE2E8 /* HomeImageDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 749BDD5124EBC87B00FEE2E8 /* HomeImageDetailsViewController.xib */; };
 		749BDD5624EBCC5F00FEE2E8 /* ImageDetailsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 749BDD5424EBCC5F00FEE2E8 /* ImageDetailsCollectionViewCell.swift */; };
 		749BDD5724EBCC5F00FEE2E8 /* ImageDetailsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 749BDD5524EBCC5F00FEE2E8 /* ImageDetailsCollectionViewCell.xib */; };
+		74A004C4250917D000AFDBD8 /* UserfoodCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74A004C2250917D000AFDBD8 /* UserfoodCollectionViewCell.swift */; };
+		74A004C5250917D000AFDBD8 /* UserfoodCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 74A004C3250917D000AFDBD8 /* UserfoodCollectionViewCell.xib */; };
 		74B0EF3A24FAC4C40035CE8A /* addingredientsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B0EF3824FAC4C40035CE8A /* addingredientsViewController.swift */; };
 		74B0EF3B24FAC4C40035CE8A /* addingredientsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 74B0EF3924FAC4C40035CE8A /* addingredientsViewController.xib */; };
 		74BB850C24CBE01B009B2DCF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 74BB850B24CBE01A009B2DCF /* Assets.xcassets */; };
@@ -128,8 +126,6 @@
 		742CE86324E018F900E5F002 /* HomeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeTableViewCell.xib; sourceTree = "<group>"; };
 		743807D724E27950002A3A72 /* HomeNewFeedCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeNewFeedCollectionViewCell.swift; sourceTree = "<group>"; };
 		743807D824E27950002A3A72 /* HomeNewFeedCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeNewFeedCollectionViewCell.xib; sourceTree = "<group>"; };
-		743B58AA25010311005E9588 /* UsersFoodTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersFoodTableViewCell.swift; sourceTree = "<group>"; };
-		743B58AB25010311005E9588 /* UsersFoodTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UsersFoodTableViewCell.xib; sourceTree = "<group>"; };
 		743B58AE250128BA005E9588 /* CommentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentViewController.swift; sourceTree = "<group>"; };
 		743B58AF250128BA005E9588 /* CommentViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommentViewController.xib; sourceTree = "<group>"; };
 		743BF52124DEDCB600DB28F6 /* CollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CollectionViewCell.xib; sourceTree = "<group>"; };
@@ -170,8 +166,6 @@
 		74871C4424FE506500770DA0 /* FoodsaveViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FoodsaveViewController.xib; sourceTree = "<group>"; };
 		74871C4724FE507700770DA0 /* UserfooodViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserfooodViewController.swift; sourceTree = "<group>"; };
 		74871C4824FE507700770DA0 /* UserfooodViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserfooodViewController.xib; sourceTree = "<group>"; };
-		74871C4F24FE84B200770DA0 /* UserfoodCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserfoodCollectionViewCell.swift; sourceTree = "<group>"; };
-		74871C5024FE84B200770DA0 /* UserfoodCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserfoodCollectionViewCell.xib; sourceTree = "<group>"; };
 		749267C12504E9DD006ED2C8 /* MenuCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCollectionViewCell.swift; sourceTree = "<group>"; };
 		749267C22504E9DD006ED2C8 /* MenuCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuCollectionViewCell.xib; sourceTree = "<group>"; };
 		749267C52504FB13006ED2C8 /* Header.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Header.swift; sourceTree = "<group>"; };
@@ -182,6 +176,8 @@
 		749BDD5124EBC87B00FEE2E8 /* HomeImageDetailsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeImageDetailsViewController.xib; sourceTree = "<group>"; };
 		749BDD5424EBCC5F00FEE2E8 /* ImageDetailsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDetailsCollectionViewCell.swift; sourceTree = "<group>"; };
 		749BDD5524EBCC5F00FEE2E8 /* ImageDetailsCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageDetailsCollectionViewCell.xib; sourceTree = "<group>"; };
+		74A004C2250917D000AFDBD8 /* UserfoodCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserfoodCollectionViewCell.swift; sourceTree = "<group>"; };
+		74A004C3250917D000AFDBD8 /* UserfoodCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserfoodCollectionViewCell.xib; sourceTree = "<group>"; };
 		74B0EF3824FAC4C40035CE8A /* addingredientsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addingredientsViewController.swift; sourceTree = "<group>"; };
 		74B0EF3924FAC4C40035CE8A /* addingredientsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = addingredientsViewController.xib; sourceTree = "<group>"; };
 		74BB850B24CBE01A009B2DCF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -355,10 +351,8 @@
 				74871C4424FE506500770DA0 /* FoodsaveViewController.xib */,
 				74871C4724FE507700770DA0 /* UserfooodViewController.swift */,
 				74871C4824FE507700770DA0 /* UserfooodViewController.xib */,
-				743B58AA25010311005E9588 /* UsersFoodTableViewCell.swift */,
-				743B58AB25010311005E9588 /* UsersFoodTableViewCell.xib */,
-				74871C4F24FE84B200770DA0 /* UserfoodCollectionViewCell.swift */,
-				74871C5024FE84B200770DA0 /* UserfoodCollectionViewCell.xib */,
+				74A004C2250917D000AFDBD8 /* UserfoodCollectionViewCell.swift */,
+				74A004C3250917D000AFDBD8 /* UserfoodCollectionViewCell.xib */,
 				7445611E2503E40E0005A6C9 /* UsersaveViewController.swift */,
 				7445611F2503E40E0005A6C9 /* UsersaveViewController.xib */,
 				744561262503E9110005A6C9 /* UsersaveCollectionViewCell.swift */,
@@ -510,7 +504,6 @@
 				743807DA24E27950002A3A72 /* HomeNewFeedCollectionViewCell.xib in Resources */,
 				744ED17724E5772300DE6084 /* KeyBoardView.xib in Resources */,
 				74ECF70824BC79B200D98BB3 /* ProfileViewController.xib in Resources */,
-				743B58AD25010311005E9588 /* UsersFoodTableViewCell.xib in Resources */,
 				743BF52324DEDCB700DB28F6 /* CollectionViewCell.xib in Resources */,
 				7416AF5624E402C70021AD1E /* testViewController.xib in Resources */,
 				741F5FE724FB5D79006B6EA8 /* CookingHomeDetailsTableViewCell.xib in Resources */,
@@ -528,7 +521,6 @@
 				741F5FEB24FB94DC006B6EA8 /* CommentTableViewCell.xib in Resources */,
 				74871C4A24FE507700770DA0 /* UserfooodViewController.xib in Resources */,
 				743B58B1250128BA005E9588 /* CommentViewController.xib in Resources */,
-				74871C5224FE84B200770DA0 /* UserfoodCollectionViewCell.xib in Resources */,
 				7464D3CE24B5F3B000347356 /* SignupViewController.xib in Resources */,
 				74926818250537FF006ED2C8 /* SearchTableViewCell.xib in Resources */,
 				740A4F9924FCF11E00C25B05 /* imagecellCollectionViewCell.xib in Resources */,
@@ -542,6 +534,7 @@
 				7440672024F35DBD00F9EE5C /* HomeDetailsTableViewCell.xib in Resources */,
 				749BDD5724EBCC5F00FEE2E8 /* ImageDetailsCollectionViewCell.xib in Resources */,
 				7411594D24EEDCF800B22BDA /* UserProfileViewController.xib in Resources */,
+				74A004C5250917D000AFDBD8 /* UserfoodCollectionViewCell.xib in Resources */,
 				74BB850C24CBE01B009B2DCF /* Assets.xcassets in Resources */,
 				74D3A91325049051004D04EF /* MenuViewController.xib in Resources */,
 				74871C4024FDE9A500770DA0 /* ProfileUserViewController.xib in Resources */,
@@ -612,6 +605,7 @@
 				74871C4224FE022B00770DA0 /* UISimpleSlidingTabController.swift in Sources */,
 				7440672324F36E3200F9EE5C /* HomeDetailsCollectionViewCell.swift in Sources */,
 				74DDF1642501ED2300890A0D /* addRow1ViewController.swift in Sources */,
+				74A004C4250917D000AFDBD8 /* UserfoodCollectionViewCell.swift in Sources */,
 				7444090024E14DA900CD5BB4 /* MenuModel.swift in Sources */,
 				74D1B95824F7FF9000F2EE29 /* CookingTableViewCell.swift in Sources */,
 				7411595024EEEC1100B22BDA /* MenuUserProfileTableViewCell.swift in Sources */,
@@ -621,13 +615,11 @@
 				7411594C24EEDCF800B22BDA /* UserProfileViewController.swift in Sources */,
 				742CE86424E018F900E5F002 /* HomeTableViewCell.swift in Sources */,
 				749267C32504E9DD006ED2C8 /* MenuCollectionViewCell.swift in Sources */,
-				743B58AC25010311005E9588 /* UsersFoodTableViewCell.swift in Sources */,
 				744561202503E40E0005A6C9 /* UsersaveViewController.swift in Sources */,
 				74C2E50124D56BD700979937 /* PostViewController.swift in Sources */,
 				749BDD5224EBC87B00FEE2E8 /* HomeImageDetailsViewController.swift in Sources */,
 				749BDD5624EBCC5F00FEE2E8 /* ImageDetailsCollectionViewCell.swift in Sources */,
 				744ED17924E5774700DE6084 /* KeyBoardView.swift in Sources */,
-				74871C5124FE84B200770DA0 /* UserfoodCollectionViewCell.swift in Sources */,
 				744561282503E9110005A6C9 /* UsersaveCollectionViewCell.swift in Sources */,
 				74FE8B5924F15A290086D1FE /* NewFeedDetail.swift in Sources */,
 				7464D3AF24B5E56C00347356 /* AppDelegate.swift in Sources */,

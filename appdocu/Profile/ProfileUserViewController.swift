@@ -7,6 +7,9 @@
 //
 
 import UIKit
+import FirebaseDatabase
+import FirebaseAuth
+import SDWebImage
 
 class ProfileUserViewController: UISimpleSlidingTabController {
     
@@ -16,14 +19,13 @@ class ProfileUserViewController: UISimpleSlidingTabController {
         super.viewDidLoad()
         view.backgroundColor = .white
         self.navigationItem.titleView = viewnavigation
-        viewnavigation.frame = CGRect(x: self.view.center.x - 125, y: 0, width: 400 , height: 50)
         addItem(item: UserfooodViewController(superViewController: self), title: "Món của tôi")
         addItem(item: UsersaveViewController(superViewController: self), title: "Món Ăn đã lưu")
-        setHeaderActiveColor(color: .white)
-        setHeaderInActiveColor(color: .lightText)
-        setHeaderBackgroundColor(color: .orange)
+        setHeaderActiveColor(color: .orange)
+        setHeaderInActiveColor(color: .black)
+        setHeaderBackgroundColor(color: .white)
         build()
-//        navibutton()
+        navibutton()
     }
     func navibutton() {
         let btmore = UIButton()

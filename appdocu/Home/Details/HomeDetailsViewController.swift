@@ -23,6 +23,17 @@ struct  UserComment {
     }
 }
 
+struct Userlike {
+    var like : Int
+    var tencongthuc : String
+    var motacongthuc : String
+    init(like : Int, tencongthuc : String , motacongthuc : String) {
+        self.like = like
+        self.tencongthuc = tencongthuc
+        self.motacongthuc = motacongthuc
+    }
+}
+
 class HomeDetailsViewController: UIViewController {
     
     @IBOutlet weak var pagecontrol: UIPageControl!
@@ -41,9 +52,11 @@ class HomeDetailsViewController: UIViewController {
     @IBOutlet weak var buttonlike: UIButton!
     @IBOutlet weak var moreuser: UILabel!
     @IBOutlet weak var imageuser: UIImageView!
+    let ref = Database.database().reference()
     var NewFeedDetails : NewFeedDetail!
     var newfeeddetails : NewFeedDetail!
     var NewFeed : [NewFeedmodel1] = []
+    var userlike : [Userlike] = []
     var selectedIndexPath: NSIndexPath?
     var arrayCommnet = [UserComment]()
     var mota1 : String!
@@ -52,6 +65,7 @@ class HomeDetailsViewController: UIViewController {
     var timer = Timer()
     var commentuser : [UserComment] = []
     var counter = 0
+    var like = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,7 +74,6 @@ class HomeDetailsViewController: UIViewController {
         comment.layer.borderWidth = 1.0
         tableview.tableHeaderView = view1
         tableview.tableFooterView = viewfooter
-//        truyenvefooter()
         truyenve()
         tableview.register(UINib(nibName: "HomeDetailsTableViewCell", bundle: .main), forCellReuseIdentifier: "homedetails")
         tableview.register(UINib(nibName: "CookingHomeDetailsTableViewCell", bundle: .main), forCellReuseIdentifier: "cookinghomedetails")
@@ -76,12 +89,17 @@ class HomeDetailsViewController: UIViewController {
         imageuser.layer.cornerRadius = imageuser.frame.size.height / 2
         user()
         tablecomment()
+        tablelike()
     }
     @IBAction func like(_ sender: Any) {
         buttonlike.isSelected = true
+        like += 1
+        let userid = Auth.auth().currentUser?.uid
+        let key = NewFeedDetails.keyid
+        ref.child("NewPeedPost").child(key).updateChildValues(["like" : like])
+        ref.child("user-NewPeedPost").child(userid!).child(key).updateChildValues(["like" : like])
     }    
     @IBAction func save(_ sender: Any) {
-        let ref = Database.database().reference()
         let userid = Auth.auth().currentUser?.uid
         let key = NewFeedDetails.keyid
         let post = ["imageprofile" : NewFeedDetails.imageprofile!,
@@ -115,7 +133,6 @@ class HomeDetailsViewController: UIViewController {
     }
     
     func tablecomment(){
-        let ref = Database.database().reference()
         let key = NewFeedDetails.keyid
         ref.child("NewPeedPost").child(key).child("Comment-User").observe(.childAdded) { (snashot) in
             if let dic = snashot.value as? [String:Any] {
@@ -128,6 +145,20 @@ class HomeDetailsViewController: UIViewController {
             }
         }
     }
+    func tablelike() {
+        let key = NewFeedDetails.keyid
+        ref.child("NewPeedPost").child(key).child("Comment-User").observe(.childAdded) { (snashot) in
+            if let dic = snashot.value as? [String:Any] {
+                let like = dic["like"] as! Int
+                let tencongthuc = dic["tencongthuc"] as! String
+                let motacongthuc = dic["motacongthuc"] as! String
+                let post = Userlike(like: like, tencongthuc: tencongthuc, motacongthuc: motacongthuc)
+                self.userlike.append(post)
+                self.tableview.reloadData()
+            }
+        }
+    }
+    
     @objc func change() {
         var counter = 0
         if counter < NewFeedDetails.image.count {
@@ -175,7 +206,7 @@ extension HomeDetailsViewController : UITableViewDelegate , UITableViewDataSourc
             let cell = tableView.dequeueReusableCell(withIdentifier: "timecokking", for: indexPath) as! TimeCookingTableViewCell
             cell.khauphan.text = NewFeedDetails.khauphan + " người"
             cell.thoigiannau.text = NewFeedDetails.thoigiannau
-            
+            cell.like.text = String(NewFeedDetails.like)
             return cell
         } else if indexPath.section == 1 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "homedetails", for: indexPath) as! HomeDetailsTableViewCell
@@ -243,7 +274,11 @@ extension HomeDetailsViewController : UICollectionViewDataSource , UICollectionV
         if collectionView == collectionview {
             return NewFeedDetails.image.count
         } else {
-            return 4
+            if NewFeed.count > 4{
+                return 4
+            } else {
+                return NewFeed.count
+            }
         }
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

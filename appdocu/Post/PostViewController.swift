@@ -240,6 +240,7 @@ extension PostViewController {
                                "thoigiannau": thoigiannau!,
                                "nguyenlieu" : addingredientsViewController.nguyenlieu,
                                "congthucnau" : addingredientsViewController.congthuc,
+                               "like" : 0,
                                "keyid" : key] as [String: Any]
                    let childRef = ref.child("TWEETS").child(userID!).childByAutoId()
                    for i in PostViewController.imagecollection1 {
