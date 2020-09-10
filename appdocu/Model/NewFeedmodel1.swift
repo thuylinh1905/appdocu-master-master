@@ -18,8 +18,9 @@ class NewFeedmodel1 {
     var congthuc : [String]!
     var keyid : String
     var like : Int
+    var uid : String
     
-    init(tencongthuc : String , motacongthuc : String, khauphan : String, thoigiannau : String, username : String , image : [String], imageprofile : String, nguyenlieu : [String] , congthuc : [String] , keyid : String, like : Int) {
+    init(tencongthuc : String , motacongthuc : String, khauphan : String, thoigiannau : String, username : String , image : [String], imageprofile : String, nguyenlieu : [String] , congthuc : [String] , keyid : String, like : Int , uid : String) {
         self.tencongthuc = tencongthuc
         self.motacongthuc = motacongthuc
         self.khauphan = khauphan
@@ -31,5 +32,6 @@ class NewFeedmodel1 {
         self.congthuc = congthuc
         self.keyid = keyid
         self.like = like
+        self.uid = uid
     }
 }

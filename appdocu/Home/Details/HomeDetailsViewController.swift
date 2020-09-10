@@ -23,16 +23,6 @@ struct  UserComment {
     }
 }
 
-struct Userlike {
-    var like : Int
-    var tencongthuc : String
-    var motacongthuc : String
-    init(like : Int, tencongthuc : String , motacongthuc : String) {
-        self.like = like
-        self.tencongthuc = tencongthuc
-        self.motacongthuc = motacongthuc
-    }
-}
 
 class HomeDetailsViewController: UIViewController {
     
@@ -50,22 +40,15 @@ class HomeDetailsViewController: UIViewController {
     @IBOutlet weak var collectionmore: UICollectionView!
     @IBOutlet weak var comment: UITextField!
     @IBOutlet weak var buttonlike: UIButton!
-    @IBOutlet weak var moreuser: UILabel!
     @IBOutlet weak var imageuser: UIImageView!
     let ref = Database.database().reference()
     var NewFeedDetails : NewFeedDetail!
-    var newfeeddetails : NewFeedDetail!
     var NewFeed : [NewFeedmodel1] = []
-    var userlike : [Userlike] = []
     var selectedIndexPath: NSIndexPath?
     var arrayCommnet = [UserComment]()
-    var mota1 : String!
-    var mang : [String] = []
-    var mang1 : [String] = []
     var timer = Timer()
     var commentuser : [UserComment] = []
     var counter = 0
-    var like = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -74,6 +57,7 @@ class HomeDetailsViewController: UIViewController {
         comment.layer.borderWidth = 1.0
         tableview.tableHeaderView = view1
         tableview.tableFooterView = viewfooter
+        image.layer.cornerRadius = image.frame.size.width / 2
         truyenve()
         tableview.register(UINib(nibName: "HomeDetailsTableViewCell", bundle: .main), forCellReuseIdentifier: "homedetails")
         tableview.register(UINib(nibName: "CookingHomeDetailsTableViewCell", bundle: .main), forCellReuseIdentifier: "cookinghomedetails")
@@ -93,11 +77,9 @@ class HomeDetailsViewController: UIViewController {
     }
     @IBAction func like(_ sender: Any) {
         buttonlike.isSelected = true
-        like += 1
-        let userid = Auth.auth().currentUser?.uid
+        let likes = NewFeedDetails.like + 1
         let key = NewFeedDetails.keyid
-        ref.child("NewPeedPost").child(key).updateChildValues(["like" : like])
-        ref.child("user-NewPeedPost").child(userid!).child(key).updateChildValues(["like" : like])
+        ref.child("NewPeedPost").child(key).updateChildValues(["like" : likes])
     }    
     @IBAction func save(_ sender: Any) {
         let userid = Auth.auth().currentUser?.uid
@@ -111,7 +93,9 @@ class HomeDetailsViewController: UIViewController {
                     "nguyenlieu" : NewFeedDetails.nguyenlieu!,
                     "tencongthuc" : NewFeedDetails.tencongthuc,
                     "thoigiannau" : NewFeedDetails.thoigiannau,
-                    "username" : NewFeedDetails.username!] as [String:Any]
+                    "username" : NewFeedDetails.username!,
+                    "like" : NewFeedDetails.like,
+                    "uid" : NewFeedDetails.uid] as [String:Any]
         let childupdate = ["/Save-User/\(String(describing: userid!))/\(key)/": post]
         ref.updateChildValues(childupdate)
     }
@@ -147,13 +131,11 @@ class HomeDetailsViewController: UIViewController {
     }
     func tablelike() {
         let key = NewFeedDetails.keyid
-        ref.child("NewPeedPost").child(key).child("Comment-User").observe(.childAdded) { (snashot) in
+        ref.child("NewPeedPost").child(key).observe(.value) { (snashot) in
             if let dic = snashot.value as? [String:Any] {
                 let like = dic["like"] as! Int
-                let tencongthuc = dic["tencongthuc"] as! String
-                let motacongthuc = dic["motacongthuc"] as! String
-                let post = Userlike(like: like, tencongthuc: tencongthuc, motacongthuc: motacongthuc)
-                self.userlike.append(post)
+                self.NewFeedDetails.like = like
+//                self.post = Userlike(like: like, thoigiannau: thoigiannau, khauphan: khauphan)
                 self.tableview.reloadData()
             }
         }
@@ -185,6 +167,14 @@ class HomeDetailsViewController: UIViewController {
         }
     }
 }
+extension HomeDetailsViewController {
+    @IBAction func openuser(_ sender: Any) {
+        let profile = ProfileOtherUserViewController()
+        profile.uid = NewFeedDetails.uid
+        self.navigationController?.pushViewController(profile, animated: true)
+    }
+}
+
 extension HomeDetailsViewController : UITableViewDelegate , UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         return 4

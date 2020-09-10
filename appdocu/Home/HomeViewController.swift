@@ -39,7 +39,8 @@ class HomeViewController: UIViewController {
                 let image =  dic["image"] as! [String]
                 let keyid = dic["keyid"] as! String
                 let like = dic["like"] as! Int
-                let post1 = NewFeedmodel1(tencongthuc: tencongthuc, motacongthuc: motacongthuc, khauphan: khauphan, thoigiannau: thoigiannau, username: username, image: image, imageprofile: imageprofile, nguyenlieu: nguyenlieu, congthuc: congthuc, keyid: keyid, like: like)
+                let uid = dic["uid"] as! String
+                let post1 = NewFeedmodel1(tencongthuc: tencongthuc, motacongthuc: motacongthuc, khauphan: khauphan, thoigiannau: thoigiannau, username: username, image: image, imageprofile: imageprofile, nguyenlieu: nguyenlieu, congthuc: congthuc, keyid: keyid, like: like , uid : uid)
                 self.array.insert(post1, at: 0)
                 self.tableView.reloadData()
             }
@@ -76,7 +77,8 @@ extension HomeViewController :UITableViewDelegate, UITableViewDataSource {
         let imageprofile = cell.newFeed.imageprofile
         let keyid = cell.newFeed.keyid
         let like = cell.newFeed.like
-        let NewFeed = NewFeedDetail(tencongthuc: tencongthuc, motacongthuc: motacongthuc, khauphan: khauphan, thoigiannau: thoigiannau, username: username, image: image, imageprofile: imageprofile!, nguyenlieu: nguyenlieu!, congthuc: congthuc!, keyid: keyid , like : like)
+        let uid = cell.newFeed.uid
+        let NewFeed = NewFeedDetail(tencongthuc: tencongthuc, motacongthuc: motacongthuc, khauphan: khauphan, thoigiannau: thoigiannau, username: username, image: image, imageprofile: imageprofile!, nguyenlieu: nguyenlieu!, congthuc: congthuc!, keyid: keyid , like : like , uid: uid)
         let homeDetailViewcontroller = HomeDetailsViewController()
         homeDetailViewcontroller.NewFeedDetails = NewFeed
         homeDetailViewcontroller.NewFeed = array

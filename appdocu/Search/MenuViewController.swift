@@ -21,7 +21,7 @@ struct MenuFood {
 }
 
 class MenuViewController: UIViewController {
-
+    
     @IBOutlet weak var collection: UICollectionView!
     var array : [NewFeedmodel1] = []
     var menu : [MenuFood] = []
@@ -49,25 +49,26 @@ class MenuViewController: UIViewController {
         }
     }
     func tableviewdata() {
-         let ref = Database.database().reference()
-         ref.child("NewPeedPost").observe(.childAdded) { (snashot) in
-             if let dic = snashot.value as? [String:Any] {
-                 let tencongthuc = dic["tencongthuc"] as! String
-                 let motacongthuc = dic["motacongthuc"] as! String
-                 let khauphan = dic["khauphan"] as! String
-                 let thoigiannau = dic["thoigiannau"] as! String
-                 let nguyenlieu = dic["nguyenlieu"] as! [String]
-                 let congthuc = dic["congthucnau"] as! [String]
-                 let username = dic["username"] as! String
-                 let imageprofile = dic["Imageprofile"] as! String
-                 let image =  dic["image"] as! [String]
-                 let keyid = dic["keyid"] as! String
-                 let like = dic["like"] as! Int
-                let post1 = NewFeedmodel1(tencongthuc: tencongthuc, motacongthuc: motacongthuc, khauphan: khauphan, thoigiannau: thoigiannau, username: username, image: image, imageprofile: imageprofile, nguyenlieu: nguyenlieu, congthuc: congthuc, keyid: keyid, like: like)
-                 self.array.insert(post1, at: 0)
-             }
-         }
-     }
+        let ref = Database.database().reference()
+        ref.child("NewPeedPost").observe(.childAdded) { (snashot) in
+            if let dic = snashot.value as? [String:Any] {
+                let tencongthuc = dic["tencongthuc"] as! String
+                let motacongthuc = dic["motacongthuc"] as! String
+                let khauphan = dic["khauphan"] as! String
+                let thoigiannau = dic["thoigiannau"] as! String
+                let nguyenlieu = dic["nguyenlieu"] as! [String]
+                let congthuc = dic["congthucnau"] as! [String]
+                let username = dic["username"] as! String
+                let imageprofile = dic["Imageprofile"] as! String
+                let image =  dic["image"] as! [String]
+                let keyid = dic["keyid"] as! String
+                let like = dic["like"] as! Int
+                let uid = dic["uid"] as! String
+                let post1 = NewFeedmodel1(tencongthuc: tencongthuc, motacongthuc: motacongthuc, khauphan: khauphan, thoigiannau: thoigiannau, username: username, image: image, imageprofile: imageprofile, nguyenlieu: nguyenlieu, congthuc: congthuc, keyid: keyid, like: like , uid : uid)
+                self.array.insert(post1, at: 0)
+            }
+        }
+    }
 }
 extension MenuViewController : UICollectionViewDelegate , UICollectionViewDataSource , UICollectionViewDelegateFlowLayout {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -81,17 +82,17 @@ extension MenuViewController : UICollectionViewDelegate , UICollectionViewDataSo
         cell.truyenve(menufood: menu[indexPath.row])
         return cell
     }
-      func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-            return UIEdgeInsets(top: 5, left:  5, bottom: 5, right: 5)
-        }
-        func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-            let widthVal = self.view.frame.width
-            
-            return CGSize(width: widthVal / 2 - 10   , height:  120 )
-        }
-        func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-            return 0
-        }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 5, left:  5, bottom: 5, right: 5)
+    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let widthVal = self.view.frame.width
+        
+        return CGSize(width: widthVal / 2 - 10   , height:  120 )
+    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
+    }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let cell = collection.cellForItem(at: indexPath) as! MenuCollectionViewCell
         let name = cell.cellmenu.name

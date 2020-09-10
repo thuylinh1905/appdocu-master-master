@@ -9,14 +9,17 @@ class HomeTableViewCell: UITableViewCell {
     @IBOutlet weak var imageprofile : UIImageView!
     @IBOutlet weak var colletion: UICollectionView!
     @IBOutlet weak var pagecontrol: UIPageControl!
+    var uid : String!
     var newFeed: NewFeedmodel1!
     var counter = 0
     var timer = Timer()
 
     func truyenve(Newfeed : NewFeedmodel1) {
+        imageprofile.layer.cornerRadius = imageprofile.frame.size.width / 2
         self.newFeed = Newfeed
         colletion.register(UINib(nibName: "HomeNewFeedCollectionViewCell", bundle: .main), forCellWithReuseIdentifier: "newfeedcollectionview")
         username.text = Newfeed.username
+        uid = Newfeed.uid
         tencongthuc.text = Newfeed.tencongthuc
         motacongthuc.text = Newfeed.motacongthuc
         if let profileimage = Newfeed.imageprofile {
