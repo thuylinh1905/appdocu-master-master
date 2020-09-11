@@ -82,7 +82,6 @@ extension HomeViewController :UITableViewDelegate, UITableViewDataSource {
         let homeDetailViewcontroller = HomeDetailsViewController()
         homeDetailViewcontroller.NewFeedDetails = NewFeed
         homeDetailViewcontroller.NewFeed = array
-        homeDetailViewcontroller.hidesBottomBarWhenPushed = true
         self.navigationController?.pushViewController(homeDetailViewcontroller , animated: true)
     }
 }

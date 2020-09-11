@@ -15,7 +15,10 @@ class ProfileOtherUserTableViewCell: UITableViewCell {
     @IBOutlet weak var motacongthuc: UILabel!
     @IBOutlet weak var anh: UIImageView!
     @IBOutlet weak var view: UIView!
+    var NewFeed : NewFeedmodel1!
+    
     func truyenve(newfeed : NewFeedmodel1) {
+        self.NewFeed = newfeed
         view.layer.cornerRadius = 5
         view.layer.masksToBounds = true
         view.layer.borderWidth = 0.2

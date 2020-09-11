@@ -135,7 +135,6 @@ class HomeDetailsViewController: UIViewController {
             if let dic = snashot.value as? [String:Any] {
                 let like = dic["like"] as! Int
                 self.NewFeedDetails.like = like
-//                self.post = Userlike(like: like, thoigiannau: thoigiannau, khauphan: khauphan)
                 self.tableview.reloadData()
             }
         }
@@ -169,9 +168,15 @@ class HomeDetailsViewController: UIViewController {
 }
 extension HomeDetailsViewController {
     @IBAction func openuser(_ sender: Any) {
-        let profile = ProfileOtherUserViewController()
-        profile.uid = NewFeedDetails.uid
-        self.navigationController?.pushViewController(profile, animated: true)
+        let userid = Auth.auth().currentUser?.uid
+        if userid == NewFeedDetails.uid {
+            let profileviewcontroller = ProfileViewController()
+            self.navigationController?.pushViewController(profileviewcontroller, animated: true)
+        } else {
+            let profile = ProfileOtherUserViewController()
+            profile.uid = NewFeedDetails.uid
+            self.navigationController?.pushViewController(profile, animated: true)
+        }
     }
 }
 
