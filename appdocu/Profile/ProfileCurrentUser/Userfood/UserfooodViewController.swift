@@ -17,9 +17,9 @@ class UserfooodViewController: UIViewController {
         self.init()
         self.sliderViewController = superViewController
     }
-    
     @IBOutlet weak var collection : UICollectionView!
     var array : [NewFeedmodel1] = []
+ 
     override func viewDidLoad() {
         super.viewDidLoad()
         collection.register(UINib(nibName: "UserfoodCollectionViewCell", bundle: .main), forCellWithReuseIdentifier: "usersfood")
@@ -50,6 +50,7 @@ class UserfooodViewController: UIViewController {
             }
         }
     }
+   
 }
 extension UserfooodViewController : UICollectionViewDelegate , UICollectionViewDataSource ,UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -93,7 +94,7 @@ extension UserfooodViewController : UICollectionViewDelegate , UICollectionViewD
         let NewFeed = NewFeedDetail(tencongthuc: tencongthuc, motacongthuc: motacongthuc, khauphan: khauphan, thoigiannau: thoigiannau, username: username, image: image, imageprofile: imageprofile!, nguyenlieu: nguyenlieu!, congthuc: congthuc!, keyid: keyid , like: like , uid: uid)
         let homeDetailViewcontroller = HomeDetailsViewController()
         homeDetailViewcontroller.NewFeedDetails = NewFeed
-        homeDetailViewcontroller.NewFeed = array
+        homeDetailViewcontroller.NewFeed = ProfileUserViewController.arraynewfeed
         homeDetailViewcontroller.hidesBottomBarWhenPushed = true
         self.sliderViewController?.navigationController?.pushViewController(homeDetailViewcontroller , animated: true)
     }

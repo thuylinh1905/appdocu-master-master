@@ -19,7 +19,7 @@ class UserfoodCollectionViewCell: UICollectionViewCell {
     var newFeed: NewFeedmodel1!
     
     func truyen(Newfeed : NewFeedmodel1) {
-        let key = Newfeed.keyid
+//        let key = Newfeed.keyid
         self.newFeed = Newfeed
         username.text = Newfeed.username
         text.text = Newfeed.tencongthuc

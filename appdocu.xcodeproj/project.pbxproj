@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		740A4F9824FCF11E00C25B05 /* imagecellCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 740A4F9624FCF11E00C25B05 /* imagecellCollectionViewCell.swift */; };
 		740A4F9924FCF11E00C25B05 /* imagecellCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 740A4F9724FCF11E00C25B05 /* imagecellCollectionViewCell.xib */; };
+		740EA4F6250BE11000B65E62 /* UserSave.swift in Sources */ = {isa = PBXBuildFile; fileRef = 740EA4F5250BE11000B65E62 /* UserSave.swift */; };
 		7411594C24EEDCF800B22BDA /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7411594A24EEDCF800B22BDA /* UserProfileViewController.swift */; };
 		7411594D24EEDCF800B22BDA /* UserProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7411594B24EEDCF800B22BDA /* UserProfileViewController.xib */; };
 		7411595024EEEC1100B22BDA /* MenuUserProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7411594E24EEEC1100B22BDA /* MenuUserProfileTableViewCell.swift */; };
@@ -113,6 +114,7 @@
 		2CFD8909EE19B88429B6ABA4 /* Pods-appdocu.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-appdocu.release.xcconfig"; path = "Target Support Files/Pods-appdocu/Pods-appdocu.release.xcconfig"; sourceTree = "<group>"; };
 		740A4F9624FCF11E00C25B05 /* imagecellCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = imagecellCollectionViewCell.swift; sourceTree = "<group>"; };
 		740A4F9724FCF11E00C25B05 /* imagecellCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = imagecellCollectionViewCell.xib; sourceTree = "<group>"; };
+		740EA4F5250BE11000B65E62 /* UserSave.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSave.swift; sourceTree = "<group>"; };
 		7411594A24EEDCF800B22BDA /* UserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
 		7411594B24EEDCF800B22BDA /* UserProfileViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserProfileViewController.xib; sourceTree = "<group>"; };
 		7411594E24EEEC1100B22BDA /* MenuUserProfileTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuUserProfileTableViewCell.swift; sourceTree = "<group>"; };
@@ -317,6 +319,7 @@
 				744408FF24E14DA900CD5BB4 /* MenuModel.swift */,
 				7416AF5924E418600021AD1E /* NewFeedmodel1.swift */,
 				74FE8B5824F15A290086D1FE /* NewFeedDetail.swift */,
+				740EA4F5250BE11000B65E62 /* UserSave.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -671,6 +674,7 @@
 				749267C32504E9DD006ED2C8 /* MenuCollectionViewCell.swift in Sources */,
 				744561202503E40E0005A6C9 /* UsersaveViewController.swift in Sources */,
 				74C2E50124D56BD700979937 /* PostViewController.swift in Sources */,
+				740EA4F6250BE11000B65E62 /* UserSave.swift in Sources */,
 				749BDD5224EBC87B00FEE2E8 /* HomeImageDetailsViewController.swift in Sources */,
 				749BDD5624EBCC5F00FEE2E8 /* ImageDetailsCollectionViewCell.swift in Sources */,
 				744ED17924E5774700DE6084 /* KeyBoardView.swift in Sources */,

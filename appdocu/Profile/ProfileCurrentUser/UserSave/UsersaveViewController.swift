@@ -10,36 +10,14 @@ import UIKit
 import FirebaseDatabase
 import FirebaseAuth
 
-struct UserSave {
-    var tencongthuc : String
-    var motacongthuc : String
-    var khauphan : String
-    var thoigiannau : String
-    var username : String!
-    var imageprofile : String!
-    var image : [String]!
-    var nguyenlieu : [String]!
-    var congthuc : [String]!
-    var keyid : String
-    
-    init(tencongthuc : String , motacongthuc : String, khauphan : String, thoigiannau : String, username : String , image : [String], imageprofile : String, nguyenlieu : [String] , congthuc : [String] , keyid : String) {
-        self.tencongthuc = tencongthuc
-        self.motacongthuc = motacongthuc
-        self.khauphan = khauphan
-        self.thoigiannau = thoigiannau
-        self.username = username
-        self.image = image
-        self.imageprofile = imageprofile
-        self.nguyenlieu = nguyenlieu
-        self.congthuc = congthuc
-        self.keyid = keyid
-    }
+protocol reload {
+    func reloaddata()
 }
 
 class UsersaveViewController: UIViewController {
     
     @IBOutlet weak var collectionview: UICollectionView!
-    var usersave : [NewFeedmodel1] = []
+    static var usersave : [NewFeedmodel1] = []
     var sliderViewController: UISimpleSlidingTabController?
     
     convenience init(superViewController: UISimpleSlidingTabController) {
@@ -70,7 +48,8 @@ class UsersaveViewController: UIViewController {
                 let like = dic["like"] as! Int
                 let uid = dic["uid"] as! String
                 let post1 = NewFeedmodel1(tencongthuc: tencongthuc, motacongthuc: motacongthuc, khauphan: khauphan, thoigiannau: thoigiannau, username: username, image: image, imageprofile: imageprofile, nguyenlieu: nguyenlieu, congthuc: congthuc, keyid: keyid, like: like , uid : uid)
-                self.usersave.insert(post1, at: 0)
+                UsersaveViewController.self.usersave.insert(post1, at: 0)
+                print(UsersaveViewController.self.usersave)
                 self.collectionview.reloadData()
             }
         }
@@ -79,18 +58,50 @@ class UsersaveViewController: UIViewController {
 }
 extension UsersaveViewController : UICollectionViewDelegate , UICollectionViewDataSource , UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return usersave.count
+        return UsersaveViewController.usersave.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionview.dequeueReusableCell(withReuseIdentifier: "usersave", for: indexPath) as! UsersaveCollectionViewCell
-        cell.truyenve(usersave: usersave[indexPath.row])
+        cell.truyenve(usersave: UsersaveViewController.usersave[indexPath.row])
+        cell.delegate = self
         return cell
     }
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: collectionview.frame.size.width / 2 - 10 , height: 150)
+   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 5, left:  5, bottom: 5, right: 5)
     }
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 5.0
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let widthVal = self.view.frame.width
+        
+        return CGSize(width: widthVal / 2 - 10   , height:  250 )
+    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
+    }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let cell = collectionview.cellForItem(at: indexPath) as! UsersaveCollectionViewCell
+        let tencongthuc = cell.NewFeed.tencongthuc
+        let motacongthuc = cell.NewFeed.motacongthuc
+        let khauphan = cell.NewFeed.khauphan
+        let thoigiannau = cell.NewFeed.thoigiannau
+        let username = cell.NewFeed.username!
+        let image = cell.NewFeed.image!
+        let imageprofile = cell.NewFeed.imageprofile
+        let nguyenlieu = cell.NewFeed.nguyenlieu
+        let congthuc = cell.NewFeed.congthuc
+        let keyid = cell.NewFeed.keyid
+        let like = cell.NewFeed.like
+        let uid = cell.NewFeed.uid
+        let NewFeed = NewFeedDetail(tencongthuc: tencongthuc, motacongthuc: motacongthuc, khauphan: khauphan, thoigiannau: thoigiannau, username: username, image: image, imageprofile: imageprofile!, nguyenlieu: nguyenlieu!, congthuc: congthuc!, keyid: keyid , like: like , uid: uid)
+        let homeDetailViewcontroller = HomeDetailsViewController()
+        homeDetailViewcontroller.NewFeedDetails = NewFeed
+        homeDetailViewcontroller.NewFeed = ProfileUserViewController.arraynewfeed
+        homeDetailViewcontroller.hidesBottomBarWhenPushed = true
+        self.sliderViewController?.navigationController?.pushViewController(homeDetailViewcontroller , animated: true)
+    }
+}
+extension UsersaveViewController : reload {
+    func reloaddata() {
+       collectiondata()
     }
 }

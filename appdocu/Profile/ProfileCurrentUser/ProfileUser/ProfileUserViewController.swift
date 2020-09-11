@@ -15,6 +15,7 @@ class ProfileUserViewController: UISimpleSlidingTabController {
     
     @IBOutlet var viewheader: UIView!
     @IBOutlet var viewnavigation: UIView!
+    static var arraynewfeed : [NewFeedmodel1] = []
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
@@ -26,7 +27,29 @@ class ProfileUserViewController: UISimpleSlidingTabController {
         setHeaderBackgroundColor(color: .white)
         build()
         navibutton()
+        datacollection()
     }
+    func datacollection() {
+           let ref = Database.database().reference()
+           ref.child("NewPeedPost").observe(.childAdded) { (snashot) in
+               if let dic = snashot.value as? [String:Any] {
+                   let tencongthuc = dic["tencongthuc"] as! String
+                   let motacongthuc = dic["motacongthuc"] as! String
+                   let khauphan = dic["khauphan"] as! String
+                   let thoigiannau = dic["thoigiannau"] as! String
+                   let nguyenlieu = dic["nguyenlieu"] as! [String]
+                   let congthuc = dic["congthucnau"] as! [String]
+                   let username = dic["username"] as! String
+                   let imageprofile = dic["Imageprofile"] as! String
+                   let image =  dic["image"] as! [String]
+                   let keyid = dic["keyid"] as! String
+                   let like = dic["like"] as! Int
+                   let uid = dic["uid"] as! String
+                   let post1 = NewFeedmodel1(tencongthuc: tencongthuc, motacongthuc: motacongthuc, khauphan: khauphan, thoigiannau: thoigiannau, username: username, image: image, imageprofile: imageprofile, nguyenlieu: nguyenlieu, congthuc: congthuc, keyid: keyid, like: like , uid : uid)
+                ProfileUserViewController.self.arraynewfeed.insert(post1, at: 0)
+               }
+           }
+       }
     func navibutton() {
         let btmore = UIButton()
         btmore.setImage(UIImage(named: "more"), for: .normal)
