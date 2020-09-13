@@ -11,16 +11,11 @@ import DKImagePickerController
 
 class addingredientsViewController: UIViewController {
     
-    @IBOutlet weak var txtkhauphan: UITextField!
-    @IBOutlet weak var txtthoigiannau: UITextField!
-    @IBOutlet var tablenguyenlieuheader: UIView!
-    @IBOutlet var select: UIView!
-    @IBOutlet weak var nguyenlieutext: UITextView!
+    @IBOutlet var nguyenlieufooter: UIView!
+    @IBOutlet var congthucfooter: UIView!
+    @IBOutlet var tableviewheader: UIView!
+    @IBOutlet weak var textheader : UILabel!
     @IBOutlet weak var tableviewnguyenlieu: UITableView!
-    @IBOutlet var tablecongthucheader: UIView!
-    @IBOutlet weak var collectionimage: UICollectionView!
-    @IBOutlet var viewcongthuc: UIView!
-    @IBOutlet weak var congthuctext: UITextView!
     static var nguyenlieu = [String]()
     static var congthuc = [String]()
     var index = 0
@@ -85,9 +80,9 @@ extension addingredientsViewController : UITableViewDelegate , UITableViewDataSo
     }
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         if section == 0 {
-            return tablenguyenlieuheader
+            return nguyenlieufooter
         }
-        return tablecongthucheader
+        return congthucfooter
     }
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if indexPath.section == 0 {
