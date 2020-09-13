@@ -32,6 +32,8 @@ class addingredientsViewController: UIViewController {
         tableviewnguyenlieu.register(UINib(nibName: "ingredientsTableViewCell", bundle: .main), forCellReuseIdentifier: "ingredientscell")
         tableviewnguyenlieu.register(UINib(nibName: "CookingTableViewCell", bundle: .main), forCellReuseIdentifier: "cookingcell")
         navigationitem()
+        tableviewnguyenlieu.rowHeight = UITableView.automaticDimension
+        tableviewnguyenlieu.rowHeight = 100
         textview()
     }
 }
@@ -43,7 +45,7 @@ extension addingredientsViewController : UITableViewDelegate , UITableViewDataSo
         if section == 0 {
             return addingredientsViewController.self.nguyenlieu.count + 1
         } else {
-            return addingredientsViewController.self.congthuc.count
+            return addingredientsViewController.self.congthuc.count + 1
         }
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -57,10 +59,15 @@ extension addingredientsViewController : UITableViewDelegate , UITableViewDataSo
                 return cell
             }
         } else {
-            let cell = tableviewnguyenlieu.dequeueReusableCell(withIdentifier: "cookingcell", for: indexPath) as! CookingTableViewCell
-            cell.txtcongthuc.text = addingredientsViewController.congthuc[indexPath.row]
-            cell.number.text = String(indexPath.row)
-            return cell
+            if indexPath.row < addingredientsViewController.congthuc.count {
+                let cell = tableviewnguyenlieu.dequeueReusableCell(withIdentifier: "cookingcell", for: indexPath) as! CookingTableViewCell
+                cell.txtcongthuc.text = addingredientsViewController.congthuc[indexPath.row]
+                cell.number.text = String(indexPath.row)
+                return cell
+            } else {
+                 let cell = tableviewnguyenlieu.dequeueReusableCell(withIdentifier: "cookingcell", for: indexPath) as! CookingTableViewCell
+                 return cell
+            }
         }
     }
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -105,7 +112,9 @@ extension addingredientsViewController : UITableViewDelegate , UITableViewDataSo
         addingredientsViewController.congthuc.remove(at: sourceIndexPath.row)
         addingredientsViewController.congthuc.insert(ob1, at: destinationIndexPath.item)
     }
-    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableView.automaticDimension
+    }
 }
 
 extension addingredientsViewController {
@@ -140,60 +149,31 @@ extension addingredientsViewController {
         addingredientsViewController.nguyenlieu.append(allTextViewsText)
         self.tableviewnguyenlieu.reloadData()
         print(addingredientsViewController.nguyenlieu)
-        //        self.view.addSubview(select)
-        //        showAnimate()
-    }
-    @IBAction func agree(_ sender: Any) {
-        self.select.removeFromSuperview()
-        addnguyenieu(nguyenlieu: nguyenlieutext.text)
-        nguyenlieutext.text = ""
-    }
-    @IBAction func removesubview(_ sender: Any) {
-        self.select.removeFromSuperview()
-    }
-    func addnguyenieu(nguyenlieu : String) {
-        addingredientsViewController.nguyenlieu.append(nguyenlieu)
-        self.tableviewnguyenlieu.reloadData()
     }
     @IBAction func addcongthuc(_ sender: Any) {
-        let addrow = addRowViewController()
-        addrow.delegate = self
-        self.present(UINavigationController(rootViewController: addrow), animated: true, completion: nil)
-    }
-    func showAnimate()
-    {
-        self.view.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
-        self.view.alpha = 0.2;
-        UIView.animate(withDuration: 0.25, animations: {
-            self.view.alpha = 1.0
-            self.view.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
-            self.select.translatesAutoresizingMaskIntoConstraints = false
-            self.select.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
-            self.select.centerYAnchor.constraint(equalTo: self.view.centerYAnchor).isActive = true
-            self.select.widthAnchor.constraint(equalToConstant: self.view.frame.size.width - 50 / 2).isActive = true
-            self.select.heightAnchor.constraint(equalToConstant: 500).isActive = true
-        });
-    }
-    func removeAnimate()
-    {
-        UIView.animate(withDuration: 0.25, animations: {
-            self.view.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
-            self.view.alpha = 0.0;
-        }, completion:{(finished : Bool)  in
-            if (finished)
-            {
-                self.view.removeFromSuperview()
+        var textviewconthuc = ""
+        for i in 0...addingredientsViewController.congthuc.count{
+            let indexPath = IndexPath(row: i, section: 1)
+            if let cell = tableviewnguyenlieu.cellForRow(at: indexPath) as? CookingTableViewCell {
+                textviewconthuc = cell.txtcongthuc.text
             }
-        });
+        }
+        addingredientsViewController.congthuc.append(textviewconthuc)
+        self.tableviewnguyenlieu.reloadData()
+        print(addingredientsViewController.congthuc)
     }
 }
 extension addingredientsViewController : UITextViewDelegate {
     func textview() {
-        nguyenlieutext.text = "Placeholder for UITextView"
-        nguyenlieutext.textColor = UIColor.lightGray
-        nguyenlieutext.font = UIFont(name: "verdana", size: 13.0)
-        nguyenlieutext.returnKeyType = .done
-        nguyenlieutext.delegate = self
+//        nguyenlieutext.text = "Placeholder for UITextView"
+//        nguyenlieutext.textColor = UIColor.lightGray
+//        nguyenlieutext.font = UIFont(name: "verdana", size: 13.0)
+//        nguyenlieutext.returnKeyType = .done
+//        nguyenlieutext.delegate = self
+    }
+    func textViewDidChange(_ textView: UITextView) {
+        tableviewnguyenlieu.beginUpdates()
+        tableviewnguyenlieu.endUpdates()
     }
     func textViewDidBeginEditing(_ textView: UITextView) {
         if textView.text == "Placeholder for UITextView" {
@@ -216,12 +196,5 @@ extension addingredientsViewController : UITextViewDelegate {
             textView.textColor = UIColor.lightGray
             textView.font = UIFont(name: "verdana", size: 13.0)
         }
-    }
-}
-extension addingredientsViewController : addrowcongthuc {
-    func addrow(congthuc: String) {
-        self.dismiss(animated: true, completion: nil)
-        addingredientsViewController.congthuc.append(congthuc)
-        self.tableviewnguyenlieu.reloadData()
     }
 }

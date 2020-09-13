@@ -17,12 +17,6 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Labelshdsahdkhaskd" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cWP-Bx-DiG">
-                        <rect key="frame" x="40" y="0.0" width="270" height="44"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1 ." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hCK-fs-RdJ">
                         <rect key="frame" x="10" y="0.0" width="30" height="44"/>
                         <constraints>
@@ -32,28 +26,32 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="nhập công thức" translatesAutoresizingMaskIntoConstraints="NO" id="cf7-QD-gsi">
+                        <rect key="frame" x="40" y="0.0" width="280" height="44"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                    </textView>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="cWP-Bx-DiG" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="3EQ-8J-AZj"/>
+                    <constraint firstItem="cf7-QD-gsi" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="4U8-tt-jDj"/>
                     <constraint firstAttribute="bottom" secondItem="hCK-fs-RdJ" secondAttribute="bottom" id="510-iV-kNA"/>
-                    <constraint firstItem="cWP-Bx-DiG" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="8eh-ac-ePJ"/>
+                    <constraint firstAttribute="bottom" secondItem="cf7-QD-gsi" secondAttribute="bottom" id="5DU-dr-DF5"/>
+                    <constraint firstAttribute="trailing" secondItem="cf7-QD-gsi" secondAttribute="trailing" id="5FX-CR-BHy"/>
                     <constraint firstItem="hCK-fs-RdJ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="BxL-VP-9NA"/>
-                    <constraint firstItem="cWP-Bx-DiG" firstAttribute="leading" secondItem="hCK-fs-RdJ" secondAttribute="trailing" id="HmF-6v-QLe"/>
-                    <constraint firstAttribute="trailing" secondItem="cWP-Bx-DiG" secondAttribute="trailing" constant="10" id="JR8-wR-Wja"/>
-                    <constraint firstAttribute="bottom" secondItem="cWP-Bx-DiG" secondAttribute="bottom" id="Kc1-Ks-K0L"/>
                     <constraint firstItem="hCK-fs-RdJ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="Z7y-pB-nET"/>
-                    <constraint firstItem="cWP-Bx-DiG" firstAttribute="leading" secondItem="hCK-fs-RdJ" secondAttribute="trailing" id="ggi-fn-uNB"/>
-                    <constraint firstItem="cWP-Bx-DiG" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="pj7-cB-kMs"/>
-                    <constraint firstAttribute="bottom" secondItem="cWP-Bx-DiG" secondAttribute="bottom" id="wFH-Ot-G6R"/>
+                    <constraint firstItem="cf7-QD-gsi" firstAttribute="leading" secondItem="hCK-fs-RdJ" secondAttribute="trailing" id="xF7-hf-1VS"/>
                 </constraints>
             </tableViewCellContentView>
             <constraints>
                 <constraint firstItem="hCK-fs-RdJ" firstAttribute="centerY" secondItem="njF-e1-oar" secondAttribute="centerY" id="Vsb-yW-k0r"/>
+                <constraint firstItem="cf7-QD-gsi" firstAttribute="centerY" secondItem="njF-e1-oar" secondAttribute="centerY" id="eqf-o1-QZF"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="number" destination="hCK-fs-RdJ" id="QdW-qa-kpn"/>
-                <outlet property="txtcongthuc" destination="cWP-Bx-DiG" id="o7U-wJ-MPP"/>
+                <outlet property="txtcongthuc" destination="cf7-QD-gsi" id="ZfI-Dg-twm"/>
             </connections>
             <point key="canvasLocation" x="131.8840579710145" y="109.82142857142857"/>
         </tableViewCell>

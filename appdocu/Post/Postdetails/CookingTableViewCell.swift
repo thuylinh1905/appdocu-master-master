@@ -11,7 +11,7 @@ import UIKit
 class CookingTableViewCell: UITableViewCell {
 
     @IBOutlet weak var number: UILabel!
-    @IBOutlet weak var txtcongthuc: UILabel!
+    @IBOutlet weak var txtcongthuc: UITextView!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

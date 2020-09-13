@@ -98,10 +98,6 @@
 		74D3A91325049051004D04EF /* MenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 74D3A91125049051004D04EF /* MenuViewController.xib */; };
 		74D3A916250491ED004D04EF /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D3A914250491ED004D04EF /* SearchViewController.swift */; };
 		74D3A917250491ED004D04EF /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 74D3A915250491ED004D04EF /* SearchViewController.xib */; };
-		74DDF1602501D09500890A0D /* addRowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74DDF15E2501D09500890A0D /* addRowViewController.swift */; };
-		74DDF1612501D09500890A0D /* addRowViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 74DDF15F2501D09500890A0D /* addRowViewController.xib */; };
-		74DDF1642501ED2300890A0D /* addRow1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74DDF1622501ED2300890A0D /* addRow1ViewController.swift */; };
-		74DDF1652501ED2300890A0D /* addRow1ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 74DDF1632501ED2300890A0D /* addRow1ViewController.xib */; };
 		74ECF70724BC79B200D98BB3 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74ECF70524BC79B200D98BB3 /* ProfileViewController.swift */; };
 		74ECF70824BC79B200D98BB3 /* ProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 74ECF70624BC79B200D98BB3 /* ProfileViewController.xib */; };
 		74FE8B5924F15A290086D1FE /* NewFeedDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74FE8B5824F15A290086D1FE /* NewFeedDetail.swift */; };
@@ -204,10 +200,6 @@
 		74D3A91125049051004D04EF /* MenuViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuViewController.xib; sourceTree = "<group>"; };
 		74D3A914250491ED004D04EF /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		74D3A915250491ED004D04EF /* SearchViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchViewController.xib; sourceTree = "<group>"; };
-		74DDF15E2501D09500890A0D /* addRowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addRowViewController.swift; sourceTree = "<group>"; };
-		74DDF15F2501D09500890A0D /* addRowViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = addRowViewController.xib; sourceTree = "<group>"; };
-		74DDF1622501ED2300890A0D /* addRow1ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addRow1ViewController.swift; sourceTree = "<group>"; };
-		74DDF1632501ED2300890A0D /* addRow1ViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = addRow1ViewController.xib; sourceTree = "<group>"; };
 		74ECF70524BC79B200D98BB3 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		74ECF70624BC79B200D98BB3 /* ProfileViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileViewController.xib; sourceTree = "<group>"; };
 		74FE8B5824F15A290086D1FE /* NewFeedDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewFeedDetail.swift; sourceTree = "<group>"; };
@@ -436,10 +428,6 @@
 				74D1B95324F7CEA600F2EE29 /* ingredientsTableViewCell.xib */,
 				74D1B95624F7FF9000F2EE29 /* CookingTableViewCell.swift */,
 				74D1B95724F7FF9000F2EE29 /* CookingTableViewCell.xib */,
-				74DDF15E2501D09500890A0D /* addRowViewController.swift */,
-				74DDF15F2501D09500890A0D /* addRowViewController.xib */,
-				74DDF1622501ED2300890A0D /* addRow1ViewController.swift */,
-				74DDF1632501ED2300890A0D /* addRow1ViewController.xib */,
 			);
 			path = Postdetails;
 			sourceTree = "<group>";
@@ -552,7 +540,6 @@
 				7440672424F36E3200F9EE5C /* HomeDetailsCollectionViewCell.xib in Resources */,
 				7440671C24F35D3000F9EE5C /* HomeDetailsViewController.xib in Resources */,
 				749267C82504FB13006ED2C8 /* Header.xib in Resources */,
-				74DDF1612501D09500890A0D /* addRowViewController.xib in Resources */,
 				743807DA24E27950002A3A72 /* HomeNewFeedCollectionViewCell.xib in Resources */,
 				744ED17724E5772300DE6084 /* KeyBoardView.xib in Resources */,
 				74ECF70824BC79B200D98BB3 /* ProfileViewController.xib in Resources */,
@@ -570,7 +557,6 @@
 				74288683250A109700DCECF7 /* ProfileOtherUserViewController.xib in Resources */,
 				74D1B95924F7FF9000F2EE29 /* CookingTableViewCell.xib in Resources */,
 				74D3A917250491ED004D04EF /* SearchViewController.xib in Resources */,
-				74DDF1652501ED2300890A0D /* addRow1ViewController.xib in Resources */,
 				741F5FEB24FB94DC006B6EA8 /* CommentTableViewCell.xib in Resources */,
 				74871C4A24FE507700770DA0 /* UserfooodViewController.xib in Resources */,
 				743B58B1250128BA005E9588 /* CommentViewController.xib in Resources */,
@@ -656,7 +642,6 @@
 				74BC03CD25029A4800999F0D /* MoreCollectionViewCell.swift in Sources */,
 				74871C4224FE022B00770DA0 /* UISimpleSlidingTabController.swift in Sources */,
 				7440672324F36E3200F9EE5C /* HomeDetailsCollectionViewCell.swift in Sources */,
-				74DDF1642501ED2300890A0D /* addRow1ViewController.swift in Sources */,
 				74A004C4250917D000AFDBD8 /* UserfoodCollectionViewCell.swift in Sources */,
 				7444090024E14DA900CD5BB4 /* MenuModel.swift in Sources */,
 				74D1B95824F7FF9000F2EE29 /* CookingTableViewCell.swift in Sources */,
@@ -680,7 +665,6 @@
 				743BF52424DEDCB700DB28F6 /* CollectionViewCell.swift in Sources */,
 				743807D924E27950002A3A72 /* HomeNewFeedCollectionViewCell.swift in Sources */,
 				7455362424CB2128002741EC /* HomeViewController.swift in Sources */,
-				74DDF1602501D09500890A0D /* addRowViewController.swift in Sources */,
 				74BC03C1250285FB00999F0D /* TimeCookingTableViewCell.swift in Sources */,
 				7416AF5A24E418600021AD1E /* NewFeedmodel1.swift in Sources */,
 				74871C4924FE507700770DA0 /* UserfooodViewController.swift in Sources */,
