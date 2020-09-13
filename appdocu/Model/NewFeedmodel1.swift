@@ -35,3 +35,13 @@ class NewFeedmodel1 {
         self.uid = uid
     }
 }
+class UserComment {
+    var image : String
+    var username : String
+    var comment : String
+    init(image : String , username : String , comment : String) {
+        self.image = image
+        self.username = username
+        self.comment =  comment
+    }
+}

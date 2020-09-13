@@ -41,16 +41,21 @@ extension addingredientsViewController : UITableViewDelegate , UITableViewDataSo
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 {
-            return addingredientsViewController.self.nguyenlieu.count
+            return addingredientsViewController.self.nguyenlieu.count + 1
         } else {
             return addingredientsViewController.self.congthuc.count
         }
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0 {
-            let cell = self.tableviewnguyenlieu.dequeueReusableCell(withIdentifier: "ingredientscell", for: indexPath) as! ingredientsTableViewCell
-            cell.txtnguyenlieu.text = addingredientsViewController.nguyenlieu[indexPath.row]
-            return cell
+            if indexPath.row < addingredientsViewController.self.nguyenlieu.count {
+                let cell = self.tableviewnguyenlieu.dequeueReusableCell(withIdentifier: "ingredientscell", for: indexPath) as! ingredientsTableViewCell
+                cell.txtnguyenlieu.text = addingredientsViewController.nguyenlieu[indexPath.row]
+                return cell
+            } else {
+                 let cell = self.tableviewnguyenlieu.dequeueReusableCell(withIdentifier: "ingredientscell", for: indexPath) as! ingredientsTableViewCell
+                return cell
+            }
         } else {
             let cell = tableviewnguyenlieu.dequeueReusableCell(withIdentifier: "cookingcell", for: indexPath) as! CookingTableViewCell
             cell.txtcongthuc.text = addingredientsViewController.congthuc[indexPath.row]
@@ -125,8 +130,18 @@ extension addingredientsViewController {
         sender.title = (self.tableviewnguyenlieu.isEditing) ? "Done" : "Edit"
     }
     @IBAction func addnguyenlieu(_ sender: Any) {
-        self.view.addSubview(select)
-        showAnimate()
+        var allTextViewsText = ""
+        for i in 0...addingredientsViewController.nguyenlieu.count{
+            let indexPath = IndexPath(row: i, section: 0)
+            if let cell = tableviewnguyenlieu.cellForRow(at: indexPath) as? ingredientsTableViewCell {
+                allTextViewsText = cell.txtnguyenlieu.text
+            }
+        }
+        addingredientsViewController.nguyenlieu.append(allTextViewsText)
+        self.tableviewnguyenlieu.reloadData()
+        print(addingredientsViewController.nguyenlieu)
+        //        self.view.addSubview(select)
+        //        showAnimate()
     }
     @IBAction func agree(_ sender: Any) {
         self.select.removeFromSuperview()
@@ -141,7 +156,7 @@ extension addingredientsViewController {
         self.tableviewnguyenlieu.reloadData()
     }
     @IBAction func addcongthuc(_ sender: Any) {
-       let addrow = addRowViewController()
+        let addrow = addRowViewController()
         addrow.delegate = self
         self.present(UINavigationController(rootViewController: addrow), animated: true, completion: nil)
     }
@@ -181,27 +196,27 @@ extension addingredientsViewController : UITextViewDelegate {
         nguyenlieutext.delegate = self
     }
     func textViewDidBeginEditing(_ textView: UITextView) {
-           if textView.text == "Placeholder for UITextView" {
-               textView.text = ""
-               textView.textColor = UIColor.black
-               textView.font = UIFont(name: "verdana", size: 18.0)
-           }
-       }
-       
-       func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
-           if text == "\n" {
-               textView.resignFirstResponder()
-           }
-           return true
-       }
-       
-       func textViewDidEndEditing(_ textView: UITextView) {
-           if textView.text == "" {
-               textView.text = "Placeholder for UITextView"
-               textView.textColor = UIColor.lightGray
-               textView.font = UIFont(name: "verdana", size: 13.0)
-           }
-       }
+        if textView.text == "Placeholder for UITextView" {
+            textView.text = ""
+            textView.textColor = UIColor.black
+            textView.font = UIFont(name: "verdana", size: 18.0)
+        }
+    }
+    
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        if text == "\n" {
+            textView.resignFirstResponder()
+        }
+        return true
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if textView.text == "" {
+            textView.text = "Placeholder for UITextView"
+            textView.textColor = UIColor.lightGray
+            textView.font = UIFont(name: "verdana", size: 13.0)
+        }
+    }
 }
 extension addingredientsViewController : addrowcongthuc {
     func addrow(congthuc: String) {

@@ -11,18 +11,7 @@ import FirebaseDatabase
 import FirebaseAuth
 import Kingfisher
 import SDWebImage
-
-struct  UserComment {
-    var image : String
-    var username : String
-    var comment : String
-    init(image : String , username : String , comment : String) {
-        self.image = image
-        self.username = username
-        self.comment =  comment
-    }
-}
-
+import SVProgressHUD
 
 class HomeDetailsViewController: UIViewController {
     
@@ -98,6 +87,7 @@ class HomeDetailsViewController: UIViewController {
                     "uid" : NewFeedDetails.uid] as [String:Any]
         let childupdate = ["/Save-User/\(String(describing: userid!))/\(key)/": post]
         ref.updateChildValues(childupdate)
+        SVProgressHUD.showSuccess(withStatus: "Đã lưu")
     }
     @IBAction func opencomment(_ sender: Any) {
         let comment = CommentViewController()

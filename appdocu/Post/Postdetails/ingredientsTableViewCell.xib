@@ -17,25 +17,27 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AuW-V3-Gui">
-                        <rect key="frame" x="10" y="0.0" width="300" height="44"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
+                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="IQW-Oq-2Zq">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                        <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                    </textView>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="AuW-V3-Gui" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="1gQ-eV-leb"/>
-                    <constraint firstAttribute="bottom" secondItem="AuW-V3-Gui" secondAttribute="bottom" id="FBp-HX-2Oh"/>
-                    <constraint firstItem="AuW-V3-Gui" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="R2k-Xs-Cmu"/>
-                    <constraint firstItem="AuW-V3-Gui" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="cla-Tp-bfx"/>
-                    <constraint firstAttribute="trailing" secondItem="AuW-V3-Gui" secondAttribute="trailing" constant="10" id="dWe-fx-o9b"/>
-                    <constraint firstItem="AuW-V3-Gui" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="xYf-QJ-Uij"/>
+                    <constraint firstItem="IQW-Oq-2Zq" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="AUq-k7-fvf"/>
+                    <constraint firstItem="IQW-Oq-2Zq" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="BKe-W1-erX"/>
+                    <constraint firstAttribute="bottom" secondItem="IQW-Oq-2Zq" secondAttribute="bottom" id="a4C-PU-UhY"/>
+                    <constraint firstItem="IQW-Oq-2Zq" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="jKY-fH-E7p"/>
+                    <constraint firstAttribute="trailing" secondItem="IQW-Oq-2Zq" secondAttribute="trailing" id="on1-qw-16d"/>
+                    <constraint firstItem="IQW-Oq-2Zq" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="weS-6Z-dpA"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="txtnguyenlieu" destination="AuW-V3-Gui" id="rx5-ve-s7o"/>
+                <outlet property="txtnguyenlieu" destination="IQW-Oq-2Zq" id="QUT-kd-vx0"/>
             </connections>
             <point key="canvasLocation" x="131.8840579710145" y="120.53571428571428"/>
         </tableViewCell>

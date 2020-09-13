@@ -100,8 +100,9 @@ extension UsersaveViewController : UICollectionViewDelegate , UICollectionViewDa
         self.sliderViewController?.navigationController?.pushViewController(homeDetailViewcontroller , animated: true)
     }
 }
-extension UsersaveViewController : reload {
-    func reloaddata() {
-       collectiondata()
+extension UsersaveViewController : ParentControllerDelegate {
+    func requestReloadTable() {
+        collectionview.reloadData()
     }
+    
 }

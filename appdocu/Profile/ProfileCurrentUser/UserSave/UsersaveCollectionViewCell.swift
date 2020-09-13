@@ -18,7 +18,7 @@ class UsersaveCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var username: UILabel!
     @IBOutlet weak var tencongthuc: UILabel!
     @IBOutlet weak var view: UIView!
-    var delegate : reload?
+    var delegate : ParentControllerDelegate?
     var NewFeed : NewFeedmodel1!
     var key : String!
     override func awakeFromNib() {
@@ -46,12 +46,9 @@ class UsersaveCollectionViewCell: UICollectionViewCell {
         let ref = Database.database().reference()
         let deleteref = ref.child("Save-User").child(userid!).child(key)
         deleteref.removeValue()
-
-        delegate?.reloaddata()
+        if let keyid = UsersaveViewController.usersave.firstIndex(where: { $0.keyid == key }){
+            UsersaveViewController.usersave.remove(at: keyid)
+        }
+        delegate?.requestReloadTable()
     }
 }
-//let imagechoice = anh.image
-//       if let imagedelete = PostViewController.imagecollection1.firstIndex(of: imagechoice!){
-//           PostViewController.imagecollection1.remove(at: imagedelete)
-//       }
-//       parentDelegate?.requestReloadTable()
