@@ -65,6 +65,7 @@ extension UsersaveViewController : UICollectionViewDelegate , UICollectionViewDa
         let cell = collectionview.dequeueReusableCell(withReuseIdentifier: "usersave", for: indexPath) as! UsersaveCollectionViewCell
         cell.truyenve(usersave: UsersaveViewController.usersave[indexPath.row])
         cell.delegate = self
+        cell.usersavecontroller = self
         return cell
     }
    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {

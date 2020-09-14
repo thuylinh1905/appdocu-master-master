@@ -96,21 +96,23 @@
                                             </subviews>
                                         </stackView>
                                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="UVi-wu-oag">
-                                            <rect key="frame" x="5" y="511.5" width="384" height="30"/>
+                                            <rect key="frame" x="5" y="511.5" width="384" height="24"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pg8-Tz-fHw">
-                                                    <rect key="frame" x="0.0" y="0.0" width="192" height="30"/>
-                                                    <color key="backgroundColor" systemColor="systemGray4Color" red="0.81960784310000001" green="0.81960784310000001" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <state key="normal" title="Chọn ảnh ">
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pg8-Tz-fHw">
+                                                    <rect key="frame" x="0.0" y="0.0" width="192" height="24"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <state key="normal" title="   Chọn ảnh " image="cameraphoto">
                                                         <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     </state>
                                                     <connections>
                                                         <action selector="moanh:" destination="-1" eventType="touchUpInside" id="QDh-z4-JyD"/>
                                                     </connections>
                                                 </button>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DfT-ki-c64">
-                                                    <rect key="frame" x="192" y="0.0" width="192" height="30"/>
-                                                    <state key="normal" title="Công thức"/>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DfT-ki-c64">
+                                                    <rect key="frame" x="192" y="0.0" width="192" height="24"/>
+                                                    <state key="normal" title="   Công thức" image="add">
+                                                        <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </state>
                                                     <connections>
                                                         <action selector="addview:" destination="-1" eventType="touchUpInside" id="x9x-G9-ELf"/>
                                                     </connections>
@@ -119,7 +121,7 @@
                                         </stackView>
                                         <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="Mah-12-tLz">
                                             <rect key="frame" x="5" y="191.5" width="384" height="300"/>
-                                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="300" id="LO9-zG-GhF"/>
                                             </constraints>
@@ -134,17 +136,6 @@
                                                 <outlet property="delegate" destination="-1" id="8iT-tg-OcI"/>
                                             </connections>
                                         </collectionView>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HHs-De-W82">
-                                            <rect key="frame" x="174" y="567" width="46" height="30"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="30" id="NNf-Rs-vgu"/>
-                                                <constraint firstAttribute="width" constant="46" id="UlK-hn-VJ7"/>
-                                            </constraints>
-                                            <state key="normal" title="Button"/>
-                                            <connections>
-                                                <action selector="hkahkdhas:" destination="-1" eventType="touchUpInside" id="UBv-we-74M"/>
-                                            </connections>
-                                        </button>
                                     </subviews>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                     <constraints>
@@ -154,7 +145,6 @@
                                         <constraint firstAttribute="trailing" secondItem="Mah-12-tLz" secondAttribute="trailing" constant="5" id="9PN-bV-Hgu"/>
                                         <constraint firstItem="gnq-3C-iSt" firstAttribute="top" secondItem="GXH-T0-edv" secondAttribute="top" id="Ab8-AC-etn"/>
                                         <constraint firstAttribute="trailing" secondItem="utI-h6-1O5" secondAttribute="trailing" id="BPD-3o-qTG"/>
-                                        <constraint firstItem="HHs-De-W82" firstAttribute="top" secondItem="UVi-wu-oag" secondAttribute="bottom" constant="25.5" id="CvZ-z2-gyW"/>
                                         <constraint firstItem="UVi-wu-oag" firstAttribute="top" secondItem="Mah-12-tLz" secondAttribute="bottom" constant="20" id="HeY-OT-xRs"/>
                                         <constraint firstItem="UVi-wu-oag" firstAttribute="leading" secondItem="GXH-T0-edv" secondAttribute="leading" constant="5" id="IIf-8T-e5x"/>
                                         <constraint firstItem="wqT-vY-VUh" firstAttribute="leading" secondItem="GXH-T0-edv" secondAttribute="leading" constant="5" id="JcQ-Xw-QHI"/>
@@ -162,7 +152,6 @@
                                         <constraint firstAttribute="trailing" secondItem="wqT-vY-VUh" secondAttribute="trailing" constant="5" id="OIS-Ex-Zgm"/>
                                         <constraint firstItem="wqT-vY-VUh" firstAttribute="top" secondItem="utI-h6-1O5" secondAttribute="bottom" constant="10" id="Qcp-H1-r28"/>
                                         <constraint firstAttribute="height" constant="1000" id="Uig-Ie-Dct"/>
-                                        <constraint firstItem="HHs-De-W82" firstAttribute="centerX" secondItem="GXH-T0-edv" secondAttribute="centerX" id="ayj-c7-Unm"/>
                                         <constraint firstItem="utI-h6-1O5" firstAttribute="top" secondItem="gnq-3C-iSt" secondAttribute="bottom" constant="20" id="eXW-xr-L4y"/>
                                         <constraint firstAttribute="trailing" secondItem="UVi-wu-oag" secondAttribute="trailing" constant="5" id="g22-ZM-oV1"/>
                                         <constraint firstAttribute="trailing" secondItem="gnq-3C-iSt" secondAttribute="trailing" id="jC5-nz-gZx"/>
@@ -211,4 +200,8 @@
             <point key="canvasLocation" x="131.8840579710145" y="106.47321428571428"/>
         </view>
     </objects>
+    <resources>
+        <image name="add" width="24" height="24"/>
+        <image name="cameraphoto" width="24" height="24"/>
+    </resources>
 </document>

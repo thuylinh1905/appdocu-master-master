@@ -8,6 +8,8 @@
 
 import UIKit
 import SDWebImage
+import FirebaseAuth
+import FirebaseDatabase
 
 class UserfoodCollectionViewCell: UICollectionViewCell {
     
@@ -16,10 +18,12 @@ class UserfoodCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var image: UIImageView!
     @IBOutlet weak var text: UILabel!
     @IBOutlet weak var view: UIView!
+    var key: String!
+    var delegate : ParentControllerDelegate?
     var newFeed: NewFeedmodel1!
     
     func truyen(Newfeed : NewFeedmodel1) {
-//        let key = Newfeed.keyid
+        key = Newfeed.keyid
         self.newFeed = Newfeed
         username.text = Newfeed.username
         text.text = Newfeed.tencongthuc
@@ -32,6 +36,15 @@ class UserfoodCollectionViewCell: UICollectionViewCell {
     }
     
     @IBAction func more(_ sender: Any) {
-        print("đính")
+           let userid = Auth.auth().currentUser?.uid
+             let ref = Database.database().reference()
+             let deleteref = ref.child("user-NewPeedPost").child(userid!).child(key)
+             let deleteref1 = ref.child("NewPeedPost").child(self.key)
+             deleteref.removeValue()
+             deleteref1.removeValue()
+        if let keyid = UserfooodViewController.array.firstIndex(where: { $0.keyid == key }){
+                 UserfooodViewController.array.remove(at: keyid)
+             }
+             delegate?.requestReloadTable()
     }
 }

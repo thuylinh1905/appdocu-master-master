@@ -21,6 +21,7 @@ class UsersaveCollectionViewCell: UICollectionViewCell {
     var delegate : ParentControllerDelegate?
     var NewFeed : NewFeedmodel1!
     var key : String!
+    var usersavecontroller = UsersaveViewController()
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -42,13 +43,20 @@ class UsersaveCollectionViewCell: UICollectionViewCell {
         }
     }
     @IBAction func deletecell(_ sender: Any) {
-        let userid = Auth.auth().currentUser?.uid
-        let ref = Database.database().reference()
-        let deleteref = ref.child("Save-User").child(userid!).child(key)
-        deleteref.removeValue()
-        if let keyid = UsersaveViewController.usersave.firstIndex(where: { $0.keyid == key }){
-            UsersaveViewController.usersave.remove(at: keyid)
+        let alert = UIAlertController(title: "Thông Báo", message: "Bạn có chắc muốn xóa bài ", preferredStyle: .alert)
+        let action1 = UIAlertAction(title: "OK", style: .default) { (action) in
+            let userid = Auth.auth().currentUser?.uid
+            let ref = Database.database().reference()
+            let deleteref = ref.child("Save-User").child(userid!).child(self.key)
+            deleteref.removeValue()
+            if let keyid = UsersaveViewController.usersave.firstIndex(where: { $0.keyid == self.key }){
+                UsersaveViewController.usersave.remove(at: keyid)
+            }
+            self.delegate?.requestReloadTable()
         }
-        delegate?.requestReloadTable()
+        let action2 = UIAlertAction(title: "Hủy bỏ", style: .cancel, handler: nil)
+        alert.addAction(action1)
+        alert.addAction(action2)
+        UIApplication.shared.keyWindow?.rootViewController?.present(alert, animated: true, completion: nil)
     }
 }

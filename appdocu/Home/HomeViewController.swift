@@ -20,9 +20,11 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.register(UINib(nibName: "HomeTableViewCell", bundle: .main), forCellReuseIdentifier: "tableview")
-        //        tableView.rowHeight = UITableView.automaticDimension
         tableviewdata()
-        
+        navigationbar()
+    }
+    func navigationbar() {
+        self.navigationController?.navigationBar.barTintColor = UIColor.orange
     }
     func tableviewdata() {
         let ref = Database.database().reference()

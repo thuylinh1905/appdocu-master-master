@@ -26,7 +26,8 @@ class SearchViewController: UIViewController {
         searchbar.text = searchtext
         find()
         searchbar.delegate = self
-        
+        navigationbar()
+        searchbackground()
     }
 }
 extension SearchViewController : UITableViewDelegate , UITableViewDataSource {
@@ -37,7 +38,6 @@ extension SearchViewController : UITableViewDelegate , UITableViewDataSource {
             return array1.count
         }
     }
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableview.dequeueReusableCell(withIdentifier: "search", for: indexPath) as! SearchTableViewCell
         if searching {
@@ -45,20 +45,10 @@ extension SearchViewController : UITableViewDelegate , UITableViewDataSource {
         } else {
             cell.truyenve(newfeed: array1[indexPath.row])
         }
-        cell.view.layer.cornerRadius = 5
-        cell.view.layer.masksToBounds = true
-        cell.view.layer.borderWidth = 0.2
-        cell.view.layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
         return cell
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 150.0
-    }
-    func find() {
-         let searchText = searchbar.text
-         searcharray = array1.filter({return $0.tencongthuc.lowercased().contains(searchText!.lowercased())})
-         searching = searcharray.count > 0
-//        self.tableview.reloadData()
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = tableview.cellForRow(at: indexPath) as! SearchTableViewCell
@@ -83,12 +73,47 @@ extension SearchViewController : UITableViewDelegate , UITableViewDataSource {
     }
 }
 extension SearchViewController : UISearchBarDelegate {
+    func navigationbar() {
+        let backbutton = UIButton()
+        backbutton.setImage(UIImage(named: "back"), for: .normal)
+        backbutton.addTarget(self, action: #selector(popview), for: .touchUpInside)
+        let leftbuttonitem = UIBarButtonItem()
+        leftbuttonitem.customView = backbutton
+        self.navigationItem.leftBarButtonItem = leftbuttonitem
+        self.navigationItem.hidesBackButton = true
+        self.navigationController?.navigationBar.barTintColor = UIColor.orange
+    }
+    @objc func popview(){
+        self.navigationController?.popViewController(animated: true)
+    }
+    func find() {
+        let searchText = searchbar.text
+        searcharray = array1.filter({return $0.tencongthuc.lowercased().contains(searchText!.lowercased())})
+        searching = searcharray.count > 0
+    }
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         let searchText = searchBar.text
-
+        
         searcharray = array1.filter({return $0.tencongthuc.lowercased().contains(searchText!.lowercased())})
-
+        
         searching = searcharray.count > 0
         self.tableview.reloadData()
+    }
+    func searchbackground() {
+        if #available(iOS 13.0, *) {
+            searchbar.searchTextField.backgroundColor = .white
+        } else {
+            // Fallback on earlier versions
+        }
+        if #available(iOS 13.0, *) {
+            searchbar.searchTextField.tintColor = .black
+        } else {
+            // Fallback on earlier versions
+        }
+        if #available(iOS 13.0, *) {
+            searchbar.searchTextField.textColor = .black
+        } else {
+            // Fallback on earlier versions
+        }
     }
 }

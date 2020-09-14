@@ -18,22 +18,36 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" text="nhâp nguyen lie" translatesAutoresizingMaskIntoConstraints="NO" id="IQW-Oq-2Zq">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="290" height="44"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                     </textView>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ahq-Lx-8mP">
+                        <rect key="frame" x="290" y="7" width="30" height="30"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="30" id="a2O-gw-FTY"/>
+                            <constraint firstAttribute="height" constant="30" id="xov-Mx-54r"/>
+                        </constraints>
+                        <state key="normal" title="Button" image="ximage"/>
+                        <connections>
+                            <action selector="deleterow:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="Otk-D1-jD1"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="IQW-Oq-2Zq" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="AUq-k7-fvf"/>
-                    <constraint firstItem="IQW-Oq-2Zq" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="BKe-W1-erX"/>
-                    <constraint firstAttribute="bottom" secondItem="IQW-Oq-2Zq" secondAttribute="bottom" id="a4C-PU-UhY"/>
-                    <constraint firstItem="IQW-Oq-2Zq" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="jKY-fH-E7p"/>
-                    <constraint firstAttribute="trailing" secondItem="IQW-Oq-2Zq" secondAttribute="trailing" id="on1-qw-16d"/>
-                    <constraint firstItem="IQW-Oq-2Zq" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="weS-6Z-dpA"/>
+                    <constraint firstItem="Ahq-Lx-8mP" firstAttribute="leading" secondItem="IQW-Oq-2Zq" secondAttribute="trailing" id="LaV-iA-5vM"/>
+                    <constraint firstItem="IQW-Oq-2Zq" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="MXN-HN-LaZ"/>
+                    <constraint firstAttribute="bottom" secondItem="IQW-Oq-2Zq" secondAttribute="bottom" id="QGs-km-Bjh"/>
+                    <constraint firstItem="IQW-Oq-2Zq" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="UZi-b3-3YZ"/>
+                    <constraint firstAttribute="trailing" secondItem="Ahq-Lx-8mP" secondAttribute="trailing" id="mrv-fi-d5T"/>
                 </constraints>
             </tableViewCellContentView>
+            <constraints>
+                <constraint firstItem="IQW-Oq-2Zq" firstAttribute="centerY" secondItem="njF-e1-oar" secondAttribute="centerY" id="XbA-ci-65M"/>
+                <constraint firstItem="Ahq-Lx-8mP" firstAttribute="centerY" secondItem="njF-e1-oar" secondAttribute="centerY" id="gxj-Dm-rx7"/>
+            </constraints>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="txtnguyenlieu" destination="IQW-Oq-2Zq" id="QUT-kd-vx0"/>
@@ -41,4 +55,7 @@
             <point key="canvasLocation" x="131.8840579710145" y="120.53571428571428"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="ximage" width="50" height="50"/>
+    </resources>
 </document>

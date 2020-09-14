@@ -30,6 +30,10 @@ class SearchTableViewCell: UITableViewCell {
     }
     func truyenve(newfeed : NewFeedmodel1) {
         self.celldetails = newfeed
+        view.layer.cornerRadius = 5
+        view.layer.masksToBounds = true
+        view.layer.borderWidth = 0.2
+        view.layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
         tencongthuc.text = newfeed.tencongthuc
         motacongthuc.text = newfeed.motacongthuc
         username.text = newfeed.username

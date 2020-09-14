@@ -18,7 +18,7 @@ class UserfooodViewController: UIViewController {
         self.sliderViewController = superViewController
     }
     @IBOutlet weak var collection : UICollectionView!
-    var array : [NewFeedmodel1] = []
+    static var array : [NewFeedmodel1] = []
  
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,7 +45,7 @@ class UserfooodViewController: UIViewController {
                 let like = dic["like"] as! Int
                 let uid = dic["uid"] as! String
                 let post1 = NewFeedmodel1(tencongthuc: tencongthuc, motacongthuc: motacongthuc, khauphan: khauphan, thoigiannau: thoigiannau, username: username, image: image, imageprofile: imageprofile, nguyenlieu: nguyenlieu, congthuc: congthuc, keyid: keyid, like: like , uid : uid)
-                self.array.append(post1)
+                UserfooodViewController.self.array.append(post1)
                 self.collection.reloadData()
             }
         }
@@ -54,12 +54,13 @@ class UserfooodViewController: UIViewController {
 }
 extension UserfooodViewController : UICollectionViewDelegate , UICollectionViewDataSource ,UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        self.array.count
+        UserfooodViewController.self.array.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collection.dequeueReusableCell(withReuseIdentifier: "usersfood", for: indexPath) as! UserfoodCollectionViewCell
-        cell.truyen(Newfeed : array[indexPath.row])
+        cell.truyen(Newfeed : UserfooodViewController.array[indexPath.row])
+        cell.delegate = self
         cell.view.layer.masksToBounds = true
         cell.view.layer.cornerRadius = 5
         cell.view.layer.borderWidth = 0.1
@@ -97,5 +98,11 @@ extension UserfooodViewController : UICollectionViewDelegate , UICollectionViewD
         homeDetailViewcontroller.NewFeed = ProfileUserViewController.arraynewfeed
         homeDetailViewcontroller.hidesBottomBarWhenPushed = true
         self.sliderViewController?.navigationController?.pushViewController(homeDetailViewcontroller , animated: true)
+    }
+    
+}
+extension UserfooodViewController : ParentControllerDelegate {
+    func requestReloadTable() {
+        collection.reloadData()
     }
 }

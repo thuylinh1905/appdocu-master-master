@@ -11,18 +11,13 @@ import UIKit
 class ingredientsTableViewCell: UITableViewCell {
 
     @IBOutlet weak var txtnguyenlieu: UITextView!
+    var rowindex : Int?
+    var delegate : ParentControllerDelegate?
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+    @IBAction func deleterow(_ sender: Any) {
+        if let deletekey = addingredientsViewController.nguyenlieu.firstIndex(where: {$0 == txtnguyenlieu.text}){
+            addingredientsViewController.nguyenlieu.remove(at: deletekey)
+        }
+        delegate?.requestReloadTable()
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-//    func truyen(nguyenlieutr : String) {
-//        
-//    }
 }

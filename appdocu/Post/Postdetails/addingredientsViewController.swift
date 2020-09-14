@@ -26,7 +26,7 @@ class addingredientsViewController: UIViewController {
         super.viewDidLoad()
         tableviewnguyenlieu.register(UINib(nibName: "ingredientsTableViewCell", bundle: .main), forCellReuseIdentifier: "ingredientscell")
         tableviewnguyenlieu.register(UINib(nibName: "CookingTableViewCell", bundle: .main), forCellReuseIdentifier: "cookingcell")
-        navigationitem()
+        navigationbar()
         tableviewnguyenlieu.rowHeight = UITableView.automaticDimension
         tableviewnguyenlieu.rowHeight = 100
         textview()
@@ -48,9 +48,10 @@ extension addingredientsViewController : UITableViewDelegate , UITableViewDataSo
             if indexPath.row < addingredientsViewController.self.nguyenlieu.count {
                 let cell = self.tableviewnguyenlieu.dequeueReusableCell(withIdentifier: "ingredientscell", for: indexPath) as! ingredientsTableViewCell
                 cell.txtnguyenlieu.text = addingredientsViewController.nguyenlieu[indexPath.row]
+                cell.delegate = self
                 return cell
             } else {
-                 let cell = self.tableviewnguyenlieu.dequeueReusableCell(withIdentifier: "ingredientscell", for: indexPath) as! ingredientsTableViewCell
+                let cell = self.tableviewnguyenlieu.dequeueReusableCell(withIdentifier: "ingredientscell", for: indexPath) as! ingredientsTableViewCell
                 return cell
             }
         } else {
@@ -60,8 +61,8 @@ extension addingredientsViewController : UITableViewDelegate , UITableViewDataSo
                 cell.number.text = String(indexPath.row)
                 return cell
             } else {
-                 let cell = tableviewnguyenlieu.dequeueReusableCell(withIdentifier: "cookingcell", for: indexPath) as! CookingTableViewCell
-                 return cell
+                let cell = tableviewnguyenlieu.dequeueReusableCell(withIdentifier: "cookingcell", for: indexPath) as! CookingTableViewCell
+                return cell
             }
         }
     }
@@ -112,18 +113,20 @@ extension addingredientsViewController : UITableViewDelegate , UITableViewDataSo
     }
 }
 
-extension addingredientsViewController {
-    func navigationitem() {
-        let butsearch = UIButton()
-        butsearch.setTitle("Ok", for: .normal)
-        butsearch.addTarget(self, action:  #selector(poptopostview), for: .touchUpInside)
-        let leftBarButton1 = UIBarButtonItem()
-        leftBarButton1.customView = butsearch
-        
-        self.navigationItem.rightBarButtonItem = leftBarButton1
+extension addingredientsViewController : ParentControllerDelegate{
+    func navigationbar() {
+        let backbutton = UIButton()
+        backbutton.setImage(UIImage(named: "back"), for: .normal)
+        backbutton.setTitle("Công thức", for: .normal)
+        backbutton.addTarget(self, action: #selector(popview), for: .touchUpInside)
+        let leftbuttonitem = UIBarButtonItem()
+        leftbuttonitem.customView = backbutton
+        self.navigationItem.leftBarButtonItem = leftbuttonitem
+        self.navigationItem.hidesBackButton = true
+        self.navigationController?.navigationBar.barTintColor = UIColor.orange
     }
-    @objc func poptopostview() {
-        navigationController?.popViewController(animated: true)
+    @objc func popview(){
+        self.navigationController?.popViewController(animated: true)
     }
     @IBAction func deletenguyenlieu(_ sender: UIBarButtonItem) {
         self.tableviewnguyenlieu.isEditing = !self.tableviewnguyenlieu.isEditing
@@ -157,14 +160,17 @@ extension addingredientsViewController {
         self.tableviewnguyenlieu.reloadData()
         print(addingredientsViewController.congthuc)
     }
+    func requestReloadTable() {
+        self.tableviewnguyenlieu.reloadData()
+    }
 }
 extension addingredientsViewController : UITextViewDelegate {
     func textview() {
-//        nguyenlieutext.text = "Placeholder for UITextView"
-//        nguyenlieutext.textColor = UIColor.lightGray
-//        nguyenlieutext.font = UIFont(name: "verdana", size: 13.0)
-//        nguyenlieutext.returnKeyType = .done
-//        nguyenlieutext.delegate = self
+        //        nguyenlieutext.text = "Placeholder for UITextView"
+        //        nguyenlieutext.textColor = UIColor.lightGray
+        //        nguyenlieutext.font = UIFont(name: "verdana", size: 13.0)
+        //        nguyenlieutext.returnKeyType = .done
+        //        nguyenlieutext.delegate = self
     }
     func textViewDidChange(_ textView: UITextView) {
         tableviewnguyenlieu.beginUpdates()

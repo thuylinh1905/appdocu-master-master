@@ -11,15 +11,6 @@ import FirebaseFirestore
 import SDWebImage
 import FirebaseDatabase
 
-struct MenuFood {
-    var name : String
-    var image : String
-    init(name : String, image : String) {
-        self.name = name
-        self.image = image
-    }
-}
-
 class MenuViewController: UIViewController {
     
     @IBOutlet weak var collection: UICollectionView!
@@ -30,6 +21,10 @@ class MenuViewController: UIViewController {
         collection.register(UINib(nibName: "MenuCollectionViewCell", bundle: .main), forCellWithReuseIdentifier: "menucollection")
         truyenmonan()
         tableviewdata()
+        navigationbar()
+    }
+    func navigationbar() {
+        self.navigationController?.navigationBar.barTintColor = UIColor.orange
     }
     func truyenmonan() {
         let db = Firestore.firestore()
