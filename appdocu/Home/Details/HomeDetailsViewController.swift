@@ -63,6 +63,7 @@ class HomeDetailsViewController: UIViewController {
         user()
         tablecomment()
         tablelike()
+        navigationbar()
     }
     @IBAction func like(_ sender: Any) {
         buttonlike.isSelected = true
@@ -157,6 +158,19 @@ class HomeDetailsViewController: UIViewController {
     }
 }
 extension HomeDetailsViewController {
+    func navigationbar() {
+          let backbutton = UIButton()
+          backbutton.setImage(UIImage(named: "back"), for: .normal)
+          backbutton.addTarget(self, action: #selector(popview), for: .touchUpInside)
+          let leftbuttonitem = UIBarButtonItem()
+          leftbuttonitem.customView = backbutton
+          self.navigationItem.leftBarButtonItem = leftbuttonitem
+          self.navigationItem.hidesBackButton = true
+          self.navigationController?.navigationBar.barTintColor = UIColor.orange
+      }
+      @objc func popview(){
+          self.navigationController?.popViewController(animated: true)
+      }
     @IBAction func openuser(_ sender: Any) {
         let userid = Auth.auth().currentUser?.uid
         if userid == NewFeedDetails.uid {

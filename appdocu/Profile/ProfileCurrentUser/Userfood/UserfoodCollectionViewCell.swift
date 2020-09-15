@@ -34,7 +34,6 @@ class UserfoodCollectionViewCell: UICollectionViewCell {
             image.sd_setImage(with: URL(string: i))
         }
     }
-    
     @IBAction func more(_ sender: Any) {
         let alert = UIAlertController(title: "Thông Báo", message: "Bạn có chắc muốn xóa bài ", preferredStyle: .alert)
         let action1 = UIAlertAction(title: "OK", style: .default) { (action) in

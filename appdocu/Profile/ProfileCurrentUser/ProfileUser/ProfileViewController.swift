@@ -10,7 +10,6 @@ class ProfileViewController: UIViewController {
     @IBOutlet var viewheader: UIView!
     @IBOutlet weak var imageview: UIImageView!
     @IBOutlet weak var username: UILabel!
-    @IBOutlet weak var addfriend: UIButton!
     var ref: DatabaseReference!
     var datahandle : DatabaseHandle!
     var modelusers = [UserModel]()
@@ -26,6 +25,21 @@ class ProfileViewController: UIViewController {
         truyenve()
         tabledata()
         self.hideKeyboard()
+        navigationbar()
+    }
+    func navigationbar() {
+        self.navigationItem.title = "Trang cá nhân của tôi"
+        let backbutton = UIButton()
+        backbutton.setImage(UIImage(named: "back"), for: .normal)
+        backbutton.addTarget(self, action: #selector(popview), for: .touchUpInside)
+        let leftbuttonitem = UIBarButtonItem()
+        leftbuttonitem.customView = backbutton
+        self.navigationItem.leftBarButtonItem = leftbuttonitem
+        self.navigationItem.hidesBackButton = true
+        self.navigationController?.navigationBar.barTintColor = UIColor.orange
+    }
+    @objc func popview(){
+        self.navigationController?.popViewController(animated: true)
     }
     func truyenve() {
         ref = Database.database().reference()
@@ -45,28 +59,28 @@ class ProfileViewController: UIViewController {
         }
     }
     func tabledata() {
-         let userid = Auth.auth().currentUser?.uid
-         let ref = Database.database().reference()
-         ref.child("user-NewPeedPost").child(userid!).observe(.childAdded) { (snapshot) in
-             if let dic = snapshot.value as? [String:Any] {
-                 let tencongthuc = dic["tencongthuc"] as! String
-                                let motacongthuc = dic["motacongthuc"] as! String
-                                let khauphan = dic["khauphan"] as! String
-                                let thoigiannau = dic["thoigiannau"] as! String
-                                let nguyenlieu = dic["nguyenlieu"] as! [String]
-                                let congthuc = dic["congthucnau"] as! [String]
-                                let username = dic["username"] as! String
-                                let imageprofile = dic["Imageprofile"] as! String
-                                let image =  dic["image"] as! [String]
-                                let keyid = dic["keyid"] as! String
-                                let like = dic["like"] as! Int
-                                let uid = dic["uid"] as! String
-                                let post1 = NewFeedmodel1(tencongthuc: tencongthuc, motacongthuc: motacongthuc, khauphan: khauphan, thoigiannau: thoigiannau, username: username, image: image, imageprofile: imageprofile, nguyenlieu: nguyenlieu, congthuc: congthuc, keyid: keyid, like: like , uid : uid)
-                 self.array.append(post1)
-                 self.tableview.reloadData()
-             }
-         }
-     }
+        let userid = Auth.auth().currentUser?.uid
+        let ref = Database.database().reference()
+        ref.child("user-NewPeedPost").child(userid!).observe(.childAdded) { (snapshot) in
+            if let dic = snapshot.value as? [String:Any] {
+                let tencongthuc = dic["tencongthuc"] as! String
+                let motacongthuc = dic["motacongthuc"] as! String
+                let khauphan = dic["khauphan"] as! String
+                let thoigiannau = dic["thoigiannau"] as! String
+                let nguyenlieu = dic["nguyenlieu"] as! [String]
+                let congthuc = dic["congthucnau"] as! [String]
+                let username = dic["username"] as! String
+                let imageprofile = dic["Imageprofile"] as! String
+                let image =  dic["image"] as! [String]
+                let keyid = dic["keyid"] as! String
+                let like = dic["like"] as! Int
+                let uid = dic["uid"] as! String
+                let post1 = NewFeedmodel1(tencongthuc: tencongthuc, motacongthuc: motacongthuc, khauphan: khauphan, thoigiannau: thoigiannau, username: username, image: image, imageprofile: imageprofile, nguyenlieu: nguyenlieu, congthuc: congthuc, keyid: keyid, like: like , uid : uid)
+                self.array.append(post1)
+                self.tableview.reloadData()
+            }
+        }
+    }
 }
 extension ProfileViewController : UITableViewDelegate , UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -78,7 +92,6 @@ extension ProfileViewController : UITableViewDelegate , UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.array.count
     }
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableview.dequeueReusableCell(withIdentifier: "profilecell", for: indexPath) as! ProfileTableViewCell
         cell.truyenve(newfeed: array[indexPath.row])

@@ -22,12 +22,16 @@ class ProfileUserViewController: UISimpleSlidingTabController {
         self.navigationItem.titleView = viewnavigation
         addItem(item: UserfooodViewController(superViewController: self), title: "Món của tôi")
         addItem(item: UsersaveViewController(superViewController: self), title: "Món Ăn đã lưu")
-        setHeaderActiveColor(color: .orange)
+        setHeaderActiveColor(color: .white)
         setHeaderInActiveColor(color: .black)
-        setHeaderBackgroundColor(color: .white)
+        setHeaderBackgroundColor(color: UIColor.orange)
         build()
         navibutton()
         datacollection()
+        navigationbar()
+    }
+    func navigationbar() {
+        self.navigationController?.navigationBar.barTintColor = UIColor.orange
     }
     func datacollection() {
            let ref = Database.database().reference()
