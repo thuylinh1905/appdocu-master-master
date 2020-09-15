@@ -27,6 +27,7 @@ class HomeViewController: UIViewController {
         self.navigationController?.navigationBar.barTintColor = UIColor.orange
     }
     func tableviewdata() {
+        self.array.removeAll()
         let ref = Database.database().reference()
         ref.child("NewPeedPost").observe(.childAdded) { (snashot) in
             if let dic = snashot.value as? [String:Any] {

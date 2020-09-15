@@ -11,7 +11,8 @@ import  FirebaseAuth
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
+    
+    var homeviewcontroller: HomeViewController!
     var window: UIWindow?
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         FirebaseApp.configure()
@@ -54,11 +55,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func gototabbar() {
         let tabBarController = UITabBarController()
-        let homeviewcontroller = HomeViewController()
         let tabViewController2 = MenuViewController()
         let tabViewController3 = PostViewController()
         let tabViewController4 = ProfileUserViewController()
-        
+        self.homeviewcontroller = HomeViewController()
         let navi1 = UINavigationController(rootViewController: homeviewcontroller)
         let navi2 = UINavigationController(rootViewController: tabViewController2)
         let navi3 = UINavigationController(rootViewController: tabViewController3)

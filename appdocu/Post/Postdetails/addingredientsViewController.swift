@@ -24,6 +24,8 @@ class addingredientsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        addingredientsViewController.nguyenlieu.append("nhap nguyen lieu")
+        addingredientsViewController.congthuc.append("nhap cong thuc")
         tableviewnguyenlieu.register(UINib(nibName: "ingredientsTableViewCell", bundle: .main), forCellReuseIdentifier: "ingredientscell")
         tableviewnguyenlieu.register(UINib(nibName: "CookingTableViewCell", bundle: .main), forCellReuseIdentifier: "cookingcell")
         navigationbar()
@@ -38,15 +40,16 @@ extension addingredientsViewController : UITableViewDelegate , UITableViewDataSo
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 {
-            return addingredientsViewController.self.nguyenlieu.count + 1
+            return addingredientsViewController.nguyenlieu.count
         } else {
-            return addingredientsViewController.self.congthuc.count + 1
+            return addingredientsViewController.congthuc.count
         }
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0 {
-            if indexPath.row < addingredientsViewController.self.nguyenlieu.count {
+            if indexPath.row < addingredientsViewController.nguyenlieu.count {
                 let cell = self.tableviewnguyenlieu.dequeueReusableCell(withIdentifier: "ingredientscell", for: indexPath) as! ingredientsTableViewCell
+                cell.rowindex = indexPath.row
                 cell.txtnguyenlieu.text = addingredientsViewController.nguyenlieu[indexPath.row]
                 cell.delegate = self
                 return cell
@@ -59,6 +62,8 @@ extension addingredientsViewController : UITableViewDelegate , UITableViewDataSo
                 let cell = tableviewnguyenlieu.dequeueReusableCell(withIdentifier: "cookingcell", for: indexPath) as! CookingTableViewCell
                 cell.txtcongthuc.text = addingredientsViewController.congthuc[indexPath.row]
                 cell.number.text = String(indexPath.row)
+                cell.delegate = self
+                cell.rowindex = indexPath.row
                 return cell
             } else {
                 let cell = tableviewnguyenlieu.dequeueReusableCell(withIdentifier: "cookingcell", for: indexPath) as! CookingTableViewCell
@@ -137,18 +142,20 @@ extension addingredientsViewController : ParentControllerDelegate{
         sender.title = (self.tableviewnguyenlieu.isEditing) ? "Done" : "Edit"
     }
     @IBAction func addnguyenlieu(_ sender: Any) {
+        self.view.endEditing(true)
         var allTextViewsText = ""
-        for i in 0...addingredientsViewController.nguyenlieu.count{
+        for i in 0...addingredientsViewController.nguyenlieu.count {
             let indexPath = IndexPath(row: i, section: 0)
             if let cell = tableviewnguyenlieu.cellForRow(at: indexPath) as? ingredientsTableViewCell {
                 allTextViewsText = cell.txtnguyenlieu.text
             }
         }
-        addingredientsViewController.nguyenlieu.append(allTextViewsText)
+        addingredientsViewController.nguyenlieu.append("nhap nguyen lieu")
         self.tableviewnguyenlieu.reloadData()
         print(addingredientsViewController.nguyenlieu)
     }
     @IBAction func addcongthuc(_ sender: Any) {
+        self.view.endEditing(true)
         var textviewconthuc = ""
         for i in 0...addingredientsViewController.congthuc.count{
             let indexPath = IndexPath(row: i, section: 1)
@@ -156,7 +163,7 @@ extension addingredientsViewController : ParentControllerDelegate{
                 textviewconthuc = cell.txtcongthuc.text
             }
         }
-        addingredientsViewController.congthuc.append(textviewconthuc)
+        addingredientsViewController.congthuc.append("nhap cong thuc")
         self.tableviewnguyenlieu.reloadData()
         print(addingredientsViewController.congthuc)
     }

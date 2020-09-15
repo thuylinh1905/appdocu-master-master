@@ -15,9 +15,16 @@ class ingredientsTableViewCell: UITableViewCell {
     var delegate : ParentControllerDelegate?
     
     @IBAction func deleterow(_ sender: Any) {
-        if let deletekey = addingredientsViewController.nguyenlieu.firstIndex(where: {$0 == txtnguyenlieu.text}){
-            addingredientsViewController.nguyenlieu.remove(at: deletekey)
-        }
+        addingredientsViewController.nguyenlieu.remove(at: rowindex ?? 0)
         delegate?.requestReloadTable()
+    }
+}
+
+extension ingredientsTableViewCell: UITextViewDelegate {
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        let currentText = textView.text as NSString
+        let proposedText = currentText.replacingCharacters(in: range, with: text)
+        addingredientsViewController.nguyenlieu[rowindex ?? 0] = String(proposedText)
+        return true
     }
 }

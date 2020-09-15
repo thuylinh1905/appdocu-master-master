@@ -72,7 +72,6 @@ extension UserfooodViewController : UICollectionViewDelegate , UICollectionViewD
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let widthVal = self.view.frame.width
-        
         return CGSize(width: widthVal / 2 - 10   , height:  250 )
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
@@ -103,6 +102,8 @@ extension UserfooodViewController : UICollectionViewDelegate , UICollectionViewD
 }
 extension UserfooodViewController : ParentControllerDelegate {
     func requestReloadTable() {
-        collection.reloadData()
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        appDelegate.homeviewcontroller.tableviewdata()
+        self.collection.reloadData()
     }
 }

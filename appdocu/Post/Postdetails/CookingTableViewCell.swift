@@ -12,6 +12,9 @@ class CookingTableViewCell: UITableViewCell {
 
     @IBOutlet weak var number: UILabel!
     @IBOutlet weak var txtcongthuc: UITextView!
+    var rowindex : Int?
+    var delegate : ParentControllerDelegate?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -19,12 +22,17 @@ class CookingTableViewCell: UITableViewCell {
     func truyen(nb : Int){
         number.text = String(nb)
     }
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    @IBAction func deleterow(_ sender: Any) {
+        addingredientsViewController.congthuc.remove(at: rowindex ?? 0)
+        delegate?.requestReloadTable()
     }
     
-    @IBAction func deleterow(_ sender: Any) {
+}
+extension CookingTableViewCell: UITextViewDelegate {
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        let currentText = textView.text as NSString
+        let proposedText = currentText.replacingCharacters(in: range, with: text)
+        addingredientsViewController.congthuc[rowindex ?? 0] = String(proposedText)
+        return true
     }
 }

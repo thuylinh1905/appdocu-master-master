@@ -36,15 +36,22 @@ class UserfoodCollectionViewCell: UICollectionViewCell {
     }
     
     @IBAction func more(_ sender: Any) {
-           let userid = Auth.auth().currentUser?.uid
-             let ref = Database.database().reference()
-             let deleteref = ref.child("user-NewPeedPost").child(userid!).child(key)
-             let deleteref1 = ref.child("NewPeedPost").child(self.key)
-             deleteref.removeValue()
-             deleteref1.removeValue()
-        if let keyid = UserfooodViewController.array.firstIndex(where: { $0.keyid == key }){
-                 UserfooodViewController.array.remove(at: keyid)
-             }
-             delegate?.requestReloadTable()
+        let alert = UIAlertController(title: "Thông Báo", message: "Bạn có chắc muốn xóa bài ", preferredStyle: .alert)
+        let action1 = UIAlertAction(title: "OK", style: .default) { (action) in
+            let userid = Auth.auth().currentUser?.uid
+            let ref = Database.database().reference()
+            let deleteref = ref.child("user-NewPeedPost").child(userid!).child(self.key)
+            let deleteref1 = ref.child("NewPeedPost").child(self.key)
+            deleteref.removeValue()
+            deleteref1.removeValue()
+            if let keyid = UserfooodViewController.array.firstIndex(where: { $0.keyid == self.key }){
+                UserfooodViewController.array.remove(at: keyid)
+            }
+            self.delegate?.requestReloadTable()
+        }
+        let action2 = UIAlertAction(title: "Hủy bỏ", style: .cancel, handler: nil)
+        alert.addAction(action1)
+        alert.addAction(action2)
+        UIApplication.shared.keyWindow?.rootViewController?.present(alert, animated: true, completion: nil)
     }
 }
