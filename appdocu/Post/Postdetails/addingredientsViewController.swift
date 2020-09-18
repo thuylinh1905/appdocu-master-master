@@ -24,8 +24,8 @@ class addingredientsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        addingredientsViewController.nguyenlieu.append("nhap nguyen lieu")
-        addingredientsViewController.congthuc.append("nhap cong thuc")
+        addingredientsViewController.nguyenlieu.append("")
+        addingredientsViewController.congthuc.append("")
         tableviewnguyenlieu.register(UINib(nibName: "ingredientsTableViewCell", bundle: .main), forCellReuseIdentifier: "ingredientscell")
         tableviewnguyenlieu.register(UINib(nibName: "CookingTableViewCell", bundle: .main), forCellReuseIdentifier: "cookingcell")
         navigationbar()
@@ -122,7 +122,6 @@ extension addingredientsViewController : ParentControllerDelegate{
     func navigationbar() {
         let backbutton = UIButton()
         backbutton.setImage(UIImage(named: "back"), for: .normal)
-//        backbutton.setTitle("Công thức", for: .normal)
         backbutton.addTarget(self, action: #selector(popview), for: .touchUpInside)
         let leftbuttonitem = UIBarButtonItem()
         leftbuttonitem.customView = backbutton
@@ -143,29 +142,29 @@ extension addingredientsViewController : ParentControllerDelegate{
     }
     @IBAction func addnguyenlieu(_ sender: Any) {
         self.view.endEditing(true)
-        var allTextViewsText = ""
-        for i in 0...addingredientsViewController.nguyenlieu.count {
-            let indexPath = IndexPath(row: i, section: 0)
-            if let cell = tableviewnguyenlieu.cellForRow(at: indexPath) as? ingredientsTableViewCell {
-                allTextViewsText = cell.txtnguyenlieu.text
-            }
-        }
-        addingredientsViewController.nguyenlieu.append("nhap nguyen lieu")
+//        var allTextViewsText = ""
+//        for i in 0...addingredientsViewController.nguyenlieu.count {
+//            let indexPath = IndexPath(row: i, section: 0)
+//            if let cell = tableviewnguyenlieu.cellForRow(at: indexPath) as? ingredientsTableViewCell {
+//                allTextViewsText = cell.txtnguyenlieu.text
+//            }
+//        }
+        addingredientsViewController.nguyenlieu.append("")
         self.tableviewnguyenlieu.reloadData()
-        print(addingredientsViewController.nguyenlieu)
+//        print(addingredientsViewController.nguyenlieu)
     }
     @IBAction func addcongthuc(_ sender: Any) {
         self.view.endEditing(true)
-        var textviewconthuc = ""
-        for i in 0...addingredientsViewController.congthuc.count{
-            let indexPath = IndexPath(row: i, section: 1)
-            if let cell = tableviewnguyenlieu.cellForRow(at: indexPath) as? CookingTableViewCell {
-                textviewconthuc = cell.txtcongthuc.text
-            }
-        }
-        addingredientsViewController.congthuc.append("nhap cong thuc")
+//        var textviewconthuc = ""
+//        for i in 0...addingredientsViewController.congthuc.count{
+//            let indexPath = IndexPath(row: i, section: 1)
+//            if let cell = tableviewnguyenlieu.cellForRow(at: indexPath) as? CookingTableViewCell {
+//                textviewconthuc = cell.txtcongthuc.text
+//            }
+//        }
+        addingredientsViewController.congthuc.append("")
         self.tableviewnguyenlieu.reloadData()
-        print(addingredientsViewController.congthuc)
+//        print(addingredientsViewController.congthuc)
     }
     func requestReloadTable() {
         self.tableviewnguyenlieu.reloadData()
