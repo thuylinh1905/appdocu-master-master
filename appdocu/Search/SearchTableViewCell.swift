@@ -30,6 +30,7 @@ class SearchTableViewCell: UITableViewCell {
     }
     func truyenve(newfeed : NewFeedmodel1) {
         self.celldetails = newfeed
+        imageuser.layer.cornerRadius = imageuser.frame.size.width / 2
         view.layer.cornerRadius = 5
         view.layer.masksToBounds = true
         view.layer.borderWidth = 0.2

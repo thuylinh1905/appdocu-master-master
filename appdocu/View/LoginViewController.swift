@@ -36,9 +36,9 @@ class LoginViewController: UIViewController {
     
     @IBAction func login(_ sender: Any) {
         SVProgressHUD.show(withStatus: "Đang đăng nhập...")
-        if var email = txtemail.text ,var  pass = txtpass.text{
+        if let email = txtemail.text ,let  pass = txtpass.text{
             self.view.endEditing(true)
-            Auth.auth().signIn(withEmail: "minh02@gmail.com", password: "Linh19051998") { (result, error) in
+            Auth.auth().signIn(withEmail: email, password: pass) { (result, error) in
                 if error != nil{
                     SVProgressHUD.showError(withStatus: "Tài khoản chưa được tạo")
                 } else{

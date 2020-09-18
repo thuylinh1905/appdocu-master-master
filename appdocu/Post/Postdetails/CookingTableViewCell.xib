@@ -29,6 +29,9 @@
                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="nhập công thức" translatesAutoresizingMaskIntoConstraints="NO" id="cf7-QD-gsi">
                         <rect key="frame" x="40" y="0.0" width="250" height="177"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="177" id="TYG-FP-3yM"/>
+                        </constraints>
                         <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -37,9 +40,10 @@
                         </connections>
                     </textView>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7u5-0u-Lwa">
-                        <rect key="frame" x="290" y="0.0" width="30" height="177"/>
+                        <rect key="frame" x="290" y="73.5" width="30" height="30"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="30" id="K8W-c6-M4N"/>
+                            <constraint firstAttribute="height" constant="30" id="CVB-0D-lbm"/>
+                            <constraint firstAttribute="width" constant="30" id="wAl-NY-CBQ"/>
                         </constraints>
                         <state key="normal" title="Button" image="ximage"/>
                         <connections>
@@ -48,13 +52,14 @@
                     </button>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="7u5-0u-Lwa" firstAttribute="leading" secondItem="cf7-QD-gsi" secondAttribute="trailing" id="1tB-sf-fPC"/>
+                    <constraint firstItem="cf7-QD-gsi" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="4ZR-8O-Y7a"/>
                     <constraint firstAttribute="bottom" secondItem="hCK-fs-RdJ" secondAttribute="bottom" id="510-iV-kNA"/>
                     <constraint firstItem="hCK-fs-RdJ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="BxL-VP-9NA"/>
-                    <constraint firstAttribute="bottom" secondItem="7u5-0u-Lwa" secondAttribute="bottom" id="VCE-1g-aA9"/>
+                    <constraint firstAttribute="trailing" secondItem="7u5-0u-Lwa" secondAttribute="trailing" id="QDP-VD-sH0"/>
                     <constraint firstItem="hCK-fs-RdJ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="Z7y-pB-nET"/>
-                    <constraint firstAttribute="trailing" secondItem="7u5-0u-Lwa" secondAttribute="trailing" id="a6C-zh-ILd"/>
-                    <constraint firstItem="7u5-0u-Lwa" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="aP0-O3-uwg"/>
-                    <constraint firstItem="7u5-0u-Lwa" firstAttribute="leading" secondItem="cf7-QD-gsi" secondAttribute="trailing" id="aVf-0d-xRb"/>
+                    <constraint firstItem="cf7-QD-gsi" firstAttribute="leading" secondItem="hCK-fs-RdJ" secondAttribute="trailing" id="bLB-gl-1FK"/>
+                    <constraint firstAttribute="bottom" secondItem="cf7-QD-gsi" secondAttribute="bottom" id="f7A-jw-ue6"/>
                     <constraint firstItem="cf7-QD-gsi" firstAttribute="leading" secondItem="hCK-fs-RdJ" secondAttribute="trailing" id="gMV-BF-0Cw"/>
                     <constraint firstAttribute="bottom" secondItem="cf7-QD-gsi" secondAttribute="bottom" id="qvE-B0-br3"/>
                     <constraint firstItem="cf7-QD-gsi" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="r8x-Vi-0gm"/>
@@ -63,7 +68,7 @@
             <constraints>
                 <constraint firstItem="cf7-QD-gsi" firstAttribute="centerY" secondItem="njF-e1-oar" secondAttribute="centerY" id="RqN-z4-Itv"/>
                 <constraint firstItem="hCK-fs-RdJ" firstAttribute="centerY" secondItem="njF-e1-oar" secondAttribute="centerY" id="Vsb-yW-k0r"/>
-                <constraint firstItem="7u5-0u-Lwa" firstAttribute="centerY" secondItem="njF-e1-oar" secondAttribute="centerY" id="wmJ-av-dxo"/>
+                <constraint firstItem="7u5-0u-Lwa" firstAttribute="centerY" secondItem="njF-e1-oar" secondAttribute="centerY" id="X3K-F0-rJe"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>

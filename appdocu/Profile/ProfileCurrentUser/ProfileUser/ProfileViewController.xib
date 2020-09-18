@@ -9,6 +9,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ProfileViewController" customModule="appdocu" customModuleProvider="target">
             <connections>
+                <outlet property="friend" destination="5TR-yo-T5v" id="ZZV-xO-qgt"/>
                 <outlet property="imageview" destination="3AA-eo-trr" id="zhL-w7-Iwm"/>
                 <outlet property="tableview" destination="3LC-Gl-hr2" id="42I-CZ-txX"/>
                 <outlet property="username" destination="gyg-bR-HOy" id="hL7-lu-obA"/>
@@ -74,7 +75,7 @@
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5TR-yo-T5v">
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5TR-yo-T5v">
                                     <rect key="frame" x="90" y="0.0" width="60" height="20"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <nil key="textColor"/>

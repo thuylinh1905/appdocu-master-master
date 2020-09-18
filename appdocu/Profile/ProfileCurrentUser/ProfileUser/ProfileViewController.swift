@@ -10,10 +10,13 @@ class ProfileViewController: UIViewController {
     @IBOutlet var viewheader: UIView!
     @IBOutlet weak var imageview: UIImageView!
     @IBOutlet weak var username: UILabel!
+    @IBOutlet weak var friend: UILabel!
     var ref: DatabaseReference!
     var datahandle : DatabaseHandle!
     var modelusers = [UserModel]()
     var array = [NewFeedmodel1]()
+    var following : [FollowedUser] = []
+    var count = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,6 +27,7 @@ class ProfileViewController: UIViewController {
         tableview.register(UINib(nibName: "ProfileTableViewCell", bundle: .main), forCellReuseIdentifier: "profilecell")
         truyenve()
         tabledata()
+        followinguser()
         self.hideKeyboard()
         navigationbar()
     }
@@ -81,6 +85,23 @@ class ProfileViewController: UIViewController {
             }
         }
     }
+    func followinguser() {
+        let uid = Auth.auth().currentUser?.uid
+          ref.child("FollowedUser").child(uid!).observe(.childAdded) { (snapshot) in
+              print(snapshot)
+              if let dic = snapshot.value as? [String:Any] {
+                  print(dic)
+                  let uid = dic["uid"] as! String
+                  let username = dic["username"] as! String
+                  let imageprofile = dic["image"] as! String
+                  let post1 = FollowedUser(username: username, image: imageprofile, uid: uid)
+                  self.following.append(post1)
+                  self.tableview.reloadData()
+              }
+            self.count = self.following.count
+            self.friend.text = String(self.count)
+          }
+      }
 }
 extension ProfileViewController : UITableViewDelegate , UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {

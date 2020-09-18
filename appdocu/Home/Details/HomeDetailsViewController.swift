@@ -35,32 +35,26 @@ class HomeDetailsViewController: UIViewController {
     var NewFeed : [NewFeedmodel1] = []
     var selectedIndexPath: NSIndexPath?
     var arrayCommnet = [UserComment]()
-    var timer = Timer()
     var commentuser : [UserComment] = []
-    var counter = 0
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        comment.layer.cornerRadius = 15
-        comment.layer.masksToBounds = true
-        comment.layer.borderWidth = 1.0
-        tableview.tableHeaderView = view1
-        tableview.tableFooterView = viewfooter
-        image.layer.cornerRadius = image.frame.size.width / 2
-        truyenve()
         tableview.register(UINib(nibName: "HomeDetailsTableViewCell", bundle: .main), forCellReuseIdentifier: "homedetails")
         tableview.register(UINib(nibName: "CookingHomeDetailsTableViewCell", bundle: .main), forCellReuseIdentifier: "cookinghomedetails")
         tableview.register(UINib(nibName: "CommentTableViewCell", bundle: .main), forCellReuseIdentifier: "commentcell")
         tableview.register(UINib(nibName: "TimeCookingTableViewCell", bundle: .main), forCellReuseIdentifier: "timecokking")
         collectionview.register(UINib(nibName: "HomeDetailsCollectionViewCell", bundle: .main), forCellWithReuseIdentifier: "collectionviewdetails")
         collectionmore.register(UINib(nibName: "MoreCollectionViewCell", bundle: .main), forCellWithReuseIdentifier: "morecollectionview")
+        comment.layer.cornerRadius = 15
+        comment.layer.masksToBounds = true
+        comment.layer.borderWidth = 1.0
+        tableview.tableHeaderView = view1
+        tableview.tableFooterView = viewfooter
+        image.layer.cornerRadius = image.frame.size.width / 2
         pagecontrol.numberOfPages = NewFeedDetails.image.count
-        pagecontrol.currentPage = 0
-        DispatchQueue.main.async {
-            self.timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(self.change), userInfo: nil, repeats: true)
-        }
         imageuser.layer.cornerRadius = imageuser.frame.size.height / 2
         user()
+        truyenve()
         tablecomment()
         tablelike()
         navigationbar()
@@ -130,22 +124,6 @@ class HomeDetailsViewController: UIViewController {
             }
         }
     }
-    
-    @objc func change() {
-        var counter = 0
-        if counter < NewFeedDetails.image.count {
-            let index = IndexPath.init(item: counter, section: 0)
-            self.collectionview.scrollToItem(at: index, at: .centeredHorizontally, animated: true)
-            pagecontrol.currentPage = counter
-            counter += 1
-        } else {
-            counter = 0
-            let index = IndexPath.init(item: counter, section: 0)
-            self.collectionview.scrollToItem(at: index, at: .centeredHorizontally, animated: false)
-            pagecontrol.currentPage = counter
-            counter = 1
-        }
-    }
     func truyenve() {
         tencongthuc.text = NewFeedDetails.tencongthuc
         mota.text = NewFeedDetails.motacongthuc
@@ -159,18 +137,18 @@ class HomeDetailsViewController: UIViewController {
 }
 extension HomeDetailsViewController {
     func navigationbar() {
-          let backbutton = UIButton()
-          backbutton.setImage(UIImage(named: "back"), for: .normal)
-          backbutton.addTarget(self, action: #selector(popview), for: .touchUpInside)
-          let leftbuttonitem = UIBarButtonItem()
-          leftbuttonitem.customView = backbutton
-          self.navigationItem.leftBarButtonItem = leftbuttonitem
-          self.navigationItem.hidesBackButton = true
-          self.navigationController?.navigationBar.barTintColor = UIColor.orange
-      }
-      @objc func popview(){
-          self.navigationController?.popViewController(animated: true)
-      }
+        let backbutton = UIButton()
+        backbutton.setImage(UIImage(named: "back"), for: .normal)
+        backbutton.addTarget(self, action: #selector(popview), for: .touchUpInside)
+        let leftbuttonitem = UIBarButtonItem()
+        leftbuttonitem.customView = backbutton
+        self.navigationItem.leftBarButtonItem = leftbuttonitem
+        self.navigationItem.hidesBackButton = true
+        self.navigationController?.navigationBar.barTintColor = UIColor.orange
+    }
+    @objc func popview(){
+        self.navigationController?.popViewController(animated: true)
+    }
     @IBAction func openuser(_ sender: Any) {
         let userid = Auth.auth().currentUser?.uid
         if userid == NewFeedDetails.uid {
@@ -204,7 +182,7 @@ extension HomeDetailsViewController : UITableViewDelegate , UITableViewDataSourc
         if indexPath.section == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "timecokking", for: indexPath) as! TimeCookingTableViewCell
             cell.khauphan.text = NewFeedDetails.khauphan + " người"
-            cell.thoigiannau.text = NewFeedDetails.thoigiannau
+            cell.thoigiannau.text = NewFeedDetails.thoigiannau + "phút"
             cell.like.text = String(NewFeedDetails.like)
             return cell
         } else if indexPath.section == 1 {
@@ -311,7 +289,21 @@ extension HomeDetailsViewController : UICollectionViewDataSource , UICollectionV
         } else {
             return 5
         }
-        
+    }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if collectionView == collectionview {
+            let transition = CATransition()
+            transition.duration = 0.5
+            transition.timingFunction = CAMediaTimingFunction(name: .easeInEaseOut)
+            transition.type = .fade
+            transition.subtype = .fromBottom
+        }
+    }
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let witdh = scrollView.frame.width - (scrollView.contentInset.left*2)
+        let index = scrollView.contentOffset.x / witdh
+        let roundedIndex = round(index)
+        self.pagecontrol?.currentPage = Int(roundedIndex)
     }
 }
 extension HomeDetailsViewController : comment {

@@ -61,7 +61,7 @@ extension addingredientsViewController : UITableViewDelegate , UITableViewDataSo
             if indexPath.row < addingredientsViewController.congthuc.count {
                 let cell = tableviewnguyenlieu.dequeueReusableCell(withIdentifier: "cookingcell", for: indexPath) as! CookingTableViewCell
                 cell.txtcongthuc.text = addingredientsViewController.congthuc[indexPath.row]
-                cell.number.text = String(indexPath.row)
+                cell.number.text = String(indexPath.row + 1)
                 cell.delegate = self
                 cell.rowindex = indexPath.row
                 return cell
@@ -122,7 +122,7 @@ extension addingredientsViewController : ParentControllerDelegate{
     func navigationbar() {
         let backbutton = UIButton()
         backbutton.setImage(UIImage(named: "back"), for: .normal)
-        backbutton.setTitle("Công thức", for: .normal)
+//        backbutton.setTitle("Công thức", for: .normal)
         backbutton.addTarget(self, action: #selector(popview), for: .touchUpInside)
         let leftbuttonitem = UIBarButtonItem()
         leftbuttonitem.customView = backbutton

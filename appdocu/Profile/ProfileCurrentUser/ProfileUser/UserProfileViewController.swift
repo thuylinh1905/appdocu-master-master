@@ -37,6 +37,7 @@ class UserProfileViewController: UIViewController {
         self.navigationItem.title = "Menu"
         tableview.register(UINib(nibName: "MenuUserProfileTableViewCell", bundle: .main), forCellReuseIdentifier: "menuuser")
        addValue()
+       navigationbar()
     }
     func addValue() {
          mang = [MenuSetting(name: "Thông tin tài khoản", image: UIImage(named: "myaccount")!),
@@ -46,6 +47,19 @@ class UserProfileViewController: UIViewController {
                            MenuSetting(name: "Chia sẻ App", image: UIImage(named: "shareapp")!),
                            MenuSetting(name: "Thông tin về App", image: UIImage(named: "information")!),
                            MenuSetting(name: "Đăng xuất", image: UIImage(named: "logout")!)]
+    }
+    func navigationbar() {
+        let backbutton = UIButton()
+        backbutton.setImage(UIImage(named: "back"), for: .normal)
+        backbutton.addTarget(self, action: #selector(popview), for: .touchUpInside)
+        let leftbuttonitem = UIBarButtonItem()
+        leftbuttonitem.customView = backbutton
+        self.navigationItem.leftBarButtonItem = leftbuttonitem
+        self.navigationItem.hidesBackButton = true
+        self.navigationController?.navigationBar.barTintColor = UIColor.orange
+    }
+    @objc func popview(){
+        self.navigationController?.popViewController(animated: true)
     }
 }
 extension UserProfileViewController : UITableViewDataSource, UITableViewDelegate {

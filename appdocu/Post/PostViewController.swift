@@ -121,6 +121,9 @@ extension PostViewController {
         let delegate = UIApplication.shared.delegate as! AppDelegate
         delegate.gototabbar()
         SVProgressHUD.showSuccess(withStatus: "Đã Upload")
+        PostViewController.imagecollection1 = []
+        addingredientsViewController.nguyenlieu = []
+        addingredientsViewController.congthuc = []
     }
     
 }

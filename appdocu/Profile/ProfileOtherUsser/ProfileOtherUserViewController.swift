@@ -38,7 +38,7 @@ class ProfileOtherUserViewController: UIViewController {
     var array : [NewFeedmodel1] = []
     var images : String = ""
     let ref = Database.database().reference()
-    
+    var count : String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,6 +52,7 @@ class ProfileOtherUserViewController: UIViewController {
         truyenve()
         following()
         followeduser()
+        navigationbar()
         self.addfriend.setBackgroundColor(color: UIColor.white, forState: .selected)
         self.addfriend.setTitleColor(UIColor.black, for: .selected)
     }
@@ -74,16 +75,28 @@ class ProfileOtherUserViewController: UIViewController {
                                "/FollowedUser/\(String(describing: keyuid!))/\(userid!)/": postuser]
             self.ref.updateChildValues(childupdate)
         }
-        
+        tableview.reloadData()
     }
+    func navigationbar() {
+           let backbutton = UIButton()
+           backbutton.setImage(UIImage(named: "back"), for: .normal)
+           backbutton.addTarget(self, action: #selector(popview), for: .touchUpInside)
+           let leftbuttonitem = UIBarButtonItem()
+           leftbuttonitem.customView = backbutton
+           self.navigationItem.leftBarButtonItem = leftbuttonitem
+           self.navigationItem.hidesBackButton = true
+           self.navigationController?.navigationBar.barTintColor = UIColor.orange
+       }
+       @objc func popview(){
+           self.navigationController?.popViewController(animated: true)
+       }
     func following() {
         let userid = Auth.auth().currentUser?.uid
         let keyuid = uid
         ref.child("Following").child(userid!).child(keyuid!).observe(.value) { (snapshot) in
             if let dic = snapshot.value as? [String:Any] {
-                let username1 = dic["username"] as! String
                 self.addfriend.isSelected = true
-                self.fiendcount.text = username1
+                self.fiendcount.text = self.count
                 self.tableview.reloadData()
             } else {
                 self.addfriend.isSelected = false
@@ -103,7 +116,8 @@ class ProfileOtherUserViewController: UIViewController {
                 self.followed.append(post1)
                 self.tableview.reloadData()
             }
-            self.fiendcount.text = String(self.followed.count)
+            self.count = String(self.followed.count)
+            self.fiendcount.text = self.count
         }
     }
     func truyenve() {
